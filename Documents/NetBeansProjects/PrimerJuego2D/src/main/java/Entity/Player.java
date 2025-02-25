@@ -40,7 +40,9 @@ public class Player extends Entity{
     public void getPlayerImage()
     {
         try{
-            up1 = ImageIO.read(getClass().getResourceAsStream("/src/java/main/player/Frogy.png"));
+            up1 = ImageIO.read(getClass().getResourceAsStream("/player/FrontFrogy.png"));
+            r1 = ImageIO.read(getClass().getResourceAsStream("/player/RigthFrogy.png"));
+            r2 = ImageIO.read(getClass().getResourceAsStream("/player/FrontFrogy.png"));
         }catch(IOException e){
             e.printStackTrace(); 
         }
@@ -89,7 +91,7 @@ public class Player extends Entity{
                 image = up1; 
                 break;
             case "right": 
-                image = up1; 
+                image = r1; 
                 break;
         }
         
