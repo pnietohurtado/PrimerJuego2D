@@ -14,8 +14,9 @@ public class Entity {
     public int x, y; 
     public int speed; 
 
-    public BufferedImage up1; 
-    public BufferedImage r1; 
-    public BufferedImage r2; 
+    public BufferedImage f1,f2,l1,l2,r1,r2,b1,b2; 
     public String direction; 
+    
+    public int spriteCounter = 0; 
+    public int spriteNum = 1; 
 }
