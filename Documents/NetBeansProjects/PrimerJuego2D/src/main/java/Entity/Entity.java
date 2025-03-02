@@ -11,7 +11,7 @@ import java.awt.image.BufferedImage;
  * @author pablo
  */
 public class Entity {
-    public int x, y; 
+    public int worldX, worldY; 
     public int speed; 
 
     public BufferedImage f1,f2,l1,l2,r1,r2,b1,b2; 

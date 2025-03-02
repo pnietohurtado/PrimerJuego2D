@@ -11,7 +11,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-
+/**/
 /**
  *
  * @author pablo
@@ -21,9 +21,15 @@ public class Player extends Entity{
     GamePanel gamePanel; 
     KeyHandler keyHandler; 
     
+    public final int screenX;
+    public final int screenY; 
+    
     public Player(GamePanel gp, KeyHandler kh){
         this.gamePanel = gp; 
         this.keyHandler = kh; 
+        
+        screenX = gamePanel.screenWidth/2 - (gamePanel.tileSize / 2); 
+        screenY = gamePanel.screenHeight/2 - (gamePanel.tileSize /2); 
         
         setDefaultValues(); 
         getPlayerImage(); 
@@ -31,8 +37,8 @@ public class Player extends Entity{
     
     public void setDefaultValues()
     {
-        x = 100; 
-        y = 100; 
+        worldX = gamePanel.tileSize * 23 ; 
+        worldY = gamePanel.tileSize * 19 ; 
         speed = 4; 
         direction = "down"; 
     }
@@ -55,35 +61,40 @@ public class Player extends Entity{
     
     public void update()
     {
-        if(keyHandler.upPressed == true)
-        {
-            direction = "up"; 
-            y -= speed;  
-        }
-        else if(keyHandler.downPressed == true)
-        {
-            direction = "down";
-            y += speed; 
-        }
-        else if(keyHandler.leftPressed == true)
-        {
-            direction="left";
-            x -= speed;
-        }
-        else if(keyHandler.rightPressed == true)
-        {
-            direction="right";
-            x += speed; 
-        }
-        
-        spriteCounter++; 
-        if(spriteCounter > 12){
-            if(spriteNum == 1){
-                spriteNum = 2; 
-            }else if (spriteNum == 2){
-                spriteNum = 1; 
+        if(keyHandler.upPressed == true || keyHandler.downPressed == true ||
+                keyHandler.leftPressed == true || keyHandler.rightPressed == true ){
+            
+            if(keyHandler.upPressed == true)
+            {
+                direction = "up"; 
+                worldY -= speed;  
             }
-            spriteCounter = 0; 
+            else if(keyHandler.downPressed == true)
+            {
+                direction = "down";
+                worldY += speed; 
+            }
+            else if(keyHandler.leftPressed == true)
+            {
+                direction="left";
+                worldX -= speed;
+            }
+            else if(keyHandler.rightPressed == true)
+            {
+                direction="right";
+                worldX += speed; 
+            }
+
+            spriteCounter++; 
+            if(spriteCounter > 12){
+                if(spriteNum == 1){
+                    spriteNum = 2; 
+                }else if (spriteNum == 2){
+                    spriteNum = 1; 
+                }
+                spriteCounter = 0; 
+            }    
+            
         }
     }
     
@@ -126,7 +137,7 @@ public class Player extends Entity{
                 break;
         }
         
-            g2.drawImage(image,x,y,gamePanel.tileSize, gamePanel.tileSize,null); 
+            g2.drawImage(image,screenX,screenY,gamePanel.tileSize, gamePanel.tileSize,null); 
     }
     
 }
