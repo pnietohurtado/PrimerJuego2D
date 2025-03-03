@@ -1,0 +1,5 @@
+com\mycompany\primerjuego2d\main\main.class
+Entity\Entity.class
+com\mycompany\primerjuego2d\main\GamePanel.class
+com\mycompany\primerjuego2d\main\KeyHandler.class
+Entity\Player.class
