@@ -1,0 +1,9 @@
+com\mycompany\primerjuego2d\main\GamePanel.class
+tile\Tile.class
+com\mycompany\primerjuego2d\PrimerJuego2D.class
+tile\TileManager.class
+Entity\Player.class
+com\mycompany\primerjuego2d\main\main.class
+com\mycompany\primerjuego2d\main\KeyHandler.class
+com\mycompany\primerjuego2d\main\CollisionChecker.class
+Entity\Entity.class
