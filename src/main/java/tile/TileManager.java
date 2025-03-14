@@ -42,44 +42,41 @@ public class TileManager {
             
             /*Hierba*/
             tile[0] = new Tile(); 
-            tile[0].image = ImageIO.read(getClass().getResourceAsStream("/Tiles/Hierba/HierbaNormal0.png")); 
+            tile[0].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/Cesped.png")); 
             
             tile[1] = new Tile(); 
-            tile[1].image = ImageIO.read(getClass().getResourceAsStream("/Tiles/Hierba/HierbaFlores1.png")); 
+            tile[1].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/Cesped.png")); 
             
             tile[2] = new Tile(); 
-            tile[2].image = ImageIO.read(getClass().getResourceAsStream("/Tiles/Hierba/HierbaAlta32.png")); 
+            tile[2].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/Cesped.png")); 
             
             tile[3] = new Tile(); 
-            tile[3].image = ImageIO.read(getClass().getResourceAsStream("/Tiles/Hierba/HierbaAlta23.png")); 
+            tile[3].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/Cesped.png")); 
             
             tile[4] = new Tile(); 
-            tile[4].image = ImageIO.read(getClass().getResourceAsStream("/Tiles/Hierba/HierbaAlta4.png")); 
+            tile[4].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/Cesped.png")); 
             
             /*Arboles*/
             
             tile[5] = new Tile(); 
-            tile[5].image = ImageIO.read(getClass().getResourceAsStream("/Tiles/Arboles/Arbol5.png")); 
+            tile[5].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/ArbolManzanas.png")); 
             tile[5].collision = true; // Makes this tile unreacheble
             
             tile[6] = new Tile(); 
-            tile[6].image = ImageIO.read(getClass().getResourceAsStream("/Tiles/Arboles/Arbol26.png")); 
+            tile[6].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/ArbolNormal.png")); 
             tile[6].collision = true; // Makes this tile unreacheble
             
             tile[7] = new Tile(); 
-            tile[7].image = ImageIO.read(getClass().getResourceAsStream("/Tiles/Arboles/Arbol37.png")); 
+            tile[7].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/ArbolManzanasCaidas.png")); 
             tile[7].collision = true; // Makes this tile unreacheble
             
-            tile[8] = new Tile(); 
-            tile[8].image = ImageIO.read(getClass().getResourceAsStream("/Tiles/Arboles/Arbol48.png")); 
-            tile[8].collision = true; // Makes this tile unreacheble
             
             
             
             /*Agua*/
             
             tile[9] = new Tile(); 
-            tile[9].image = ImageIO.read(getClass().getResourceAsStream("/Tiles/Water1.png")); 
+            tile[9].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/Camino.png")); 
             tile[9].collision = true; // Makes this tile unreacheble
             
 

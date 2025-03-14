@@ -129,13 +129,15 @@ public class GamePanel extends JPanel implements Runnable{
         
         Graphics2D g2 = (Graphics2D)g; // Add functions to the game
        
-        
+        //Object 
         tileManager.draw(g2); // It's importante that the background comes before the player 
         for(int i = 0; i < obj.length ; i++){
             if(obj[i] != null){
                 obj[i].draw(g2, this); 
             }
         }
+        
+        //Player 
         player.draw(g2); 
         
         

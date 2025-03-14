@@ -35,6 +35,10 @@ public class Player extends Entity{
         solidArea = new Rectangle();
         solidArea.x = 8; 
         solidArea.y = 16; 
+        
+        solidAreaDefaultX = solidArea.x; 
+        solidAreaDefaultY = solidArea.y; 
+        
         solidArea.width = 32; 
         solidArea.height = 32; 
         
@@ -92,6 +96,9 @@ public class Player extends Entity{
             collision = false; 
             gamePanel.cH.checkTile(this);
             
+            // Check object Collision 
+            int objIndex = gamePanel.cH.checkObject(this, true); 
+            pickUpObject (objIndex); 
             
             // If collision is false, player can't move 
             if(collision == false){
@@ -123,6 +130,14 @@ public class Player extends Entity{
             
         }
     }
+    
+    public void pickUpObject(int i){
+        if(i != 999){
+            gamePanel.obj[i] = null; 
+        }
+    }
+    
+    
     
     public void draw(Graphics2D g2) 
     {
