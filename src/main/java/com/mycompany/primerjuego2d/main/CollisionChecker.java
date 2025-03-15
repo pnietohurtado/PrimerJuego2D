@@ -126,7 +126,7 @@ public class CollisionChecker {
                                 entity.collision = true ;
                             }
                             if(player == true){
-                                index = iaw; 
+                                index = i; 
                             }
                         }
                         break; 

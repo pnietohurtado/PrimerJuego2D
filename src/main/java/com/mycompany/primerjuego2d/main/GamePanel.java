@@ -58,6 +58,9 @@ public class GamePanel extends JPanel implements Runnable{
     
     public AssetSetter aSetter = new AssetSetter(this); 
     
+    // Music in-game
+    public Sound sonido = new Sound(); 
+    
     // Constructor of our game panel 
     public GamePanel()
     {
@@ -72,6 +75,7 @@ public class GamePanel extends JPanel implements Runnable{
             /*To print the object in the map*/
     {
         aSetter.setObject();
+        //playMusic(1); 
     }
     
     public void startGameThread() 
@@ -119,8 +123,9 @@ public class GamePanel extends JPanel implements Runnable{
     
     public void update () 
     {
-        player.update();
         
+        player.update();
+     
     }
     
     public void paintComponent(Graphics g)
@@ -144,4 +149,22 @@ public class GamePanel extends JPanel implements Runnable{
         g2.dispose(); // Dispose the graphic context release any sys resource using 
     }
     
+    
+    
+    // Sonido in-game 
+    public void playMusic(int i){
+        sonido.setFile(i); 
+        
+        sonido.play(); 
+        sonido.loop();
+    }
+    
+    public void stopMusic(){
+        sonido.stop(); 
+    }
+    
+    public void playSE(int i){
+        sonido.setFile(i); 
+        sonido.play(); 
+    }
 }

@@ -24,7 +24,7 @@ public class TileManager {
     
     public TileManager( GamePanel gp){
         this.gamePanel = gp; 
-        tile = new Tile[10]; // The number of tile that we will have 
+        tile = new Tile[30]; // The number of tile that we will have 
         mapTileNum = new int[gamePanel.maxWorldCol][gamePanel.maxWorldRow]; 
         
         getTileImage(); 
@@ -80,6 +80,11 @@ public class TileManager {
             tile[9].collision = true; // Makes this tile unreacheble
             
 
+            tile[10] = new Tile(); 
+            tile[10].image = ImageIO.read(getClass().getResourceAsStream("/Cosas/castle.png")); 
+            tile[10].collision = true; // Makes this tile unreacheble
+            
+            
         }catch(IOException e){
             
         }
