@@ -93,7 +93,7 @@ public class CollisionChecker {
                                 entity.collision = true ;
                             }
                             if(player == true){
-                                index = 1; 
+                                index = i; 
                             }
                         }
                         break; 
@@ -104,7 +104,7 @@ public class CollisionChecker {
                                 entity.collision = true ;
                             }
                             if(player == true){
-                                index = 1; 
+                                index = i; 
                             }
                         }
                         break; 
@@ -115,7 +115,7 @@ public class CollisionChecker {
                                 entity.collision = true ;
                             }
                             if(player == true){
-                                index = 1; 
+                                index = i; 
                             }
                         }
                         break; 
@@ -126,7 +126,7 @@ public class CollisionChecker {
                                 entity.collision = true ;
                             }
                             if(player == true){
-                                index = 1; 
+                                index = iaw; 
                             }
                         }
                         break; 

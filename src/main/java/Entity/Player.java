@@ -25,6 +25,8 @@ public class Player extends Entity{
     public final int screenX;
     public final int screenY; 
     
+    public int hasKey = 0; // How many key the player currently has 
+    
     public Player(GamePanel gp, KeyHandler kh){
         this.gamePanel = gp; 
         this.keyHandler = kh; 
@@ -133,7 +135,16 @@ public class Player extends Entity{
     
     public void pickUpObject(int i){
         if(i != 999){
-            gamePanel.obj[i] = null; 
+            System.out.println("obj -> " +i);
+            
+            String objectName = gamePanel.obj[i].name; 
+            
+            switch(objectName){
+                case "Llave": 
+                    hasKey++; 
+                    gamePanel.obj[i] = null; 
+                    break; 
+            }
         }
     }
     
