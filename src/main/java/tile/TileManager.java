@@ -28,7 +28,7 @@ public class TileManager {
         mapTileNum = new int[gamePanel.maxWorldCol][gamePanel.maxWorldRow]; 
         
         getTileImage(); 
-        loadMap("/maps/Mapa2.txt"); 
+        loadMap("/maps/Mapa.txt"); 
     }
     
     public void getTileImage()
@@ -76,12 +76,12 @@ public class TileManager {
             /*Agua*/
             
             tile[9] = new Tile(); 
-            tile[9].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/Camino.png")); 
+            tile[9].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/Mar/Mar.png")); 
             tile[9].collision = true; // Makes this tile unreacheble
             
-
+            
             tile[10] = new Tile(); 
-            tile[10].image = ImageIO.read(getClass().getResourceAsStream("/Cosas/castle.png")); 
+            tile[10].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/Mar/OrillaIzqMar.png")); 
             tile[10].collision = true; // Makes this tile unreacheble
             
             
