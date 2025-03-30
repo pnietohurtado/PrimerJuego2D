@@ -22,6 +22,7 @@ public class Player extends Entity{
     GamePanel gamePanel; 
     KeyHandler keyHandler; 
     
+    
     public final int screenX;
     public final int screenY; 
     
@@ -50,8 +51,8 @@ public class Player extends Entity{
     
     public void setDefaultValues()
     {
-        worldX = gamePanel.tileSize * 23 ; 
-        worldY = gamePanel.tileSize * 19 ; 
+        worldX = gamePanel.tileSize * 35 ; 
+        worldY = gamePanel.tileSize * 410 ; 
         speed = 4; 
         direction = "down"; 
     }
@@ -143,6 +144,7 @@ public class Player extends Entity{
                 case "Llave": 
                     hasKey++; 
                     gamePanel.obj[i] = null; 
+                    gamePanel.ui.showMessage("You got a key!"); 
                     break; 
             }
         }

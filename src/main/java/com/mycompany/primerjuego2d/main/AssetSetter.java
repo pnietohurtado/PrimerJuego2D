@@ -5,6 +5,7 @@
 package com.mycompany.primerjuego2d.main;
 
 import Objects.OBJ_Key;
+import Objects.OBJ_Pokeball;
 
 /**
  *
@@ -27,5 +28,10 @@ public class AssetSetter {
         gp.obj[2].worldX = 2 * gp.tileSize; 
         gp.obj[2].worldY = 38 * gp.tileSize; 
         gp.obj[2].collision = true;
+        
+        gp.obj[3] = new OBJ_Pokeball(); 
+        gp.obj[3].worldX = 36 * gp.tileSize; 
+        gp.obj[3].worldY = 244 * gp.tileSize; 
+        gp.obj[3].collision = true;
     }
 }

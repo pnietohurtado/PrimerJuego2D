@@ -1,11 +1,13 @@
+Tile\Tile.class
 com\mycompany\primerjuego2d\main\GamePanel.class
-tile\TileManager.class
+Objects\OBJ_Pokeball.class
 com\mycompany\primerjuego2d\main\AssetSetter.class
+com\mycompany\primerjuego2d\main\UI.class
 com\mycompany\primerjuego2d\main\Sound.class
+Tile\TileManager.class
 com\mycompany\primerjuego2d\main\KeyHandler.class
 Entity\Entity.class
 Objects\SuperObject.class
-tile\Tile.class
 Entity\Player.class
 com\mycompany\primerjuego2d\main\main.class
 com\mycompany\primerjuego2d\main\CollisionChecker.class

@@ -33,8 +33,8 @@ public class GamePanel extends JPanel implements Runnable{
     final int FPS = 60;
     
     // World settings 
-    public final int maxWorldCol = 50; 
-    public final int maxWorldRow = 50; 
+    public final int maxWorldCol = 500; 
+    public final int maxWorldRow = 500; 
     public final int worldWidth = tileSize * maxWorldCol;
     public final int worldHeigth = tileSize * maxWorldRow;
     
@@ -60,6 +60,9 @@ public class GamePanel extends JPanel implements Runnable{
     
     // Music in-game
     public Sound sonido = new Sound(); 
+    
+    // Instance UI class 
+    public UI ui = new UI(this); 
     
     // Constructor of our game panel 
     public GamePanel()
@@ -145,6 +148,7 @@ public class GamePanel extends JPanel implements Runnable{
         //Player 
         player.draw(g2); 
         
+        ui.draw(g2);
         
         g2.dispose(); // Dispose the graphic context release any sys resource using 
     }

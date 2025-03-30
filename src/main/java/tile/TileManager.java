@@ -28,7 +28,7 @@ public class TileManager {
         mapTileNum = new int[gamePanel.maxWorldCol][gamePanel.maxWorldRow]; 
         
         getTileImage(); 
-        loadMap("/maps/Mapa2.txt"); 
+        loadMap("/maps/Mapa.txt"); 
     }
     
     public void getTileImage()
