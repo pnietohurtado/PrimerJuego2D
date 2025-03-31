@@ -85,6 +85,20 @@ public class TileManager {
             tile[10].collision = true; // Makes this tile unreacheble
             
             
+            
+            // Césped con Camino a la izquierda
+            tile[11] = new Tile(); 
+            tile[11].image = ImageIO.read(getClass().getResourceAsStream("/Cesped/CespedCaminoIzq.png")); 
+            tile[11].collision = false; 
+            
+            tile[12] = new Tile(); 
+            tile[12].image = ImageIO.read(getClass().getResourceAsStream("/Cesped/CespedCaminoEntero.png")); 
+            tile[12].collision = false; 
+            
+            tile[13] = new Tile(); 
+            tile[13].image = ImageIO.read(getClass().getResourceAsStream("/Cesped/CespedCaminoDer.png")); 
+            tile[13].collision = false; 
+            
         }catch(IOException e){
             
         }

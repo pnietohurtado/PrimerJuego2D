@@ -27,6 +27,7 @@ public class Player extends Entity{
     public final int screenY; 
     
     public int hasKey = 0; // How many key the player currently has 
+    public int hasPokeball = 0; // It works as a "Inventory" 
     
     public Player(GamePanel gp, KeyHandler kh){
         this.gamePanel = gp; 
@@ -146,6 +147,12 @@ public class Player extends Entity{
                     gamePanel.obj[i] = null; 
                     gamePanel.ui.showMessage("You got a key!"); 
                     break; 
+                case "Pokeball": 
+                    hasPokeball++; 
+                    gamePanel.obj[i] = null; 
+                    gamePanel.ui.showMessage("You've got a NORMAL Pokeball!");
+                    break; 
+            
             }
         }
     }

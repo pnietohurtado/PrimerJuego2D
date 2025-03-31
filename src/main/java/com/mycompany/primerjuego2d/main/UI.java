@@ -5,6 +5,7 @@
 package com.mycompany.primerjuego2d.main;
 
 import Objects.OBJ_Key;
+import Objects.OBJ_Pokeball;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
@@ -19,6 +20,7 @@ public class UI {
     GamePanel gp; 
     Font arial_40; 
     BufferedImage keyImage; 
+    BufferedImage pokeImage; 
     public boolean messageOn = false; 
     public String message = ""; 
     int messageCounter = 0; 
@@ -29,6 +31,9 @@ public class UI {
         arial_40 = new Font("Arial", Font.PLAIN, 40); 
         OBJ_Key key = new OBJ_Key(); 
         keyImage = key.image; 
+        
+        OBJ_Pokeball poke = new OBJ_Pokeball(); 
+        pokeImage = poke.image; 
     }
     
     public void showMessage(String text){
@@ -40,8 +45,8 @@ public class UI {
     public void draw(Graphics2D g2){
         g2.setFont(arial_40); 
         g2.setColor(Color.white); 
-        g2.drawImage(keyImage, gp.tileSize/2, gp.tileSize/2, gp.tileSize, gp.tileSize, null); 
-        g2.drawString("x " + gp.player.hasKey, 74,65);
+        g2.drawImage(pokeImage, gp.tileSize/2, gp.tileSize/2, gp.tileSize, gp.tileSize, null); 
+        g2.drawString("x " + gp.player.hasPokeball, 74,65);
         
         // Message
         if(messageOn == true){
