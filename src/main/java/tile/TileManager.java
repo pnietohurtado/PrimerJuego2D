@@ -6,6 +6,7 @@ package tile;
 
 import com.mycompany.primerjuego2d.main.GamePanel;
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -41,6 +42,12 @@ public class TileManager {
             */
             
             /*Hierba*/
+            /*
+            BufferedImage scaleImage = new BufferedImage(gamePanel.tileSize, gamePanel.tileSize, tile[0].image.getType()); 
+            Graphics2D g2 = scaleImage.createGraphics(); 
+            g2.drawImage(tile[0].image , 0,0, gamePanel.tileSize, gamePanel.tileSize, null); 
+            tile[0].image = scaleImage; 
+            */
             tile[0] = new Tile(); 
             tile[0].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/Cesped.png")); 
             
@@ -56,48 +63,79 @@ public class TileManager {
             tile[4] = new Tile(); 
             tile[4].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/Cesped.png")); 
             
-            /*Arboles*/
-            
             tile[5] = new Tile(); 
-            tile[5].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/ArbolManzanas.png")); 
-            tile[5].collision = true; // Makes this tile unreacheble
+            tile[5].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/Cesped.png")); 
             
             tile[6] = new Tile(); 
-            tile[6].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/ArbolNormal.png")); 
-            tile[6].collision = true; // Makes this tile unreacheble
+            tile[6].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/Cesped.png")); 
             
             tile[7] = new Tile(); 
-            tile[7].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/ArbolManzanasCaidas.png")); 
-            tile[7].collision = true; // Makes this tile unreacheble
+            tile[7].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/Cesped.png")); 
+            
+            tile[8] = new Tile(); 
+            tile[8].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/Cesped.png")); 
+            
+            tile[9] = new Tile(); 
+            tile[9].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/Cesped.png")); 
+            
+            tile[10] = new Tile(); 
+            tile[10].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/Cesped.png")); 
+            
+            
+            tile[11] = new Tile(); 
+            tile[11].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/Cesped.png")); 
+            
+            tile[12] = new Tile(); 
+            tile[12].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/Cesped.png")); 
+            
+            tile[13] = new Tile(); 
+            tile[13].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/Cesped.png")); 
+            
+            tile[14] = new Tile(); 
+            tile[14].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/Cesped.png")); 
+            
+            /*Arboles*/
+            
+            tile[15] = new Tile(); 
+            tile[15].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/ArbolManzanas.png")); 
+            tile[15].collision = true; // Makes this tile unreacheble
+            
+            tile[16] = new Tile(); 
+            tile[16].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/ArbolNormal.png")); 
+            tile[16].collision = true; // Makes this tile unreacheble
+            
+            tile[17] = new Tile(); 
+            tile[17].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/ArbolManzanasCaidas.png")); 
+            tile[17].collision = true; // Makes this tile unreacheble
             
             
             
             
             /*Agua*/
             
-            tile[9] = new Tile(); 
-            tile[9].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/Camino.png")); 
-            tile[9].collision = true; // Makes this tile unreacheble
+            tile[19] = new Tile(); 
+            tile[19].image = ImageIO.read(getClass().getResourceAsStream("/Entorno/Camino.png")); 
+            tile[19].collision = true; // Makes this tile unreacheble
             
 
-            tile[10] = new Tile(); 
-            tile[10].image = ImageIO.read(getClass().getResourceAsStream("/Cosas/castle.png")); 
-            tile[10].collision = true; // Makes this tile unreacheble
+            tile[20] = new Tile(); 
+            tile[20].image = ImageIO.read(getClass().getResourceAsStream("/Cosas/castle.png")); 
+            tile[20].collision = true; // Makes this tile unreacheble
             
             
             
             // Césped con Camino a la izquierda
-            tile[11] = new Tile(); 
-            tile[11].image = ImageIO.read(getClass().getResourceAsStream("/Cesped/CespedCaminoIzq.png")); 
-            tile[11].collision = false; 
+            tile[21] = new Tile(); 
+            tile[21].image = ImageIO.read(getClass().getResourceAsStream("/Cesped/CespedCaminoIzq.png")); 
+            tile[21].collision = false; 
             
-            tile[12] = new Tile(); 
-            tile[12].image = ImageIO.read(getClass().getResourceAsStream("/Cesped/CespedCaminoEntero.png")); 
-            tile[12].collision = false; 
+            tile[22] = new Tile(); 
+            tile[22].image = ImageIO.read(getClass().getResourceAsStream("/Cesped/CespedCaminoEntero.png")); 
+            tile[22].collision = false; 
             
-            tile[13] = new Tile(); 
-            tile[13].image = ImageIO.read(getClass().getResourceAsStream("/Cesped/CespedCaminoDer.png")); 
-            tile[13].collision = false; 
+            tile[23] = new Tile(); 
+            tile[23].image = ImageIO.read(getClass().getResourceAsStream("/Cesped/CespedCaminoDer.png")); 
+            tile[23].collision = false; 
             
         }catch(IOException e){
             
@@ -118,7 +156,7 @@ public class TileManager {
                 String line = br.readLine(); 
                 
                 while(col < gamePanel.maxWorldCol ){
-                    String numbers[] = line.split(" "); 
+                    String numbers[] = line.split("   "); 
                     
                     int num = Integer.parseInt(numbers[col]); 
                     mapTileNum[col][row] = num; 

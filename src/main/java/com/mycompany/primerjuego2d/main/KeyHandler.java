@@ -13,7 +13,9 @@ import java.awt.event.KeyListener;
  */
 public class KeyHandler implements KeyListener{
 
-    public boolean upPressed, downPressed, leftPressed, rightPressed; 
+    public boolean upPressed, downPressed, leftPressed, rightPressed, showCollisions, drawTime;
+    public boolean showFPS; 
+    public boolean catchObject; 
     
     @Override
     public void keyTyped(KeyEvent e) {
@@ -40,6 +42,35 @@ public class KeyHandler implements KeyListener{
         if(code == KeyEvent.VK_D)
         {
             this.rightPressed = true; 
+        }if(code == KeyEvent.VK_K)
+        {
+            if(showCollisions == false){
+                this.showCollisions = true; 
+            }else if(showCollisions == true){
+                this.showCollisions = false; 
+            }
+        }
+        
+        if(code  == KeyEvent.VK_T)
+        {
+            if(drawTime == false){
+                drawTime = true; 
+            }else if(drawTime == true){
+                drawTime = false; 
+            }
+        }
+        
+        if(code  == KeyEvent.VK_P)
+        {
+            if(showFPS == false){
+                showFPS = true; 
+            }else if(showFPS == true){
+                showFPS = false; 
+            }
+        }
+        
+        if(code == KeyEvent.VK_E){
+            this.catchObject = true; 
         }
         
     }
@@ -65,6 +96,9 @@ public class KeyHandler implements KeyListener{
         if(code == KeyEvent.VK_D)
         {
             this.rightPressed = false; 
+        }
+        if(code == KeyEvent.VK_E){
+            this.catchObject = false; 
         }
     }
     

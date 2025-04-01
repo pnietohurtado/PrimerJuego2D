@@ -5,6 +5,8 @@
 package Objects;
 
 import com.mycompany.primerjuego2d.main.GamePanel;
+import com.mycompany.primerjuego2d.main.KeyHandler;
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -19,6 +21,7 @@ public class SuperObject
     
     public BufferedImage image; 
     public String name; 
+    public KeyHandler kH; 
     public boolean collision = false; 
     public int worldX, worldY; 
     public Rectangle solidArea = new Rectangle(0,0,48,48); 
@@ -35,8 +38,14 @@ public class SuperObject
             worldY - gamePanel.tileSize < gamePanel.player.worldY + gamePanel.player.screenY){
                   
             g2.drawImage(image, screenX,screenY,gamePanel.tileSize,gamePanel.tileSize,null); 
+        
         }
-
+        /*
+        if(this.kH.showCollisions == true){
+            g2.setColor(Color.red); 
+            g2.drawRect(screenX + solidArea.x, screenY + solidArea.y, solidArea.width, solidArea.height);
+        }
+        */
     }
     
 }

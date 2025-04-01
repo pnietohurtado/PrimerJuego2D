@@ -38,6 +38,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int worldWidth = tileSize * maxWorldCol;
     public final int worldHeigth = tileSize * maxWorldRow;
     
+    
     //Incatnce of the tile
     TileManager tileManager = new TileManager(this); 
     
@@ -116,7 +117,9 @@ public class GamePanel extends JPanel implements Runnable{
             }
             
             if(timer >= 1000000000){
-                //System.out.println("FPS:"+drawCount);
+                if(keyHandler.showFPS == true){
+                    System.out.println("FPS:"+drawCount);
+                }
                 drawCount = 0; 
                 timer = 0; 
             }
@@ -145,10 +148,33 @@ public class GamePanel extends JPanel implements Runnable{
             }
         }
         
+
+        //Debug
+        long drawStart = 0; 
+        if(keyHandler.drawTime == true){
+            drawStart = System.nanoTime();
+        }
+        
+        
         //Player 
         player.draw(g2); 
         
         ui.draw(g2);
+        
+        if(keyHandler.showFPS == true){
+            g2.setColor(Color.white); 
+            g2.drawString("FPS : "+FPS, 550, 65); 
+        }
+        
+        
+        if(keyHandler.drawTime == true){
+            long drawEnd = System.nanoTime(); 
+            long passed = drawEnd - drawStart; 
+            g2.setColor(Color.white); 
+            g2.drawString("Draw Time : "+ passed, 10, 400); 
+            System.out.println("Draw Time : "+ passed);
+        }
+        
         
         g2.dispose(); // Dispose the graphic context release any sys resource using 
     }

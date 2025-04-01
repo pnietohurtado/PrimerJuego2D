@@ -143,14 +143,19 @@ public class Player extends Entity{
             
             switch(objectName){
                 case "Llave": 
-                    hasKey++; 
-                    gamePanel.obj[i] = null; 
-                    gamePanel.ui.showMessage("You got a key!"); 
+                    if(keyHandler.catchObject == true){
+                        hasKey++; 
+                        gamePanel.obj[i] = null; 
+                        gamePanel.ui.showMessage("You got a key!"); 
+                   
+                    }
                     break; 
                 case "Pokeball": 
-                    hasPokeball++; 
-                    gamePanel.obj[i] = null; 
-                    gamePanel.ui.showMessage("You've got a NORMAL Pokeball!");
+                    if(keyHandler.catchObject == true){
+                        hasPokeball++; 
+                        gamePanel.obj[i] = null; 
+                        gamePanel.ui.showMessage("You've got a NORMAL Pokeball!");
+                    }
                     break; 
             
             }
@@ -199,6 +204,10 @@ public class Player extends Entity{
         }
         
             g2.drawImage(image,screenX,screenY,gamePanel.tileSize, gamePanel.tileSize,null); 
+            if(this.keyHandler.showCollisions == true){
+                g2.setColor(Color.red); 
+                g2.drawRect(screenX + solidArea.x, screenY + solidArea.y, solidArea.width, solidArea.height);
+            }
     }
     
 }
