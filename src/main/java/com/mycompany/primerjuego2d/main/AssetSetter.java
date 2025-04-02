@@ -19,6 +19,7 @@ public class AssetSetter {
     }
     
     public void setObject(){
+        /*
         gp.obj[1] = new OBJ_Key(); 
         gp.obj[1].worldX = 26 * gp.tileSize; 
         gp.obj[1].worldY = 2 * gp.tileSize; 
@@ -28,7 +29,7 @@ public class AssetSetter {
         gp.obj[2].worldX = 2 * gp.tileSize; 
         gp.obj[2].worldY = 38 * gp.tileSize; 
         gp.obj[2].collision = true;
-        
+        */
         gp.obj[3] = new OBJ_Pokeball(); 
         gp.obj[3].worldX = 36 * gp.tileSize; 
         gp.obj[3].worldY = 409 * gp.tileSize; 

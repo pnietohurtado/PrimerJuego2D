@@ -22,6 +22,7 @@ public class Entity {
     public int spriteNum = 1; 
     
     public Rectangle solidArea; // Basically we create the collision range of the player 
+    public Rectangle nearSolidArea ; 
     public int solidAreaDefaultX, solidAreaDefaultY; 
     public boolean collision = false; 
 }

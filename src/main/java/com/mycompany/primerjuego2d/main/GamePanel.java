@@ -43,7 +43,7 @@ public class GamePanel extends JPanel implements Runnable{
     TileManager tileManager = new TileManager(this); 
     
     //Instanciate the keyHandler 
-    KeyHandler keyHandler = new KeyHandler(); 
+    KeyHandler keyHandler = new KeyHandler(this); 
     
     // Here's de "Game Clock" 
     Thread gameThread; 
@@ -65,6 +65,14 @@ public class GamePanel extends JPanel implements Runnable{
     // Instance UI class 
     public UI ui = new UI(this); 
     
+    
+    
+    // GameState 
+    public int gameState; 
+    public final int playState = 1; 
+    public final int pauseState = 2; 
+    
+    
     // Constructor of our game panel 
     public GamePanel()
     {
@@ -80,6 +88,7 @@ public class GamePanel extends JPanel implements Runnable{
     {
         aSetter.setObject();
         //playMusic(1); 
+        gameState = playState; 
     }
     
     public void startGameThread() 
@@ -130,7 +139,12 @@ public class GamePanel extends JPanel implements Runnable{
     public void update () 
     {
         
-        player.update();
+        if(gameState == playState){
+            player.update();
+        }else if(gameState == pauseState){
+            // El juego permanece parado 
+        }
+        
      
     }
     

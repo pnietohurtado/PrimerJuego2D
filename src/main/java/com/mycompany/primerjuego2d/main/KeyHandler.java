@@ -17,6 +17,12 @@ public class KeyHandler implements KeyListener{
     public boolean showFPS; 
     public boolean catchObject; 
     
+    public GamePanel gp; 
+    
+    public KeyHandler(GamePanel gp){
+        this.gp = gp; 
+    }
+    
     @Override
     public void keyTyped(KeyEvent e) {
         
@@ -48,6 +54,14 @@ public class KeyHandler implements KeyListener{
                 this.showCollisions = true; 
             }else if(showCollisions == true){
                 this.showCollisions = false; 
+            }
+        }
+        if(code == KeyEvent.VK_ESCAPE) // In order to pause the game
+        {
+            if(gp.gameState == gp.playState){
+                gp.gameState = gp.pauseState; 
+            }else if(gp.gameState == gp.pauseState){
+                gp.gameState = gp.playState; 
             }
         }
         

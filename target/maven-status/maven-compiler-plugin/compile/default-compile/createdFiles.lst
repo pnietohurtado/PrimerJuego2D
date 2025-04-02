@@ -10,5 +10,6 @@ Entity\Entity.class
 Objects\SuperObject.class
 Entity\Player.class
 com\mycompany\primerjuego2d\main\main.class
+com\mycompany\primerjuego2d\main\UtilityTool.class
 com\mycompany\primerjuego2d\main\CollisionChecker.class
 Objects\OBJ_Key.class
