@@ -22,6 +22,7 @@ public class main {
         window.add(gamePanel); // De esta forma vamos a cargar nuestro JPanel en el window configurado. 
         
         window.pack(); // Forma muy necesaria para poder ver los ajustes del "GamePanel" 
+        System.out.println("Comprobamos la creación de la ventana");
         
         window.setLocationRelativeTo(null); 
         window.setVisible(true); 
