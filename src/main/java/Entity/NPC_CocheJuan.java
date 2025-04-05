@@ -5,6 +5,11 @@
 package Entity;
 
 import com.mycompany.primerjuego2d.main.GamePanel;
+import com.mycompany.primerjuego2d.main.UtilityTool;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.Random;
+import javax.imageio.ImageIO;
 
 
 /**
@@ -25,15 +30,42 @@ public class NPC_CocheJuan extends Entity{
     public void getPlayerImage()
     {
        
-        f1 = setUp("/NPC/CocheFront.png");
-        f2 = setUp("/NPC/CocheFront.png");
-        r1 = setUp("/NPC/CocheR1.png");
-        r2 = setUp("/NPC/CocheR2.png");
-        l1 = setUp("/NPC/CocheL1.png");
-        l2 = setUp("/NPC/CocheL2.png");
-        b1 = setUp("/NPC/CocheB.png");
-        b2 = setUp("/NPC/CocheB.png");
+        f1 = setUp("/NPC/CocheFront");
+        f2 = setUp("/NPC/CocheFront");
+        r1 = setUp("/NPC/CocheR1");
+        r2 = setUp("/NPC/CocheR2");
+        l1 = setUp("/NPC/CocheL1");
+        l2 = setUp("/NPC/CocheL2");
+        b1 = setUp("/NPC/CocheB");
+        b2 = setUp("/NPC/CocheB");
        
+    }
+    
+    public void setAction(){
+        
+        actionLockCounter++; 
+        
+        if(actionLockCounter == 120){
+            Random random = new Random(); 
+            int i = random.nextInt(100) + 1; // Elige un número desde 1 a 100 
+
+            if(i <= 25){
+                direction = "up"; 
+            }
+            else if(i > 25 && i <= 50){
+                direction = "down"; 
+            }
+            else if(i > 50 && i <= 75){
+                direction = "left"; 
+            }
+            else if(i > 75 && i <= 100){
+                direction = "right"; 
+            }
+
+        }
+        
+        actionLockCounter = 0; 
+        
     }
     
     

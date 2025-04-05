@@ -62,14 +62,14 @@ public class Player extends Entity{
     public void getPlayerImage()
     {
        
-        f1 = setUp("/player/Front1.png");
-        f2 = setUp("/player/Front2.png");
-        r1 = setUp("/player/Rigth1.png");
-        r2 = setUp("/player/Rigth2.png");
-        l1 = setUp("/player/Left1.png");
-        l2 = setUp("/player/Left2.png");
-        b1 = setUp("/player/Up1.png");
-        b2 = setUp("/player/Up2.png");
+        f1 = setUp("/player/Front1");
+        f2 = setUp("/player/Front2");
+        r1 = setUp("/player/Rigth1");
+        r2 = setUp("/player/Rigth2");
+        l1 = setUp("/player/Left1");
+        l2 = setUp("/player/Left2");
+        b1 = setUp("/player/Up1");
+        b2 = setUp("/player/Up2");
        
     }
    

@@ -38,21 +38,61 @@ public class Entity {
     public boolean collision = false; 
     
     
+    public int actionLockCounter = 0; 
     
     
-    public BufferedImage setUp( String image){
+    
+    
+    public BufferedImage setUp(String imagePath){
         UtilityTool u = new UtilityTool(); 
-        BufferedImage imagen = null; 
+        BufferedImage image = null; 
         
         try{
-            imagen = ImageIO.read(getClass().getResourceAsStream(image+".png"));
-            imagen = u.scaleImage(imagen, gp.tileSize, gp.tileSize); 
+            image = ImageIO.read(getClass().getResourceAsStream(imagePath + ".png"));
+            image = u.scaleImage(image, gp.tileSize, gp.tileSize); 
             
         }catch(IOException e){
             e.printStackTrace(); 
         }
         
-        return imagen; 
+        return image; 
+    }
+    
+    
+    public void setAction(){}
+    public void update(){
+        
+        setAction(); 
+        
+        collision = false; 
+        gp.cH.checkTile(this);
+        
+        if(collision == false){
+                switch(direction ){
+                    case "up": 
+                        worldY -= speed;  
+                        break; 
+                    case "down": 
+                        worldY += speed; 
+                        break; 
+                    case "left": 
+                        worldX -= speed;
+                        break; 
+                    case "right": 
+                        worldX += speed; 
+                        break; 
+                }
+            }
+            
+            spriteCounter++; 
+            if(spriteCounter > 12){
+                if(spriteNum == 1){
+                    spriteNum = 2; 
+                }else if (spriteNum == 2){
+                    spriteNum = 1; 
+                }
+                spriteCounter = 0; 
+            }  
     }
     
     
@@ -101,6 +141,9 @@ public class Entity {
             g2.drawImage(image, screenX,screenY,gp.tileSize,gp.tileSize,null); 
         
         }
+        
+        
+       
         
         
         
