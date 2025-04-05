@@ -4,6 +4,7 @@
  */
 package com.mycompany.primerjuego2d.main;
 
+import Entity.Entity;
 import Entity.Player;
 import Objects.SuperObject;
 import java.awt.Color;
@@ -66,6 +67,10 @@ public class GamePanel extends JPanel implements Runnable{
     public UI ui = new UI(this); 
     
     
+    // NPC 
+    public Entity[] npc = new Entity[10]; 
+    
+    
     
     // GameState 
     public int gameState; 
@@ -87,6 +92,7 @@ public class GamePanel extends JPanel implements Runnable{
             /*To print the object in the map*/
     {
         aSetter.setObject();
+        aSetter.setNPC();
         //playMusic(1); 
         gameState = playState; 
     }
@@ -161,6 +167,16 @@ public class GamePanel extends JPanel implements Runnable{
                 obj[i].draw(g2, this); 
             }
         }
+        
+        
+        
+        //NPC 
+        for(int i = 0; i < npc.length ; i++){
+            if(npc[i] != null){
+                npc[i].draw(g2); 
+            }
+        }
+        
         
 
         //Debug

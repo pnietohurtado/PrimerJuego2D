@@ -4,6 +4,7 @@
  */
 package com.mycompany.primerjuego2d.main;
 
+import Entity.NPC_CocheJuan;
 import Objects.OBJ_Key;
 import Objects.OBJ_Pokeball;
 
@@ -34,5 +35,11 @@ public class AssetSetter {
         gp.obj[3].worldX = 36 * gp.tileSize; 
         gp.obj[3].worldY = 409 * gp.tileSize; 
         gp.obj[3].collision = true;
+    }
+    
+    public void setNPC(){
+        gp.npc[0] = new NPC_CocheJuan(gp); 
+        gp.npc[0].worldX = gp.tileSize * 25; 
+        gp.npc[0].worldY = gp.tileSize * 409; 
     }
 }

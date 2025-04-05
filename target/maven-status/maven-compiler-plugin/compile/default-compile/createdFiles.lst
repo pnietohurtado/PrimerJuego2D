@@ -1,5 +1,6 @@
 Tile\Tile.class
 com\mycompany\primerjuego2d\main\GamePanel.class
+Entity\NPC_CocheJuan.class
 Objects\OBJ_Pokeball.class
 com\mycompany\primerjuego2d\main\AssetSetter.class
 com\mycompany\primerjuego2d\main\UI.class

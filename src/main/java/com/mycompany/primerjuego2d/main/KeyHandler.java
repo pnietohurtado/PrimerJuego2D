@@ -83,7 +83,7 @@ public class KeyHandler implements KeyListener{
             }
         }
         
-        if(code == KeyEvent.VK_E){
+        if(code == KeyEvent.VK_E){ // To catch any object on the floor 
             this.catchObject = true; 
         }
         

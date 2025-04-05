@@ -7,6 +7,7 @@ package Entity;
 import java.awt.image.BufferedImage;
 import com.mycompany.primerjuego2d.main.GamePanel;
 import com.mycompany.primerjuego2d.main.KeyHandler;
+import com.mycompany.primerjuego2d.main.UtilityTool;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -19,7 +20,6 @@ import javax.imageio.ImageIO;
  */
 public class Player extends Entity{
     
-    GamePanel gamePanel; 
     KeyHandler keyHandler; 
     
     
@@ -30,11 +30,12 @@ public class Player extends Entity{
     public int hasPokeball = 0; // It works as a "Inventory" 
     
     public Player(GamePanel gp, KeyHandler kh){
-        this.gamePanel = gp; 
+        super(gp); 
+        
         this.keyHandler = kh; 
         
-        screenX = gamePanel.screenWidth/2 - (gamePanel.tileSize / 2); 
-        screenY = gamePanel.screenHeight/2 - (gamePanel.tileSize /2); 
+        screenX = gp.screenWidth/2 - (gp.tileSize / 2); 
+        screenY = gp.screenHeight/2 - (gp.tileSize /2); 
         
         solidArea = new Rectangle();
         solidArea.x = 8; 
@@ -52,27 +53,26 @@ public class Player extends Entity{
     
     public void setDefaultValues()
     {
-        worldX = gamePanel.tileSize * 35 ; 
-        worldY = gamePanel.tileSize * 410 ; 
+        worldX = gp.tileSize * 35 ; 
+        worldY = gp.tileSize * 410 ; 
         speed = 4; 
         direction = "down"; 
     }
     
     public void getPlayerImage()
     {
-        try{
-            f1 = ImageIO.read(getClass().getResourceAsStream("/player/Front1.png"));
-            f2 = ImageIO.read(getClass().getResourceAsStream("/player/Front2.png"));
-            r1 = ImageIO.read(getClass().getResourceAsStream("/player/Rigth1.png"));
-            r2 = ImageIO.read(getClass().getResourceAsStream("/player/Rigth2.png"));
-            l1 = ImageIO.read(getClass().getResourceAsStream("/player/Left1.png"));
-            l2 = ImageIO.read(getClass().getResourceAsStream("/player/Left2.png"));
-            b1 = ImageIO.read(getClass().getResourceAsStream("/player/Up1.png"));
-            b2 = ImageIO.read(getClass().getResourceAsStream("/player/Up2.png"));
-        }catch(IOException e){
-            e.printStackTrace(); 
-        }
+       
+        f1 = setUp("/player/Front1.png");
+        f2 = setUp("/player/Front2.png");
+        r1 = setUp("/player/Rigth1.png");
+        r2 = setUp("/player/Rigth2.png");
+        l1 = setUp("/player/Left1.png");
+        l2 = setUp("/player/Left2.png");
+        b1 = setUp("/player/Up1.png");
+        b2 = setUp("/player/Up2.png");
+       
     }
+   
     
     public void update()
     {
@@ -98,10 +98,10 @@ public class Player extends Entity{
 
             // Check tile collision 
             collision = false; 
-            gamePanel.cH.checkTile(this);
+            gp.cH.checkTile(this);
             
             // Check object Collision 
-            int objIndex = gamePanel.cH.checkObject(this, true); 
+            int objIndex = gp.cH.checkObject(this, true); 
             pickUpObject (objIndex); 
             
             // If collision is false, player can't move 
@@ -139,7 +139,7 @@ public class Player extends Entity{
         if(i != 999){
             System.out.println("obj -> " +i);
             
-            String objectName = gamePanel.obj[i].name; 
+            String objectName = gp.obj[i].name; 
             
             switch(objectName){
                 /*
@@ -154,8 +154,8 @@ public class Player extends Entity{
                 case "Pokeball": 
                     if(keyHandler.catchObject == true){
                         hasPokeball++; 
-                        gamePanel.obj[i] = null; 
-                        gamePanel.ui.showMessage("You've got a NORMAL Pokeball!");
+                        gp.obj[i] = null; 
+                        gp.ui.showMessage("You've got a NORMAL Pokeball!");
                     }
                     break; 
             
@@ -204,7 +204,7 @@ public class Player extends Entity{
                 break;
         }
         
-            g2.drawImage(image,screenX,screenY,gamePanel.tileSize, gamePanel.tileSize,null); 
+            g2.drawImage(image,screenX,screenY,gp.tileSize, gp.tileSize,null); 
             if(this.keyHandler.showCollisions == true){
                 g2.setColor(Color.red); 
                 g2.drawRect(screenX + solidArea.x, screenY + solidArea.y, solidArea.width, solidArea.height);
