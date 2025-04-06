@@ -87,6 +87,44 @@ public class KeyHandler implements KeyListener{
             this.catchObject = true; 
         }
         
+        // In order to enter the menu State 
+        if(code == KeyEvent.VK_CONTROL){
+            gp.gameState = gp.titleState; 
+        }
+        
+        
+        
+        
+        // Title statement 
+        
+        if(gp.gameState == gp.titleState){
+            if(code == KeyEvent.VK_W || code == KeyEvent.VK_UP)
+            {
+                gp.ui.commandNumber--; 
+                if(gp.ui.commandNumber < 0){
+                    gp.ui.commandNumber = 2; 
+                }
+            }
+            if(code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN)
+            {
+                gp.ui.commandNumber++; 
+                if(gp.ui.commandNumber > 2){
+                    gp.ui.commandNumber = 0; 
+                }
+                
+            }
+            
+            if(code == KeyEvent.VK_ENTER){
+                if(gp.ui.commandNumber == 0){
+                    gp.gameState = gp.playState; 
+                }else if(gp.ui.commandNumber == 1){
+                    gp.gameState = gp.playState; 
+                }else if(gp.ui.commandNumber == 2){
+                    System.exit(0); 
+                }
+            }
+        }
+        
     }
 
     @Override

@@ -74,6 +74,7 @@ public class GamePanel extends JPanel implements Runnable{
     
     // GameState 
     public int gameState; 
+    public final int titleState = 0; 
     public final int playState = 1; 
     public final int pauseState = 2; 
     
@@ -94,7 +95,7 @@ public class GamePanel extends JPanel implements Runnable{
         aSetter.setObject();
         aSetter.setNPC();
         //playMusic(1); 
-        gameState = playState; 
+        gameState = titleState; 
     }
     
     public void startGameThread() 
@@ -150,6 +151,7 @@ public class GamePanel extends JPanel implements Runnable{
             
             for(int i = 0; i < npc.length ; i++){
                 if(npc[i] != null){
+                    //System.out.println("moviendome...");
                     npc[i].update(); 
                 }
             }
@@ -166,21 +168,36 @@ public class GamePanel extends JPanel implements Runnable{
         
         Graphics2D g2 = (Graphics2D)g; // Add functions to the game
        
-        //Object 
-        tileManager.draw(g2); // It's importante that the background comes before the player 
-        for(int i = 0; i < obj.length ; i++){
-            if(obj[i] != null){
-                obj[i].draw(g2, this); 
-            }
+        
+        
+        
+        // Title Screen 
+        if(gameState == titleState){
+            ui.draw(g2);
         }
-        
-        
-        
-        //NPC 
-        for(int i = 0; i < npc.length ; i++){
-            if(npc[i] != null){
-                npc[i].draw(g2); 
+        else{
+                //Object 
+            tileManager.draw(g2); // It's importante that the background comes before the player 
+            for(int i = 0; i < obj.length ; i++){
+                if(obj[i] != null){
+                    obj[i].draw(g2, this); 
+                }
             }
+            
+                //NPC 
+            for(int i = 0; i < npc.length ; i++){
+                if(npc[i] != null){
+                    npc[i].draw(g2); 
+                }
+            }
+
+
+
+            //Player 
+            player.draw(g2); 
+
+            ui.draw(g2);
+        
         }
         
         
@@ -190,12 +207,6 @@ public class GamePanel extends JPanel implements Runnable{
         if(keyHandler.drawTime == true){
             drawStart = System.nanoTime();
         }
-        
-        
-        //Player 
-        player.draw(g2); 
-        
-        ui.draw(g2);
         
         if(keyHandler.showFPS == true){
             g2.setColor(Color.white); 
