@@ -155,7 +155,7 @@ public class Player extends Entity{
                     if(keyHandler.catchObject == true){
                         hasPokeball++; 
                         gp.obj[i] = null; 
-                        gp.ui.showMessage("You've got a NORMAL Pokeball!");
+                        gp.gameState = gp.dialogueState; 
                     }
                     break; 
             
