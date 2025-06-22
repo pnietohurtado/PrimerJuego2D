@@ -16,6 +16,7 @@ public class KeyHandler implements KeyListener{
     public boolean upPressed, downPressed, leftPressed, rightPressed, showCollisions, drawTime;
     public boolean showFPS; 
     public boolean catchObject; 
+    public boolean pauseGame = false; 
     
     public GamePanel gp; 
     
@@ -65,10 +66,23 @@ public class KeyHandler implements KeyListener{
                 }
                 if(code == KeyEvent.VK_ESCAPE) // In order to pause the game
                 {
-                    if(gp.gameState == gp.playState){
-                        gp.gameState = gp.pauseState; 
-                    }else if(gp.gameState == gp.pauseState){
-                        gp.gameState = gp.playState; 
+                    System.out.println("activa ESCAPE ");
+                    if(pauseGame == false){
+                        if(gp.gameState == gp.playState){
+                            gp.gameState = gp.pauseState; 
+                        }else if(gp.gameState == gp.pauseState){
+                            gp.gameState = gp.playState; 
+                        }
+                        pauseGame = true; 
+                        System.out.println(pauseGame);
+                    }else{
+                        if(gp.gameState == gp.pauseState){
+                            gp.gameState = gp.playState; 
+                        }else if(gp.gameState == gp.playState){
+                            gp.gameState = gp.pauseState; 
+                        }
+                        pauseGame = false; 
+                        System.out.println(pauseGame);
                     }
                 }
 
