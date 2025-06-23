@@ -14,9 +14,10 @@ import java.awt.event.KeyListener;
 public class KeyHandler implements KeyListener{
 
     public boolean upPressed, downPressed, leftPressed, rightPressed, showCollisions, drawTime;
-    public boolean showFPS; 
     public boolean catchObject; 
     public boolean pauseGame = false; 
+    public boolean showData; 
+    public boolean rightCorner; // Para comprobar que no haya más de dos elementos en la parte superior derecha como los FPS y las coordenadas
     
     public GamePanel gp; 
     
@@ -63,18 +64,27 @@ public class KeyHandler implements KeyListener{
                     }else if(showCollisions == true){
                         this.showCollisions = false; 
                     }
+                }  
+                if(code == KeyEvent.VK_F3){
+                    
+                    if(showData == true){
+                        showData = false; 
+                    }else{
+                        showData = true; 
+                    }
                 }
                 if(code == KeyEvent.VK_ESCAPE) // In order to pause the game
                 {
                     System.out.println("activa ESCAPE ");
-                    if(pauseGame == false){
+                    //if(pauseGame == false){
                         if(gp.gameState == gp.playState){
                             gp.gameState = gp.pauseState; 
                         }else if(gp.gameState == gp.pauseState){
                             gp.gameState = gp.playState; 
                         }
-                        pauseGame = true; 
-                        System.out.println(pauseGame);
+                        
+                        
+                    /*
                     }else{
                         if(gp.gameState == gp.pauseState){
                             gp.gameState = gp.playState; 
@@ -84,6 +94,7 @@ public class KeyHandler implements KeyListener{
                         pauseGame = false; 
                         System.out.println(pauseGame);
                     }
+                    */
                 }
 
                 if(code  == KeyEvent.VK_T)
@@ -92,15 +103,6 @@ public class KeyHandler implements KeyListener{
                         drawTime = true; 
                     }else if(drawTime == true){
                         drawTime = false; 
-                    }
-                }
-
-                if(code  == KeyEvent.VK_P)
-                {
-                    if(showFPS == false){
-                        showFPS = true; 
-                    }else if(showFPS == true){
-                        showFPS = false; 
                     }
                 }
 
@@ -116,13 +118,10 @@ public class KeyHandler implements KeyListener{
         
         
         
-        // Pause State 
-        if(gp.gameState == gp.pauseState){
-            
-        }
-        
+    
         // Dialogue State 
         if(gp.gameState == gp.dialogueState){
+            this.showData = false; // Para que los datos de las coordenadas no interrumpan el texto del dialogo
             if(code == KeyEvent.VK_ENTER){
                 gp.gameState = gp.playState; 
             }

@@ -9,6 +9,7 @@ import Entity.Player;
 import Objects.SuperObject;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
@@ -133,9 +134,10 @@ public class GamePanel extends JPanel implements Runnable{
             }
             
             if(timer >= 1000000000){
+                /*
                 if(keyHandler.showFPS == true){
                     System.out.println("FPS:"+drawCount);
-                }
+                }*/
                 drawCount = 0; 
                 timer = 0; 
             }
@@ -208,11 +210,17 @@ public class GamePanel extends JPanel implements Runnable{
             drawStart = System.nanoTime();
         }
         
-        if(keyHandler.showFPS == true){
+        if(keyHandler.showData == true){
+            // Enseñamos los FPS del juego
             g2.setColor(Color.white); 
-            g2.drawString("FPS : "+FPS, 550, 65); 
+            g2.setFont(new Font("Serif", Font.PLAIN, 19)); 
+            g2.drawString("FPS : "+FPS, 650, 50); 
+            
+            // Enseñamos la posición del jugador en todo el mapa
+            g2.setColor(Color.white); 
+            g2.setFont(new Font("Serif", Font.PLAIN, 19)); 
+            g2.drawString("X : "+(player.worldX / this.tileSize)+ " Y : " + (player.worldY / this.tileSize), 650, 65); 
         }
-        
         
         if(keyHandler.drawTime == true){
             long drawEnd = System.nanoTime(); 
