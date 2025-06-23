@@ -35,7 +35,7 @@ public class KeyHandler implements KeyListener{
         
         int code = e.getKeyCode(); 
         
-        if (gp.gameState == gp.playState){
+        if (gp.gameState == gp.playState || gp.gameState == gp.pauseState){
                     if(code == KeyEvent.VK_W)
                 {
                     this.upPressed = true; 
@@ -57,7 +57,7 @@ public class KeyHandler implements KeyListener{
                 if(code == KeyEvent.VK_D)
                 {
                     this.rightPressed = true; 
-                }if(code == KeyEvent.VK_K)
+                }if(code == KeyEvent.VK_K && gp.gameState == gp.playState)
                 {
                     if(showCollisions == false){
                         this.showCollisions = true; 
@@ -65,7 +65,7 @@ public class KeyHandler implements KeyListener{
                         this.showCollisions = false; 
                     }
                 }  
-                if(code == KeyEvent.VK_F3){
+                if(code == KeyEvent.VK_F3 && gp.gameState == gp.playState){
                     
                     if(showData == true){
                         showData = false; 
