@@ -11,6 +11,7 @@ Entity\NPC_CocheJuan.class
 Objects\OBJ_Pokeball.class
 com\mycompany\primerjuego2d\main\Sound.class
 com\mycompany\primerjuego2d\main\KeyHandler.class
+Funciones\Funciones_sobre_tiles.class
 Entity\Player.class
 com\mycompany\primerjuego2d\main\main.class
 com\mycompany\primerjuego2d\main\UtilityTool.class

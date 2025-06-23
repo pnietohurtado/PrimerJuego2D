@@ -6,6 +6,7 @@ package com.mycompany.primerjuego2d.main;
 
 import Entity.Entity;
 import Entity.Player;
+import Funciones.Funciones_sobre_tiles;
 import Objects.SuperObject;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -70,6 +71,9 @@ public class GamePanel extends JPanel implements Runnable{
     
     // NPC 
     public Entity[] npc = new Entity[10]; 
+    
+    // Aquí vamos a cargar las funciones que queremos que lleven a cabo alguna acción 
+    public Funciones_sobre_tiles fst = new Funciones_sobre_tiles(this); 
     
     
     
@@ -141,6 +145,8 @@ public class GamePanel extends JPanel implements Runnable{
                 drawCount = 0; 
                 timer = 0; 
             }
+            
+            fst.Encontrar();
             
         }
     }
