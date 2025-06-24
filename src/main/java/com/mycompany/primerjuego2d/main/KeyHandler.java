@@ -4,6 +4,7 @@
  */
 package com.mycompany.primerjuego2d.main;
 
+import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -98,9 +99,15 @@ public class KeyHandler implements KeyListener{
                 }
                 
                 // Para poder cambiar las colisiones de los tiles 
-                if(code == KeyEvent.VK_TAB){
-                    gp.hayColision = false; 
-                    System.out.println("Me activoooooooo");
+                if(code == KeyEvent.VK_L){
+                    if(gp.tileManager.hayColision == false){
+                        gp.tileManager.hayColision = true; 
+                    }else{
+                        gp.tileManager.hayColision = false; 
+                    }
+                    gp.tileManager.getTileImage();
+                    //System.out.println("Valor en GP: " + gp.tileManager.hayColision);
+                   
                 }
 
                 if(code  == KeyEvent.VK_T)

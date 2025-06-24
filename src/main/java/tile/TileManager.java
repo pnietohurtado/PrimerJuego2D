@@ -24,6 +24,11 @@ public class TileManager {
     public Tile[] tile; 
     public int mapTileNum[][]; 
     
+    // Modificar las colisiones de los pixeles
+    public boolean hayColision = true; 
+    public boolean noHayColision = false; 
+    
+    
     public TileManager( GamePanel gp){
         this.gamePanel = gp; 
         tile = new Tile[30]; // The number of tile that we will have 
@@ -39,42 +44,42 @@ public class TileManager {
             
             /*Hierba*/
             
-            setUp(0, "Cesped", gamePanel.noHayColision); 
-            setUp(1, "Cesped", gamePanel.noHayColision); 
-            setUp(2, "Cesped", gamePanel.noHayColision); 
-            setUp(3, "Cesped", gamePanel.noHayColision); 
-            setUp(4, "Cesped", gamePanel.noHayColision); 
-            setUp(5, "Cesped", gamePanel.noHayColision); 
-            setUp(6, "Cesped", gamePanel.noHayColision); 
-            setUp(7, "Cesped", gamePanel.noHayColision); 
-            setUp(8, "Cesped", gamePanel.noHayColision); 
-            setUp(9, "Cesped", gamePanel.noHayColision); 
-            setUp(10, "Cesped", gamePanel.noHayColision); 
+            setUp(0, "Cesped", noHayColision); 
+            setUp(1, "Cesped", noHayColision); 
+            setUp(2, "Cesped", noHayColision); 
+            setUp(3, "Cesped", noHayColision); 
+            setUp(4, "Cesped", noHayColision); 
+            setUp(5, "Cesped", noHayColision); 
+            setUp(6, "Cesped", noHayColision); 
+            setUp(7, "Cesped", noHayColision); 
+            setUp(8, "Cesped", noHayColision); 
+            setUp(9, "Cesped", noHayColision); 
+            setUp(10, "Cesped", noHayColision); 
             
             
             /*Arboles*/
             
-            setUp(15, "ArbolManzanas", gamePanel.hayColision); 
+            setUp(15, "ArbolManzanas", hayColision); 
             
-            setUp(16, "ArbolNormal", gamePanel.hayColision); 
+            setUp(16, "ArbolNormal", hayColision); 
             
-            setUp(17, "ArbolManzanasCaidas", gamePanel.hayColision); 
+            setUp(17, "ArbolManzanasCaidas", hayColision); 
             
             
             
             
             /*Camino*/
             
-            setUp(19, "Camino", gamePanel.noHayColision); 
+            setUp(19, "Camino", noHayColision); 
             
 
             
             
             
             // Césped con Camino a la izquierda
-            setUp(21, "CespedCaminoIzq", gamePanel.noHayColision); 
-            setUp(22, "CespedCaminoEntero", gamePanel.noHayColision); 
-            setUp(23, "CespedCaminoDer", gamePanel.noHayColision); 
+            setUp(21, "CespedCaminoIzq", noHayColision); 
+            setUp(22, "CespedCaminoEntero", noHayColision); 
+            setUp(23, "CespedCaminoDer", noHayColision); 
        
     }
     
