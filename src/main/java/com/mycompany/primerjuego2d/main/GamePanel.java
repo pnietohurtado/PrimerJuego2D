@@ -42,6 +42,11 @@ public class GamePanel extends JPanel implements Runnable{
     public final int worldHeigth = tileSize * maxWorldRow;
     
     
+    // Modificar las colisiones de los pixeles
+    public boolean hayColision = true; 
+    public boolean noHayColision = false; 
+    
+    
     //Incatnce of the tile
     TileManager tileManager = new TileManager(this); 
     
@@ -145,7 +150,7 @@ public class GamePanel extends JPanel implements Runnable{
                 drawCount = 0; 
                 timer = 0; 
             }
-            
+            System.out.println(hayColision);
             fst.Encontrar();
             
         }

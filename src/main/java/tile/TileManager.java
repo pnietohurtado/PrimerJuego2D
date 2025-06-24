@@ -39,42 +39,42 @@ public class TileManager {
             
             /*Hierba*/
             
-            setUp(0, "Cesped", false); 
-            setUp(1, "Cesped", false); 
-            setUp(2, "Cesped", false); 
-            setUp(3, "Cesped", false); 
-            setUp(4, "Cesped", false); 
-            setUp(5, "Cesped", false); 
-            setUp(6, "Cesped", false); 
-            setUp(7, "Cesped", false); 
-            setUp(8, "Cesped", false); 
-            setUp(9, "Cesped", false); 
-            setUp(10, "Cesped", false); 
+            setUp(0, "Cesped", gamePanel.noHayColision); 
+            setUp(1, "Cesped", gamePanel.noHayColision); 
+            setUp(2, "Cesped", gamePanel.noHayColision); 
+            setUp(3, "Cesped", gamePanel.noHayColision); 
+            setUp(4, "Cesped", gamePanel.noHayColision); 
+            setUp(5, "Cesped", gamePanel.noHayColision); 
+            setUp(6, "Cesped", gamePanel.noHayColision); 
+            setUp(7, "Cesped", gamePanel.noHayColision); 
+            setUp(8, "Cesped", gamePanel.noHayColision); 
+            setUp(9, "Cesped", gamePanel.noHayColision); 
+            setUp(10, "Cesped", gamePanel.noHayColision); 
             
             
             /*Arboles*/
             
-            setUp(15, "ArbolManzanas", true); 
+            setUp(15, "ArbolManzanas", gamePanel.hayColision); 
             
-            setUp(16, "ArbolNormal", true); 
+            setUp(16, "ArbolNormal", gamePanel.hayColision); 
             
-            setUp(17, "ArbolManzanasCaidas", true); 
+            setUp(17, "ArbolManzanasCaidas", gamePanel.hayColision); 
             
             
             
             
             /*Camino*/
             
-            setUp(19, "Camino", false); 
+            setUp(19, "Camino", gamePanel.noHayColision); 
             
 
             
             
             
             // Césped con Camino a la izquierda
-            setUp(21, "CespedCaminoIzq", false); 
-            setUp(22, "CespedCaminoEntero", false); 
-            setUp(23, "CespedCaminoDer", false); 
+            setUp(21, "CespedCaminoIzq", gamePanel.noHayColision); 
+            setUp(22, "CespedCaminoEntero", gamePanel.noHayColision); 
+            setUp(23, "CespedCaminoDer", gamePanel.noHayColision); 
        
     }
     

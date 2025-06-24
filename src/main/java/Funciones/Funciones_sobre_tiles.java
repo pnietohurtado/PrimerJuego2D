@@ -12,14 +12,22 @@ import com.mycompany.primerjuego2d.main.GamePanel;
  */
 public class Funciones_sobre_tiles {
     private GamePanel gp; 
+    private int posicionX; 
+    private int posicionY; 
     
     public Funciones_sobre_tiles(GamePanel gp){
         this.gp = gp; 
     }
     
+    
+    
     public void Encontrar(){
-        if(gp.player.worldX == 28 && gp.player.worldY == 399){
-            System.out.println("Has pisado un pixel trampa");
+        posicionX = gp.player.worldX / gp.tileSize; 
+        posicionY = gp.player.worldY / gp.tileSize; 
+        
+        if((posicionX == 29 && posicionY == 399)|| (posicionX == 28 && posicionY == 399) || (posicionX == 27 && posicionY == 399)){
+                gp.player.worldX = 29; 
+                gp.player.worldY = 500; 
         }
     }
 }

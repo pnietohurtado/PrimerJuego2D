@@ -96,6 +96,12 @@ public class KeyHandler implements KeyListener{
                     }
                     */
                 }
+                
+                // Para poder cambiar las colisiones de los tiles 
+                if(code == KeyEvent.VK_TAB){
+                    gp.hayColision = false; 
+                    System.out.println("Me activoooooooo");
+                }
 
                 if(code  == KeyEvent.VK_T)
                 {
