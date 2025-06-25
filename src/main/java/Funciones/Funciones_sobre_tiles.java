@@ -26,8 +26,8 @@ public class Funciones_sobre_tiles {
         posicionY = gp.player.worldY / gp.tileSize; 
         
         if((posicionX == 29 && posicionY == 399)|| (posicionX == 28 && posicionY == 399) || (posicionX == 27 && posicionY == 399)){
-                gp.player.worldX = 29; 
-                gp.player.worldY = 500; 
+                //gp.player.worldX = 29; 
+                //gp.player.worldY = 500; 
         }
     }
 }

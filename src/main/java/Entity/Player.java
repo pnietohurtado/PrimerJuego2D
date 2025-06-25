@@ -4,6 +4,7 @@
  */
 package Entity;
 
+import Objects.SuperObject;
 import java.awt.image.BufferedImage;
 import com.mycompany.primerjuego2d.main.GamePanel;
 import com.mycompany.primerjuego2d.main.KeyHandler;
@@ -12,6 +13,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.imageio.ImageIO;
 /**/
 /**
@@ -28,6 +30,9 @@ public class Player extends Entity{
     
     //public int hasKey = 0; // How many key the player currently has 
     public int hasPokeball = 0; // It works as a "Inventory" 
+    public int hasKey = 0;
+    
+    public ArrayList<SuperObject> inventario = new ArrayList<>(); 
     
     public Player(GamePanel gp, KeyHandler kh){
         super(gp); 
@@ -142,20 +147,24 @@ public class Player extends Entity{
             String objectName = gp.obj[i].name; 
             
             switch(objectName){
-                /*
+                
                 case "Llave": 
                     if(keyHandler.catchObject == true){
+                
                         hasKey++; 
-                        gamePanel.obj[i] = null; 
-                        gamePanel.ui.showMessage("You got a key!"); 
+                        inventario.add(gp.obj[i]);
+                        gp.obj[i] = null; 
+                        gp.ui.showMessage("You got a key!"); 
                    
                     }
-                    break; */
+                    break; 
                 case "Pokeball": 
                     if(keyHandler.catchObject == true){
                         hasPokeball++; 
+                        inventario.add(gp.obj[i]);
                         gp.obj[i] = null; 
-                        gp.gameState = gp.dialogueState; 
+                        gp.gameState = gp.dialogueState;  
+                        System.out.println(inventario);
                     }
                     break; 
             

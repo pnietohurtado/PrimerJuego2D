@@ -40,6 +40,8 @@ public class GamePanel extends JPanel implements Runnable{
     public final int maxWorldRow = 500; 
     public final int worldWidth = tileSize * maxWorldCol;
     public final int worldHeigth = tileSize * maxWorldRow;
+    
+    
    
     
     //Incatnce of the tile
@@ -147,6 +149,7 @@ public class GamePanel extends JPanel implements Runnable{
             }
             //System.out.println(hayColision);
             fst.Encontrar();
+            
             
         }
     }
