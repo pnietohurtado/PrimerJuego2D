@@ -42,6 +42,9 @@ public class GamePanel extends JPanel implements Runnable{
     public final int worldHeigth = tileSize * maxWorldRow;
     
     
+    // Variables para el inventario 
+    public boolean showInventory = false; 
+    
    
     
     //Incatnce of the tile
@@ -217,6 +220,12 @@ public class GamePanel extends JPanel implements Runnable{
         long drawStart = 0; 
         if(keyHandler.drawTime == true){
             drawStart = System.nanoTime();
+        }
+        
+        if(showInventory == true){
+            g2.setColor(Color.white); 
+            g2.setFont(new Font("Serif", Font.PLAIN, 24)); 
+            g2.drawString(player.inventario.toString(), 350, 65); 
         }
         
         if(keyHandler.showData == true){

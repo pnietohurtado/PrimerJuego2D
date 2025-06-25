@@ -162,8 +162,9 @@ public class Player extends Entity{
                     if(keyHandler.catchObject == true){
                         hasPokeball++; 
                         inventario.add(gp.obj[i]);
+                        //gp.showInventory = true;  Para poder mostrar por pantalla el objeto que se ha recogido
                         gp.obj[i] = null; 
-                        gp.gameState = gp.dialogueState;  
+                        //gp.gameState = gp.dialogueState;  
                         System.out.println(inventario);
                     }
                     break; 
