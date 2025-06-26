@@ -152,6 +152,7 @@ public class GamePanel extends JPanel implements Runnable{
             }
             //System.out.println(hayColision);
             fst.Encontrar();
+            //System.out.println(npc);
             
             
         }
@@ -165,8 +166,9 @@ public class GamePanel extends JPanel implements Runnable{
             
             for(int i = 0; i < npc.length ; i++){
                 if(npc[i] != null){
-                    //System.out.println("moviendome...");
+                    
                     npc[i].update(); 
+                   
                 }
             }
         }else if(gameState == pauseState){
@@ -209,8 +211,8 @@ public class GamePanel extends JPanel implements Runnable{
 
             //Player 
             player.draw(g2); 
-
             ui.draw(g2);
+            
         
         }
         

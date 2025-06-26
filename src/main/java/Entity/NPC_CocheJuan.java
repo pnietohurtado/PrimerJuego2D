@@ -22,10 +22,12 @@ public class NPC_CocheJuan extends Entity{
         super(gp);
         
         direction = "down"; 
-        speed = 5; 
+        speed = 1; 
         
         getPlayerImage(); 
     }
+    
+   
     
     public void getPlayerImage()
     {
@@ -61,10 +63,12 @@ public class NPC_CocheJuan extends Entity{
             else if(i > 75 && i <= 100){
                 direction = "right"; 
             }
+            //System.out.println(i);
 
+            actionLockCounter = 0; 
         }
         
-        actionLockCounter = 0; 
+        
         
     }
     

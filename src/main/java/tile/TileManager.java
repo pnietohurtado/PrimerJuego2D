@@ -80,6 +80,10 @@ public class TileManager {
             setUp(21, "CespedCaminoIzq", noHayColision); 
             setUp(22, "CespedCaminoEntero", noHayColision); 
             setUp(23, "CespedCaminoDer", noHayColision); 
+            
+            
+            // Montaña para poder añadir relieve en el mapa
+            setUp(24, "MontañaFront", hayColision); 
        
     }
     
