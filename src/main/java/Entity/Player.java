@@ -32,6 +32,8 @@ public class Player extends Entity{
     public int hasPokeball = 0; // It works as a "Inventory" 
     public int hasKey = 0;
     
+    
+    
     public ArrayList<SuperObject> inventario = new ArrayList<>(); 
     
     public Player(GamePanel gp, KeyHandler kh){
@@ -109,6 +111,9 @@ public class Player extends Entity{
             int objIndex = gp.cH.checkObject(this, true); 
             pickUpObject (objIndex); 
             
+            int npcIndex = gp.cH.checkEntity(this, gp.npc); 
+            interactNPC(npcIndex); 
+            
             // If collision is false, player can't move 
             if(collision == false){
                 switch(direction ){
@@ -170,6 +175,12 @@ public class Player extends Entity{
                     break; 
             
             }
+        }
+    }
+    
+    public void interactNPC(int i){
+        if(i != 999){
+            System.out.println("Me estas dando capullo");
         }
     }
     
