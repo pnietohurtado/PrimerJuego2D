@@ -14,6 +14,7 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 import javax.imageio.ImageIO;
 /**/
 /**
@@ -23,6 +24,7 @@ import javax.imageio.ImageIO;
 public class Player extends Entity{
     
     KeyHandler keyHandler; 
+    Random random = new Random(); 
     
     
     public final int screenX;
@@ -185,8 +187,12 @@ public class Player extends Entity{
             if(keyHandler.interactEntity == false){
                 
                 gp.gameState = gp.dialogueState; 
-                gp.npc[i] = null; 
-                gp.player.speed = 18; 
+                int numeroAleatorio = random.nextInt(11) + 1; 
+                
+                if(numeroAleatorio == 1){ // Existe una posibilidad de que desaparezca el NPC 
+                    gp.npc[i] = null; 
+                    gp.player.speed = 18; 
+                }
             
             }
             

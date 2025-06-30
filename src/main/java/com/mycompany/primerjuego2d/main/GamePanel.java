@@ -22,7 +22,9 @@ import tile.TileManager;
  */
 public class GamePanel extends JPanel implements Runnable{
     
-    // SCREEN SETTINGS 
+    // -------------------------------------------------------------------------
+    
+    // SCREEN SETTINGS (NO TOCAR) 
     final int originalTileSize = 16; // 16x16 Tile (player size) (and any NPC) 
     final int scale = 3; // It in fact looks like 48x48 
     
@@ -32,20 +34,22 @@ public class GamePanel extends JPanel implements Runnable{
     public final int screenWidth = tileSize * maxScreenCol; // 768 pixels 
     public final int screenHeight = tileSize * maxScreenRow; // 576 pixels 
     
-    // FPS 
-    final int FPS = 60;
-    
     // World settings 
     public final int maxWorldCol = 168; 
     public final int maxWorldRow = 500; 
     public final int worldWidth = tileSize * maxWorldCol;
     public final int worldHeigth = tileSize * maxWorldRow;
     
+    // FPS 
+    final int FPS = 60;
+  
+    // -------------------------------------------------------------------------
+    
+    
+    // ------------------- Variables generales (NO TOCAR) ----------------------
     
     // Variables para el inventario 
     public boolean showInventory = false; 
-    
-   
     
     //Incatnce of the tile
     TileManager tileManager = new TileManager(this); 
@@ -63,7 +67,7 @@ public class GamePanel extends JPanel implements Runnable{
     public CollisionChecker cH = new CollisionChecker(this); 
     
     // Interactuable objects
-    public SuperObject obj[] = new SuperObject[30]; 
+    public SuperObject obj[] = new SuperObject[100]; 
     
     public AssetSetter aSetter = new AssetSetter(this); 
     
@@ -73,21 +77,27 @@ public class GamePanel extends JPanel implements Runnable{
     // Instance UI class 
     public UI ui = new UI(this); 
     
-    
     // NPC 
     public Entity[] npc = new Entity[10]; 
     
     // Aquí vamos a cargar las funciones que queremos que lleven a cabo alguna acción 
     public Funciones_sobre_tiles fst = new Funciones_sobre_tiles(this); 
     
+    // -------------------------------------------------------------------------
+    
     
     
     // GameState 
-    public int gameState; 
-    public final int titleState = 0; 
-    public final int playState = 1; 
-    public final int pauseState = 2; 
-    public final int dialogueState = 3; 
+    public int gameState; // Estado en el que se puede encontrar el juego
+    public final int titleState = 0; // Opciones del menú 
+    public final int playState = 1; // Modo normal del juego 
+    public final int pauseState = 2; // Pausar el estado del juego
+    public final int dialogueState = 3; // Opciones de dialogo dentro del juego
+    
+    
+    
+    // -------------------------------------------------------------------------
+    
     
     // Constructor of our game panel 
     public GamePanel()

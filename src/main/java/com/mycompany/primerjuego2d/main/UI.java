@@ -11,6 +11,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -18,16 +20,26 @@ import java.awt.image.BufferedImage;
  */
 public class UI {
 
+    // ----------------- Variables relevantes (NO TOCAR) -----------------------
+    
     GamePanel gp; 
     Font arial_40; 
     Graphics2D g2; 
     BufferedImage pokeImage; 
+    
+    // ---------------------- Variabes menos importantes -----------------------
+    
     public boolean messageOn = false; 
     public String message = ""; 
     int messageCounter = 0; 
     public int commandNumber = 0; 
-    
     public int titleScreenState = 0; // 0 : First Screen 
+    Random random = new Random(); 
+    
+    // -------------------- Array de textos ------------------------------------
+    
+    public String textoNPC[] = new String[10]; 
+    
     
     public UI(GamePanel gp){
         this.gp = gp; 
@@ -38,12 +50,28 @@ public class UI {
         
         OBJ_Pokeball poke = new OBJ_Pokeball(); 
         pokeImage = poke.image; 
+        
+        
+        textoNPC[0] = "Hola que tal"; 
+        textoNPC[1] = "Que dices chacho"; 
+        
     }
+    
+    // -------------------------- Funciones de  asistencia ---------------------
     
     public void showMessage(String text){
         message = text; 
         messageOn = true; 
     }
+    
+    public int getXForCenteredText(String text){
+         
+        int length = (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+        int x = gp.screenWidth/2 - length/2; 
+        return x; 
+    }
+    
+    // -------------------------------------------------------------------------
     
     
     public void draw(Graphics2D g2){
@@ -67,17 +95,18 @@ public class UI {
         int x = gp.tileSize * 2; 
         int y = gp.tileSize / 2; 
         int width = gp.screenWidth - (gp.tileSize * 4); 
-        int height = gp.tileSize * 4; 
+        int height = gp.tileSize * 4;
+        
+        int numeroAleatorio = random.nextInt(1); 
         
         drawSubWindow(x,y,width, height); 
         
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
         x += gp.tileSize; 
         y += gp.tileSize; 
-        g2.drawString("Me cago en tus muertos", x, y); 
+        g2.drawString(textoNPC[numeroAleatorio], x, y); 
     }
     
-    public String currentDialogue = ""; 
     
     
     public void drawSubWindow(int x, int y, int width, int height){
@@ -93,21 +122,25 @@ public class UI {
         
     }
     
+    
+    // ----------------------- Pausa del juego con un dialogo ------------------
     public void drawPauseScreen(){
-        String text = "PAUSED"; 
-        int x = getXForCenteredText(text); 
-        int y = gp.screenHeight /2; 
+        int x = gp.tileSize * 2; 
+        int y = gp.tileSize * 3; 
+        int width = gp.screenWidth - (gp.tileSize * 4); 
+        int height = gp.tileSize * 4;
         
-        g2.drawString(text, x, y);
+        drawSubWindow(x,y,width, height); 
+        
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
+        x += gp.tileSize * 2; 
+        y += gp.tileSize; 
+        g2.drawString("PAUSED", x, y); 
     }
+    //--------------------------------------------------------------------------
     
     
-    public int getXForCenteredText(String text){
-         
-        int length = (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth();
-        int x = gp.screenWidth/2 - length/2; 
-        return x; 
-    }
+    // ------------------- Opciones gráficas del menú --------------------------
     
     public void drawTitleScreen(){
         
@@ -161,7 +194,7 @@ public class UI {
             }
         
         
-        }else if(titleScreenState == 1){
+        }else if(titleScreenState == 1){ // Seleccionar la clase del personaje 
             
             g2.setColor(Color.red); 
             g2.setFont(g2.getFont().deriveFont(42F));
@@ -182,6 +215,8 @@ public class UI {
             g2.drawString(text,x,y); 
             if(commandNumber == 0){
                 g2.drawString(">", x - gp.tileSize, y); 
+                gp.gameState = gp.playState; 
+                gp.player.speed = 18; 
             }
             
             
@@ -214,5 +249,12 @@ public class UI {
         }
         
     }
+    
+    // -------------------------------------------------------------------------
+    
+    
+    
+    
+    
     
 }

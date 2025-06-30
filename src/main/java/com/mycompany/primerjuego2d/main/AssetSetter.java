@@ -37,9 +37,21 @@ public class AssetSetter {
         gp.obj[3].collision = true;
     }
     
-    public void setNPC(){
+    public void setNPC(){ // Aquí es donde vamos a posicionar los NPC 
+        
         gp.npc[0] = new NPC_CocheJuan(gp); 
         gp.npc[0].worldX = gp.tileSize * 25; 
         gp.npc[0].worldY = gp.tileSize * 409; 
+        
+        
+        gp.npc[1] = new NPC_CocheJuan(gp); 
+        gp.npc[1].worldX = gp.tileSize * 28; 
+        gp.npc[1].worldY = gp.tileSize * 399; 
+        
+        /*
+        gp.npc[2] = new NPC_CocheJuan(gp); 
+        gp.npc[2].worldX = gp.tileSize * 25; 
+        gp.npc[2].worldY = gp.tileSize * 411; 
+        */
     }
 }

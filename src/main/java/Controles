@@ -16,5 +16,16 @@ Sobre los controles del juego:
     ~ Durante el desarrollo del juego he podido apreciar como cada vez es más importante optimizar los controles 
     dándome cuenta que las teclas en el teclado son finitas y no puedo asignar una función específica para cada una 
     por lo que de ahora en adelante debo optimizar aún más el código y la forma en la que asigno los objetos. 
+
+
+
+
+!! Notas 
+
+    30/06/2025
+
+    ~ He pensado en hacer que los arbustos donde pueden salir los pokemones, como un objeto, donde haya una posibilidad
+    baja donde podamos encontrar un pokemon o obejeto en función de la zona. 
+    
     
        

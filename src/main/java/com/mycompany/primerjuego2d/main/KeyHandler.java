@@ -14,22 +14,38 @@ import java.awt.event.KeyListener;
  */
 public class KeyHandler implements KeyListener{
 
-    public boolean upPressed, downPressed, leftPressed, rightPressed, showCollisions, drawTime;
+    
+    // ------------------------- Variables de esta clase -----------------------
+    
+    // Variables de movimiento del personaje
+    public boolean upPressed, downPressed, leftPressed, rightPressed;
+    
+    // Varible sobre Entorno
+    public boolean showCollisions;
+    public boolean drawTime;
     
     // Interacción con los objetos del mapa 
     public boolean interactEntity; 
     
+    // Pausar el juego
     public boolean pauseGame = false; 
-    public boolean showData; 
-    public boolean rightCorner; // Para comprobar que no haya más de dos elementos en la parte superior derecha como los FPS y las coordenadas
     
+    // Mostrar objetos de el inventario
+    public boolean showData; 
+    
+    public boolean rightCorner; // Para comprobar que no haya más de dos elementos en la parte superior derecha como los FPS y las coordenadas
     
     public GamePanel gp; 
     
+    // -------------------------------------------------------------------------
+    
+    
+    // Contructor de la clase 
     public KeyHandler(GamePanel gp){
         this.gp = gp; 
     }
     
+    // NO TOCAR 
     @Override
     public void keyTyped(KeyEvent e) {
         
@@ -39,6 +55,8 @@ public class KeyHandler implements KeyListener{
     public void keyPressed(KeyEvent e) {
         
         int code = e.getKeyCode(); 
+        
+        // En el caso de que el juego este pausado podemos seguir pulsando teclas
         
         if (gp.gameState == gp.playState || gp.gameState == gp.pauseState){
                     if(code == KeyEvent.VK_W)
@@ -102,7 +120,7 @@ public class KeyHandler implements KeyListener{
                     */
                 }
                 
-                // Para poder cambiar las colisiones de los tiles 
+                // ---------------- Cambiar al modo Dios -----------------------
                 if(code == KeyEvent.VK_L){
                     if(gp.tileManager.hayColision == false){
                         gp.tileManager.hayColision = true; 
