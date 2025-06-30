@@ -12,6 +12,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
 /**
@@ -23,6 +24,8 @@ public class TileManager {
     GamePanel gamePanel; 
     public Tile[] tile; 
     public int mapTileNum[][]; 
+    ArrayList<String> fileNames = new ArrayList<>(); 
+    ArrayList<String> collisionStatus = new ArrayList<>(); 
     
     // Modificar las colisiones de los pixeles
     public boolean hayColision = true; 
@@ -31,6 +34,9 @@ public class TileManager {
     
     public TileManager( GamePanel gp){
         this.gamePanel = gp; 
+        
+        // Leer información del "tile" 
+        
         tile = new Tile[30]; // The number of tile that we will have 
         mapTileNum = new int[gamePanel.maxWorldCol][gamePanel.maxWorldRow]; 
         
@@ -116,7 +122,7 @@ public class TileManager {
                 String line = br.readLine(); 
                 
                 while(col < gamePanel.maxWorldCol ){
-                    String numbers[] = line.split("   "); 
+                    String numbers[] = line.split(" "); 
                     
                     int num = Integer.parseInt(numbers[col]); 
                     mapTileNum[col][row] = num; 
