@@ -203,4 +203,60 @@ public class CollisionChecker {
         
         return index; 
     }
+    
+    
+    
+    
+    // Colisión del jugador con el NPC
+    public void checkPlayer(Entity entity){
+   
+                // Get entity's solid area position 
+                entity.solidArea.x = entity.worldX + entity.solidArea.x; 
+                entity.solidArea.y = entity.worldY + entity.solidArea.y; 
+                
+                // Get the object's solid position
+                gp.player.solidArea.x = gp.player.worldX + gp.player.solidArea.x;
+                gp.player.solidArea.y = gp.player.worldY + gp.player.solidArea.y;
+                
+
+                
+                switch(entity.direction){
+                    case "up" : 
+                        entity.solidArea.y -= entity.speed; 
+                        if(entity.solidArea.intersects(gp.player.solidArea) /*|| (entity.nearSolidArea = new Rectangle (0,0,500,500)).intersects(gp.obj[i].solidArea)*/){
+                            entity.collision = true ;
+                           
+                            
+                        }
+                        break; 
+                    case "down" : 
+                        entity.solidArea.y += entity.speed; 
+                        if(entity.solidArea.intersects(gp.player.solidArea)){
+                            entity.collision = true ;
+                        
+                            
+                        }
+                        break; 
+                    case "left" : 
+                        entity.solidArea.x -= entity.speed; 
+                        if(entity.solidArea.intersects(gp.player.solidArea)){
+                            entity.collision = true ;
+                      
+                            
+                        }
+                        break; 
+                    case "right" : 
+                        entity.solidArea.x += entity.speed; 
+                        if(entity.solidArea.intersects(gp.player.solidArea)){
+                            entity.collision = true ;
+                          
+                            
+                        }
+                        break; 
+                }
+                entity.solidArea.x = entity.solidAreaDefaultX; 
+                entity.solidArea.y = entity.solidAreaDefaultY; 
+                gp.player.solidArea.x = gp.player.solidAreaDefaultX;
+                gp.player.solidArea.y = gp.player.solidAreaDefaultY;
+    }
 }

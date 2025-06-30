@@ -112,6 +112,7 @@ public class Player extends Entity{
             pickUpObject (objIndex); 
             
             int npcIndex = gp.cH.checkEntity(this, gp.npc); 
+            //int playerIndex = gp.cH.checkEntity(this, gp.player); 
             interactNPC(npcIndex); 
             
             // If collision is false, player can't move 
@@ -154,7 +155,7 @@ public class Player extends Entity{
             switch(objectName){
                 
                 case "Llave": 
-                    if(keyHandler.catchObject == true){
+                    if(keyHandler.interactEntity == true){
                 
                         hasKey++; 
                         inventario.add(gp.obj[i]);
@@ -164,7 +165,7 @@ public class Player extends Entity{
                     }
                     break; 
                 case "Pokeball": 
-                    if(keyHandler.catchObject == true){
+                    if(keyHandler.interactEntity == true){
                         hasPokeball++; 
                         inventario.add(gp.obj[i]);
                         //gp.showInventory = true;  Para poder mostrar por pantalla el objeto que se ha recogido
@@ -180,7 +181,16 @@ public class Player extends Entity{
     
     public void interactNPC(int i){
         if(i != 999){
-            System.out.println("Me estas dando capullo");
+            
+            if(keyHandler.interactEntity == false){
+                
+                gp.gameState = gp.dialogueState; 
+                gp.npc[i] = null; 
+                gp.player.speed = 18; 
+            
+            }
+            
+            
         }
     }
     

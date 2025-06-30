@@ -5,4 +5,16 @@ Sobre los controles del juego:
     ~ Para mostrar los FPS "P"
     ~ Para mostrar las colisiones de nuestro personaje usamos "K"
     ~ Para poder mostrar la coordenada en la que nos encontramos usamos "H"
+    ~ Para poder interactuar con cualquier cosa en el juego usamos la "E" a menos que se indique lo contrario 
 
+
+
+** Observaciones sobre el desarrollo del juego 
+
+    30/06/2025
+
+    ~ Durante el desarrollo del juego he podido apreciar como cada vez es más importante optimizar los controles 
+    dándome cuenta que las teclas en el teclado son finitas y no puedo asignar una función específica para cada una 
+    por lo que de ahora en adelante debo optimizar aún más el código y la forma en la que asigno los objetos. 
+    
+       

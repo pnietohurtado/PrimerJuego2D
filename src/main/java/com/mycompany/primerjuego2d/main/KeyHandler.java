@@ -15,10 +15,14 @@ import java.awt.event.KeyListener;
 public class KeyHandler implements KeyListener{
 
     public boolean upPressed, downPressed, leftPressed, rightPressed, showCollisions, drawTime;
-    public boolean catchObject; 
+    
+    // Interacción con los objetos del mapa 
+    public boolean interactEntity; 
+    
     public boolean pauseGame = false; 
     public boolean showData; 
     public boolean rightCorner; // Para comprobar que no haya más de dos elementos en la parte superior derecha como los FPS y las coordenadas
+    
     
     public GamePanel gp; 
     
@@ -120,7 +124,7 @@ public class KeyHandler implements KeyListener{
                 }
 
                 if(code == KeyEvent.VK_E){ // To catch any object on the floor 
-                    this.catchObject = true; 
+                    this.interactEntity = true; 
                 }
 
                 // In order to enter the menu State 
@@ -230,7 +234,7 @@ public class KeyHandler implements KeyListener{
             this.rightPressed = false; 
         }
         if(code == KeyEvent.VK_E){
-            this.catchObject = false; 
+            this.interactEntity = false; 
         }
     }
     

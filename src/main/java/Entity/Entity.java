@@ -66,6 +66,8 @@ public class Entity {
         
         collision = false; 
         gp.cH.checkTile(this);
+        gp.cH.checkObject(this, false); 
+        gp.cH.checkPlayer(this);
         
         if(collision == false){
                 switch(direction ){
