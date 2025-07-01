@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
 import com.mycompany.primerjuego2d.main.GamePanel;
 import com.mycompany.primerjuego2d.main.KeyHandler;
 import com.mycompany.primerjuego2d.main.UtilityTool;
+import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -148,6 +149,8 @@ public class Player extends Entity{
         }
     }
     
+    // ------------------- Interacción del jugador con un objeto ---------------
+    
     public void pickUpObject(int i){
         if(i != 999){
             System.out.println("obj -> " +i);
@@ -181,6 +184,11 @@ public class Player extends Entity{
         }
     }
     
+    // -------------------------------------------------------------------------
+    
+    
+    // ------------------- Interacciones del Jugador con el NPC ----------------
+    
     public void interactNPC(int i){
         if(i != 999){
             
@@ -200,7 +208,11 @@ public class Player extends Entity{
         }
     }
     
+    // -------------------------------------------------------------------------
     
+    
+    
+    // ------------ Función para dibujar las características del player --------
     
     public void draw(Graphics2D g2) 
     {
@@ -240,12 +252,23 @@ public class Player extends Entity{
                 }
                 break;
         }
+        // ------------ Usamos estas declaraciones para cambiar opacidad -------
+            /*
+            float alpha = 0.5f; 
+            AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha); 
+            g2.setComposite(ac);
+            */
+        // ---------------------------------------------------------------------
         
             g2.drawImage(image,screenX,screenY,gp.tileSize, gp.tileSize,null); 
+            
+            
+            // ----------- Para poder enseñar las colisiones del personaje -----
             if(this.keyHandler.showCollisions == true){
                 g2.setColor(Color.red); 
                 g2.drawRect(screenX + solidArea.x, screenY + solidArea.y, solidArea.width, solidArea.height);
             }
+            // -----------------------------------------------------------------
     }
     
 }

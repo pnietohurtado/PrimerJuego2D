@@ -23,7 +23,7 @@ import javax.imageio.ImageIO;
  */
 public class TileManager {
     
-    GamePanel gamePanel; 
+    GamePanel gp; 
     public Tile[] tile; 
     public int mapTileNum[][]; 
     ArrayList<String> fileNames = new ArrayList<>(); 
@@ -35,7 +35,7 @@ public class TileManager {
     
     
     public TileManager( GamePanel gp){
-        this.gamePanel = gp; 
+        this.gp = gp; 
         
         // Leer información del "tile" 
         InputStream is = getClass().getResourceAsStream("/maps/collision.txt"); 
@@ -63,10 +63,10 @@ public class TileManager {
         try{
             String linea2 = br.readLine(); 
             String maxTile[] = linea2.split(" "); 
-            gamePanel.maxWorldCol = maxTile.length; 
-            gamePanel.maxWorldRow = maxTile.length; 
+            gp.maxWorldCol = maxTile.length; 
+            gp.maxWorldRow = maxTile.length; 
             
-            mapTileNum = new int[gamePanel.maxWorldCol][gamePanel.maxWorldRow]; 
+            mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow]; 
             br.close(); 
         }catch(IOException e){
             
@@ -105,7 +105,7 @@ public class TileManager {
             
             tile[index] = new Tile(); 
             tile[index].image = ImageIO.read(getClass().getResourceAsStream("/Tiles/"+imagePath)); 
-            tile[index].image = uTool.scaleImage(tile[index].image, gamePanel.tileSize, gamePanel.tileSize); 
+            tile[index].image = uTool.scaleImage(tile[index].image, gp.tileSize, gp.tileSize); 
             tile[index].collision = collsion; 
             
         }catch(IOException e){
@@ -123,10 +123,10 @@ public class TileManager {
             int col = 0; 
             int row = 0; 
             
-            while(col < gamePanel.maxWorldCol && row < gamePanel.maxWorldRow ){
+            while(col < gp.maxWorldCol && row < gp.maxWorldRow ){
                 String line = br.readLine(); 
                 
-                while(col < gamePanel.maxWorldCol ){
+                while(col < gp.maxWorldCol ){
                     String numbers[] = line.split(" "); 
                     
                     int num = Integer.parseInt(numbers[col]); 
@@ -134,7 +134,7 @@ public class TileManager {
                     col++; 
                 }
                 
-                if(col == gamePanel.maxWorldCol){
+                if(col == gp.maxWorldCol){
                     col = 0; 
                     row++; 
                 }
@@ -152,26 +152,26 @@ public class TileManager {
         int worldCol = 0; 
         int worldRow = 0; 
 
-        while(worldCol < gamePanel.maxWorldCol && worldRow < gamePanel.maxWorldRow)
+        while(worldCol < gp.maxWorldCol && worldRow < gp.maxWorldRow)
         {
             int tileNum = mapTileNum[worldCol][worldRow]; 
             
-            int worldX = worldCol * gamePanel.tileSize; 
-            int worldY = worldRow * gamePanel.tileSize; 
-            int screenX = worldX - gamePanel.player.worldX + gamePanel.player.screenX; 
-            int screenY = worldY - gamePanel.player.worldY + gamePanel.player.screenY; 
+            int worldX = worldCol * gp.tileSize; 
+            int worldY = worldRow * gp.tileSize; 
+            int screenX = worldX - gp.player.worldX + gp.player.screenX; 
+            int screenY = worldY - gp.player.worldY + gp.player.screenY; 
             
-            if(worldX + gamePanel.tileSize > gamePanel.player.worldX - gamePanel.player.screenX &&
-                    worldX - gamePanel.tileSize < gamePanel.player.worldX + gamePanel.player.screenX &&
-                    worldY + gamePanel.tileSize > gamePanel.player.worldY - gamePanel.player.screenY &&
-                    worldY - gamePanel.tileSize < gamePanel.player.worldY + gamePanel.player.screenY){
+            if(worldX + gp.tileSize > gp.player.worldX - gp.player.screenX &&
+                    worldX - gp.tileSize < gp.player.worldX + gp.player.screenX &&
+                    worldY + gp.tileSize > gp.player.worldY - gp.player.screenY &&
+                    worldY - gp.tileSize < gp.player.worldY + gp.player.screenY){
                     
-                g2.drawImage(tile[tileNum].image, screenX,screenY,gamePanel.tileSize,gamePanel.tileSize,null); 
+                g2.drawImage(tile[tileNum].image, screenX,screenY,gp.tileSize,gp.tileSize,null); 
             }
 
             worldCol++; 
             
-            if(worldCol == gamePanel.maxWorldCol){
+            if(worldCol == gp.maxWorldCol){
                 worldCol = 0; 
                 worldRow++;  
             }

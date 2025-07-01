@@ -160,8 +160,7 @@ public class GamePanel extends JPanel implements Runnable{
                 drawCount = 0; 
                 timer = 0; 
             }
-            //System.out.println(hayColision);
-            fst.Encontrar();
+            //System.out.println(hayColision)
             //System.out.println(npc);
             
             
@@ -221,6 +220,7 @@ public class GamePanel extends JPanel implements Runnable{
 
             //Player 
             player.draw(g2); 
+            
             ui.draw(g2);
             
         

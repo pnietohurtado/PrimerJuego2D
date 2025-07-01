@@ -17,32 +17,37 @@ import javax.imageio.ImageIO;
  * @author pablo
  */
 public class Entity {
+    
+    // --------------------------- Declaración de variables --------------------
+    
     public int worldX, worldY; 
     public int speed; 
-
-    GamePanel gp; 
     
-    public Entity(GamePanel gp){
-        this.gp = gp; 
-    }
-    
-    public BufferedImage f1,f2,l1,l2,r1,r2,b1,b2; 
+    public BufferedImage f1,f2,l1,l2,r1,r2,b1,b2; // Imagenes necesarias para crear movimiento de personaje 
     public String direction; 
     
     public int spriteCounter = 0; 
     public int spriteNum = 1; 
     
-    public Rectangle solidArea = new Rectangle(0,0,48,48); // Basically we create the collision range of the player 
+    public Rectangle solidArea = new Rectangle(0,0,48,48); 
     public Rectangle nearSolidArea ; 
     public int solidAreaDefaultX, solidAreaDefaultY; 
     public boolean collision = false; 
     
+    public int actionLockCounter = 0; // Para poder determinar la velocidad de NPC
     
-    public int actionLockCounter = 0; 
+    GamePanel gp; 
+    
+    // -------------------------------------------------------------------------
+    
+    // Constructor de la clase 
+    public Entity(GamePanel gp){
+        this.gp = gp; 
+    }
     
     
     
-    
+    // --------------------------- Función de lectura imágenes -----------------
     public BufferedImage setUp(String imagePath){
         UtilityTool u = new UtilityTool(); 
         BufferedImage image = null; 
@@ -57,6 +62,8 @@ public class Entity {
         
         return image; 
     }
+    
+    // -------------------------------------------------------------------------
     
     
     public void setAction(){}

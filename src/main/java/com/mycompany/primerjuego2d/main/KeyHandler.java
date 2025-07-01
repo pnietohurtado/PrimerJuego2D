@@ -62,10 +62,14 @@ public class KeyHandler implements KeyListener{
                     if(code == KeyEvent.VK_W)
                 {
                     this.upPressed = true; 
+                    gp.fst.Encontrar();
+                    System.out.println("Me activo con la W");
                 }
                 if(code == KeyEvent.VK_S)
                 {
                     this.downPressed = true; 
+                    gp.fst.Encontrar();
+                    System.out.println("Me activo con la S");
                 }
                 if(code == KeyEvent.VK_A)
                 {
