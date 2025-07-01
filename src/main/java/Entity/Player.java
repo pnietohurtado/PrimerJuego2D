@@ -16,6 +16,8 @@ import java.awt.Rectangle;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 /**/
 /**
@@ -195,9 +197,15 @@ public class Player extends Entity{
             if(keyHandler.interactEntity == false){
                 
                 gp.gameState = gp.dialogueState; 
-                int numeroAleatorio = random.nextInt(11) + 1; 
+                int numeroAleatorio = random.nextInt(11) + 1;  
                 
                 if(numeroAleatorio == 1){ // Existe una posibilidad de que desaparezca el NPC 
+                    System.out.println("Jackpot");
+                    for(int j = 0; j <= 100000000; j++){
+                        gp.npc[i].opacity -= 0.000000001f; 
+                        
+                    }
+                    
                     gp.npc[i] = null; 
                     gp.player.speed = 18; 
                 }

@@ -6,6 +6,7 @@ package Entity;
 
 import com.mycompany.primerjuego2d.main.GamePanel;
 import com.mycompany.primerjuego2d.main.UtilityTool;
+import java.awt.AlphaComposite;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -37,6 +38,9 @@ public class Entity {
     public int actionLockCounter = 0; // Para poder determinar la velocidad de NPC
     
     GamePanel gp; 
+    
+    // -- Prueba sobre animación 
+    public float opacity = 1.0f; 
     
     // -------------------------------------------------------------------------
     
@@ -146,7 +150,8 @@ public class Entity {
                         break;
                 }
         
-                  
+            AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, opacity); 
+            g2.setComposite(ac);
             g2.drawImage(image, screenX,screenY,gp.tileSize,gp.tileSize,null); 
         
         }
