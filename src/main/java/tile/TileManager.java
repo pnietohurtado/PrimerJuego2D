@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 
 /**
@@ -36,61 +38,64 @@ public class TileManager {
         this.gamePanel = gp; 
         
         // Leer información del "tile" 
+        InputStream is = getClass().getResourceAsStream("/maps/collision.txt"); 
+        BufferedReader br = new BufferedReader(new InputStreamReader(is)); 
         
-        tile = new Tile[30]; // The number of tile that we will have 
-        mapTileNum = new int[gamePanel.maxWorldCol][gamePanel.maxWorldRow]; 
+        String linea; 
         
+        try {
+            while((linea = br.readLine()) != null){
+                fileNames.add(linea); 
+                collisionStatus.add(br.readLine()); 
+            }
+            br.close(); 
+        } catch (IOException ex) {
+            Logger.getLogger(TileManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        tile = new Tile[fileNames.size()]; // The number of tile that we will have 
         getTileImage(); 
+        
+        
+        is = getClass().getResourceAsStream("/maps/MapaVF.txt"); 
+        br = new BufferedReader(new InputStreamReader(is)); 
+        
+        try{
+            String linea2 = br.readLine(); 
+            String maxTile[] = linea2.split(" "); 
+            gamePanel.maxWorldCol = maxTile.length; 
+            gamePanel.maxWorldRow = maxTile.length; 
+            
+            mapTileNum = new int[gamePanel.maxWorldCol][gamePanel.maxWorldRow]; 
+            br.close(); 
+        }catch(IOException e){
+            
+        }
+        
+        
+        
+        
         loadMap("/maps/MapaVF.txt"); 
     }
     
     public void getTileImage()
     {
-
+        for(int i = 0; i < fileNames.size(); i++){
             
-            /*Hierba*/
+            String fileName; 
+            boolean collision; 
             
-            setUp(0, "Cesped", noHayColision); 
-            setUp(1, "Cesped", noHayColision); 
-            setUp(2, "Cesped", noHayColision); 
-            setUp(3, "Cesped", noHayColision); 
-            setUp(4, "Cesped", noHayColision); 
-            setUp(5, "Cesped", noHayColision); 
-            setUp(6, "Cesped", noHayColision); 
-            setUp(7, "Cesped", noHayColision); 
-            setUp(8, "Cesped", noHayColision); 
-            setUp(9, "Cesped", noHayColision); 
-            setUp(10, "Cesped", noHayColision); 
+            fileName = fileNames.get(i); 
+            if(collisionStatus.get(i).equals("true")){
+                collision = true; 
+            }else{
+                collision = false; 
+            }
             
+            setUp(i, fileName, collision); 
             
-            /*Arboles*/
+        }
             
-            setUp(15, "ArbolManzanas", hayColision); 
-            
-            setUp(16, "ArbolNormal", hayColision); 
-            
-            setUp(17, "ArbolManzanasCaidas", hayColision); 
-            
-            
-            
-            
-            /*Camino*/
-            
-            setUp(19, "Camino", noHayColision); 
-            
-
-            
-            
-            
-            // Césped con Camino a la izquierda
-            setUp(21, "CespedCaminoIzq", noHayColision); 
-            setUp(22, "CespedCaminoEntero", noHayColision); 
-            setUp(23, "CespedCaminoDer", noHayColision); 
-            
-            
-            // Montaña para poder añadir relieve en el mapa
-            setUp(24, "MontañaFront", hayColision); 
-       
     }
     
     public void setUp(int index, String imagePath, boolean collsion){
@@ -99,7 +104,7 @@ public class TileManager {
         try{
             
             tile[index] = new Tile(); 
-            tile[index].image = ImageIO.read(getClass().getResourceAsStream("/Tiles/"+imagePath+".png")); 
+            tile[index].image = ImageIO.read(getClass().getResourceAsStream("/Tiles/"+imagePath)); 
             tile[index].image = uTool.scaleImage(tile[index].image, gamePanel.tileSize, gamePanel.tileSize); 
             tile[index].collision = collsion; 
             
