@@ -155,11 +155,7 @@ public class KeyHandler implements KeyListener{
                 }
                 
                 if(code == KeyEvent.VK_I){
-                    if(gp.gameState == gp.playState){
-                            gp.gameState = gp.inventoryState; 
-                        }else if(gp.gameState == gp.inventoryState){
-                            gp.gameState = gp.playState; 
-                        }
+                    gp.gameState = gp.inventoryState; 
                 }
         }
         
@@ -176,7 +172,11 @@ public class KeyHandler implements KeyListener{
         
         
         
-        
+        if(gp.gameState == gp.inventoryState){
+            if(code == KeyEvent.VK_ENTER){
+                gp.gameState = gp.playState; 
+            }
+        }
         
         // Title statement 
         

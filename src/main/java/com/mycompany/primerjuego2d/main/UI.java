@@ -10,6 +10,7 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Random;
@@ -142,10 +143,11 @@ public class UI {
     //--------------------------------------------------------------------------
     
     public void drawInventoryScreen(){
-        int x = gp.tileSize * 2; 
+        int x = gp.tileSize ; 
         int y = gp.tileSize / 2; 
-        int width = gp.screenWidth - (gp.tileSize * 4); 
-        int height = gp.tileSize * 4;
+        int width = gp.screenWidth - (gp.tileSize * 8); 
+        int height = gp.tileSize * 10;
+        int contador = 0; 
         
         int numeroAleatorio = random.nextInt(1); 
         
@@ -154,7 +156,25 @@ public class UI {
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
         x += gp.tileSize; 
         y += gp.tileSize; 
-        g2.drawString(textoNPC[numeroAleatorio], x, y);
+        for(int i = 0; i < gp.player.inventario.size(); i++){
+            
+           for(int k = 0; k < gp.player.inventario.size(); k++){
+               if(gp.player.inventario.get(k).equals(gp.player.inventario.get(i).name)){
+                   g2.drawImage(gp.player.inventario.get(k).image, x, y, gp.tileSize*2, gp.tileSize * 2, null); 
+               }
+           }
+           
+           g2.drawString(gp.player.inventario.get(i).name, x + (3 * gp.tileSize), y + (3 * gp.tileSize));
+           for(int j = 0; j < gp.player.inventario.size(); j++){
+               if(gp.player.inventario.get(j).name.equals(gp.player.inventario.get(i).name)){
+                   contador++; 
+               }
+           }
+           g2.drawString(String.valueOf(contador), x + ( 5 * gp.tileSize) , y);
+            //System.out.println(contador);
+            contador = 0; 
+        }
+        
     }
     
     

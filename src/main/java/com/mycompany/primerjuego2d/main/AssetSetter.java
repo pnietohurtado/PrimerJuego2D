@@ -35,14 +35,29 @@ public class AssetSetter {
         gp.obj[3].worldX = 56 * gp.tileSize; 
         gp.obj[3].worldY = 215 * gp.tileSize; 
         gp.obj[3].collision = true;
+        
+        gp.obj[4] = new OBJ_Pokeball(); 
+        gp.obj[4].worldX = 57 * gp.tileSize; 
+        gp.obj[4].worldY = 215 * gp.tileSize; 
+        gp.obj[4].collision = true;
+        
+        gp.obj[5] = new OBJ_Pokeball(); 
+        gp.obj[5].worldX = 58 * gp.tileSize; 
+        gp.obj[5].worldY = 215 * gp.tileSize; 
+        gp.obj[5].collision = true;
+        
+        gp.obj[6] = new OBJ_Pokeball(); 
+        gp.obj[6].worldX = 59 * gp.tileSize; 
+        gp.obj[6].worldY = 215 * gp.tileSize; 
+        gp.obj[6].collision = true;
     }
     
     public void setNPC(){ // Aquí es donde vamos a posicionar los NPC 
-        
+        /*
         gp.npc[0] = new NPC_CocheJuan(gp); 
         gp.npc[0].worldX = gp.tileSize * 57; 
         gp.npc[0].worldY = gp.tileSize * 215; 
-        
+        */
         /*
         gp.npc[1] = new NPC_CocheJuan(gp); 
         gp.npc[1].worldX = gp.tileSize * 28; 
