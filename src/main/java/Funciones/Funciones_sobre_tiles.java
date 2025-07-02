@@ -25,9 +25,8 @@ public class Funciones_sobre_tiles {
         posicionX = gp.player.worldX / gp.tileSize; 
         posicionY = gp.player.worldY / gp.tileSize; 
         
-        if((posicionX == 29 && posicionY == 399)|| (posicionX == 28 && posicionY == 399) || (posicionX == 27 && posicionY == 399)){
-                //gp.player.worldX = 29; 
-                //gp.player.worldY = 500; 
+        if((posicionX == 54 && posicionY == 207)|| (posicionX == 55 && posicionY == 207) || (posicionX == 56 && posicionY == 207) || (posicionX == 57 && posicionY == 207)){
+                System.out.println("JJAJAJ pillado");
         }
     }
 }

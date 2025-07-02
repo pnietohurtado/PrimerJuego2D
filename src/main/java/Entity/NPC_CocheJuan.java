@@ -47,20 +47,14 @@ public class NPC_CocheJuan extends Entity{
         
         actionLockCounter++; 
         
-        if(actionLockCounter == 120){
+        if(actionLockCounter == 200){
             Random random = new Random(); 
             int i = random.nextInt(100) + 1; // Elige un número desde 1 a 100 
 
-            if(i <= 25){
-                direction = "up"; 
-            }
-            else if(i > 25 && i <= 50){
-                direction = "down"; 
-            }
-            else if(i > 50 && i <= 75){
+            if(i > 0 && i <= 50){
                 direction = "left"; 
             }
-            else if(i > 75 && i <= 100){
+            else if(i > 50 && i <= 100){
                 direction = "right"; 
             }
             //System.out.println(i);

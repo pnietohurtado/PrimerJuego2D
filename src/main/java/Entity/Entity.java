@@ -96,7 +96,12 @@ public class Entity {
                         break; 
                 }
             }
-            
+        
+        /*
+            int npcIndex = gp.cH.checkEntity(this, gp.player); 
+            //int playerIndex = gp.cH.checkEntity(this, gp.player); 
+            interactNPC(npcIndex); 
+        */  
             spriteCounter++; 
             if(spriteCounter > 12){
                 if(spriteNum == 1){

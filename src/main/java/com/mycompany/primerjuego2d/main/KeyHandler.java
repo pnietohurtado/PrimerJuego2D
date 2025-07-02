@@ -74,6 +74,7 @@ public class KeyHandler implements KeyListener{
                 if(code == KeyEvent.VK_A)
                 {
                     this.leftPressed = true; 
+                    gp.fst.Encontrar();
                     /* Tried to make the player sprint when the key "SHIFT" is pressed
                     if(code == KeyEvent.VK_SHIFT){
                         System.out.println("FIUMMMMMM");
@@ -84,6 +85,7 @@ public class KeyHandler implements KeyListener{
                 if(code == KeyEvent.VK_D)
                 {
                     this.rightPressed = true; 
+                    gp.fst.Encontrar();
                 }if(code == KeyEvent.VK_K && gp.gameState == gp.playState)
                 {
                     if(showCollisions == false){
@@ -173,7 +175,7 @@ public class KeyHandler implements KeyListener{
         
         
         if(gp.gameState == gp.inventoryState){
-            if(code == KeyEvent.VK_ENTER){
+            if(code == KeyEvent.VK_ENTER ){
                 gp.gameState = gp.playState; 
             }
         }

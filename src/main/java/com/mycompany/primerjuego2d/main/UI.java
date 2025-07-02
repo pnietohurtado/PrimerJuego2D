@@ -158,19 +158,15 @@ public class UI {
         y += gp.tileSize; 
         for(int i = 0; i < gp.player.inventario.size(); i++){
             
-           for(int k = 0; k < gp.player.inventario.size(); k++){
-               if(gp.player.inventario.get(k).equals(gp.player.inventario.get(i).name)){
-                   g2.drawImage(gp.player.inventario.get(k).image, x, y, gp.tileSize*2, gp.tileSize * 2, null); 
-               }
-           }
+           g2.drawImage(gp.player.inventario.get(i).image, x, y, gp.tileSize*2, gp.tileSize * 2, null); 
            
-           g2.drawString(gp.player.inventario.get(i).name, x + (3 * gp.tileSize), y + (3 * gp.tileSize));
+           g2.drawString(gp.player.inventario.get(i).name, x + (2 * gp.tileSize), y + gp.tileSize);
            for(int j = 0; j < gp.player.inventario.size(); j++){
                if(gp.player.inventario.get(j).name.equals(gp.player.inventario.get(i).name)){
                    contador++; 
                }
            }
-           g2.drawString(String.valueOf(contador), x + ( 5 * gp.tileSize) , y);
+           g2.drawString(String.valueOf(contador), x + ( 5 * gp.tileSize) , y + gp.tileSize);
             //System.out.println(contador);
             contador = 0; 
         }
