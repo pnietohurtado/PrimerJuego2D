@@ -88,6 +88,8 @@ public class UI {
             drawTitleScreen(); 
         }else if(gp.gameState == gp.dialogueState){
             drawDialogueScreen(); 
+        }else if(gp.gameState == gp.inventoryState){
+            drawInventoryScreen(); 
         }
     }
     
@@ -138,6 +140,22 @@ public class UI {
         g2.drawString("PAUSED", x, y); 
     }
     //--------------------------------------------------------------------------
+    
+    public void drawInventoryScreen(){
+        int x = gp.tileSize * 2; 
+        int y = gp.tileSize / 2; 
+        int width = gp.screenWidth - (gp.tileSize * 4); 
+        int height = gp.tileSize * 4;
+        
+        int numeroAleatorio = random.nextInt(1); 
+        
+        drawSubWindow(x,y,width, height); 
+        
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
+        x += gp.tileSize; 
+        y += gp.tileSize; 
+        g2.drawString(textoNPC[numeroAleatorio], x, y);
+    }
     
     
     // ------------------- Opciones gráficas del menú --------------------------

@@ -172,14 +172,14 @@ public class Player extends Entity{
                     }
                     break; 
                 case "Pokeball": 
-                    if(keyHandler.interactEntity == true){
+                    //if(keyHandler.interactEntity == true){ // En el caso de que sea necesario pulsar para recoger
                         hasPokeball++; 
                         inventario.add(gp.obj[i]);
                         //gp.showInventory = true;  Para poder mostrar por pantalla el objeto que se ha recogido
                         gp.obj[i] = null; 
                         //gp.gameState = gp.dialogueState;  
                         System.out.println(inventario);
-                    }
+                    //}
                     break; 
             
             }
