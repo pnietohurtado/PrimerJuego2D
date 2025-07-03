@@ -119,6 +119,9 @@ public class Player extends Entity{
             int npcIndex = gp.cH.checkEntity(this, gp.npc); 
             //int playerIndex = gp.cH.checkEntity(this, gp.player); 
             interactNPC(npcIndex); 
+          
+          
+            encontrarPlayer(); 
             
             // If collision is false, player can't move 
             if(collision == false){
@@ -218,7 +221,7 @@ public class Player extends Entity{
     
     // -------------------------------------------------------------------------
     
-    
+
     
     // ------------ Función para dibujar las características del player --------
     

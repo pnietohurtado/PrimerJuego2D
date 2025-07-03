@@ -34,6 +34,7 @@ public class Entity {
     public Rectangle nearSolidArea ; 
     public int solidAreaDefaultX, solidAreaDefaultY; 
     public boolean collision = false; 
+    public boolean collisionPlayer = false; // Colisión del NPC con el jugador
     
     public int actionLockCounter = 0; // Para poder determinar la velocidad de NPC
     
@@ -70,7 +71,9 @@ public class Entity {
     // -------------------------------------------------------------------------
     
     
-    public void setAction(){}
+    public void setAction(){
+        
+    }
     public void update(){
         
         setAction(); 
@@ -78,9 +81,15 @@ public class Entity {
         collision = false; 
         gp.cH.checkTile(this);
         gp.cH.checkObject(this, false); 
-        gp.cH.checkPlayer(this);
+        gp.cH.checkPlayer(this); // Esto hace que exista colisión de el NPC con el player
         
-        if(collision == false){
+        /*
+        if(gp.cH.collisionPlayer == true){
+            gp.gameState = gp.dialogueState; 
+        }
+        */
+        
+        if(collision == false ){
                 switch(direction ){
                     case "up": 
                         worldY -= speed;  
@@ -96,6 +105,8 @@ public class Entity {
                         break; 
                 }
             }
+        
+            
         
         /*
             int npcIndex = gp.cH.checkEntity(this, gp.player); 
