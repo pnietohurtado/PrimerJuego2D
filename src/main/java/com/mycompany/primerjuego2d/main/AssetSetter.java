@@ -31,25 +31,33 @@ public class AssetSetter {
         gp.obj[2].worldY = 38 * gp.tileSize; 
         gp.obj[2].collision = true;
         */
-        gp.obj[0] = new OBJ_Pokeball(); 
-        gp.obj[0].worldX = 56 * gp.tileSize; 
+        
+        gp.obj[0] = new OBJ_Key(); 
+        gp.obj[0].worldX = 62 * gp.tileSize; 
         gp.obj[0].worldY = 215 * gp.tileSize; 
         gp.obj[0].collision = true;
+        gp.obj[0].multiplicadorSize = 2; // Se encarga de asignar un número de pixeles determinado en la pantalla
         
         gp.obj[1] = new OBJ_Pokeball(); 
-        gp.obj[1].worldX = 57 * gp.tileSize; 
+        gp.obj[1].worldX = 56 * gp.tileSize; 
         gp.obj[1].worldY = 215 * gp.tileSize; 
         gp.obj[1].collision = true;
         
         gp.obj[2] = new OBJ_Pokeball(); 
-        gp.obj[2].worldX = 58 * gp.tileSize; 
+        gp.obj[2].worldX = 57 * gp.tileSize; 
         gp.obj[2].worldY = 215 * gp.tileSize; 
         gp.obj[2].collision = true;
         
         gp.obj[3] = new OBJ_Pokeball(); 
-        gp.obj[3].worldX = 59 * gp.tileSize; 
+        gp.obj[3].worldX = 58 * gp.tileSize; 
         gp.obj[3].worldY = 215 * gp.tileSize; 
         gp.obj[3].collision = true;
+        
+        gp.obj[4] = new OBJ_Pokeball(); 
+        gp.obj[4].worldX = 59 * gp.tileSize; 
+        gp.obj[4].worldY = 215 * gp.tileSize; 
+        gp.obj[4].collision = true;
+        
     }
     
     public void setNPC(){ // Aquí es donde vamos a posicionar los NPC 
