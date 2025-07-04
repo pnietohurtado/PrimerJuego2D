@@ -5,7 +5,9 @@
 package tile;
 
 import com.mycompany.primerjuego2d.main.GamePanel;
+import com.mycompany.primerjuego2d.main.KeyHandler;
 import com.mycompany.primerjuego2d.main.UtilityTool;
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
@@ -24,6 +26,7 @@ import javax.imageio.ImageIO;
 public class TileManager {
     
     GamePanel gp; 
+    KeyHandler kH; 
     public Tile[] tile; 
     public int mapTileNum[][]; 
     ArrayList<String> fileNames = new ArrayList<>(); 
@@ -34,8 +37,9 @@ public class TileManager {
     public boolean noHayColision = false; 
     
     
-    public TileManager( GamePanel gp){
+    public TileManager( GamePanel gp, KeyHandler kH){
         this.gp = gp; 
+        this.kH = kH; 
         
         // Leer información del "tile" 
         InputStream is = getClass().getResourceAsStream("/maps/collision.txt"); 
@@ -168,6 +172,14 @@ public class TileManager {
                     
                 g2.drawImage(tile[tileNum].image, screenX,screenY,gp.tileSize,gp.tileSize,null); 
             }
+            
+            // ----------- Para poder enseñar las colisiones del personaje -----
+            if(this.kH.tileCollision == true){
+                //System.out.println("hola");
+                g2.setColor(Color.red); 
+                g2.drawRect(screenX , screenY , gp.screenHeight, gp.screenWidth);
+            }
+            // -----------------------------------------------------------------
 
             worldCol++; 
             

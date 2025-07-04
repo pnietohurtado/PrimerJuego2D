@@ -35,6 +35,8 @@ public class KeyHandler implements KeyListener{
     
     public boolean rightCorner; // Para comprobar que no haya más de dos elementos en la parte superior derecha como los FPS y las coordenadas
     
+    public boolean tileCollision; 
+    
     public GamePanel gp; 
     
     // -------------------------------------------------------------------------
@@ -158,6 +160,14 @@ public class KeyHandler implements KeyListener{
                 
                 if(code == KeyEvent.VK_I){
                     gp.gameState = gp.inventoryState; 
+                }
+                
+                if(code == KeyEvent.VK_H && gp.gameState == gp.playState ){
+                    if(tileCollision == false){
+                        this.tileCollision = true; 
+                    }else if(tileCollision == true){
+                        this.tileCollision = false; 
+                    }
                 }
         }
         

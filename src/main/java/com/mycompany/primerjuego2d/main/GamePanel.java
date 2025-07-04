@@ -51,11 +51,12 @@ public class GamePanel extends JPanel implements Runnable{
     // Variables para el inventario 
     public boolean showInventory = false; 
     
-    //Incatnce of the tile
-    TileManager tileManager = new TileManager(this); 
-    
     //Instanciate the keyHandler 
     KeyHandler keyHandler = new KeyHandler(this); 
+    
+    
+    //Incatnce of the tile
+    TileManager tileManager = new TileManager(this, keyHandler); 
     
     // Here's de "Game Clock" 
     Thread gameThread; 
