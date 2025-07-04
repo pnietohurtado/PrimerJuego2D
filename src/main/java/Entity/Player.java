@@ -120,8 +120,6 @@ public class Player extends Entity{
             //int playerIndex = gp.cH.checkEntity(this, gp.player); 
             interactNPC(npcIndex); 
           
-          
-            encontrarPlayer(); 
             
             // If collision is false, player can't move 
             if(collision == false){
@@ -193,7 +191,7 @@ public class Player extends Entity{
     
     
     // ------------------- Interacciones del Jugador con el NPC ----------------
-    
+    public int numero = 0; 
     public void interactNPC(int i){
         if(i != 999){
             
@@ -215,7 +213,7 @@ public class Player extends Entity{
             
             }
             
-            
+         numero = i;    
         }
     }
     

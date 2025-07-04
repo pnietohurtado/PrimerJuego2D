@@ -17,6 +17,7 @@ import javax.imageio.ImageIO;
  * @author pablo
  */
 public class NPC_CocheJuan extends Entity{
+   
     
     public NPC_CocheJuan(GamePanel gp) {
         super(gp);

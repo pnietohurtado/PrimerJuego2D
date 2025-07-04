@@ -19,6 +19,8 @@ public class Funciones_sobre_tiles {
         this.gp = gp; 
     }
     
+    private int actionCount1 = 1; 
+    
     
     
     public void Encontrar(){
@@ -26,7 +28,10 @@ public class Funciones_sobre_tiles {
         posicionY = gp.player.worldY / gp.tileSize; 
         
         if((posicionX == 54 && posicionY == 207)|| (posicionX == 55 && posicionY == 207) || (posicionX == 56 && posicionY == 207) || (posicionX == 57 && posicionY == 207)){
-                //System.out.println("JJAJAJ pillado");
+//            if(actionCount1 > 0){
+//                gp.gameState = gp.dialogueState; 
+//                actionCount1 = 0; 
+//            }
         }
     }
 }

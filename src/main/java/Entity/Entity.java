@@ -34,7 +34,9 @@ public class Entity {
     public Rectangle nearSolidArea ; 
     public int solidAreaDefaultX, solidAreaDefaultY; 
     public boolean collision = false; 
-    public boolean collisionPlayer = false; // Colisión del NPC con el jugador
+    
+    public int actionCountNPC = 0;  // Interacciones del NPC por colision del usuario
+    public boolean collisionPlayer = false; 
     
     public int actionLockCounter = 0; // Para poder determinar la velocidad de NPC
     
@@ -74,6 +76,8 @@ public class Entity {
     public void setAction(){
         
     }
+    
+    
     public void update(){
         
         setAction(); 
@@ -83,11 +87,14 @@ public class Entity {
         gp.cH.checkObject(this, false); 
         gp.cH.checkPlayer(this); // Esto hace que exista colisión de el NPC con el player
         
-        /*
-        if(gp.cH.collisionPlayer == true){
+        //int npcIndex = gp.cH.checkEntity(this, gp.npc); 
+        
+        //Forma de que el NPC interactue con el player 
+        if(gp.npc[gp.player.numero].actionCountNPC == 1 && gp.cH.collisionPlayer == true ){
             gp.gameState = gp.dialogueState; 
+            gp.npc[gp.player.numero].actionCountNPC = 0; 
         }
-        */
+        
         
         if(collision == false ){
                 switch(direction ){
