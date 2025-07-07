@@ -36,6 +36,8 @@ public class Player extends Entity{
     //public int hasKey = 0; // How many key the player currently has 
     public int hasPokeball = 0; // It works as a "Inventory" 
     public int hasKey = 0;
+    public int hasHacha = 0; 
+    
     
     
     
@@ -195,6 +197,19 @@ public class Player extends Entity{
                         System.out.println(inventario);
                     //}
                     break; 
+                    
+                
+                case "Hacha": 
+                    //if(keyHandler.interactEntity == true){ // En el caso de que sea necesario pulsar para recoger
+                        hasHacha++; 
+                        inventario.add(gp.obj[i]);
+                        //gp.showInventory = true;  Para poder mostrar por pantalla el objeto que se ha recogido
+                        gp.obj[i] = null; 
+                        //gp.gameState = gp.dialogueState;  
+                        System.out.println(inventario);
+                    //}
+                    break; 
+                    
             
             }
         }
@@ -211,7 +226,7 @@ public class Player extends Entity{
             if(keyHandler.interactEntity == false){
                 
                 gp.gameState = gp.dialogueState; 
-                int numeroAleatorio = random.nextInt(11) + 1;  
+                int numeroAleatorio = random.nextInt(5) + 1;  
                 
                 if(numeroAleatorio == 1){ // Existe una posibilidad de que desaparezca el NPC 
                     

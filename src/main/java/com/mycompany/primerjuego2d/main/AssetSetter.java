@@ -5,8 +5,7 @@
 package com.mycompany.primerjuego2d.main;
 
 import Entity.NPC_CocheJuan;
-import Objects.OBJ_Key;
-import Objects.OBJ_Pokeball;
+import Objects.*;
 
 /**
  *
@@ -60,6 +59,12 @@ public class AssetSetter {
         gp.obj[4].worldX = 59 * gp.tileSize; 
         gp.obj[4].worldY = 215 * gp.tileSize; 
         gp.obj[4].collision = true;
+       
+        gp.obj[5] = new OBJ_Hacha(); 
+        gp.obj[5].worldX = 61 * gp.tileSize; 
+        gp.obj[5].worldY = 215 * gp.tileSize; 
+        gp.obj[5].collision = true;
+        
         
     }
     

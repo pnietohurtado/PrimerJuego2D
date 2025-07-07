@@ -142,6 +142,8 @@ public class UI {
     }
     //--------------------------------------------------------------------------
     
+    String nombresInventario[] = new String[10]; 
+    
     public void drawInventoryScreen(){
         int x = gp.tileSize ; 
         int y = gp.tileSize / 2; 
@@ -150,6 +152,7 @@ public class UI {
         int contador = 0; 
         
         int numeroAleatorio = random.nextInt(1); 
+        boolean repe = false; 
         
         drawSubWindow(x,y,width, height); 
         
@@ -158,17 +161,30 @@ public class UI {
         y += gp.tileSize; 
         for(int i = 0; i < gp.player.inventario.size(); i++){
             
-           g2.drawImage(gp.player.inventario.get(i).image, x, y, gp.tileSize*2, gp.tileSize * 2, null); 
-           
-           g2.drawString(gp.player.inventario.get(i).name, x + (2 * gp.tileSize), y + gp.tileSize);
-           for(int j = 0; j < gp.player.inventario.size(); j++){
-               if(gp.player.inventario.get(j).name.equals(gp.player.inventario.get(i).name)){
-                   contador++; 
-               }
-           }
-           g2.drawString(String.valueOf(contador), x + ( 5 * gp.tileSize) , y + gp.tileSize);
-            //System.out.println(contador);
-            contador = 0; 
+            
+            for(int k = 0; k < nombresInventario.length ; k++){
+                if(gp.player.inventario.get(i).name.equals(nombresInventario[k])){
+                    repe = true; 
+                }
+            }
+            
+            nombresInventario[i] = gp.player.inventario.get(i).name; 
+            
+            if(repe != true){
+                g2.drawImage(gp.player.inventario.get(i).image, x, y, gp.tileSize*2, gp.tileSize * 2, null); 
+
+                g2.drawString(gp.player.inventario.get(i).name, x + (2 * gp.tileSize), y + gp.tileSize);
+                for(int j = 0; j < gp.player.inventario.size(); j++){
+                    if(gp.player.inventario.get(j).name.equals(gp.player.inventario.get(i).name)){
+                        contador++; 
+                    }
+
+                }
+                g2.drawString(String.valueOf(contador), x + ( 5 * gp.tileSize) , y + gp.tileSize);
+                y += gp.tileSize;
+                 //System.out.println(contador);
+                 contador = 0; 
+            } 
         }
         
     }
