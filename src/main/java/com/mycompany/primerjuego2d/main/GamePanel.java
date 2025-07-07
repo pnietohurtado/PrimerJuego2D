@@ -57,6 +57,8 @@ public class GamePanel extends JPanel implements Runnable{
     //Instanciate the keyHandler 
     KeyHandler keyHandler = new KeyHandler(this); 
     
+    // Añadimos un Lector de "Mouse"
+    MouseClicker mClicker = new MouseClicker(this); 
     
     //Incatnce of the tile
     TileManager tileManager = new TileManager(this, keyHandler); 
@@ -113,6 +115,7 @@ public class GamePanel extends JPanel implements Runnable{
         this.setBackground(Color.black); 
         this.setDoubleBuffered(true); 
         this.addKeyListener(keyHandler);
+        this.addMouseListener(mClicker);
         this.setFocusable(true);
     }
     

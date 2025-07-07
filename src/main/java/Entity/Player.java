@@ -75,14 +75,14 @@ public class Player extends Entity{
     
     // ---------------- Variables de prueba sobre las skins player -------------
     
-    String front1[] = {"/player/Front1","/NPC/CocheFront"}; 
-    String front2[] = {"/player/Front2","/NPC/CocheFront"}; 
-    String right1[] = {"/player/Rigth1","/NPC/CocheR1"};  
-    String right2[] = {"/player/Rigth1","/NPC/CocheR2"}; 
-    String left1[] = {"/player/Left1","/NPC/CocheL1"}; 
-    String left2[] = {"/player/Left2","/NPC/CocheL2"}; 
-    String back1[] = {"/player/Up1","/NPC/CocheB"}; 
-    String back2[] = {"/player/Up2","/NPC/CocheB"}; 
+    String front1[] = {"/player/Front1","/NPC/CocheFront", "/player/Front1"}; 
+    String front2[] = {"/player/Front2","/NPC/CocheFront", "/player/Front2"}; 
+    String right1[] = {"/player/Rigth1","/NPC/CocheR1",  "/player/Rigth1"};  
+    String right2[] = {"/player/Rigth2","/NPC/CocheR2", "/player/Rigth2"}; 
+    String left1[] = {"/player/Left1","/NPC/CocheL1", "/player/Left1"}; 
+    String left2[] = {"/player/Left2","/NPC/CocheL2", "/player/Left2"}; 
+    String back1[] = {"/player/Up1","/NPC/CocheB", "/JugadorOBJ/Up"}; 
+    String back2[] = {"/player/Up2","/NPC/CocheB", "/JugadorOBJ/Up2"}; 
     
     // -------------------------------------------------------------------------
     
@@ -205,6 +205,7 @@ public class Player extends Entity{
                         inventario.add(gp.obj[i]);
                         //gp.showInventory = true;  Para poder mostrar por pantalla el objeto que se ha recogido
                         gp.obj[i] = null; 
+                        gp.skinAppereance = 2; 
                         //gp.gameState = gp.dialogueState;  
                         System.out.println(inventario);
                     //}

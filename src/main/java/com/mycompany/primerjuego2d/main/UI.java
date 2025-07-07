@@ -143,8 +143,11 @@ public class UI {
     //--------------------------------------------------------------------------
     
     String nombresInventario[] = new String[10]; 
-    
+     
     public void drawInventoryScreen(){
+        
+        // Hay que tener en cuenta que esta función se va a repetir constantemente 
+        
         int x = gp.tileSize ; 
         int y = gp.tileSize / 2; 
         int width = gp.screenWidth - (gp.tileSize * 8); 
@@ -161,7 +164,7 @@ public class UI {
         y += gp.tileSize; 
         for(int i = 0; i < gp.player.inventario.size(); i++){
             
-            
+            /*
             for(int k = 0; k < nombresInventario.length ; k++){
                 if(gp.player.inventario.get(i).name.equals(nombresInventario[k])){
                     repe = true; 
@@ -171,6 +174,7 @@ public class UI {
             nombresInventario[i] = gp.player.inventario.get(i).name; 
             
             if(repe != true){
+            */
                 g2.drawImage(gp.player.inventario.get(i).image, x, y, gp.tileSize*2, gp.tileSize * 2, null); 
 
                 g2.drawString(gp.player.inventario.get(i).name, x + (2 * gp.tileSize), y + gp.tileSize);
@@ -184,7 +188,9 @@ public class UI {
                 y += gp.tileSize;
                  //System.out.println(contador);
                  contador = 0; 
-            } 
+            // } 
+            
+            //repe = false; 
         }
         
     }
