@@ -32,11 +32,14 @@ public class AssetSetter {
         gp.obj[2].collision = true;
         */
         
+        /*
         gp.obj[0] = new OBJ_Key(); 
-        gp.obj[0].worldX = 62 * gp.tileSize; 
-        gp.obj[0].worldY = 215 * gp.tileSize; 
+        gp.obj[0].worldX = 47 * gp.tileSize; 
+        gp.obj[0].worldY = 212 * gp.tileSize; 
         gp.obj[0].collision = true;
-        gp.obj[0].multiplicadorSize = 2; // Se encarga de asignar un número de pixeles determinado en la pantalla
+        gp.obj[0].multiplicadorSizeX = 8; // Se encarga de asignar un número de pixeles determinado en la pantalla
+        gp.obj[0].multiplicadorSizeY = 4;
+        */
         
         gp.obj[1] = new OBJ_Pokeball(); 
         gp.obj[1].worldX = 56 * gp.tileSize; 

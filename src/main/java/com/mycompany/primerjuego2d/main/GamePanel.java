@@ -40,6 +40,9 @@ public class GamePanel extends JPanel implements Runnable{
     public final int worldWidth = tileSize * maxWorldCol;
     public final int worldHeigth = tileSize * maxWorldRow;
     
+    // Skin del jugador 
+    public int skinAppereance = 0; 
+    
     // FPS 
     final int FPS = 60;
   

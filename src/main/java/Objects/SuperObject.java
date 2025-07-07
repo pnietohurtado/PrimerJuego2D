@@ -29,7 +29,8 @@ public class SuperObject
     public int solidAreaDefaultY = 0;
     
     // ------- En el caso de que queramos que el objeto sea más grande ---------
-    public int multiplicadorSize = 1; 
+    public int multiplicadorSizeX = 1; 
+    public int multiplicadorSizeY = 1; 
     // -------------------------------------------------------------------------
     
     public void draw(Graphics2D g2, GamePanel gamePanel){
@@ -41,7 +42,7 @@ public class SuperObject
             worldY + gamePanel.tileSize > gamePanel.player.worldY - gamePanel.player.screenY &&
             worldY - gamePanel.tileSize < gamePanel.player.worldY + gamePanel.player.screenY){
                   
-            g2.drawImage(image, screenX,screenY,(gamePanel.tileSize) * multiplicadorSize,(gamePanel.tileSize) * multiplicadorSize,null); 
+            g2.drawImage(image, screenX,screenY,(gamePanel.tileSize) * multiplicadorSizeX,(gamePanel.tileSize) * multiplicadorSizeY,null); 
         
         }
         /*

@@ -71,17 +71,30 @@ public class Player extends Entity{
         direction = "down"; 
     }
     
+    // ---------------- Variables de prueba sobre las skins player -------------
+    
+    String front1[] = {"/player/Front1","/NPC/CocheFront"}; 
+    String front2[] = {"/player/Front2","/NPC/CocheFront"}; 
+    String right1[] = {"/player/Rigth1","/NPC/CocheR1"};  
+    String right2[] = {"/player/Rigth1","/NPC/CocheR2"}; 
+    String left1[] = {"/player/Left1","/NPC/CocheL1"}; 
+    String left2[] = {"/player/Left2","/NPC/CocheL2"}; 
+    String back1[] = {"/player/Up1","/NPC/CocheB"}; 
+    String back2[] = {"/player/Up2","/NPC/CocheB"}; 
+    
+    // -------------------------------------------------------------------------
+    
     public void getPlayerImage()
     {
        
-        f1 = setUp("/player/Front1");
-        f2 = setUp("/player/Front2");
-        r1 = setUp("/player/Rigth1");
-        r2 = setUp("/player/Rigth2");
-        l1 = setUp("/player/Left1");
-        l2 = setUp("/player/Left2");
-        b1 = setUp("/player/Up1");
-        b2 = setUp("/player/Up2");
+        f1 = setUp(front1[gp.skinAppereance]);
+        f2 = setUp(front2[gp.skinAppereance]);
+        r1 = setUp(right1[gp.skinAppereance]);
+        r2 = setUp(right2[gp.skinAppereance]);
+        l1 = setUp(left1[gp.skinAppereance]);
+        l2 = setUp(left2[gp.skinAppereance]);
+        b1 = setUp(back1[gp.skinAppereance]);
+        b2 = setUp(back2[gp.skinAppereance]);
        
     }
    
@@ -201,13 +214,9 @@ public class Player extends Entity{
                 int numeroAleatorio = random.nextInt(11) + 1;  
                 
                 if(numeroAleatorio == 1){ // Existe una posibilidad de que desaparezca el NPC 
-                    System.out.println("Jackpot");
-                    for(int j = 0; j <= 100000000; j++){
-                        gp.npc[i].opacity -= 0.000000001f; 
-                        
-                    }
                     
                     gp.npc[i] = null; 
+                    gp.skinAppereance = 1; 
                     gp.player.speed = 18; 
                 }
             
@@ -229,6 +238,8 @@ public class Player extends Entity{
         g2.setColor(Color.white); 
         g2.fillRect(this.x, this.y, gamePanel.tileSize, gamePanel.tileSize);  
         */
+        
+        getPlayerImage(); // Ayuda a actualizar la skin del personaje y este pueda cambiar
         
         BufferedImage image = null; 
         switch(direction) {
