@@ -36,17 +36,25 @@ public class Player extends Entity{
     //public int hasKey = 0; // How many key the player currently has 
     public int hasPokeball = 0; // It works as a "Inventory" 
     public int hasKey = 0;
+    
     public int hasHacha = 0; 
+    public boolean changeSkin; 
+    
+    public ArrayList<Integer> cantidades;  
     
     
     
-    
-    public ArrayList<SuperObject> inventario = new ArrayList<>(); 
+    public ArrayList<SuperObject> inventario; 
     
     public Player(GamePanel gp, KeyHandler kh){
         super(gp); 
         
         this.keyHandler = kh; 
+        
+        inventario = new ArrayList<>(); 
+        cantidades = new ArrayList<>(); 
+         
+        objetosInventario(); 
         
         screenX = gp.screenWidth/2 - (gp.tileSize / 2); 
         screenY = gp.screenHeight/2 - (gp.tileSize /2); 
@@ -63,6 +71,11 @@ public class Player extends Entity{
         
         setDefaultValues(); 
         getPlayerImage(); 
+    }
+    
+    public void objetosInventario(){
+        cantidades.add(hasPokeball); 
+        cantidades.add(hasHacha); 
     }
     
     public void setDefaultValues()
@@ -168,7 +181,7 @@ public class Player extends Entity{
     }
     
     // ------------------- Interacción del jugador con un objeto ---------------
-    
+   
     public void pickUpObject(int i){
         if(i != 999){
             System.out.println("obj -> " +i);
@@ -205,7 +218,10 @@ public class Player extends Entity{
                         inventario.add(gp.obj[i]);
                         //gp.showInventory = true;  Para poder mostrar por pantalla el objeto que se ha recogido
                         gp.obj[i] = null; 
+                        
                         gp.skinAppereance = 2; 
+                        changeSkin = true; 
+                        
                         //gp.gameState = gp.dialogueState;  
                         System.out.println(inventario);
                     //}
@@ -254,8 +270,10 @@ public class Player extends Entity{
         g2.setColor(Color.white); 
         g2.fillRect(this.x, this.y, gamePanel.tileSize, gamePanel.tileSize);  
         */
-        
-        getPlayerImage(); // Ayuda a actualizar la skin del personaje y este pueda cambiar
+        if(changeSkin == true){ // Si no hago esto se realentiza bastante el juego 
+            getPlayerImage(); // Ayuda a actualizar la skin del personaje y este pueda cambiar
+            changeSkin = false; 
+        }
         
         BufferedImage image = null; 
         switch(direction) {

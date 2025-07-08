@@ -6,6 +6,7 @@ package com.mycompany.primerjuego2d.main;
 
 import Objects.OBJ_Key;
 import Objects.OBJ_Pokeball;
+import Objects.SuperObject;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -13,7 +14,9 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.Random;
+import java.util.Set;
 
 /**
  *
@@ -27,6 +30,8 @@ public class UI {
     Font arial_40; 
     Graphics2D g2; 
     BufferedImage pokeImage; 
+    ArrayList<SuperObject> inventario; 
+    Set<SuperObject> objetosUnicos; 
     
     // ---------------------- Variabes menos importantes -----------------------
     
@@ -44,6 +49,8 @@ public class UI {
     
     public UI(GamePanel gp){
         this.gp = gp; 
+        
+        
         
         arial_40 = new Font("Arial", Font.PLAIN, 40); 
         //OBJ_Key key = new OBJ_Key(); 
@@ -142,7 +149,6 @@ public class UI {
     }
     //--------------------------------------------------------------------------
     
-    String nombresInventario[] = new String[10]; 
      
     public void drawInventoryScreen(){
         
@@ -154,43 +160,26 @@ public class UI {
         int height = gp.tileSize * 10;
         int contador = 0; 
         
-        int numeroAleatorio = random.nextInt(1); 
-        boolean repe = false; 
-        
         drawSubWindow(x,y,width, height); 
+        
+        objetosUnicos = new LinkedHashSet<>(this.gp.player.inventario); 
+        inventario = new ArrayList<>(objetosUnicos);
         
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
         x += gp.tileSize; 
         y += gp.tileSize; 
-        for(int i = 0; i < gp.player.inventario.size(); i++){
-            
-            /*
-            for(int k = 0; k < nombresInventario.length ; k++){
-                if(gp.player.inventario.get(i).name.equals(nombresInventario[k])){
-                    repe = true; 
-                }
-            }
-            
-            nombresInventario[i] = gp.player.inventario.get(i).name; 
-            
-            if(repe != true){
-            */
-                g2.drawImage(gp.player.inventario.get(i).image, x, y, gp.tileSize*2, gp.tileSize * 2, null); 
+        
+        System.out.println(objetosUnicos);
+        for(int i = 0; i < inventario.size(); i++){
+                
+                g2.drawImage(inventario.get(i).image, x, y, gp.tileSize*2, gp.tileSize * 2, null); 
 
-                g2.drawString(gp.player.inventario.get(i).name, x + (2 * gp.tileSize), y + gp.tileSize);
-                for(int j = 0; j < gp.player.inventario.size(); j++){
-                    if(gp.player.inventario.get(j).name.equals(gp.player.inventario.get(i).name)){
-                        contador++; 
-                    }
-
-                }
-                g2.drawString(String.valueOf(contador), x + ( 5 * gp.tileSize) , y + gp.tileSize);
+                g2.drawString(inventario.get(i).name, x + (2 * gp.tileSize), y + gp.tileSize);
+               
+                
+                g2.drawString(String.valueOf(gp.player.hasPokeball), x + ( 5 * gp.tileSize) , y + gp.tileSize);
                 y += gp.tileSize;
-                 //System.out.println(contador);
-                 contador = 0; 
-            // } 
-            
-            //repe = false; 
+         
         }
         
     }

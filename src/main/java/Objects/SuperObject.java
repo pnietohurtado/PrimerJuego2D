@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+import java.util.Objects;
 
 /**
  *
@@ -60,4 +61,28 @@ public class SuperObject
         sb.append(name).append("\n"); 
         return sb.toString(); 
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 17 * hash + Objects.hashCode(this.name);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final SuperObject other = (SuperObject) obj;
+        return Objects.equals(this.name, other.name);
+    }
+    
+    
 }
