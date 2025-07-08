@@ -88,8 +88,8 @@ public class Player extends Entity{
     
     // ---------------- Variables de prueba sobre las skins player -------------
     
-    String front1[] = {"/player/Front1","/NPC/CocheFront", "/player/Front1"}; 
-    String front2[] = {"/player/Front2","/NPC/CocheFront", "/player/Front2"}; 
+    String front1[] = {"/player/Front1","/NPC/CocheFront", "/JugadorOBJ/Front1"}; 
+    String front2[] = {"/player/Front2","/NPC/CocheFront", "/JugadorOBJ/Front2"}; 
     String right1[] = {"/player/Rigth1","/NPC/CocheR1",  "/player/Rigth1"};  
     String right2[] = {"/player/Rigth2","/NPC/CocheR2", "/player/Rigth2"}; 
     String left1[] = {"/player/Left1","/NPC/CocheL1", "/player/Left1"}; 
@@ -219,8 +219,10 @@ public class Player extends Entity{
                         //gp.showInventory = true;  Para poder mostrar por pantalla el objeto que se ha recogido
                         gp.obj[i] = null; 
                         
+                        // ---------- Ambas variables son necesarias para cambiar skin
                         gp.skinAppereance = 2; 
                         changeSkin = true; 
+                        // -----------------------------------------------------
                         
                         //gp.gameState = gp.dialogueState;  
                         System.out.println(inventario);
@@ -248,7 +250,12 @@ public class Player extends Entity{
                 if(numeroAleatorio == 1){ // Existe una posibilidad de que desaparezca el NPC 
                     
                     gp.npc[i] = null; 
+                    
+                    // ---------- Ambas variables son necesarias para cambiar skin
                     gp.skinAppereance = 1; 
+                    changeSkin = true; 
+                    // ---------------------------------------------------------
+                    
                     gp.player.speed = 18; 
                 }
             

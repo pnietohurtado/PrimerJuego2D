@@ -14,7 +14,9 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
+import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
@@ -162,23 +164,33 @@ public class UI {
         
         drawSubWindow(x,y,width, height); 
         
+        
+        
         objetosUnicos = new LinkedHashSet<>(this.gp.player.inventario); 
         inventario = new ArrayList<>(objetosUnicos);
+        Map<String, Integer> cantidades = new HashMap<>(); 
         
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
         x += gp.tileSize; 
         y += gp.tileSize; 
-        
-        System.out.println(objetosUnicos);
+
         for(int i = 0; i < inventario.size(); i++){
-                
+                contador = 0; 
+            
                 g2.drawImage(inventario.get(i).image, x, y, gp.tileSize*2, gp.tileSize * 2, null); 
 
                 g2.drawString(inventario.get(i).name, x + (2 * gp.tileSize), y + gp.tileSize);
-               
                 
-                g2.drawString(String.valueOf(gp.player.hasPokeball), x + ( 5 * gp.tileSize) , y + gp.tileSize);
+                for(int j = 0; j < gp.player.inventario.size(); j++){
+                    if(gp.player.inventario.get(j).name.equals(gp.player.inventario.get(i).name)){
+                        
+                        contador++; 
+                    }
+                }
+                
+                g2.drawString(String.valueOf(contador), x + ( 5 * gp.tileSize) , y + gp.tileSize);
                 y += gp.tileSize;
+                
          
         }
         

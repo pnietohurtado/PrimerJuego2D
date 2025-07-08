@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -25,6 +26,12 @@ public class MouseClicker implements MouseListener{
     public void mouseClicked(MouseEvent e) {
         this.clickX = e.getX() / gp.tileSize; 
         this.clickY = e.getY() / gp.tileSize;
+        
+        if(gp.gameState == gp.titleState){
+            if((this.clickX >= 5 || this.clickX <= 10) && this.clickY == 8) {
+                gp.gameState = gp.playState; 
+            }
+        }
         
         System.out.println("Pulsando en la casilla " + clickX + " " + clickY);
     }
