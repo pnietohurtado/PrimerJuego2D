@@ -188,7 +188,6 @@ public class Player extends Entity{
    
     public void pickUpObject(int i){
         if(i != 999){
-            System.out.println("obj -> " +i);
             
             String objectName = gp.obj[i].name; 
             
@@ -200,7 +199,6 @@ public class Player extends Entity{
                         hasKey++; 
                         inventario.add(gp.obj[i]);
                         gp.obj[i] = null; 
-                        gp.ui.showMessage("You got a key!"); 
                    
                     }
                     break; 
@@ -208,10 +206,13 @@ public class Player extends Entity{
                     //if(keyHandler.interactEntity == true){ // En el caso de que sea necesario pulsar para recoger
                         hasPokeball++; 
                         inventario.add(gp.obj[i]);
-                        //gp.showInventory = true;  Para poder mostrar por pantalla el objeto que se ha recogido
                         gp.obj[i] = null; 
-                        //gp.gameState = gp.dialogueState;  
-                        System.out.println(inventario);
+
+                        
+                        gp.sonido.volume = -10.0f; 
+                        gp.playMusicOnce(2); // Para poder poner la música 
+                        
+                        
                     //}
                     break; 
                     

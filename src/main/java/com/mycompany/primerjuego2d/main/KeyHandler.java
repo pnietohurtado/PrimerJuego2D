@@ -121,6 +121,9 @@ public class KeyHandler implements KeyListener{
                 }
                 if(code == KeyEvent.VK_ESCAPE) // In order to pause the game
                 {
+                    gp.sonido.volume = -10.0f; 
+                    gp.playMusicOnce(3); // Para poder poner la música 
+                    
                     gp.gameState = gp.pauseState; 
 
                 }

@@ -8,6 +8,7 @@ import java.net.URL;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 
 /**
  *
@@ -17,25 +18,29 @@ public class Sound {
     
     Clip clip; 
     URL soundURL[] = new URL[10]; 
-    
+    public float volume; 
     
     public Sound(){
-        soundURL[1] = getClass().getResource("/sonido/Music.wav"); 
+        soundURL[1] = getClass().getResource("/sonido/ThemeSong.wav"); 
+        soundURL[2] = getClass().getResource("/sonido/Coger.wav"); 
+        soundURL[3] = getClass().getResource("/sonido/EntrarMenu.wav"); 
+        this.volume = -20.0f; 
     }
     
     
     public void setFile(int i){
         try{
             try(AudioInputStream ais = AudioSystem.getAudioInputStream(soundURL[i])){
-                System.out.println("Funciona");
-            } catch(Exception e){
-                System.out.println("No va");
-            }
-            
             clip = AudioSystem.getClip(); 
-            System.out.println("clip -> "+ clip);
+            clip.open(ais); 
             
-            //clip.open(ais); 
+            FloatControl audioVolume = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN); 
+            audioVolume.setValue(volume);
+            
+            } catch(Exception e){
+
+            }
+
         }catch(Exception e){
             
         }
