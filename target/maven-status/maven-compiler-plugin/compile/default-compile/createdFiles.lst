@@ -13,6 +13,7 @@ Objects\OBJ_Pokeball.class
 com\mycompany\primerjuego2d\main\Sound.class
 com\mycompany\primerjuego2d\main\KeyHandler.class
 Funciones\Funciones_sobre_tiles.class
+Conexion\Conexion.class
 Objects\OBJ_Hacha.class
 Entity\Player.class
 com\mycompany\primerjuego2d\main\main.class

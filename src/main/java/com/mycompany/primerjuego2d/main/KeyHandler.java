@@ -4,9 +4,16 @@
  */
 package com.mycompany.primerjuego2d.main;
 
+import Conexion.Conexion;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -14,6 +21,14 @@ import java.awt.event.KeyListener;
  */
 public class KeyHandler implements KeyListener{
 
+    // Conexion para poder guardar la partida
+    private Connection getConnection() throws SQLException{
+        return Conexion.getConnection(); 
+    }
+    
+    PreparedStatement pt; 
+    ResultSet rs; 
+    
     
     // ------------------------- Variables de esta clase -----------------------
     
@@ -60,7 +75,7 @@ public class KeyHandler implements KeyListener{
         
         // En el caso de que el juego este pausado podemos seguir pulsando teclas
         
-        if (gp.gameState == gp.playState || gp.gameState == gp.pauseState){
+        if (gp.gameState == gp.playState ){
                     if(code == KeyEvent.VK_W)
                 {
                     this.upPressed = true; 
@@ -88,7 +103,7 @@ public class KeyHandler implements KeyListener{
                 {
                     this.rightPressed = true; 
                     gp.fst.Encontrar();
-                }if(code == KeyEvent.VK_K && gp.gameState == gp.playState)
+                }if(code == KeyEvent.VK_K)
                 {
                     if(showCollisions == false){
                         this.showCollisions = true; 
@@ -96,7 +111,7 @@ public class KeyHandler implements KeyListener{
                         this.showCollisions = false; 
                     }
                 }  
-                if(code == KeyEvent.VK_F3 && gp.gameState == gp.playState){
+                if(code == KeyEvent.VK_F3){
                     
                     if(showData == true){
                         showData = false; 
@@ -106,26 +121,8 @@ public class KeyHandler implements KeyListener{
                 }
                 if(code == KeyEvent.VK_ESCAPE) // In order to pause the game
                 {
-                    System.out.println("activa ESCAPE ");
-                    //if(pauseGame == false){
-                        if(gp.gameState == gp.playState){
-                            gp.gameState = gp.pauseState; 
-                        }else if(gp.gameState == gp.pauseState){
-                            gp.gameState = gp.playState; 
-                        }
-                        
-                        
-                    /*
-                    }else{
-                        if(gp.gameState == gp.pauseState){
-                            gp.gameState = gp.playState; 
-                        }else if(gp.gameState == gp.playState){
-                            gp.gameState = gp.pauseState; 
-                        }
-                        pauseGame = false; 
-                        System.out.println(pauseGame);
-                    }
-                    */
+                    gp.gameState = gp.pauseState; 
+
                 }
                 
                 // ---------------- Cambiar al modo Dios -----------------------
@@ -172,6 +169,44 @@ public class KeyHandler implements KeyListener{
         }
         
         
+        // Pause Game 
+        
+        if(gp.gameState == gp.pauseState){
+            
+            if(code == KeyEvent.VK_W ||code == KeyEvent.VK_UP){
+                gp.ui.commandNumber--; 
+                if(gp.ui.commandNumber < 0){
+                    gp.ui.commandNumber = 2; 
+                }
+            }
+            if(code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN){
+                gp.ui.commandNumber++; 
+                if(gp.ui.commandNumber > 2){
+                    gp.ui.commandNumber = 0; 
+                }
+            }
+            
+            if(code == KeyEvent.VK_ENTER){
+                if(gp.ui.commandNumber == 0){
+                    try { 
+                        pt = getConnection().prepareStatement("INSERT INTO jugador(Pos_X, Pos_Y) VALUES(?,?)");
+                        pt.setInt(1, (gp.player.worldX) );
+                        pt.setInt(2, (gp.player.worldY) );
+                        pt.executeUpdate(); 
+                        
+                        gp.gameState = gp.playState; 
+                    } catch (SQLException ex) {
+                        Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    
+                }else if(gp.ui.commandNumber == 1){
+                    gp.gameState = gp.playState; 
+                }else if(gp.ui.commandNumber == 2){
+                    System.exit(0); 
+                }
+            }
+            
+        }
         
     
         // Dialogue State 
@@ -189,6 +224,7 @@ public class KeyHandler implements KeyListener{
                 gp.gameState = gp.playState; 
             }
         }
+        
         
         // Title statement 
         
@@ -215,6 +251,20 @@ public class KeyHandler implements KeyListener{
                     if(gp.ui.commandNumber == 0){
                         gp.ui.titleScreenState = 1; 
                     }else if(gp.ui.commandNumber == 1){
+                        try { 
+                            pt = getConnection().prepareStatement("SELECT Pos_X, Pos_Y FROM jugador");
+                            rs = pt.executeQuery(); 
+                            
+                            while(rs.next()){
+                                gp.player.worldX = rs.getInt("Pos_X");
+                                gp.player.worldY = rs.getInt("Pos_Y");
+                            }
+                            
+                            
+                        } catch (SQLException ex) {
+                            Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        
                         gp.gameState = gp.playState; 
                     }else if(gp.ui.commandNumber == 2){
                         System.exit(0); 
