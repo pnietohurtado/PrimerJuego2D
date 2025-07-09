@@ -61,5 +61,12 @@ public class Sound {
     public void stop(){
         clip.stop();
     }
+
+    @Override
+    public String toString() {
+        return "Sound{" + "soundURL=" + clip + '}';
+    }
+    
+    
     
 }
