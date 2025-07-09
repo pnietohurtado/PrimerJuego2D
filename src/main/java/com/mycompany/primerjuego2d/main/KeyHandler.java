@@ -194,6 +194,9 @@ public class KeyHandler implements KeyListener{
                         pt.setInt(2, (gp.player.worldY) );
                         pt.executeUpdate(); 
                         
+                        
+                        PreparedStatement pt2 = getConnection().prepareStatement("INSERT INTO inventario VALUES(?,?,?,?)"); 
+                        
                         gp.gameState = gp.playState; 
                     } catch (SQLException ex) {
                         Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
@@ -252,7 +255,7 @@ public class KeyHandler implements KeyListener{
                         gp.ui.titleScreenState = 1; 
                     }else if(gp.ui.commandNumber == 1){
                         try { 
-                            pt = getConnection().prepareStatement("SELECT Pos_X, Pos_Y FROM jugador");
+                            pt = getConnection().prepareStatement("SELECT Pos_X, Pos_Y FROM jugador ORDER BY ID DESC LIMIT 1");
                             rs = pt.executeQuery(); 
                             
                             while(rs.next()){

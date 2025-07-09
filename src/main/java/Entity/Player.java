@@ -30,6 +30,10 @@ public class Player extends Entity{
     Random random = new Random(); 
     
     
+    // Indice del objeto que tenemos 
+    public int objIndex; 
+    
+    
     public final int screenX;
     public final int screenY; 
     
@@ -141,7 +145,7 @@ public class Player extends Entity{
             gp.cH.checkTile(this);
             
             // Check object Collision 
-            int objIndex = gp.cH.checkObject(this, true); 
+            objIndex = gp.cH.checkObject(this, true); 
             pickUpObject (objIndex); 
             
             int npcIndex = gp.cH.checkEntity(this, gp.npc); 
