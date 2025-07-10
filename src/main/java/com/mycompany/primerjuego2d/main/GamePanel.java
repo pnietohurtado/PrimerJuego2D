@@ -282,7 +282,7 @@ public class GamePanel extends JPanel implements Runnable{
         sonido.setFile(i); 
         
         sonido.play(); 
-        sonido.loop();
+        //sonido.loop();
     }
     
     public void playMusicOnce(int i){

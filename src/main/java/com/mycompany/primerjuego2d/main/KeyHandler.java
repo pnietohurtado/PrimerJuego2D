@@ -54,6 +54,8 @@ public class KeyHandler implements KeyListener{
     
     public GamePanel gp; 
     
+    public boolean playMusic ; // Para poder poner la música 
+    
     // -------------------------------------------------------------------------
     
     
@@ -214,7 +216,14 @@ public class KeyHandler implements KeyListener{
                 }else if(gp.ui.commandNumber == 1){
                     gp.gameState = gp.playState; 
                 }else if(gp.ui.commandNumber == 2){
-                    gp.sonido.stop();
+                    if(this.playMusic == false){
+                        gp.playMusic(1);
+                        gp.sonido.volume = -20.0f; 
+                        this.playMusic = true; 
+                    }else if(this.playMusic == true){
+                        gp.stopMusic();
+                        this.playMusic = false; 
+                    }
                 }else if(gp.ui.commandNumber == 3){
                     System.exit(0); 
                 }
@@ -234,11 +243,20 @@ public class KeyHandler implements KeyListener{
         
         
         
+        
+        
         if(gp.gameState == gp.inventoryState){
             if(code == KeyEvent.VK_ENTER ){
                 gp.gameState = gp.playState; 
             }
         }
+        
+        
+        
+        
+        
+        
+        
         
         
         // Title statement 
@@ -287,8 +305,6 @@ public class KeyHandler implements KeyListener{
                             Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
                         }
                         
-                        gp.playMusic(1);
-                        gp.sonido.volume = -30.0f; 
                         
                         gp.gameState = gp.playState; 
                     }else if(gp.ui.commandNumber == 2){

@@ -20,7 +20,8 @@ public class Sound {
     URL soundURL[] = new URL[10]; 
     public float volume; 
     
-    public Sound(){
+    public Sound(){ 
+        
         soundURL[1] = getClass().getResource("/sonido/ThemeSong.wav"); 
         soundURL[2] = getClass().getResource("/sonido/Coger.wav"); 
         soundURL[3] = getClass().getResource("/sonido/EntrarMenu.wav"); 
@@ -63,6 +64,7 @@ public class Sound {
         clip.stop();
     }
 
+    
     @Override
     public String toString() {
         return "Sound{" + "soundURL=" + clip + '}';
