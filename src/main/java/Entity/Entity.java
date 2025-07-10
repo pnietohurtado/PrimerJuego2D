@@ -91,6 +91,10 @@ public class Entity {
         
         //Forma de que el NPC interactue con el player 
         if(gp.npc[gp.player.numero].actionCountNPC == 1 && gp.cH.collisionPlayer == true ){
+            
+            gp.sonido.volume = -10.0f; 
+            gp.playMusicOnce(4); // Para poder poner la música
+            
             gp.gameState = gp.dialogueState; 
             gp.npc[gp.player.numero].actionCountNPC = 0; 
         }

@@ -249,6 +249,9 @@ public class Player extends Entity{
             
             if(keyHandler.interactEntity == false){
                 
+                gp.sonido.volume = -10.0f; 
+                gp.playMusicOnce(4); // Para poder poner la música
+                
                 gp.gameState = gp.dialogueState; 
                 int numeroAleatorio = random.nextInt(5) + 1;  
                 

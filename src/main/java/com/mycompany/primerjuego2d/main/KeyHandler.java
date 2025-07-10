@@ -227,6 +227,7 @@ public class KeyHandler implements KeyListener{
         if(gp.gameState == gp.dialogueState){
             this.showData = false; // Para que los datos de las coordenadas no interrumpan el texto del dialogo
             if(code == KeyEvent.VK_ENTER){
+                gp.sonido.stop();
                 gp.gameState = gp.playState; 
             }
         }
@@ -285,6 +286,9 @@ public class KeyHandler implements KeyListener{
                         } catch (SQLException ex) {
                             Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
                         }
+                        
+                        gp.playMusic(1);
+                        gp.sonido.volume = -30.0f; 
                         
                         gp.gameState = gp.playState; 
                     }else if(gp.ui.commandNumber == 2){
