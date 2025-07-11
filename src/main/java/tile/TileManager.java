@@ -32,6 +32,7 @@ public class TileManager {
     ArrayList<String> fileNames = new ArrayList<>(); 
     ArrayList<String> collisionStatus = new ArrayList<>(); 
     
+    
     // Modificar las colisiones de los pixeles
     public boolean hayColision = true; 
     public boolean noHayColision = false; 
@@ -50,7 +51,9 @@ public class TileManager {
         try {
             while((linea = br.readLine()) != null){
                 fileNames.add(linea); 
+                tile.nombre = linea; 
                 collisionStatus.add(br.readLine()); 
+                
             }
             br.close(); 
         } catch (IOException ex) {

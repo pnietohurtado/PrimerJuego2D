@@ -40,6 +40,10 @@ public class CollisionChecker {
                 tileNum2 = gp.tileManager.mapTileNum[entityRightCol][entityTopRow]; 
                 if(gp.tileManager.tile[tileNum1].collision == true ||gp.tileManager.tile[tileNum2].collision == true){
                     entity.collision = true; 
+                    //System.out.println("Choque con un tile arriba");
+                    
+                    if(gp.tileManager.tile[tileNum1].)
+                    
                 }
                 break; 
             case "down": 
