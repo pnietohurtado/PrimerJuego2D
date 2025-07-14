@@ -121,7 +121,7 @@ public class Player extends Entity{
     public void update()
     {
         if(keyHandler.upPressed == true || keyHandler.downPressed == true ||
-                keyHandler.leftPressed == true || keyHandler.rightPressed == true ){
+                keyHandler.leftPressed == true || keyHandler.rightPressed == true  ){
             
             if(keyHandler.upPressed == true)
             {

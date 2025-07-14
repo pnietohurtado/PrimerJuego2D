@@ -5,6 +5,8 @@
  */
 package com.mycompany.primerjuego2d.main;
 
+import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -24,8 +26,8 @@ public class MouseClicker implements MouseListener{
     
     @Override
     public void mouseClicked(MouseEvent e) {
-        this.clickX = e.getX() / gp.tileSize; 
-        this.clickY = e.getY() / gp.tileSize;
+        this.clickX = e.getX(); 
+        this.clickY = e.getY(); 
         
         if(gp.gameState == gp.titleState){
             if((this.clickX >= 5 || this.clickX <= 10) && this.clickY == 8) {
@@ -54,6 +56,13 @@ public class MouseClicker implements MouseListener{
     @Override
     public void mouseExited(MouseEvent e) {
       
+    }
+    
+
+    // Prueba de método para poder interactuar con el Mouse
+    public void draw(Graphics2D g2){
+        g2.setColor(Color.white); 
+        g2.drawRect(clickX , clickY , gp.tileSize, gp.tileSize);
     }
     
 }

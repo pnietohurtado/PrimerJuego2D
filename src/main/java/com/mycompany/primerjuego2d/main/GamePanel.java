@@ -231,7 +231,7 @@ public class GamePanel extends JPanel implements Runnable{
 
             //Player 
             player.draw(g2); 
-            
+            mClicker.draw(g2);
             ui.draw(g2);
             
         

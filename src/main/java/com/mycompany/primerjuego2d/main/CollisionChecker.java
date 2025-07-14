@@ -42,7 +42,7 @@ public class CollisionChecker {
                     entity.collision = true; 
                     //System.out.println("Choque con un tile arriba");
                     
-                    if(gp.tileManager.tile[tileNum1].)
+                    
                     
                 }
                 break; 

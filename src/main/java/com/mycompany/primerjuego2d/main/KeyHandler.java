@@ -33,7 +33,7 @@ public class KeyHandler implements KeyListener{
     // ------------------------- Variables de esta clase -----------------------
     
     // Variables de movimiento del personaje
-    public boolean upPressed, downPressed, leftPressed, rightPressed;
+    public boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed;
     
     // Varible sobre Entorno
     public boolean showCollisions;
@@ -169,6 +169,14 @@ public class KeyHandler implements KeyListener{
                         this.tileCollision = true; 
                     }else if(tileCollision == true){
                         this.tileCollision = false; 
+                    }
+                }
+                
+                if(code == KeyEvent.VK_ENTER){
+                    if(enterPressed == false){
+                        this.enterPressed = true; 
+                    }else if(enterPressed == true){
+                        this.enterPressed = false; 
                     }
                 }
         }

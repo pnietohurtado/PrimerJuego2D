@@ -51,7 +51,6 @@ public class TileManager {
         try {
             while((linea = br.readLine()) != null){
                 fileNames.add(linea); 
-                tile.nombre = linea; 
                 collisionStatus.add(br.readLine()); 
                 
             }
