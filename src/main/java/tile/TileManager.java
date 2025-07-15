@@ -177,7 +177,6 @@ public class TileManager {
             
             // ----------- Para poder enseñar las colisiones del personaje -----
             if(this.kH.tileCollision == true){
-                //System.out.println("hola");
                 g2.setColor(Color.white); 
                 g2.drawRect(screenX , screenY , gp.screenHeight, gp.screenWidth);
             }
