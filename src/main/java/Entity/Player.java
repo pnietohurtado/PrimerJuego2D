@@ -8,17 +8,11 @@ import Objects.SuperObject;
 import java.awt.image.BufferedImage;
 import com.mycompany.primerjuego2d.main.GamePanel;
 import com.mycompany.primerjuego2d.main.KeyHandler;
-import com.mycompany.primerjuego2d.main.UtilityTool;
-import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 /**/
 /**
  *
@@ -206,6 +200,7 @@ public class Player extends Entity{
                     //if(keyHandler.interactEntity == true){ // En el caso de que sea necesario pulsar para recoger
                         hasPokeball++; 
                         inventario.add(gp.obj[i]);
+                        gp.obj[i].existe = false; 
                         gp.obj[i] = null; 
 
                         

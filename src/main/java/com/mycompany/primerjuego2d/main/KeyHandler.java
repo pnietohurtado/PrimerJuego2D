@@ -213,8 +213,25 @@ public class KeyHandler implements KeyListener{
                         pt.setInt(2, (gp.player.worldY) );
                         pt.executeUpdate(); 
                         
+                        PreparedStatement pt3 = getConnection().prepareStatement("TRUNCATE inventario"); 
+                        pt3.executeUpdate(); 
                         
-                        PreparedStatement pt2 = getConnection().prepareStatement("INSERT INTO inventario VALUES(?,?,?,?)"); 
+                        for(int i = 1; i < gp.player.inventario.size(); i++){
+                            
+                            PreparedStatement pt2 = getConnection().prepareStatement("INSERT INTO inventario VALUES(?,?,?,?,?)"); 
+                            pt2.setInt(1, i);
+                            pt2.setString(2, gp.player.inventario.get(i).name);
+                            pt2.setInt(3, gp.player.inventario.get(i).worldX);
+                            pt2.setInt(4, gp.player.inventario.get(i).worldY);
+                            
+                            if(gp.player.inventario.get(i).existe == false){
+                                pt2.setBoolean(5, false);
+                            }else{
+                                pt2.setBoolean(5, true);
+                            }
+                         
+                            pt2.executeUpdate(); 
+                        }
                         
                         gp.gameState = gp.playState; 
                     } catch (SQLException ex) {
@@ -307,6 +324,16 @@ public class KeyHandler implements KeyListener{
                                 gp.player.worldX = rs.getInt("Pos_X");
                                 gp.player.worldY = rs.getInt("Pos_Y");
                             }
+                            
+                            pt = getConnection().prepareStatement("SELECT ID FROM inventario WHERE Existe = 0");
+                            rs = pt.executeQuery(); 
+                            
+                            while(rs.next()){
+                                
+                                gp.obj[rs.getInt("ID")] = null; 
+                                
+                            }
+                            
                             
                             
                         } catch (SQLException ex) {
