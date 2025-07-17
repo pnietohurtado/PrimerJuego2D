@@ -4,6 +4,7 @@ com\mycompany\primerjuego2d\main\UI.class
 Tile\TileManager.class
 Entity\Entity.class
 Objects\SuperObject.class
+Entity\NPC_Bulbasur.class
 com\mycompany\primerjuego2d\main\MouseClicker.class
 com\mycompany\primerjuego2d\main\CollisionChecker.class
 Objects\OBJ_Key.class

@@ -5,9 +5,7 @@
 package Entity;
 
 import com.mycompany.primerjuego2d.main.GamePanel;
-import com.mycompany.primerjuego2d.main.UtilityTool;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
+
 import java.util.Random;
 import javax.imageio.ImageIO;
 

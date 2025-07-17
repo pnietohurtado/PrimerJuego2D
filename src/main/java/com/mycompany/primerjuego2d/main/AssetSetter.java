@@ -4,6 +4,7 @@
  */
 package com.mycompany.primerjuego2d.main;
 
+import Entity.NPC_Bulbasur;
 import Entity.NPC_CocheJuan;
 import Objects.*;
 
@@ -74,6 +75,12 @@ public class AssetSetter {
         gp.npc[0].worldX = gp.tileSize * 54; 
         gp.npc[0].worldY = gp.tileSize * 207; 
         gp.npc[0].actionCountNPC = 1; 
+        
+        
+        gp.npc[1] = new NPC_Bulbasur(gp); 
+        gp.npc[1].worldX = gp.tileSize * 62; 
+        gp.npc[1].worldY = gp.tileSize * 215; 
+        gp.npc[1].actionCountNPC = 1; 
         
         /*
         gp.npc[1] = new NPC_CocheJuan(gp); 
