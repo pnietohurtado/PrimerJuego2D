@@ -81,6 +81,7 @@ public class AssetSetter {
         gp.npc[1].worldX = gp.tileSize * 62; 
         gp.npc[1].worldY = gp.tileSize * 215; 
         gp.npc[1].actionCountNPC = 1; 
+        gp.npc[1].duplicarSize = 3; 
         
         /*
         gp.npc[1] = new NPC_CocheJuan(gp); 

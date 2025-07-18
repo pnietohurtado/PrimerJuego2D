@@ -4,7 +4,9 @@
  */
 package com.mycompany.primerjuego2d.main;
 
+import java.awt.AlphaComposite;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 
 /**
@@ -14,10 +16,15 @@ import java.awt.image.BufferedImage;
 public class UtilityTool {
     
     public BufferedImage scaleImage(BufferedImage original , int width, int height){
-        BufferedImage scaleImage = new BufferedImage(width, height, original.getType()); 
-        Graphics2D g2 = scaleImage.createGraphics(); 
-        g2.drawImage(original , 0,0, width, height, null); 
-        
-        return scaleImage; 
+        BufferedImage scaledImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = scaledImage.createGraphics();
+
+        g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
+
+        g2d.setComposite(AlphaComposite.Src);
+        g2d.drawImage(original, 0, 0, width, height, null);
+        g2d.dispose();
+
+        return scaledImage;
     }
 }

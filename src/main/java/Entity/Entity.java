@@ -10,6 +10,7 @@ import java.awt.AlphaComposite;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
@@ -55,13 +56,16 @@ public class Entity {
     
     
     // --------------------------- Función de lectura imágenes -----------------
+    
+    public int duplicarSize = 1; 
     public BufferedImage setUp(String imagePath){
         UtilityTool u = new UtilityTool(); 
         BufferedImage image = null; 
         
         try{
+
             image = ImageIO.read(getClass().getResourceAsStream(imagePath + ".png"));
-            image = u.scaleImage(image, gp.tileSize, gp.tileSize); 
+            image = u.scaleImage(image, gp.tileSize , gp.tileSize); 
             
         }catch(IOException e){
             e.printStackTrace(); 
@@ -179,7 +183,7 @@ public class Entity {
         
             AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, opacity); 
             g2.setComposite(ac);
-            g2.drawImage(image, screenX,screenY,gp.tileSize,gp.tileSize,null); 
+            g2.drawImage(image, screenX,screenY,gp.tileSize * duplicarSize,gp.tileSize * duplicarSize,null); 
         
         }
         

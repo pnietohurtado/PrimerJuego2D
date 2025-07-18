@@ -155,8 +155,8 @@ public class CollisionChecker {
         for(int i = 0; i < target.length ; i++){
             if(target[i] != null){
                 // Get entity's solid area position 
-                entity.solidArea.x = entity.worldX + entity.solidArea.x; 
-                entity.solidArea.y = entity.worldY + entity.solidArea.y; 
+                entity.solidArea.x = entity.worldX + (entity.solidArea.x); 
+                entity.solidArea.y = entity.worldY + (entity.solidArea.y); 
                 
                 // Get the object's solid position
                 target[i].solidArea.x = target[i].worldX + target[i].solidArea.x;
@@ -220,15 +220,14 @@ public class CollisionChecker {
                 entity.solidArea.y = entity.worldY + entity.solidArea.y; 
                 
                 // Get the object's solid position
-                gp.player.solidArea.x = gp.player.worldX + gp.player.solidArea.x;
-                gp.player.solidArea.y = gp.player.worldY + gp.player.solidArea.y;
-                
+                gp.player.solidArea.x = (gp.player.worldX + gp.player.solidArea.x);
+                gp.player.solidArea.y = (gp.player.worldY + gp.player.solidArea.y);
 
                 
                 switch(entity.direction){
                     case "up" : 
                         entity.solidArea.y -= entity.speed; 
-                        if(entity.solidArea.intersects(gp.player.solidArea) /*|| (entity.nearSolidArea = new Rectangle (0,0,500,500)).intersects(gp.obj[i].solidArea)*/){
+                        if(entity.solidArea.intersects(gp.player.solidArea)  /*|| (entity.nearSolidArea = new Rectangle (0,0,500,500)).intersects(gp.obj[i].solidArea)*/){
                             entity.collision = true ;
                             collisionPlayer = true;
                            
