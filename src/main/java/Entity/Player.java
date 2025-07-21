@@ -23,6 +23,11 @@ public class Player extends Entity{
     KeyHandler keyHandler; 
     Random random = new Random(); 
     
+    // ---------------------- Sobre los sprites en las batallas ----------------
+    
+    public int sprite_bicho_attack = 0; 
+    
+    // -------------------------------------------------------------------------
     
     // Indice del objeto que tenemos 
     public int objIndex; 
@@ -273,7 +278,13 @@ public class Player extends Entity{
                 }
                 
                 case "Bulbasur": {
+                    this.sprite_bicho_attack = i; 
                     gp.gameState = gp.battleState; 
+                    
+                    /*
+                    gp.sonido.volume = -10.0f; 
+                    gp.playMusicOnce(5); // Para poder poner la música
+                    */
                     
                     break; 
                 }

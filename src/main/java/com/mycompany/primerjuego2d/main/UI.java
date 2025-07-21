@@ -13,12 +13,14 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -108,8 +110,44 @@ public class UI {
     // ------------------------- Cambio a escena de batallas -------------------
     
     public void battleScreen(){
-        g2.setColor(Color.black);
-        g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
+        int x = gp.tileSize * 2; 
+        int y = gp.tileSize / 2; 
+        BufferedImage backgroundImage = null;
+        
+        try{
+            
+            backgroundImage = ImageIO.read(getClass().getResource("/Fondo/Fondo_Ataque.png"));
+            
+        }catch(IOException e){
+            
+        }
+        
+        //g2.setColor(Color.black);
+        g2.drawImage(backgroundImage, 0, 0, gp.screenWidth, gp.screenHeight, null);
+        
+        
+        x = gp.screenWidth/2 - (gp.tileSize*2)/2 ; 
+        y += gp.tileSize*2; 
+        g2.drawImage(gp.npc[gp.player.sprite_bicho_attack].f1, x + (gp.tileSize * 2), y, gp.tileSize*5, gp.tileSize * 5, null); 
+        
+        
+        // -------------- Barra de vida de atacante ----------------------------
+        
+        x = gp.tileSize * 1; 
+        y = gp.tileSize / 2; 
+        int width = gp.screenWidth - (gp.tileSize * 2); 
+        int height = gp.tileSize * 3;
+        
+        int numeroAleatorio = random.nextInt(1); 
+        
+        drawSubWindow(x,y,width, height); 
+        
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
+        x += gp.tileSize; 
+        y += gp.tileSize; 
+        g2.drawString(textoNPC[numeroAleatorio], x, y); 
+        
+        // ---------------------------------------------------------------------
     }
     
     // -------------------------------------------------------------------------

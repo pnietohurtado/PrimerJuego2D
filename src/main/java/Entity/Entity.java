@@ -48,6 +48,8 @@ public class Entity {
     // -- Prueba sobre animación 
     public float opacity = 1.0f; 
     
+
+    
     // -------------------------------------------------------------------------
     
     // Constructor de la clase 
