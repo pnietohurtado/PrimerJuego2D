@@ -100,6 +100,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int pauseState = 2; // Pausar el estado del juego
     public final int dialogueState = 3; // Opciones de dialogo dentro del juego
     public final int inventoryState = 4; // Mostrar el inventario del jugador
+    public final int battleState = 5; // Luchar con los pokemons 
     
     
     // -------------------------------------------------------------------------

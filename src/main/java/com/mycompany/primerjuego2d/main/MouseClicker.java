@@ -61,8 +61,10 @@ public class MouseClicker implements MouseListener{
 
     // Prueba de método para poder interactuar con el Mouse
     public void draw(Graphics2D g2){
+        /*
         g2.setColor(Color.white); 
         g2.drawRect(clickX , clickY , gp.tileSize, gp.tileSize);
+        */
     }
     
 }

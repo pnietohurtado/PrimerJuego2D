@@ -19,6 +19,7 @@ public class NPC_CocheJuan extends Entity{
     
     public NPC_CocheJuan(GamePanel gp) {
         super(gp);
+        name = "CocheJuan"; 
         
         direction = "down"; 
         speed = 1; 

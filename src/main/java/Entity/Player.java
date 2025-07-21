@@ -242,29 +242,45 @@ public class Player extends Entity{
     public void interactNPC(int i){
         if(i != 999){
             
-            if(keyHandler.interactEntity == false){
+            String name = gp.npc[i].name; 
+            
+            switch(name){
                 
-                gp.sonido.volume = -10.0f; 
-                gp.playMusicOnce(4); // Para poder poner la música
-                
-                gp.gameState = gp.dialogueState; 
-                int numeroAleatorio = random.nextInt(5) + 1;  
-                
-                if(numeroAleatorio == 1){ // Existe una posibilidad de que desaparezca el NPC 
+                case "CocheJuan" : {
+                    if(keyHandler.interactEntity == false){
+
+                        gp.sonido.volume = -10.0f; 
+                        gp.playMusicOnce(4); // Para poder poner la música
+
+                        gp.gameState = gp.dialogueState; 
+                        int numeroAleatorio = random.nextInt(5) + 1;  
+
+                        if(numeroAleatorio == 1){ // Existe una posibilidad de que desaparezca el NPC 
+
+                            gp.npc[i] = null; 
+
+                            // ---------- Ambas variables son necesarias para cambiar skin
+                            gp.skinAppereance = 1; 
+                            changeSkin = true; 
+                            // ---------------------------------------------------------
+
+                            gp.player.speed = 18; 
+                        }
+
+                    }
                     
-                    gp.npc[i] = null; 
-                    
-                    // ---------- Ambas variables son necesarias para cambiar skin
-                    gp.skinAppereance = 1; 
-                    changeSkin = true; 
-                    // ---------------------------------------------------------
-                    
-                    gp.player.speed = 18; 
+                    break; 
                 }
-            
+                
+                case "Bulbasur": {
+                    gp.gameState = gp.battleState; 
+                    
+                    break; 
+                }
+        
+                
             }
-            
-         numero = i;    
+            numero  = i; 
         }
     }
     

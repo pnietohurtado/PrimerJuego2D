@@ -100,8 +100,21 @@ public class UI {
             drawDialogueScreen(); 
         }else if(gp.gameState == gp.inventoryState){
             drawInventoryScreen(); 
+        }else if(gp.gameState == gp.battleState){
+            battleScreen(); 
         }
     }
+    
+    // ------------------------- Cambio a escena de batallas -------------------
+    
+    public void battleScreen(){
+        g2.setColor(Color.black);
+        g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
+    }
+    
+    // -------------------------------------------------------------------------
+    
+    
     
     public void drawDialogueScreen(){
         int x = gp.tileSize * 2; 

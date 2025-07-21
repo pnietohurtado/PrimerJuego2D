@@ -43,6 +43,8 @@ public class Entity {
     
     GamePanel gp; 
     
+    public String name; 
+    
     // -- Prueba sobre animación 
     public float opacity = 1.0f; 
     

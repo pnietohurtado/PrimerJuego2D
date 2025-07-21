@@ -14,6 +14,7 @@ public class NPC_Bulbasur extends Entity{
     
     public NPC_Bulbasur(GamePanel gp) {
         super(gp);
+        name = "Bulbasur"; 
         
         direction = "down"; 
         speed = 1; 
