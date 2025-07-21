@@ -281,10 +281,10 @@ public class Player extends Entity{
                     this.sprite_bicho_attack = i; 
                     gp.gameState = gp.battleState; 
                     
-                    /*
-                    gp.sonido.volume = -10.0f; 
+                    
+                    gp.sonido.volume = -30.0f; 
                     gp.playMusicOnce(5); // Para poder poner la música
-                    */
+                    
                     
                     break; 
                 }

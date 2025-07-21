@@ -109,6 +109,11 @@ public class UI {
     
     // ------------------------- Cambio a escena de batallas -------------------
     
+    
+    
+    
+    
+    
     public void battleScreen(){
         int x = gp.tileSize * 2; 
         int y = gp.tileSize / 2; 
@@ -128,19 +133,19 @@ public class UI {
         
         x = gp.screenWidth/2 - (gp.tileSize*2)/2 ; 
         y += gp.tileSize*2; 
-        g2.drawImage(gp.npc[gp.player.sprite_bicho_attack].f1, x + (gp.tileSize * 2), y, gp.tileSize*5, gp.tileSize * 5, null); 
+        g2.drawImage(gp.npc[gp.player.sprite_bicho_attack].f1, x + (gp.tileSize * 4), y - gp.tileSize, gp.tileSize*5, gp.tileSize * 5, null); 
         
         
         // -------------- Barra de vida de atacante ----------------------------
         
         x = gp.tileSize * 1; 
         y = gp.tileSize / 2; 
-        int width = gp.screenWidth - (gp.tileSize * 2); 
+        int width = gp.screenWidth - (gp.tileSize * 7); 
         int height = gp.tileSize * 3;
         
         int numeroAleatorio = random.nextInt(1); 
         
-        drawSubWindow(x,y,width, height); 
+        drawSubWindowBattle(x,y,width, height); 
         
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
         x += gp.tileSize; 
@@ -149,6 +154,27 @@ public class UI {
         
         // ---------------------------------------------------------------------
     }
+    
+    
+    public void drawSubWindowBattle(int x, int y, int width, int height){
+        
+        Color c = new Color(247, 239, 163); // 220 is going to show the transparecy of the window  
+        g2.setColor(c); 
+        g2.fillRoundRect(x,y,width,height,35,35); 
+        
+        c = new Color(57, 97, 71); 
+        g2.setColor(c); 
+        g2.setStroke(new BasicStroke(5)); 
+        g2.drawRoundRect(x+5, y+5, width-10, height-10 , 25, 25);
+        
+    }
+    
+    
+    
+    
+    
+    
+    
     
     // -------------------------------------------------------------------------
     

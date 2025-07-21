@@ -67,6 +67,21 @@ public class AssetSetter {
         gp.obj[5].collision = true;
         
         
+        
+        gp.obj[6] = new OBJ_Hierba(); 
+        gp.obj[6].worldX = 57 * gp.tileSize; 
+        gp.obj[6].worldY = 203 * gp.tileSize; 
+        gp.obj[6].collision = true;
+       
+        gp.obj[7] = new OBJ_Hierba(); 
+        gp.obj[7].worldX = 56 * gp.tileSize; 
+        gp.obj[7].worldY = 203 * gp.tileSize; 
+        gp.obj[7].collision = true;
+        
+        gp.obj[8] = new OBJ_Hierba(); 
+        gp.obj[8].worldX = 55 * gp.tileSize; 
+        gp.obj[8].worldY = 203 * gp.tileSize; 
+        gp.obj[8].collision = true;
     }
     
     public void setNPC(){ // Aquí es donde vamos a posicionar los NPC 
