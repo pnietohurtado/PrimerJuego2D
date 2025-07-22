@@ -1,5 +1,4 @@
 com\mycompany\primerjuego2d\main\GamePanel.class
-Entity\NPC_Charizard.class
 com\mycompany\primerjuego2d\main\AssetSetter.class
 Entity\NPC_Pokemon.class
 com\mycompany\primerjuego2d\main\UI.class
@@ -7,7 +6,6 @@ Tile\TileManager.class
 Entity\Entity.class
 Objects\SuperObject.class
 Objects\OBJ_Hierba.class
-Entity\NPC_Bulbasur.class
 com\mycompany\primerjuego2d\main\MouseClicker.class
 com\mycompany\primerjuego2d\main\CollisionChecker.class
 Objects\OBJ_Key.class
@@ -20,7 +18,6 @@ com\mycompany\primerjuego2d\main\KeyHandler.class
 Funciones\Funciones_sobre_tiles.class
 Conexion\Conexion.class
 Objects\OBJ_Hacha.class
-Entity\NPC_Blatoise.class
 Entity\Player.class
 com\mycompany\primerjuego2d\main\main.class
 com\mycompany\primerjuego2d\main\UtilityTool.class

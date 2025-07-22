@@ -5,7 +5,6 @@
 package com.mycompany.primerjuego2d.main;
 
 import Conexion.Conexion;
-import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.sql.Connection;
@@ -185,6 +184,7 @@ public class KeyHandler implements KeyListener{
         
         if(gp.gameState == gp.battleState){
             if(code == KeyEvent.VK_ESCAPE){
+                gp.stopMusic();
                 gp.gameState = gp.playState; 
             }
         }

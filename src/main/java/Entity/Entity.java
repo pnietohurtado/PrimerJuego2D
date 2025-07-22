@@ -98,6 +98,8 @@ public class Entity {
         //int npcIndex = gp.cH.checkEntity(this, gp.npc); 
         
         //Forma de que el NPC interactue con el player 
+        
+        /*
         if(gp.npc[gp.player.numero].actionCountNPC == 1 && gp.cH.collisionPlayer == true ){
             
             gp.sonido.volume = -10.0f; 
@@ -106,7 +108,7 @@ public class Entity {
             gp.gameState = gp.dialogueState; 
             gp.npc[gp.player.numero].actionCountNPC = 0; 
         }
-        
+        */
         
         if(collision == false ){
                 switch(direction ){

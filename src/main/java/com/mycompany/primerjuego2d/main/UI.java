@@ -135,7 +135,7 @@ public class UI {
         x = gp.screenWidth/2 - (gp.tileSize*2)/2 ; 
         y += gp.tileSize*2; 
         gp.npc[998] = new NPC_Pokemon(gp, gp.player.sprite_bicho_attack); 
-        g2.drawImage(gp.npc[998].f1, x + (gp.tileSize * 4), y - gp.tileSize, gp.tileSize*5, gp.tileSize * 5, null); 
+        g2.drawImage(gp.npc[998].f1, x + (gp.tileSize * 4), y - (gp.tileSize * (1 + 1/2)), gp.tileSize*4, gp.tileSize * 4, null); 
         
         
         // -------------- Barra de vida de atacante ----------------------------
@@ -152,7 +152,7 @@ public class UI {
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
         x += gp.tileSize; 
         y += gp.tileSize; 
-        g2.drawString(textoNPC[numeroAleatorio], x, y); 
+        g2.drawString(gp.npc[998].name, x, y); 
         
         // ---------------------------------------------------------------------
     }

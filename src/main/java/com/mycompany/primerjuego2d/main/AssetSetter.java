@@ -4,9 +4,7 @@
  */
 package com.mycompany.primerjuego2d.main;
 
-import Entity.NPC_Blatoise;
-import Entity.NPC_Bulbasur;
-import Entity.NPC_Charizard;
+
 import Entity.NPC_CocheJuan;
 import Objects.*;
 
@@ -79,24 +77,7 @@ public class AssetSetter {
         gp.npc[0].worldY = gp.tileSize * 207; 
         gp.npc[0].actionCountNPC = 1; 
         */
-        
-        gp.npc[0] = new NPC_Bulbasur(gp); 
-        gp.npc[0].worldX = gp.tileSize * 62; 
-        gp.npc[0].worldY = gp.tileSize * 215; 
-        gp.npc[0].actionCountNPC = 1; 
-        gp.npc[0].duplicarSize = 2; 
-        
-        gp.npc[1] = new NPC_Blatoise(gp); 
-        gp.npc[1].worldX = gp.tileSize * 62; 
-        gp.npc[1].worldY = gp.tileSize * 215; 
-        gp.npc[1].actionCountNPC = 1; 
-        gp.npc[1].duplicarSize = 2; 
-        
-        gp.npc[2] = new NPC_Charizard(gp); 
-        gp.npc[2].worldX = gp.tileSize * 62; 
-        gp.npc[2].worldY = gp.tileSize * 215; 
-        gp.npc[2].actionCountNPC = 1; 
-        gp.npc[2].duplicarSize = 2; 
+
         
         
         /*
@@ -111,28 +92,5 @@ public class AssetSetter {
         */
     }
     
-    
-    public void setPokemon(){
-        
-        gp.npc[0] = new NPC_Bulbasur(gp); 
-        gp.npc[0].worldX = gp.tileSize * 62; 
-        gp.npc[0].worldY = gp.tileSize * 215; 
-        gp.npc[0].actionCountNPC = 1; 
-        gp.npc[0].duplicarSize = 2; 
-        
-        gp.npc[1] = new NPC_Blatoise(gp); 
-        gp.npc[1].worldX = gp.tileSize * 62; 
-        gp.npc[1].worldY = gp.tileSize * 215; 
-        gp.npc[1].actionCountNPC = 1; 
-        gp.npc[1].duplicarSize = 2; 
-        
-        gp.npc[2] = new NPC_Charizard(gp); 
-        gp.npc[2].worldX = gp.tileSize * 62; 
-        gp.npc[2].worldY = gp.tileSize * 215; 
-        gp.npc[2].actionCountNPC = 1; 
-        gp.npc[2].duplicarSize = 2; 
-        
-        
-        
-    }
+  
 }

@@ -33,6 +33,51 @@ public class AssetGrass {
         gp.obj[8].worldX = 55 * gp.tileSize; 
         gp.obj[8].worldY = 203 * gp.tileSize; 
         gp.obj[8].collision = false;
+        
+        gp.obj[9] = new OBJ_Hierba(); 
+        gp.obj[9].worldX = 57 * gp.tileSize; 
+        gp.obj[9].worldY = 204 * gp.tileSize; 
+        gp.obj[9].collision = false;
+       
+        gp.obj[10] = new OBJ_Hierba(); 
+        gp.obj[10].worldX = 56 * gp.tileSize; 
+        gp.obj[10].worldY = 204 * gp.tileSize; 
+        gp.obj[10].collision = false;
+        
+        gp.obj[11] = new OBJ_Hierba(); 
+        gp.obj[11].worldX = 55 * gp.tileSize; 
+        gp.obj[11].worldY = 204 * gp.tileSize; 
+        gp.obj[11].collision = false;
+        
+        gp.obj[12] = new OBJ_Hierba(); 
+        gp.obj[12].worldX = 57 * gp.tileSize; 
+        gp.obj[12].worldY = 205 * gp.tileSize; 
+        gp.obj[12].collision = false;
+       
+        gp.obj[13] = new OBJ_Hierba(); 
+        gp.obj[13].worldX = 56 * gp.tileSize; 
+        gp.obj[13].worldY = 205 * gp.tileSize; 
+        gp.obj[13].collision = false;
+        
+        gp.obj[14] = new OBJ_Hierba(); 
+        gp.obj[14].worldX = 55 * gp.tileSize; 
+        gp.obj[14].worldY = 205 * gp.tileSize; 
+        gp.obj[14].collision = false;
+        
+        gp.obj[15] = new OBJ_Hierba(); 
+        gp.obj[15].worldX = 57 * gp.tileSize; 
+        gp.obj[15].worldY = 206 * gp.tileSize; 
+        gp.obj[15].collision = false;
+       
+        gp.obj[16] = new OBJ_Hierba(); 
+        gp.obj[16].worldX = 56 * gp.tileSize; 
+        gp.obj[16].worldY = 206 * gp.tileSize; 
+        gp.obj[16].collision = false;
+        
+        gp.obj[17] = new OBJ_Hierba(); 
+        gp.obj[17].worldX = 55 * gp.tileSize; 
+        gp.obj[17].worldY = 206 * gp.tileSize; 
+        gp.obj[17].collision = false;
     }
     
 }
