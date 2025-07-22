@@ -1,3 +1,4 @@
+G:\PrimerJuego2D\src\main\java\com\mycompany\primerjuego2d\main\AssetGrass.java
 G:\PrimerJuego2D\src\main\java\com\mycompany\primerjuego2d\main\AssetSetter.java
 G:\PrimerJuego2D\src\main\java\com\mycompany\primerjuego2d\main\CollisionChecker.java
 G:\PrimerJuego2D\src\main\java\com\mycompany\primerjuego2d\main\GamePanel.java
@@ -9,7 +10,9 @@ G:\PrimerJuego2D\src\main\java\com\mycompany\primerjuego2d\main\UI.java
 G:\PrimerJuego2D\src\main\java\com\mycompany\primerjuego2d\main\UtilityTool.java
 G:\PrimerJuego2D\src\main\java\Conexion\Conexion.java
 G:\PrimerJuego2D\src\main\java\Entity\Entity.java
+G:\PrimerJuego2D\src\main\java\Entity\NPC_Blatoise.java
 G:\PrimerJuego2D\src\main\java\Entity\NPC_Bulbasur.java
+G:\PrimerJuego2D\src\main\java\Entity\NPC_Charizard.java
 G:\PrimerJuego2D\src\main\java\Entity\NPC_CocheJuan.java
 G:\PrimerJuego2D\src\main\java\Entity\Player.java
 G:\PrimerJuego2D\src\main\java\Funciones\Funciones_sobre_tiles.java

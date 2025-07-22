@@ -77,6 +77,10 @@ public class GamePanel extends JPanel implements Runnable{
     
     public AssetSetter aSetter = new AssetSetter(this); 
     
+    
+    // Hierba Alta 
+    public AssetGrass aGrass = new AssetGrass(this); 
+    
     // Music in-game
     public Sound sonido = new Sound(); 
     
@@ -125,6 +129,7 @@ public class GamePanel extends JPanel implements Runnable{
     {
         aSetter.setObject();
         aSetter.setNPC();
+        aGrass.setObject(); 
         //playMusic(1);
         gameState = titleState; 
     }

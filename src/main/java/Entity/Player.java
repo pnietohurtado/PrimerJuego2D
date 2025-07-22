@@ -25,7 +25,7 @@ public class Player extends Entity{
     
     // ---------------------- Sobre los sprites en las batallas ----------------
     
-    public int sprite_bicho_attack = 0; 
+    public int sprite_bicho_attack = 1; 
     
     // -------------------------------------------------------------------------
     
@@ -233,6 +233,26 @@ public class Player extends Entity{
                         System.out.println(inventario);
                     //}
                     break; 
+                    
+                    
+                    
+                case "Hierba" : {
+                    
+                    
+                    int numeroAleatorio = random.nextInt(10) + 1;  
+                    int aparicion = random.nextInt(2); 
+                    //this.sprite_bicho_attack = 1; 
+                    if(numeroAleatorio == 1){
+                        this.sprite_bicho_attack = aparicion; 
+                        
+                        gp.gameState = gp.battleState; 
+
+
+                        gp.sonido.volume = -30.0f; 
+                        gp.playMusicOnce(5); // Para poder poner la música
+                    }
+                    break; 
+                }
                     
             
             }
