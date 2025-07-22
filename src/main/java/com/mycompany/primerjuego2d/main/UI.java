@@ -21,6 +21,8 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 
 /**
@@ -113,7 +115,7 @@ public class UI {
     
     
     
-    
+    BufferedImage image; 
     
     public void battleScreen(){
         int x = gp.tileSize * 2; 
@@ -153,6 +155,76 @@ public class UI {
         x += gp.tileSize; 
         y += gp.tileSize; 
         g2.drawString(gp.npc[998].name, x, y); 
+        
+        // ---------------------------------------------------------------------
+        
+        
+        // ------------------ Menu dentro de la batalla ------------------------
+        
+        x = gp.tileSize * 1; 
+        y = gp.tileSize / 2; 
+        
+        try {
+            image = ImageIO.read(getClass().getResourceAsStream("/Menu/MenuBatalla1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * 7), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
+        
+        
+        if(commandNumber == 0){
+            try {
+                image = ImageIO.read(getClass().getResourceAsStream("/Menu/MenuBatalla2.png"));
+            } catch (IOException ex) {
+                Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        try {
+            image = ImageIO.read(getClass().getResourceAsStream("/Menu/MenuBatalla1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * 7), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
+        if(commandNumber == 1){
+            try {
+                image = ImageIO.read(getClass().getResourceAsStream("/Menu/MenuBatalla3.png"));
+            } catch (IOException ex) {
+                Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        try {
+            image = ImageIO.read(getClass().getResourceAsStream("/Menu/MenuBatalla1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * 7), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
+        if(commandNumber == 2){
+            try {
+                image = ImageIO.read(getClass().getResourceAsStream("/Menu/MenuBatalla4.png"));
+            } catch (IOException ex) {
+                Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        try {
+            image = ImageIO.read(getClass().getResourceAsStream("/Menu/MenuBatalla1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * (7 + 1/2)), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
+        if(commandNumber == 3){
+            try {
+                image = ImageIO.read(getClass().getResourceAsStream("/Menu/MenuBatalla5.png"));
+            } catch (IOException ex) {
+                Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
         
         // ---------------------------------------------------------------------
     }
@@ -196,6 +268,8 @@ public class UI {
         x += gp.tileSize; 
         y += gp.tileSize; 
         g2.drawString(textoNPC[numeroAleatorio], x, y); 
+        
+        
     }
     
     

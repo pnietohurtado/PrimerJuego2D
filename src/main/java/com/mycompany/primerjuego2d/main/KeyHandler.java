@@ -187,6 +187,28 @@ public class KeyHandler implements KeyListener{
                 gp.stopMusic();
                 gp.gameState = gp.playState; 
             }
+            if(code == KeyEvent.VK_W || code == KeyEvent.VK_UP)
+                {
+                    gp.sonido.volume = -10.0f; 
+                    gp.playMusicOnce(3); // Para poder poner la música 
+                    
+                    gp.ui.commandNumber--; 
+                    if(gp.ui.commandNumber < 0){
+                        gp.ui.commandNumber = 4; 
+                    }
+                }
+                if(code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN)
+                {
+                    gp.sonido.volume = -10.0f; 
+                    gp.playMusicOnce(3); // Para poder poner la música 
+                    
+                    gp.ui.commandNumber++; 
+                    if(gp.ui.commandNumber > 4){
+                        gp.ui.commandNumber = 0; 
+                    }
+
+                }
+            
         }
         
         
