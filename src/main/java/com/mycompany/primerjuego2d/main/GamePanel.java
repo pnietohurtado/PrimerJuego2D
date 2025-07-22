@@ -88,7 +88,7 @@ public class GamePanel extends JPanel implements Runnable{
     public UI ui = new UI(this); 
     
     // NPC 
-    public Entity[] npc = new Entity[10]; 
+    public Entity[] npc = new Entity[999]; 
     
     // Aquí vamos a cargar las funciones que queremos que lleven a cabo alguna acción 
     public Funciones_sobre_tiles fst = new Funciones_sobre_tiles(this); 

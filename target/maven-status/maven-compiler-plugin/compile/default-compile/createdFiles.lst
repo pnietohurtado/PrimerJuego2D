@@ -1,6 +1,7 @@
 com\mycompany\primerjuego2d\main\GamePanel.class
 Entity\NPC_Charizard.class
 com\mycompany\primerjuego2d\main\AssetSetter.class
+Entity\NPC_Pokemon.class
 com\mycompany\primerjuego2d\main\UI.class
 Tile\TileManager.class
 Entity\Entity.class

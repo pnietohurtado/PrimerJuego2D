@@ -181,6 +181,15 @@ public class KeyHandler implements KeyListener{
                 }
         }
         
+        // Battle 
+        
+        if(gp.gameState == gp.battleState){
+            if(code == KeyEvent.VK_ESCAPE){
+                gp.gameState = gp.playState; 
+            }
+        }
+        
+        
         
         // Pause Game 
         

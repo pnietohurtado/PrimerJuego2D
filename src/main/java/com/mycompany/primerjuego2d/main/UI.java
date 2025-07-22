@@ -4,6 +4,7 @@
  */
 package com.mycompany.primerjuego2d.main;
 
+import Entity.NPC_Pokemon;
 import Objects.OBJ_Key;
 import Objects.OBJ_Pokeball;
 import Objects.SuperObject;
@@ -133,7 +134,8 @@ public class UI {
         
         x = gp.screenWidth/2 - (gp.tileSize*2)/2 ; 
         y += gp.tileSize*2; 
-        g2.drawImage(gp.npc[gp.player.sprite_bicho_attack].f1, x + (gp.tileSize * 4), y - gp.tileSize, gp.tileSize*5, gp.tileSize * 5, null); 
+        gp.npc[998] = new NPC_Pokemon(gp, gp.player.sprite_bicho_attack); 
+        g2.drawImage(gp.npc[998].f1, x + (gp.tileSize * 4), y - gp.tileSize, gp.tileSize*5, gp.tileSize * 5, null); 
         
         
         // -------------- Barra de vida de atacante ----------------------------
