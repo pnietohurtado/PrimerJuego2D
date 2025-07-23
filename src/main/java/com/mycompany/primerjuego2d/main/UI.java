@@ -115,6 +115,9 @@ public class UI {
     
     
     
+    
+    
+    
     BufferedImage image; 
     
     public void battleScreen(){
@@ -179,13 +182,13 @@ public class UI {
                 Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
+        /*
         try {
             image = ImageIO.read(getClass().getResourceAsStream("/Menu/MenuBatalla1.png"));
         } catch (IOException ex) {
             Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        */
         g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * 7), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
         if(commandNumber == 1){
             try {
@@ -194,13 +197,13 @@ public class UI {
                 Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
+        /*
         try {
             image = ImageIO.read(getClass().getResourceAsStream("/Menu/MenuBatalla1.png"));
         } catch (IOException ex) {
             Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        */
         g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * 7), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
         if(commandNumber == 2){
             try {
@@ -209,13 +212,13 @@ public class UI {
                 Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
+        /*
         try {
             image = ImageIO.read(getClass().getResourceAsStream("/Menu/MenuBatalla1.png"));
         } catch (IOException ex) {
             Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        */
         g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * (7 + 1/2)), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
         if(commandNumber == 3){
             try {
@@ -225,9 +228,17 @@ public class UI {
             }
         }
         
+        g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * (7 + 1/2)), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
+        
         
         // ---------------------------------------------------------------------
     }
+    
+    
+    
+    
+    
+    
     
     
     public void drawSubWindowBattle(int x, int y, int width, int height){

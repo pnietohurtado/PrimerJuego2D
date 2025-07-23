@@ -194,7 +194,7 @@ public class KeyHandler implements KeyListener{
                     
                     gp.ui.commandNumber--; 
                     if(gp.ui.commandNumber < 0){
-                        gp.ui.commandNumber = 4; 
+                        gp.ui.commandNumber = 3; 
                     }
                 }
                 if(code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN)
@@ -203,10 +203,19 @@ public class KeyHandler implements KeyListener{
                     gp.playMusicOnce(3); // Para poder poner la música 
                     
                     gp.ui.commandNumber++; 
-                    if(gp.ui.commandNumber > 4){
+                    if(gp.ui.commandNumber > 3){
                         gp.ui.commandNumber = 0; 
                     }
 
+                }
+                
+                if(code == KeyEvent.VK_ENTER){
+                    if(gp.ui.commandNumber == 0){
+                        
+                    }else if(gp.ui.commandNumber == 3){
+                        gp.stopMusic();
+                        gp.gameState = gp.playState; 
+                    }
                 }
             
         }
