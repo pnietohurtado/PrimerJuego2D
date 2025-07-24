@@ -180,6 +180,12 @@ public class KeyHandler implements KeyListener{
                 }
         }
         
+        
+        
+        
+        
+        
+        
         // Battle 
         
         if(gp.gameState == gp.battleState){
@@ -189,7 +195,7 @@ public class KeyHandler implements KeyListener{
             }
             if(code == KeyEvent.VK_W || code == KeyEvent.VK_UP)
                 {
-                    gp.sonido.volume = -10.0f; 
+                    gp.sonido.volume = -30.0f; 
                     gp.playMusicOnce(3); // Para poder poner la música 
                     
                     gp.ui.commandNumber--; 
@@ -197,7 +203,7 @@ public class KeyHandler implements KeyListener{
                         gp.ui.commandNumber = 3; 
                     }
                 }
-                if(code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN)
+            if(code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN)
                 {
                     gp.sonido.volume = -10.0f; 
                     gp.playMusicOnce(3); // Para poder poner la música 
@@ -209,14 +215,14 @@ public class KeyHandler implements KeyListener{
 
                 }
                 
-                if(code == KeyEvent.VK_ENTER){
-                    if(gp.ui.commandNumber == 0){
+            if(code == KeyEvent.VK_ENTER){
+                if(gp.ui.commandNumber == 0){
                         
-                    }else if(gp.ui.commandNumber == 3){
-                        gp.stopMusic();
-                        gp.gameState = gp.playState; 
-                    }
+                }else if(gp.ui.commandNumber == 3){
+                    gp.stopMusic();
+                    gp.gameState = gp.playState; 
                 }
+            }
             
         }
         

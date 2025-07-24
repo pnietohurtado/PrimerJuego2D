@@ -240,7 +240,7 @@ public class Player extends Entity{
                     
                     
                     int numeroAleatorio = random.nextInt(200) + 1;  
-                    int aparicion = random.nextInt(11) + 1 ; // Hay que poner exactamente el número de 
+                    int aparicion = random.nextInt(151) + 1 ; // Hay que poner exactamente el número de 
                     //this.sprite_bicho_attack = 1; 
                     if(numeroAleatorio == 1){
                         this.sprite_bicho_attack = aparicion; 

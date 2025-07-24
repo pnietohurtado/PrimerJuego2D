@@ -113,6 +113,7 @@ public class UI {
     // ------------------------- Cambio a escena de batallas -------------------
     
     
+
     
     
     
@@ -229,6 +230,7 @@ public class UI {
         }
         
         g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * (7 + 1/2)), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
+        
         
         
         // ---------------------------------------------------------------------
