@@ -33,6 +33,17 @@ Sobre los controles del juego:
     ~ Dentro de los combates con los pokemones, hay un problema y es que si muevo el cursor para poder seleccionar una opción 
     al reproducirse el sonido del botón, la música de fondo pierde el espacio de memoria en el que se encuentra y por ende
     no puedo apagar el sonido de batalla
+
+
+
+
+@@ Ideas para futuras implementaciones 
+
+    25/07/2025
+
+    ~ Lo que podría hacer en cuanto a el tema de cargar los objetos y demás, dentro del juego, podría cargar los datos de todos 
+    los objetos, es decir, de sus posiciones dentro de un archivo .txt el cual puedo cargar desde un principio al inicio 
+    del juego y puedo recurrir a el en caso de que alguno de los elementos sufra algún tipo de alteración. 
     
     
        
