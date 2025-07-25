@@ -37,6 +37,13 @@ public class TileManager {
     public boolean noHayColision = false; 
     
     
+    // Array de los mapas 
+    
+    public String mapas[] = {"/maps/MapaVF.txt", "/maps/Mapa Alternativo2.txt"}; 
+    
+    
+    // Constructor 
+    
     public TileManager( GamePanel gp, KeyHandler kH){
         this.gp = gp; 
         this.kH = kH; 
@@ -80,7 +87,7 @@ public class TileManager {
         
         
         
-        loadMap("/maps/MapaVF.txt"); 
+        loadMap(mapas[0]); 
     }
     
     public void getTileImage()

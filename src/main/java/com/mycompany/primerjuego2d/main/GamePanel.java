@@ -61,7 +61,7 @@ public class GamePanel extends JPanel implements Runnable{
     MouseClicker mClicker = new MouseClicker(this); 
     
     //Incatnce of the tile
-    TileManager tileManager = new TileManager(this, keyHandler); 
+    public TileManager tileManager = new TileManager(this, keyHandler); 
     
     // Here's de "Game Clock" 
     Thread gameThread; 

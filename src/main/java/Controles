@@ -26,6 +26,13 @@ Sobre los controles del juego:
 
     ~ He pensado en hacer que los arbustos donde pueden salir los pokemones, como un objeto, donde haya una posibilidad
     baja donde podamos encontrar un pokemon o obejeto en función de la zona. 
+
+
+    25/07/2025
+    
+    ~ Dentro de los combates con los pokemones, hay un problema y es que si muevo el cursor para poder seleccionar una opción 
+    al reproducirse el sonido del botón, la música de fondo pierde el espacio de memoria en el que se encuentra y por ende
+    no puedo apagar el sonido de batalla
     
     
        

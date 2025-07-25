@@ -212,6 +212,9 @@ public class Player extends Entity{
                         gp.sonido.volume = -10.0f; 
                         gp.playMusicOnce(2); // Para poder poner la música 
                         
+                        gp.obj = new SuperObject[0]; // Para vaciar todos los objetos 
+                        gp.tileManager.loadMap(gp.tileManager.mapas[1]); // Para poder cambiar el mapa 
+                        
                         
                     //}
                     break; 
