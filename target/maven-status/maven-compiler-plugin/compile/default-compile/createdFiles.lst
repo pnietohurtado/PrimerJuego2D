@@ -10,6 +10,7 @@ Objects\OBJ_Hacha.class
 com\mycompany\primerjuego2d\main\GamePanel.class
 com\mycompany\primerjuego2d\main\UI.class
 Tile\TileManager.class
+com\mycompany\primerjuego2d\main\ClaseAuxiliar.class
 com\mycompany\primerjuego2d\main\MouseClicker.class
 com\mycompany\primerjuego2d\main\CollisionChecker.class
 Entity\NPC_CocheJuan.class

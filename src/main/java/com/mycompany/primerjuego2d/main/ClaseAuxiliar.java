@@ -35,6 +35,7 @@ public class ClaseAuxiliar {
             while((linea = br.readLine()) != null){
                 String[] partes = linea.split(" "); 
                 
+                
                 gp.obj[i].worldX = Integer.parseInt(partes[0]); 
                 gp.obj[i].worldX = Integer.parseInt(partes[1]); 
                 

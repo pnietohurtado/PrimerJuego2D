@@ -142,6 +142,7 @@ public class Player extends Entity{
             // Check tile collision 
             collision = false; 
             gp.cH.checkTile(this);
+            detectTile(); 
             
             // Check object Collision 
             objIndex = gp.cH.checkObject(this, true); 
@@ -182,6 +183,17 @@ public class Player extends Entity{
             
         }
     }
+    // ------------------ Prueba sobre la detección de las tiles ---------------
+    public void detectTile(){
+        
+        if( gp.tileManager.nombre == "005.png" ){
+            
+            System.out.println("Nombre de la tile" + gp.cH.tile);
+        }
+    }
+    
+    
+    
     
     // ------------------- Interacción del jugador con un objeto ---------------
    

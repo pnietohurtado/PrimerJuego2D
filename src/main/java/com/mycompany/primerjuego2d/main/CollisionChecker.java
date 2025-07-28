@@ -5,7 +5,7 @@
 package com.mycompany.primerjuego2d.main;
 
 import Entity.Entity;
-import java.awt.Rectangle;
+import tile.Tile;
 
 /**
  *
@@ -14,6 +14,7 @@ import java.awt.Rectangle;
 public class CollisionChecker {
 
     public GamePanel gp; 
+    public Tile tile; 
     
     public CollisionChecker(GamePanel gp){
         this.gp = gp; 
@@ -40,6 +41,7 @@ public class CollisionChecker {
                 tileNum2 = gp.tileManager.mapTileNum[entityRightCol][entityTopRow]; 
                 if(gp.tileManager.tile[tileNum1].collision == true ||gp.tileManager.tile[tileNum2].collision == true){
                     entity.collision = true; 
+                    tile = gp.tileManager.tile[tileNum1]; 
                     //System.out.println("Choque con un tile arriba");
                     
                     

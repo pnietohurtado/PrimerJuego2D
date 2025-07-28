@@ -19,6 +19,12 @@ false
 009.png
 false
 010.png
-true
+false
 999.png
+false
+011.png
+false
+012.png
+false
+013.png
 true

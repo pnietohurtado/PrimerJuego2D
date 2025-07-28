@@ -36,6 +36,7 @@ public class TileManager {
     public boolean hayColision = true; 
     public boolean noHayColision = false; 
     
+    public String nombre; 
     
     // Array de los mapas 
     
@@ -74,9 +75,11 @@ public class TileManager {
         
         try{
             String linea2 = br.readLine(); 
+            //this.nombre = linea2; 
             String maxTile[] = linea2.split(" "); 
             gp.maxWorldCol = maxTile.length; 
             gp.maxWorldRow = maxTile.length; 
+           
             
             mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow]; 
             br.close(); 
