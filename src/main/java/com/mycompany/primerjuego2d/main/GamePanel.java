@@ -296,8 +296,8 @@ public class GamePanel extends JPanel implements Runnable{
         sonido.play(); 
     }
     
-    public void stopMusic(){
-        System.out.println(sonido);
+    public void stopMusic(int i){
+       //sonido.setFile(i); 
         sonido.stop(); 
     }
     
