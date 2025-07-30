@@ -190,7 +190,7 @@ public class Player extends Entity{
             gp.sonido.volume = -30.0f; 
             gp.playMusicOnce(2);
             */
-            int numero[] = {146, 147,148,149,150,152}; 
+            int numero[] = {1,4,7,14,82,23}; 
                     
                     
             int numeroAleatorio = random.nextInt(200) + 1;  
