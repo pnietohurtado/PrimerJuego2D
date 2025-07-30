@@ -185,11 +185,12 @@ public class Player extends Entity{
     }
     // ------------------ Prueba sobre la detección de las tiles ---------------
     public void detectTile(){
-        
-        if( gp.tileManager.nombre == "005.png" ){
+        /*
+        if( gp.cH.tile.equals()){
             
             System.out.println("Nombre de la tile" + gp.cH.tile);
         }
+        */
     }
     
     

@@ -42,10 +42,16 @@ public class CollisionChecker {
                 if(gp.tileManager.tile[tileNum1].collision == true ||gp.tileManager.tile[tileNum2].collision == true){
                     entity.collision = true; 
                     tile = gp.tileManager.tile[tileNum1]; 
+                    tile.nombre = String.valueOf(gp.tileManager.mapTileNum[entityRightCol][entityTopRow]); 
+                    //System.out.println("Nombre " + tile.nombre);
                     //System.out.println("Choque con un tile arriba");
                     
                     
                     
+                }else if(gp.tileManager.tile[tileNum1].collision == false ||gp.tileManager.tile[tileNum2].collision == false){
+                    tile = gp.tileManager.tile[tileNum1]; 
+                    tile.nombre = String.valueOf(gp.tileManager.mapTileNum[entityRightCol][entityTopRow]); 
+                    System.out.println("Nombre " + tile.nombre);
                 }
                 break; 
             case "down": 

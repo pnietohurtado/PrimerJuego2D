@@ -22,7 +22,7 @@ import javax.imageio.ImageIO;
  *
  * @author pablo
  */
-public class TileManager {
+public class TileManager extends Tile {
     
     GamePanel gp; 
     KeyHandler kH; 
@@ -36,7 +36,6 @@ public class TileManager {
     public boolean hayColision = true; 
     public boolean noHayColision = false; 
     
-    public String nombre; 
     
     // Array de los mapas 
     
@@ -200,5 +199,13 @@ public class TileManager {
         }
         
         
+    }
+    
+    
+    
+    
+    @Override 
+    public String toString(){
+        return this.nombre + '\n'; 
     }
 }
