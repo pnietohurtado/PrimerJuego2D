@@ -61,6 +61,11 @@ public class CollisionChecker {
                 if(gp.tileManager.tile[tileNum1].collision == true ||gp.tileManager.tile[tileNum2].collision == true){
                     entity.collision = true; 
                 }
+                else if(gp.tileManager.tile[tileNum1].collision == false ||gp.tileManager.tile[tileNum2].collision == false){
+                    tile = gp.tileManager.tile[tileNum1]; 
+                    tile.nombre = String.valueOf(gp.tileManager.mapTileNum[entityRightCol][entityTopRow]); 
+                    System.out.println("Nombre " + tile.nombre);
+                }
                 break;
             case "left": 
                 entityLeftCol = (entityLeftWorldX - entity.speed) / gp.tileSize; 
@@ -68,6 +73,10 @@ public class CollisionChecker {
                 tileNum2 = gp.tileManager.mapTileNum[entityLeftCol][entityBottomRow]; 
                 if(gp.tileManager.tile[tileNum1].collision == true ||gp.tileManager.tile[tileNum2].collision == true){
                     entity.collision = true; 
+                }else if(gp.tileManager.tile[tileNum1].collision == false ||gp.tileManager.tile[tileNum2].collision == false){
+                    tile = gp.tileManager.tile[tileNum1]; 
+                    tile.nombre = String.valueOf(gp.tileManager.mapTileNum[entityRightCol][entityTopRow]); 
+                    System.out.println("Nombre " + tile.nombre);
                 }
                 break; 
             case "right": 
@@ -76,6 +85,10 @@ public class CollisionChecker {
                 tileNum2 = gp.tileManager.mapTileNum[entityRightCol][entityBottomRow]; 
                 if(gp.tileManager.tile[tileNum1].collision == true ||gp.tileManager.tile[tileNum2].collision == true){
                     entity.collision = true; 
+                }else if(gp.tileManager.tile[tileNum1].collision == false ||gp.tileManager.tile[tileNum2].collision == false){
+                    tile = gp.tileManager.tile[tileNum1]; 
+                    tile.nombre = String.valueOf(gp.tileManager.mapTileNum[entityRightCol][entityTopRow]); 
+                    System.out.println("Nombre " + tile.nombre);
                 }
                 break; 
         }

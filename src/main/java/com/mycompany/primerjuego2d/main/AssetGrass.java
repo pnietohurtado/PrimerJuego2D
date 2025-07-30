@@ -19,6 +19,7 @@ public class AssetGrass {
     }
     
     public void setObject(){
+        /*
         gp.obj[6] = new OBJ_Hierba(); 
         gp.obj[6].worldX = 57 * gp.tileSize; 
         gp.obj[6].worldY = 203 * gp.tileSize; 
@@ -78,6 +79,7 @@ public class AssetGrass {
         gp.obj[17].worldX = 55 * gp.tileSize; 
         gp.obj[17].worldY = 206 * gp.tileSize; 
         gp.obj[17].collision = false;
+        */
     }
     
 }

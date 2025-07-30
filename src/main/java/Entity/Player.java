@@ -185,12 +185,24 @@ public class Player extends Entity{
     }
     // ------------------ Prueba sobre la detección de las tiles ---------------
     public void detectTile(){
-        /*
-        if( gp.cH.tile.equals()){
-            
-            System.out.println("Nombre de la tile" + gp.cH.tile);
+        if(collision == false){
+            int numero[] = {146, 147,148,149,150,152}; 
+                    
+                    
+            int numeroAleatorio = random.nextInt(200) + 1;  
+            int aparicion = random.nextInt(5); // Hay que poner exactamente el número de 
+            //this.sprite_bicho_attack = 1; 
+            if(numeroAleatorio == 1){
+                this.sprite_bicho_attack = numero[aparicion]; 
+                       
+                gp.gameState = gp.battleState; 
+
+
+                gp.sonido.volume = -30.0f; 
+                gp.playMusicOnce(5); // Para poder poner la música
+            }
         }
-        */
+        
     }
     
     
@@ -251,7 +263,7 @@ public class Player extends Entity{
                     break; 
                     
                     
-                    
+                /*    
                 case "Hierba" : {
                     
                     // -------------- Pokemones de una ruta 
@@ -272,7 +284,7 @@ public class Player extends Entity{
                     }
                     break; 
                 }
-                    
+                */    
             
             }
         }

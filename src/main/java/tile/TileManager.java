@@ -22,7 +22,7 @@ import javax.imageio.ImageIO;
  *
  * @author pablo
  */
-public class TileManager extends Tile {
+public class TileManager {
     
     GamePanel gp; 
     KeyHandler kH; 
@@ -200,12 +200,5 @@ public class TileManager extends Tile {
         
         
     }
-    
-    
-    
-    
-    @Override 
-    public String toString(){
-        return this.nombre + '\n'; 
-    }
+
 }
