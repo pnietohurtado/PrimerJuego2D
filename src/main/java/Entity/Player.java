@@ -185,7 +185,7 @@ public class Player extends Entity{
     }
     // ------------------ Prueba sobre la detección de las tiles ---------------
     public void detectTile(){
-        if(collision == false){
+        if(collision == false && gp.cH.tile.nombre.equals("14")){
             int numero[] = {146, 147,148,149,150,152}; 
                     
                     
