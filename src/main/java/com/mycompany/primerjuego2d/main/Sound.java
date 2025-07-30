@@ -5,6 +5,8 @@
 package com.mycompany.primerjuego2d.main;
 
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -16,8 +18,9 @@ import javax.sound.sampled.FloatControl;
  */
 public class Sound {
     
-    Clip clip; 
+    //Clip clip; 
     URL soundURL[] = new URL[10]; 
+    private final Map<Integer, Clip> clips = new HashMap<>();
     public float volume; 
     
     public Sound(){ 
@@ -31,23 +34,27 @@ public class Sound {
     }
     
     
-    public void setFile(int i){
-        try{
-            try(AudioInputStream ais = AudioSystem.getAudioInputStream(soundURL[i])){
-            clip = AudioSystem.getClip(); 
-            clip.open(ais); 
-            
-            FloatControl audioVolume = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN); 
-            audioVolume.setValue(volume);
-            
-            } catch(Exception e){
+    public void play(int i, boolean loop){
+        try (AudioInputStream ais = AudioSystem.getAudioInputStream(soundURL[i])) {
+            Clip newClip = AudioSystem.getClip();
+            newClip.open(ais);
 
+            FloatControl audioVolume = (FloatControl) newClip.getControl(FloatControl.Type.MASTER_GAIN);
+            audioVolume.setValue(volume);
+
+            if (loop) {
+                newClip.loop(Clip.LOOP_CONTINUOUSLY);
+            } else {
+                newClip.start();
             }
 
-        }catch(Exception e){
-            
+            clips.put(i, newClip); 
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
+    
+    /*
     
     public void play(){
         if(clip != null ){
@@ -61,16 +68,15 @@ public class Sound {
         }
     }
     
-    public void stop(){
-        clip.stop();
+    */
+    public void stop(int i) {
+        Clip c = clips.get(i);
+        if (c != null && c.isRunning()) {
+            c.stop();
+            c.close();
+        }
     }
 
-    
-    @Override
-    public String toString() {
-        return "Sound{" + "soundURL=" + clip + '}';
-    }
-    
     
     
 }

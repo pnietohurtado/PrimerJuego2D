@@ -186,6 +186,10 @@ public class Player extends Entity{
     // ------------------ Prueba sobre la detección de las tiles ---------------
     public void detectTile(){
         if(collision == false && gp.cH.tile.nombre.equals("14")){
+            /*
+            gp.sonido.volume = -30.0f; 
+            gp.playMusicOnce(2);
+            */
             int numero[] = {146, 147,148,149,150,152}; 
                     
                     
@@ -199,7 +203,7 @@ public class Player extends Entity{
 
 
                 gp.sonido.volume = -30.0f; 
-                gp.playMusicOnce(5); // Para poder poner la música
+                gp.sonido.play(5,true); // Para poder poner la música
             }
         }
         
@@ -235,7 +239,8 @@ public class Player extends Entity{
 
                         
                         gp.sonido.volume = -10.0f; 
-                        gp.playMusicOnce(2); // Para poder poner la música 
+                        gp.sonido.play(2, false); 
+                        
                         
                         gp.obj = new SuperObject[0]; // Para vaciar todos los objetos 
                         gp.tileManager.loadMap(gp.tileManager.mapas[1]); // Para poder cambiar el mapa 
@@ -306,7 +311,7 @@ public class Player extends Entity{
                     if(keyHandler.interactEntity == false){
 
                         gp.sonido.volume = -10.0f; 
-                        gp.playMusicOnce(4); // Para poder poner la música
+                        //gp.playMusicOnce(4); // Para poder poner la música
 
                         gp.gameState = gp.dialogueState; 
                         int numeroAleatorio = random.nextInt(5) + 1;  
@@ -334,7 +339,7 @@ public class Player extends Entity{
                     
                     
                     gp.sonido.volume = -30.0f; 
-                    gp.playMusicOnce(5); // Para poder poner la música
+                    //gp.playMusicOnce(5); // Para poder poner la música
                     
                     
                     break; 

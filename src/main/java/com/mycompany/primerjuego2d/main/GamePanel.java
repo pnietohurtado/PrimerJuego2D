@@ -48,6 +48,10 @@ public class GamePanel extends JPanel implements Runnable{
   
     // -------------------------------------------------------------------------
     
+    // ------------------- Variable para el sonido -----------------------------
+    
+    public Sound sonido = new Sound(); 
+    
     
     // ------------------- Variables generales (NO TOCAR) ----------------------
     
@@ -80,9 +84,7 @@ public class GamePanel extends JPanel implements Runnable{
     
     // Hierba Alta 
     public AssetGrass aGrass = new AssetGrass(this); 
-    
-    // Music in-game
-    public Sound sonido = new Sound(); 
+
     
     // Instance UI class 
     public UI ui = new UI(this); 
@@ -282,27 +284,5 @@ public class GamePanel extends JPanel implements Runnable{
     }
     
     
-    
-    // Sonido in-game 
-    public void playMusic(int i){
-        sonido.setFile(i); 
-        
-        sonido.play(); 
-        //sonido.loop();
-    }
-    
-    public void playMusicOnce(int i){
-        sonido.setFile(i); 
-        sonido.play(); 
-    }
-    
-    public void stopMusic(int i){
-       //sonido.setFile(i); 
-        sonido.stop(); 
-    }
-    
-    public void playSE(int i){
-        sonido.setFile(i); 
-        sonido.play(); 
-    }
+
 }
