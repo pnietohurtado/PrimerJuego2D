@@ -5,14 +5,12 @@
 package com.mycompany.primerjuego2d.main;
 
 import Entity.NPC_Pokemon;
-import Objects.OBJ_Key;
 import Objects.OBJ_Pokeball;
 import Objects.SuperObject;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -265,7 +263,7 @@ public class UI {
     
     // -------------------------------------------------------------------------
     
-    
+    public String dialogueText; 
     
     public void drawDialogueScreen(){
         int x = gp.tileSize * 2; 
@@ -280,7 +278,7 @@ public class UI {
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
         x += gp.tileSize; 
         y += gp.tileSize; 
-        g2.drawString(textoNPC[numeroAleatorio], x, y); 
+        g2.drawString(dialogueText, x, y); 
         
         
     }

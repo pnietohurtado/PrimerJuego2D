@@ -45,5 +45,8 @@ Sobre los controles del juego:
     los objetos, es decir, de sus posiciones dentro de un archivo .txt el cual puedo cargar desde un principio al inicio 
     del juego y puedo recurrir a el en caso de que alguno de los elementos sufra algún tipo de alteración. 
     
-    
+    31/07/2025
+
+    ~ Dentro de cada Pokeball, el objeto va a ser aleatorio, lo cual es la gracia, para que luego más adelante pueda encontrar 
+    obejtos para los propios pokemones. 
        

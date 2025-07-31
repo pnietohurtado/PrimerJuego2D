@@ -239,6 +239,16 @@ public class Player extends Entity{
                     }
                     break; 
                 case "Pokeball": 
+                    
+                    gp.sonido.volume = -10.0f; 
+                    gp.sonido.play(2, false); 
+                    
+                    /*El objeto de cada pokeball es aleatorio*/
+                    gp.ui.dialogueText = "Has encontrado un hacha"; 
+                    gp.gameState = gp.dialogueState; 
+                    this.hasHacha++; 
+                    inventario.add(gp.obj[5]); 
+                    
                     //if(keyHandler.interactEntity == true){ // En el caso de que sea necesario pulsar para recoger
                         hasPokeball++; 
                         inventario.add(gp.obj[i]);
@@ -246,8 +256,6 @@ public class Player extends Entity{
                         gp.obj[i] = null; 
 
                         
-                        gp.sonido.volume = -10.0f; 
-                        gp.sonido.play(2, false); 
                         
                         
                         
