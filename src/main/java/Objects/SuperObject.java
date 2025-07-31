@@ -36,6 +36,7 @@ public class SuperObject
     public int multiplicadorSizeX = 1; 
     public int multiplicadorSizeY = 1; 
     // -------------------------------------------------------------------------
+
     
     public void draw(Graphics2D g2, GamePanel gamePanel){
         int screenX = worldX - gamePanel.player.worldX + gamePanel.player.screenX; 

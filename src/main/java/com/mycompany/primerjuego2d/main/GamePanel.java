@@ -81,11 +81,10 @@ public class GamePanel extends JPanel implements Runnable{
     
     public AssetSetter aSetter = new AssetSetter(this); 
     
+    public AssetObject aObjects = new AssetObject(this); 
     
-    // Hierba Alta 
-    public AssetGrass aGrass = new AssetGrass(this); 
+    public SuperObject object[] = new SuperObject[100]; 
 
-    
     // Instance UI class 
     public UI ui = new UI(this); 
     
@@ -131,7 +130,7 @@ public class GamePanel extends JPanel implements Runnable{
     {
         aSetter.setObject();
         aSetter.setNPC();
-        aGrass.setObject(); 
+        aObjects.setObject();
         //playMusic(1);
         gameState = titleState; 
     }

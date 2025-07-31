@@ -9,6 +9,7 @@ com\mycompany\primerjuego2d\main\Sound.class
 Pokemon\Pokemon.class
 Objects\OBJ_Hacha.class
 com\mycompany\primerjuego2d\main\GamePanel.class
+com\mycompany\primerjuego2d\main\AssetObject.class
 com\mycompany\primerjuego2d\main\UI.class
 Tile\TileManager.class
 com\mycompany\primerjuego2d\main\ClaseAuxiliar.class
@@ -16,7 +17,6 @@ com\mycompany\primerjuego2d\main\MouseClicker.class
 com\mycompany\primerjuego2d\main\CollisionChecker.class
 Entity\NPC_CocheJuan.class
 Objects\OBJ_Pokeball.class
-com\mycompany\primerjuego2d\main\AssetGrass.class
 com\mycompany\primerjuego2d\main\KeyHandler.class
 Funciones\Funciones_sobre_tiles.class
 Conexion\Conexion.class
