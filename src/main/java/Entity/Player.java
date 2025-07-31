@@ -207,6 +207,14 @@ public class Player extends Entity{
             }
         }
         
+        
+        if(collision == true && gp.cH.tile.nombre.equals("17") ){
+            gp.obj = new SuperObject[0]; // Para vaciar todos los objetos 
+            gp.player.worldX = 24* gp.tileSize; 
+            gp.player.worldY = 23* gp.tileSize; 
+            gp.tileManager.loadMap(gp.tileManager.mapas[1]); // Para poder cambiar el mapa 
+        }
+        
     }
     
     
@@ -242,8 +250,7 @@ public class Player extends Entity{
                         gp.sonido.play(2, false); 
                         
                         
-                        gp.obj = new SuperObject[0]; // Para vaciar todos los objetos 
-                        gp.tileManager.loadMap(gp.tileManager.mapas[1]); // Para poder cambiar el mapa 
+                        
                         
                         
                     //}

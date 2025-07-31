@@ -39,7 +39,7 @@ public class TileManager {
     
     // Array de los mapas 
     
-    public String mapas[] = {"/maps/MapaVF.txt", "/maps/Mapa Alternativo2.txt"}; 
+    public String mapas[] = {"/maps/MapaVF.txt", "/maps/Mapa2.txt"}; 
     
     
     // Constructor 
@@ -69,22 +69,7 @@ public class TileManager {
         getTileImage(); 
         
         
-        is = getClass().getResourceAsStream("/maps/MapaVF.txt"); 
-        br = new BufferedReader(new InputStreamReader(is)); 
         
-        try{
-            String linea2 = br.readLine(); 
-            //this.nombre = linea2; 
-            String maxTile[] = linea2.split(" "); 
-            gp.maxWorldCol = maxTile.length; 
-            gp.maxWorldRow = maxTile.length; 
-           
-            
-            mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow]; 
-            br.close(); 
-        }catch(IOException e){
-            
-        }
         
         
         
@@ -129,10 +114,29 @@ public class TileManager {
     
     public void loadMap(String path)
     {
+        
+        InputStream is = getClass().getResourceAsStream(path); 
+        BufferedReader br = new BufferedReader(new InputStreamReader(is)); 
+        
+        try{
+            String linea2 = br.readLine(); 
+            //this.nombre = linea2; 
+            String maxTile[] = linea2.split(" "); 
+            gp.maxWorldCol = maxTile.length; 
+            gp.maxWorldRow = maxTile.length; 
+           
+            
+            mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow]; 
+            br.close(); 
+        }catch(IOException e){
+            
+        }
+        
+        
         try{
             
-            InputStream is = getClass().getResourceAsStream(path);
-            BufferedReader br = new BufferedReader(new InputStreamReader(is)); 
+            is = getClass().getResourceAsStream(path);
+            br = new BufferedReader(new InputStreamReader(is)); 
             
             int col = 0; 
             int row = 0; 

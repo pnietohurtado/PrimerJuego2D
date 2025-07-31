@@ -6,6 +6,7 @@ Objects\OBJ_Hierba.class
 Objects\OBJ_Key.class
 Tile\Tile.class
 com\mycompany\primerjuego2d\main\Sound.class
+Pokemon\Pokemon.class
 Objects\OBJ_Hacha.class
 com\mycompany\primerjuego2d\main\GamePanel.class
 com\mycompany\primerjuego2d\main\UI.class
