@@ -187,7 +187,7 @@ public class KeyHandler implements KeyListener{
                 gp.sonido.stop(5);
                 gp.gameState = gp.playState; 
             }
-            if(code == KeyEvent.VK_W || code == KeyEvent.VK_UP)
+            if(code == KeyEvent.VK_UP)
                 {
                     gp.sonido.volume = -30.0f; 
                     gp.sonido.play(3,false); // Para poder poner la música 
@@ -197,7 +197,7 @@ public class KeyHandler implements KeyListener{
                         gp.ui.commandNumber = 3; 
                     }
                 }
-            if(code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN)
+            if(code == KeyEvent.VK_DOWN)
                 {
                     gp.sonido.volume = -10.0f; 
                     gp.sonido.play(3,false); // Para poder poner la música 

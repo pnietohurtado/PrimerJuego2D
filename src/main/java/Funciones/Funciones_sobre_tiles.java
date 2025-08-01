@@ -89,18 +89,33 @@ public class Funciones_sobre_tiles {
     
     // ----------------------- Salida de la construcción -----------------------
     
-    public void exitBuilding01(){
+    public void exitBuilding01(){ // Segunda salida Fabrica01 
         
         gp.player.worldX = 55* gp.tileSize; 
         gp.player.worldY = 166* gp.tileSize; 
             
         gp.tileManager.loadMap(gp.tileManager.mapas[0]);
             
-        gp.aSetter.setObject();
+        //gp.aSetter.setObject();
             
         gp.gameState = gp.playState;
         
     }
+    
+    public void exitBuilding02(){ // Segunda salida Fabrica02 
+        
+        gp.player.worldX = 54* gp.tileSize; 
+        gp.player.worldY = 171* gp.tileSize; 
+            
+        gp.tileManager.loadMap(gp.tileManager.mapas[0]);
+            
+        //gp.aSetter.setObject();
+            
+        gp.gameState = gp.playState;
+        
+    }
+    
+    
     
     
     

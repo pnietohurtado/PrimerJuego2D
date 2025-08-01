@@ -186,15 +186,28 @@ public class Player extends Entity{
     }
     // ------------------ Prueba sobre la detección de las tiles ---------------
     public void detectTile(){
+        
+        // --------------------- Apariciones en a hierba -----------------------
+        
         if(collision == false && gp.cH.tile.nombre.equals("14")){
             gp.fst.grassBattle01();
         }
+        
+        // --------------------- Salir de edificios ----------------------------
         
         else if(collision == false && gp.cH.tile.nombre.equals("22")){
             
             gp.fst.exitBuilding01();
              
         }
+        else if(collision == false && gp.cH.tile.nombre.equals("30")){
+            gp.fst.exitBuilding01();
+        }
+        else if(collision == false && gp.cH.tile.nombre.equals("31")){
+            gp.fst.exitBuilding02();
+        }
+        
+        // --------------------- Entrada en los edificios ----------------------
         
         else if(collision == true && gp.cH.tile.nombre.equals("25")){
             
@@ -205,6 +218,8 @@ public class Player extends Entity{
         else if(collision == true && gp.cH.tile.nombre.equals("17") ){ // En caso de que se entre en una de las puertas o (Bloque rojo) 
             gp.fst.enterBuilding01();
         }
+        
+        
         
     }
     
