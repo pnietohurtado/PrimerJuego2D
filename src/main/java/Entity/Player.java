@@ -190,14 +190,19 @@ public class Player extends Entity{
             gp.fst.grassBattle01();
         }
         
-        if(collision == false && gp.cH.tile.nombre.equals("22")){
+        else if(collision == false && gp.cH.tile.nombre.equals("22")){
             
             gp.fst.exitBuilding01();
              
         }
         
+        else if(collision == true && gp.cH.tile.nombre.equals("25")){
+            
+            gp.fst.enternBuilding02();
+            
+        }
         
-        if(collision == true && gp.cH.tile.nombre.equals("17") ){ // En caso de que se entre en una de las puertas o (Bloque rojo) 
+        else if(collision == true && gp.cH.tile.nombre.equals("17") ){ // En caso de que se entre en una de las puertas o (Bloque rojo) 
             gp.fst.enterBuilding01();
         }
         

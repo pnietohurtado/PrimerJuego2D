@@ -39,7 +39,7 @@ public class TileManager {
     
     // Array de los mapas 
     
-    public String mapas[] = {"/maps/MapaVF.txt", "/maps/Mapa2.txt"}; 
+    public String mapas[] = {"/maps/MapaVF.txt", "/maps/Mapa2.txt", "/maps/Fabrica02.txt"}; 
     
     
     // Constructor 
