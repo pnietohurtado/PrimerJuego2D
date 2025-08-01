@@ -20,26 +20,7 @@ public class AssetSetter {
     }
     
     public void setObject(){
-        /*
-        gp.obj[1] = new OBJ_Key(); 
-        gp.obj[1].worldX = 26 * gp.tileSize; 
-        gp.obj[1].worldY = 2 * gp.tileSize; 
-        gp.obj[1].collision = true;
-        
-        gp.obj[2] = new OBJ_Key(); 
-        gp.obj[2].worldX = 2 * gp.tileSize; 
-        gp.obj[2].worldY = 38 * gp.tileSize; 
-        gp.obj[2].collision = true;
-        */
-        
-        /*
-        gp.obj[0] = new OBJ_Key(); 
-        gp.obj[0].worldX = 47 * gp.tileSize; 
-        gp.obj[0].worldY = 212 * gp.tileSize; 
-        gp.obj[0].collision = true;
-        gp.obj[0].multiplicadorSizeX = 8; // Se encarga de asignar un número de pixeles determinado en la pantalla
-        gp.obj[0].multiplicadorSizeY = 4;
-        */
+       
         
         gp.obj[1] = new OBJ_Pokeball(); 
         gp.obj[1].worldX = 56 * gp.tileSize; 
@@ -65,6 +46,13 @@ public class AssetSetter {
         gp.obj[6].worldX = 49 * gp.tileSize; 
         gp.obj[6].worldY = 176 * gp.tileSize; 
         gp.obj[6].collision = true;
+        
+        gp.obj[7] = new OBJ_CentroPokemon(); 
+        gp.obj[7].worldX = 53 * gp.tileSize; 
+        gp.obj[7].worldY = 162 * gp.tileSize; 
+        gp.obj[7].collision = true;
+        gp.obj[7].multiplicadorSizeX = 3; 
+        gp.obj[7].multiplicadorSizeY = 3; 
         
         
     }

@@ -81,8 +81,8 @@ public class Funciones_sobre_tiles {
     
     public void exitBuilding01(){
         
-        gp.player.worldX = 49* gp.tileSize; 
-        gp.player.worldY = 214* gp.tileSize; 
+        gp.player.worldX = 55* gp.tileSize; 
+        gp.player.worldY = 166* gp.tileSize; 
             
         gp.tileManager.loadMap(gp.tileManager.mapas[0]);
             

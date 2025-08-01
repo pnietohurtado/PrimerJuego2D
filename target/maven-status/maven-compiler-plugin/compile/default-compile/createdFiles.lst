@@ -2,7 +2,6 @@ com\mycompany\primerjuego2d\main\AssetSetter.class
 Entity\NPC_Pokemon.class
 Entity\Entity.class
 Objects\SuperObject.class
-Objects\OBJ_Hierba.class
 Objects\OBJ_Key.class
 Tile\Tile.class
 com\mycompany\primerjuego2d\main\Sound.class
@@ -13,6 +12,7 @@ com\mycompany\primerjuego2d\main\AssetObject.class
 com\mycompany\primerjuego2d\main\UI.class
 Tile\TileManager.class
 com\mycompany\primerjuego2d\main\ClaseAuxiliar.class
+Objects\OBJ_CentroPokemon.class
 com\mycompany\primerjuego2d\main\MouseClicker.class
 com\mycompany\primerjuego2d\main\CollisionChecker.class
 Entity\NPC_CocheJuan.class
