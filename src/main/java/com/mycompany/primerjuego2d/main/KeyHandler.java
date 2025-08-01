@@ -80,19 +80,14 @@ public class KeyHandler implements KeyListener{
                     if(code == KeyEvent.VK_W)
                 {
                     this.upPressed = true; 
-                    gp.fst.Encontrar();
-                    //System.out.println("Me activo con la W");
                 }
                 if(code == KeyEvent.VK_S)
                 {
                     this.downPressed = true; 
-                    gp.fst.Encontrar();
-                    //System.out.println("Me activo con la S");
                 }
                 if(code == KeyEvent.VK_A)
                 {
                     this.leftPressed = true; 
-                    gp.fst.Encontrar();
                     /* Tried to make the player sprint when the key "SHIFT" is pressed
                     if(code == KeyEvent.VK_SHIFT){
                         System.out.println("FIUMMMMMM");
@@ -103,7 +98,6 @@ public class KeyHandler implements KeyListener{
                 if(code == KeyEvent.VK_D)
                 {
                     this.rightPressed = true; 
-                    gp.fst.Encontrar();
                 }if(code == KeyEvent.VK_K)
                 {
                     if(showCollisions == false){

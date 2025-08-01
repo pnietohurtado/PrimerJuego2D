@@ -187,55 +187,18 @@ public class Player extends Entity{
     // ------------------ Prueba sobre la detección de las tiles ---------------
     public void detectTile(){
         if(collision == false && gp.cH.tile.nombre.equals("14")){
-            /*
-            gp.sonido.volume = -30.0f; 
-            gp.playMusicOnce(2);
-            */
-            int numero[] = {1,4,7,14,82,23}; 
-                    
-                    
-            int numeroAleatorio = random.nextInt(200) + 1;  
-            int aparicion = random.nextInt(5); // Hay que poner exactamente el número de 
-            //this.sprite_bicho_attack = 1; 
-            if(numeroAleatorio == 1){
-                this.sprite_bicho_attack = numero[aparicion]; 
-                       
-                gp.gameState = gp.battleState; 
-
-
-                gp.sonido.volume = -30.0f; 
-                gp.sonido.play(5,true); // Para poder poner la música
-            }
+            gp.fst.grassBattle01();
         }
         
         if(collision == false && gp.cH.tile.nombre.equals("22")){
-            gp.gameState = gp.playState; 
+            
+            gp.fst.exitBuilding01();
+             
         }
         
         
         if(collision == true && gp.cH.tile.nombre.equals("17") ){ // En caso de que se entre en una de las puertas o (Bloque rojo) 
-            gp.obj = new SuperObject[0]; // Para vaciar todos los objetos 
-            gp.player.worldX = 24* gp.tileSize; 
-            gp.player.worldY = 25* gp.tileSize; 
-            gp.tileManager.loadMap(gp.tileManager.mapas[1]); // Para poder cambiar el mapa 
-            
-            
-            gp.obj = new SuperObject[99]; // Volver a añadir objetos en el array
-            
-            gp.obj[0] = new OBJ_Pokeball(); 
-            gp.obj[0].worldX = 25 * gp.tileSize; 
-            gp.obj[0].worldY = 22 * gp.tileSize; 
-            gp.obj[0].collision = true;
-            
-            gp.obj[1] = new OBJ_Pokeball(); 
-            gp.obj[1].worldX = 24 * gp.tileSize; 
-            gp.obj[1].worldY = 22 * gp.tileSize; 
-            gp.obj[1].collision = true;
-            
-            gp.obj[2] = new OBJ_Pokeball(); 
-            gp.obj[2].worldX = 23 * gp.tileSize; 
-            gp.obj[2].worldY = 22 * gp.tileSize; 
-            gp.obj[2].collision = true;
+            gp.fst.enterBuilding01();
         }
         
     }
