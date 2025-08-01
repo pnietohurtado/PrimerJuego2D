@@ -34,3 +34,13 @@ true
 false
 016.png
 true
+017.png
+false
+018.png
+false
+019.png
+false
+020.png
+true
+021.png
+false

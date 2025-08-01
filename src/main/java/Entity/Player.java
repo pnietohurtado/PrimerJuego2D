@@ -4,6 +4,7 @@
  */
 package Entity;
 
+import Objects.OBJ_Pokeball;
 import Objects.SuperObject;
 import java.awt.image.BufferedImage;
 import com.mycompany.primerjuego2d.main.GamePanel;
@@ -207,12 +208,34 @@ public class Player extends Entity{
             }
         }
         
+        if(collision == false && gp.cH.tile.nombre.equals("22")){
+            gp.gameState = gp.playState; 
+        }
         
-        if(collision == true && gp.cH.tile.nombre.equals("17") ){
+        
+        if(collision == true && gp.cH.tile.nombre.equals("17") ){ // En caso de que se entre en una de las puertas o (Bloque rojo) 
             gp.obj = new SuperObject[0]; // Para vaciar todos los objetos 
             gp.player.worldX = 24* gp.tileSize; 
-            gp.player.worldY = 23* gp.tileSize; 
+            gp.player.worldY = 25* gp.tileSize; 
             gp.tileManager.loadMap(gp.tileManager.mapas[1]); // Para poder cambiar el mapa 
+            
+            
+            gp.obj = new SuperObject[99]; // Volver a añadir objetos en el array
+            
+            gp.obj[0] = new OBJ_Pokeball(); 
+            gp.obj[0].worldX = 25 * gp.tileSize; 
+            gp.obj[0].worldY = 22 * gp.tileSize; 
+            gp.obj[0].collision = true;
+            
+            gp.obj[1] = new OBJ_Pokeball(); 
+            gp.obj[1].worldX = 24 * gp.tileSize; 
+            gp.obj[1].worldY = 22 * gp.tileSize; 
+            gp.obj[1].collision = true;
+            
+            gp.obj[2] = new OBJ_Pokeball(); 
+            gp.obj[2].worldX = 23 * gp.tileSize; 
+            gp.obj[2].worldY = 22 * gp.tileSize; 
+            gp.obj[2].collision = true;
         }
         
     }
@@ -240,7 +263,7 @@ public class Player extends Entity{
                     break; 
                 case "Pokeball": 
                     
-                    int randomObject = random.nextInt(1); 
+                    int randomObject = random.nextInt(2) + 1 ; 
                     
                     gp.sonido.volume = -10.0f; 
                     gp.sonido.play(2, false); 
@@ -254,7 +277,7 @@ public class Player extends Entity{
                     gp.obj[i].existe = false; 
                     gp.obj[i] = null;
                     
-                    if (randomObject == 0){
+                    if (randomObject == 1){
                         
                         gp.skinAppereance = 2; 
                         changeSkin = true; 
