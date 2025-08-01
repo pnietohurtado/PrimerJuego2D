@@ -4,6 +4,7 @@
  */
 package Funciones;
 
+import Entity.NPC_MewTwo;
 import Objects.OBJ_Pokeball;
 import Objects.SuperObject;
 import com.mycompany.primerjuego2d.main.GamePanel;
@@ -50,12 +51,12 @@ public class Funciones_sobre_tiles {
     
     public void enterBuilding01(){
         
-        gp.obj = new SuperObject[0]; // Para vaciar todos los objetos 
+        gp.tileManager.loadMap(gp.tileManager.mapas[1]); // Para poder cambiar el mapa 
+        //gp.obj = new SuperObject[0]; // Para vaciar todos los objetos 
         gp.player.worldX = 24* gp.tileSize; 
         gp.player.worldY = 24* gp.tileSize; 
-        gp.tileManager.loadMap(gp.tileManager.mapas[1]); // Para poder cambiar el mapa 
-            
-            
+        
+        /*   
         gp.obj = new SuperObject[99]; // Volver a añadir objetos en el array
             
         gp.obj[0] = new OBJ_Pokeball(); 
@@ -72,19 +73,34 @@ public class Funciones_sobre_tiles {
         gp.obj[2].worldX = 23 * gp.tileSize; 
         gp.obj[2].worldY = 22 * gp.tileSize; 
         gp.obj[2].collision = true;
+        */
         
     }
     
     
     public void enternBuilding02(){
         
-        gp.obj = new SuperObject[0]; // Para vaciar todos los objetos 
+        gp.tileManager.loadMap(gp.tileManager.mapas[2]); // Para poder cambiar el mapa
+        //gp.obj = new SuperObject[0]; // Para vaciar todos los objetos 
         gp.player.worldX = 24* gp.tileSize; 
         gp.player.worldY = 24* gp.tileSize; 
-        gp.tileManager.loadMap(gp.tileManager.mapas[2]); // Para poder cambiar el mapa
+        
         
     }
     
+    
+    public void enterBuildingUnderground(){ // Entrada al subsuelo 
+        
+        gp.tileManager.loadMap(gp.tileManager.mapas[3]); // Para poder cambiar el mapa
+        gp.player.worldX = 25* gp.tileSize; 
+        gp.player.worldY = 29* gp.tileSize;
+        
+        gp.npc[0] = new NPC_MewTwo(gp); 
+        gp.npc[0].worldX = gp.tileSize * 25; 
+        gp.npc[0].worldY = gp.tileSize * 20; 
+        //gp.npc[0].actionCountNPC = 1;
+        
+    }
     
     
     // ----------------------- Salida de la construcción -----------------------
@@ -114,6 +130,8 @@ public class Funciones_sobre_tiles {
         gp.gameState = gp.playState;
         
     }
+    
+   
     
     
     

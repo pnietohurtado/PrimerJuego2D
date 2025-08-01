@@ -219,7 +219,9 @@ public class Player extends Entity{
             gp.fst.enterBuilding01();
         }
         
-        
+        else if(collision == true && gp.cH.tile.nombre.equals("27")){ // Entrada al subsuelo 
+            gp.fst.enterBuildingUnderground(); 
+        }
         
     }
     
