@@ -189,7 +189,7 @@ public class Player extends Entity{
         
         // --------------------- Apariciones en a hierba -----------------------
         
-        if(collision == false && gp.cH.tile.nombre.equals("14")){
+        if(collision == false && gp.cH.tile.nombre.equals("12")){
             gp.fst.grassBattle01();
         }
         
@@ -209,7 +209,7 @@ public class Player extends Entity{
         
         // --------------------- Entrada en los edificios ----------------------
         
-        else if(collision == true && gp.cH.tile.nombre.equals("25")){
+        else if(collision == true && gp.cH.tile.nombre.equals("23")){
             
             gp.fst.enternBuilding02();
             
@@ -221,6 +221,10 @@ public class Player extends Entity{
         
         else if(collision == true && gp.cH.tile.nombre.equals("27")){ // Entrada al subsuelo 
             gp.fst.enterBuildingUnderground(); 
+        }
+        
+        else if(collision == true){
+            System.out.println("Nombre " + gp.cH.tile.nombre);
         }
         
     }

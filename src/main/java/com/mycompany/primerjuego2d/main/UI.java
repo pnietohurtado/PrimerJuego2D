@@ -358,8 +358,8 @@ public class UI {
         
         int x = gp.tileSize ; 
         int y = gp.tileSize / 2; 
-        int width = gp.screenWidth - (gp.tileSize * 8); 
-        int height = gp.tileSize * 10;
+        int width = gp.screenWidth - (gp.tileSize * 2); 
+        int height = gp.tileSize * 11;
         int contador = 0; 
         
         drawSubWindow(x,y,width, height); 
@@ -379,7 +379,7 @@ public class UI {
             
                 g2.drawImage(inventario.get(i).image, x, y, gp.tileSize*2, gp.tileSize * 2, null); 
 
-                g2.drawString(inventario.get(i).name, x + (2 * gp.tileSize), y + gp.tileSize);
+                //g2.drawString(inventario.get(i).name, x + (2 * gp.tileSize), y + gp.tileSize);
                 
                 for(int j = 0; j < gp.player.inventario.size(); j++){
                     if(gp.player.inventario.get(j).name.equals(gp.player.inventario.get(i).name)){
@@ -388,7 +388,7 @@ public class UI {
                     }
                 }
                 
-                g2.drawString(String.valueOf(contador), x + ( 5 * gp.tileSize) , y + gp.tileSize);
+                g2.drawString("x"+String.valueOf(contador), x + ( 5 * gp.tileSize) , y + gp.tileSize);
                 y += gp.tileSize;
                 
          
