@@ -86,7 +86,7 @@ public class Entity {
     
     
     public void update(){
-        
+        if(!(name.equals("MewTwo"))){
         setAction(); 
         
         collision = false; 
@@ -142,6 +142,7 @@ public class Entity {
                 }
                 spriteCounter = 0; 
             }  
+        }
     }
     
     

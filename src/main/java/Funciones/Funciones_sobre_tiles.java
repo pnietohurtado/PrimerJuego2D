@@ -110,6 +110,14 @@ public class Funciones_sobre_tiles {
         
     }
     
+    public void enterBuilding03() { // Entrada secundaria para la fabrica desde pueblo Paleta
+        
+        gp.tileManager.loadMap(gp.tileManager.mapas[2]); // Para poder cambiar el mapa
+        gp.player.worldX = 25 * gp.tileSize; 
+        gp.player.worldY = 8 * gp.tileSize;
+        
+    }
+    
     
     // ----------------------- Salida de la construcción -----------------------
     
@@ -128,7 +136,7 @@ public class Funciones_sobre_tiles {
     
     public void exitBuilding02(){ // Segunda salida Fabrica02 
         
-        gp.player.worldX = 54* gp.tileSize; 
+        gp.player.worldX = 55* gp.tileSize; 
         gp.player.worldY = 171* gp.tileSize; 
             
         gp.tileManager.loadMap(gp.tileManager.mapas[0]);
@@ -138,6 +146,8 @@ public class Funciones_sobre_tiles {
         gp.gameState = gp.playState;
         
     }
+
+    
     
    
     

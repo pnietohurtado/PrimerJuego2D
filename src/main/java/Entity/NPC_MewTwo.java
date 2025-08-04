@@ -13,13 +13,16 @@ import java.util.Random;
  */
 public class NPC_MewTwo extends Entity{
     
+    
+    
     public NPC_MewTwo(GamePanel gp) {
         super(gp);
-        name = "CocheJuan"; 
+        super.name = "MewTwo"; 
         
         direction = "down"; 
         speed = 1; 
         
+        super.collision = true; 
         getPlayerImage();
     }
     
@@ -38,9 +41,6 @@ public class NPC_MewTwo extends Entity{
         
         actionLockCounter++; 
         
-        if(actionLockCounter == 120){
-            
-        }
         
         
         

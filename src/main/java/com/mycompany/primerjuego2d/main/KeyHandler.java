@@ -286,7 +286,7 @@ public class KeyHandler implements KeyListener{
                         gp.sonido.volume = -20.0f; 
                         this.playMusic = true; 
                     }else if(this.playMusic == true){
-                        gp.sonido.stop(3);
+                        gp.sonido.stop(1);
                         this.playMusic = false; 
                     }
                 }else if(gp.ui.commandNumber == 3){

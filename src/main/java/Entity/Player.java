@@ -219,10 +219,13 @@ public class Player extends Entity{
             gp.fst.enterBuilding01();
         }
         
-        else if(collision == true && gp.cH.tile.nombre.equals("26")){ // Entrada al subsuelo 
+        else if(collision == true && gp.cH.tile.nombre.equals("25")){ // Entrada al subsuelo (MewTwo) 
             gp.fst.enterBuildingUnderground(); 
         }
         
+        else if(collision == true && gp.cH.tile.nombre.equals("21")){  // Entrando a la fabrica por la segunda puerta (Pueblo paleta) 
+           gp.fst.enterBuilding03(); 
+        }
         else if(collision == true){
             System.out.println("Nombre " + gp.cH.tile.nombre);
         }
