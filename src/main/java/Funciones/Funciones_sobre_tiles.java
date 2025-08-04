@@ -29,7 +29,15 @@ public class Funciones_sobre_tiles {
     // ----------------------- Apariciones Pokemones en ruta -------------------
     
     public void grassBattle01(){
-        int numero[] = {1,4,7,14,82,23}; 
+        
+        
+        int numero[] = new int[6]; 
+        numero[0] = random.nextInt(151) + 1; 
+        numero[1] = random.nextInt(151) + 1; 
+        numero[2] = random.nextInt(151) + 1; 
+        numero[3] = random.nextInt(151) + 1; 
+        numero[4] = random.nextInt(151) + 1; 
+        numero[5] = random.nextInt(151) + 1; 
                     
                     
         int numeroAleatorio = random.nextInt(200) + 1;  

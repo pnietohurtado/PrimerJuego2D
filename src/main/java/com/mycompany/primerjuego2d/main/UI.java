@@ -7,16 +7,11 @@ package com.mycompany.primerjuego2d.main;
 import Entity.NPC_Pokemon;
 import Objects.OBJ_Pokeball;
 import Objects.SuperObject;
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics2D;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashSet;
-import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 import java.util.logging.Level;
@@ -57,7 +52,7 @@ public class UI {
         
         
         
-        arial_40 = new Font("Arial", Font.PLAIN, 40); 
+        arial_40 = new Font("Arial", Font.PLAIN, 20); 
         //OBJ_Key key = new OBJ_Key(); 
         //keyImage = key.image; 
         
@@ -353,8 +348,8 @@ public class UI {
     
     public void drawInventoryCase(int x, int y){
          
-        int width = gp.tileSize * 2; 
-        int height = gp.tileSize * 2; 
+        int width = gp.tileSize * (1 + (1/2)); 
+        int height = gp.tileSize * (1 + (1/2)) ; 
         
         Color c = new Color(0,0,0,210); // 220 is going to show the transparecy of the window  
         g2.setColor(c); 
@@ -413,7 +408,9 @@ public class UI {
                     }
                 }
                 
-                g2.drawString("x"+String.valueOf(contador), x  , y + gp.tileSize);
+                g2.setFont(arial_40);
+                g2.setColor(Color.red); 
+                g2.drawString("x"+String.valueOf(contador), gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
                 if(xk <= 12){
                     xk += gp.tileSize;
                 }else{
