@@ -351,6 +351,21 @@ public class UI {
     }
     //--------------------------------------------------------------------------
     
+    public void drawInventoryCase(int x, int y){
+         
+        int width = gp.tileSize * 2; 
+        int height = gp.tileSize * 2; 
+        
+        Color c = new Color(0,0,0,210); // 220 is going to show the transparecy of the window  
+        g2.setColor(c); 
+        g2.fillRoundRect(x,y,width,height,35,35); 
+        
+        c = new Color(255,255,255); 
+        g2.setColor(c); 
+        g2.setStroke(new BasicStroke(5)); 
+        g2.drawRoundRect(x+5, y+5, width-10, height-10 , 25, 25);
+    }
+    
      
     public void drawInventoryScreen(){
         
@@ -365,19 +380,29 @@ public class UI {
         drawSubWindow(x,y,width, height); 
         
         
+        // Parte en la que añado a la vez que abro el inventario la colisión de las tiles 
+        // y lo limito al tamaño de la pantalla 
+        
+        for(int i = 3; i <= 12 ; i++){
+            for(int j = 2; j <= 9; j++){
+                drawInventoryCase(gp.tileSize * i, gp.tileSize * j); 
+            }
+        }
+        
+        
         
         objetosUnicos = new LinkedHashSet<>(this.gp.player.inventario); 
         inventario = new ArrayList<>(objetosUnicos);
-        Map<String, Integer> cantidades = new HashMap<>(); 
+        //Map<String, Integer> cantidades = new HashMap<>(); 
         
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
-        x += gp.tileSize; 
-        y += gp.tileSize; 
+        int xk = 3;
+        int yk = 2; 
 
         for(int i = 0; i < inventario.size(); i++){
                 contador = 0; 
             
-                g2.drawImage(inventario.get(i).image, x, y, gp.tileSize*2, gp.tileSize * 2, null); 
+                g2.drawImage(inventario.get(i).image, gp.tileSize * xk, gp.tileSize * yk, gp.tileSize, gp.tileSize , null); 
 
                 //g2.drawString(inventario.get(i).name, x + (2 * gp.tileSize), y + gp.tileSize);
                 
@@ -388,8 +413,13 @@ public class UI {
                     }
                 }
                 
-                g2.drawString("x"+String.valueOf(contador), x + ( 5 * gp.tileSize) , y + gp.tileSize);
-                y += gp.tileSize;
+                g2.drawString("x"+String.valueOf(contador), x  , y + gp.tileSize);
+                if(xk <= 12){
+                    xk += gp.tileSize;
+                }else{
+                    xk = 0; 
+                    yk += gp.tileSize; 
+                }
                 
          
         }
