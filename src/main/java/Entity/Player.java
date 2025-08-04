@@ -200,16 +200,16 @@ public class Player extends Entity{
             gp.fst.exitBuilding01();
              
         }
-        else if(collision == false && gp.cH.tile.nombre.equals("30")){
+        else if(collision == false && gp.cH.tile.nombre.equals("28")){ // Salida de la Factory (entrada secundaria pueblo paleta) 
             gp.fst.exitBuilding01();
         }
-        else if(collision == false && gp.cH.tile.nombre.equals("31")){
+        else if(collision == false && gp.cH.tile.nombre.equals("27")){ // Salida de la Factory (entrada secundaria ruta01) 
             gp.fst.exitBuilding02();
         }
         
         // --------------------- Entrada en los edificios ----------------------
         
-        else if(collision == true && gp.cH.tile.nombre.equals("33")){
+        else if(collision == true && gp.cH.tile.nombre.equals("23")){
             
             gp.fst.enternBuilding02();
             
@@ -219,7 +219,7 @@ public class Player extends Entity{
             gp.fst.enterBuilding01();
         }
         
-        else if(collision == true && gp.cH.tile.nombre.equals("27")){ // Entrada al subsuelo 
+        else if(collision == true && gp.cH.tile.nombre.equals("26")){ // Entrada al subsuelo 
             gp.fst.enterBuildingUnderground(); 
         }
         
