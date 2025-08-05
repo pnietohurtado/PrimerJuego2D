@@ -411,12 +411,15 @@ public class UI {
                 g2.setFont(arial_40);
                 g2.setColor(Color.red); 
                 g2.drawString("x"+String.valueOf(contador), gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
+                xk++; 
+                /*
                 if(xk <= 12){
                     xk += gp.tileSize;
                 }else{
                     xk = 0; 
                     yk += gp.tileSize; 
                 }
+                */
                 
          
         }

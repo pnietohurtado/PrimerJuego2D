@@ -255,7 +255,7 @@ public class Player extends Entity{
                     break; 
                 case "Pokeball": 
                     
-                    int randomObject = random.nextInt(2) + 1 ; 
+                    int randomObject = random.nextInt(3) + 1 ; 
                     
                     gp.sonido.volume = -10.0f; 
                     gp.sonido.play(2, false); 

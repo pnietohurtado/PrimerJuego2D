@@ -5,7 +5,6 @@
 package com.mycompany.primerjuego2d.main;
 
 
-import Entity.NPC_CocheJuan;
 import Objects.*;
 
 /**
@@ -47,18 +46,17 @@ public class AssetSetter {
         gp.obj[6].worldY = 176 * gp.tileSize; 
         gp.obj[6].collision = true;
         
-        gp.obj[6] = new OBJ_Pokeball(); 
-        gp.obj[6].worldX = 73 * gp.tileSize; 
-        gp.obj[6].worldY = 167 * gp.tileSize; 
-        gp.obj[6].collision = true;
-        
-        gp.obj[7] = new OBJ_CentroPokemon(); 
-        gp.obj[7].worldX = 53 * gp.tileSize; 
-        gp.obj[7].worldY = 162 * gp.tileSize; 
+        gp.obj[7] = new OBJ_Pokeball(); 
+        gp.obj[7].worldX = 73 * gp.tileSize; 
+        gp.obj[7].worldY = 167 * gp.tileSize; 
         gp.obj[7].collision = true;
-        gp.obj[7].multiplicadorSizeX = 3; 
-        gp.obj[7].multiplicadorSizeY = 3; 
         
+        gp.obj[8] = new OBJ_CentroPokemon(); 
+        gp.obj[8].worldX = 53 * gp.tileSize; 
+        gp.obj[8].worldY = 162 * gp.tileSize; 
+        gp.obj[8].collision = true;
+        gp.obj[8].multiplicadorSizeX = 3; 
+        gp.obj[8].multiplicadorSizeY = 3; 
         
     }
     

@@ -4,8 +4,7 @@
  */
 package com.mycompany.primerjuego2d.main;
 
-import Objects.OBJ_Hacha;
-import Objects.OBJ_Pokeball;
+import Objects.*;
 
 /**
  *
@@ -23,6 +22,7 @@ public class AssetObject {
         
         gp.object[1] = new OBJ_Hacha(); 
         gp.object[2] = new OBJ_Pokeball(); 
+        gp.object[3] = new OBJ_Key(); 
         
         
         

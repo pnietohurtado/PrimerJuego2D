@@ -5,8 +5,6 @@
 package Funciones;
 
 import Entity.NPC_MewTwo;
-import Objects.OBJ_Pokeball;
-import Objects.SuperObject;
 import com.mycompany.primerjuego2d.main.GamePanel;
 import java.util.Random;
 
@@ -106,6 +104,7 @@ public class Funciones_sobre_tiles {
         gp.npc[0] = new NPC_MewTwo(gp); 
         gp.npc[0].worldX = gp.tileSize * 25; 
         gp.npc[0].worldY = gp.tileSize * 20; 
+        
         //gp.npc[0].actionCountNPC = 1;
         
     }
