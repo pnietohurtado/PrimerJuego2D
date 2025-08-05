@@ -6,6 +6,7 @@ package com.mycompany.primerjuego2d.main;
 
 import Entity.Entity;
 import Entity.Player;
+import Funciones.CargarDatosPokemon;
 import Funciones.Funciones_sobre_tiles;
 import Objects.SuperObject;
 import java.awt.Color;
@@ -51,6 +52,11 @@ public class GamePanel extends JPanel implements Runnable{
     // ------------------- Variable para el sonido -----------------------------
     
     public Sound sonido = new Sound(); 
+    
+    // ---------- Variable donde cargamos los nombres de los pokemones ---------
+    
+    public CargarDatosPokemon nombres = new CargarDatosPokemon(this); 
+    public String[] nombres_pokemon = new String[152]; 
     
     
     // ------------------- Variables generales (NO TOCAR) ----------------------
@@ -131,8 +137,14 @@ public class GamePanel extends JPanel implements Runnable{
         aSetter.setObject();
         aSetter.setNPC();
         aObjects.setObject();
+        
+        // Poner la música del principio 
         this.keyHandler.playMusic = true; 
         sonido.play(7, true); // Se pone la música de la intro (Main Theme) 
+        
+        // Cargar los nombres de los pokemones 
+        nombres.cargar();
+        
         gameState = titleState; 
     }
     

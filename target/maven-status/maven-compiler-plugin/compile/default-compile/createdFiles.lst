@@ -17,6 +17,7 @@ com\mycompany\primerjuego2d\main\MouseClicker.class
 com\mycompany\primerjuego2d\main\CollisionChecker.class
 Entity\NPC_MewTwo.class
 Entity\NPC_CocheJuan.class
+Funciones\CargarDatosPokemon.class
 Objects\OBJ_Pokeball.class
 com\mycompany\primerjuego2d\main\KeyHandler.class
 Funciones\Funciones_sobre_tiles.class

@@ -151,7 +151,7 @@ public class UI {
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
         x += gp.tileSize; 
         y += gp.tileSize; 
-        g2.drawString(gp.npc[998].name, x, y); 
+        g2.drawString(gp.nombres_pokemon[gp.player.sprite_bicho_attack], x, y); 
         
         // ---------------------------------------------------------------------
         

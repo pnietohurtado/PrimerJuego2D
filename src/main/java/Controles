@@ -18,6 +18,11 @@ Sobre los controles del juego:
     por lo que de ahora en adelante debo optimizar aún más el código y la forma en la que asigno los objetos. 
 
 
+    05/08/2025
+
+    ~ Actualmente el problema con los nombres de las tiles está solucionado, pero al rozar el borde de todas las tiles 
+    , el nombre del mismo siempre va a ser "5" pase lo que pase. 
+
 
 
 !! Notas 
