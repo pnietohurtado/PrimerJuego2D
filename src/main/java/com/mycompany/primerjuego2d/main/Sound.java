@@ -29,7 +29,8 @@ public class Sound {
         soundURL[2] = getClass().getResource("/sonido/Coger.wav"); 
         soundURL[3] = getClass().getResource("/sonido/EntrarMenu.wav"); 
         soundURL[4] = getClass().getResource("/sonido/Hablando.wav"); 
-        soundURL[5] = getClass().getResource("/sonido/pokemon_battle.wav"); 
+        soundURL[5] = getClass().getResource("/sonido/pokemon_battle.wav");
+        soundURL[6] = getClass().getResource("/sonido/BattleMewTwo.wav");
         this.volume = -20.0f; 
     }
     

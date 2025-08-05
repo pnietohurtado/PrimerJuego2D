@@ -214,6 +214,7 @@ public class KeyHandler implements KeyListener{
                         
                 }else if(gp.ui.commandNumber == 3){
                     gp.sonido.stop(5);
+                    // gp.sonido.stop(6);
                     gp.gameState = gp.playState; 
                 }
             }

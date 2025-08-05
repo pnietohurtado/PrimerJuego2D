@@ -216,7 +216,7 @@ public class Player extends Entity{
         }
         
         else if(collision == true && gp.cH.tile.nombre.equals("17") ){ // En caso de que se entre en una de las puertas o (Bloque rojo) 
-            gp.fst.enterBuilding01();
+            gp.fst.enternBuilding02();
         }
         
         else if(collision == true && gp.cH.tile.nombre.equals("25")){ // Entrada al subsuelo (MewTwo) 
@@ -244,15 +244,7 @@ public class Player extends Entity{
             
             switch(objectName){
                 
-                case "Llave": 
-                    if(keyHandler.interactEntity == true){
-                
-                        hasKey++; 
-                        inventario.add(gp.obj[i]);
-                        gp.obj[i] = null; 
-                   
-                    }
-                    break; 
+               
                 case "Pokeball": 
                     
                     int randomObject = random.nextInt(3) + 1 ; 
@@ -295,30 +287,7 @@ public class Player extends Entity{
                         System.out.println(inventario);
                     //}
                     break; 
-                    
-                    
-                /*    
-                case "Hierba" : {
-                    
-                    // -------------- Pokemones de una ruta 
-                    int numero[] = {146, 147,148,149,150,152}; 
-                    
-                    
-                    int numeroAleatorio = random.nextInt(200) + 1;  
-                    int aparicion = random.nextInt(5); // Hay que poner exactamente el número de 
-                    //this.sprite_bicho_attack = 1; 
-                    if(numeroAleatorio == 1){
-                        this.sprite_bicho_attack = numero[aparicion]; 
-                        
-                        gp.gameState = gp.battleState; 
-
-
-                        gp.sonido.volume = -30.0f; 
-                        gp.playMusicOnce(5); // Para poder poner la música
-                    }
-                    break; 
-                }
-                */    
+               
             
             }
         }
@@ -367,11 +336,19 @@ public class Player extends Entity{
                     gp.gameState = gp.battleState; 
                     
                     
-                    gp.sonido.volume = -30.0f; 
+                     
                     //gp.playMusicOnce(5); // Para poder poner la música
                     
                     
                     break; 
+                }
+                
+                case "MewTwo" : {
+                    this.sprite_bicho_attack = 150; 
+                    gp.gameState = gp.battleState; 
+                    
+                    gp.sonido.volume = -30.0f;
+                    gp.sonido.play(6, true);
                 }
         
                 
