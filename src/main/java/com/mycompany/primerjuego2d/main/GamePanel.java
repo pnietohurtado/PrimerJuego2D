@@ -131,7 +131,8 @@ public class GamePanel extends JPanel implements Runnable{
         aSetter.setObject();
         aSetter.setNPC();
         aObjects.setObject();
-        //playMusic(1);
+        this.keyHandler.playMusic = true; 
+        sonido.play(7, true); // Se pone la música de la intro (Main Theme) 
         gameState = titleState; 
     }
     

@@ -31,6 +31,7 @@ public class Sound {
         soundURL[4] = getClass().getResource("/sonido/Hablando.wav"); 
         soundURL[5] = getClass().getResource("/sonido/pokemon_battle.wav");
         soundURL[6] = getClass().getResource("/sonido/BattleMewTwo.wav");
+        soundURL[7] = getClass().getResource("/sonido/MainTheme.wav");
         this.volume = -20.0f; 
     }
     

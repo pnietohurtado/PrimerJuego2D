@@ -189,7 +189,7 @@ public class KeyHandler implements KeyListener{
             }
             if(code == KeyEvent.VK_UP)
                 {
-                    gp.sonido.volume = -30.0f; 
+                    gp.sonido.volume = -20.0f; 
                     gp.sonido.play(3,false); // Para poder poner la música 
                     
                     gp.ui.commandNumber--; 
@@ -199,7 +199,7 @@ public class KeyHandler implements KeyListener{
                 }
             if(code == KeyEvent.VK_DOWN)
                 {
-                    gp.sonido.volume = -10.0f; 
+                    gp.sonido.volume = -20.0f; 
                     gp.sonido.play(3,false); // Para poder poner la música 
                     
                     gp.ui.commandNumber++; 
@@ -333,7 +333,7 @@ public class KeyHandler implements KeyListener{
 
                 if(code == KeyEvent.VK_W || code == KeyEvent.VK_UP)
                 {
-                    gp.sonido.volume = -10.0f; 
+                    gp.sonido.volume = -20.0f; 
                     gp.sonido.play(3,false); // Para poder poner la música 
                     
                     gp.ui.commandNumber--; 
@@ -343,7 +343,7 @@ public class KeyHandler implements KeyListener{
                 }
                 if(code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN)
                 {
-                    gp.sonido.volume = -10.0f; 
+                    gp.sonido.volume = -20.0f; 
                     gp.sonido.play(3,false); // Para poder poner la música 
                     
                     gp.ui.commandNumber++; 
@@ -381,7 +381,8 @@ public class KeyHandler implements KeyListener{
                             Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
                         }
                         
-                        
+                        gp.sonido.stop(7);
+                        gp.sonido.play(1, true);
                         gp.gameState = gp.playState; 
                     }else if(gp.ui.commandNumber == 2){
                         System.exit(0); 

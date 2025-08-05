@@ -101,11 +101,11 @@ public class Funciones_sobre_tiles {
         gp.player.worldX = 25* gp.tileSize; 
         gp.player.worldY = 29* gp.tileSize;
         
+        
         gp.npc[0] = new NPC_MewTwo(gp); 
         gp.npc[0].worldX = gp.tileSize * 25; 
         gp.npc[0].worldY = gp.tileSize * 20; 
         
-        //gp.npc[0].actionCountNPC = 1;
         
     }
     
