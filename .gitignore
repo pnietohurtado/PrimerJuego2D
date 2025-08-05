@@ -1,0 +1,17 @@
+*.class
+bin/
+out/
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+*.jar
+lib/
+*.log
+*.tmp
+temp/
+*.swp
+*.exe
+*.dll
+*.properties.local
