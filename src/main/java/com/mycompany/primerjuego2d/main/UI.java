@@ -50,7 +50,7 @@ public class UI {
     public UI(GamePanel gp){
         this.gp = gp; 
         
-        
+        Random random = new Random(); 
         
         arial_40 = new Font("Arial", Font.PLAIN, 20); 
         //OBJ_Key key = new OBJ_Key(); 
@@ -110,8 +110,12 @@ public class UI {
     
     
     
+    public int numeroAleatorio(int numero){
+        numero = random.nextInt(10) + 1; ; 
+        return numero; 
+    }
     
-    
+   
     BufferedImage image; 
     
     public void battleScreen(){
@@ -144,14 +148,14 @@ public class UI {
         int width = gp.screenWidth - (gp.tileSize * 7); 
         int height = gp.tileSize * 3;
         
-        int numeroAleatorio = random.nextInt(1); 
-        
         drawSubWindowBattle(x,y,width, height); 
         
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
         x += gp.tileSize; 
         y += gp.tileSize; 
         g2.drawString(gp.nombres_pokemon[gp.player.sprite_bicho_attack], x, y); 
+        int numero = 0; 
+        g2.drawString(" lvl. " + String.valueOf(numeroAleatorio(numero)), x * 3, y); 
         
         // ---------------------------------------------------------------------
         
