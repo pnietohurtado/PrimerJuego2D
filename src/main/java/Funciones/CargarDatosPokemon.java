@@ -4,6 +4,7 @@
  */
 package Funciones;
 
+import Pokemon.Pokemon;
 import com.mycompany.primerjuego2d.main.GamePanel;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -38,6 +39,33 @@ public class CargarDatosPokemon {
                 String nombre = partes[1]; 
                 gp.nombres_pokemon[Integer.parseInt(numero)] = nombre;
                 
+            }
+            br.close(); 
+        } catch (IOException ex) {
+            Logger.getLogger(TileManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    public void cargar_pokemones_equipo(){
+        InputStream is = getClass().getResourceAsStream("/DatosPokemon/EquipoPokemon.txt"); 
+        BufferedReader br = new BufferedReader(new InputStreamReader(is)); 
+        
+        String linea; 
+        
+        try {
+            while((linea = br.readLine()) != null){
+                String partes[] = linea.split(" "); 
+                int lvl = Integer.parseInt(partes[0]); 
+                int pokedex = Integer.parseInt(partes[1]); 
+                String nombre = partes[2]; 
+                int vida = Integer.parseInt(partes[3]); 
+                int ataque = Integer.parseInt(partes[4]); 
+                int defensa = Integer.parseInt(partes[5]); 
+                boolean objeto = Boolean.parseBoolean(partes[6]); 
+                
+                Pokemon po = new Pokemon(lvl, pokedex, nombre, vida, ataque, defensa, objeto); 
+                gp.equipo_pokemones.add(po); 
             }
             br.close(); 
         } catch (IOException ex) {

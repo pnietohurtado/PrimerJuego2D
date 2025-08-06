@@ -11,6 +11,7 @@ package Pokemon;
 public class Pokemon {
     
     private int level; 
+    private int pokedex; 
     private String nombre; 
     private int hp; 
     private int attack; 
@@ -18,9 +19,10 @@ public class Pokemon {
     private boolean object; 
     
     
-    public Pokemon(int level, String nombre, int hp, int attack, int defense, boolean object){
+    public Pokemon(int level, int pokedex, String nombre, int hp, int attack, int defense, boolean object){
         this.level = level; 
-        this.nombre = nombre; 
+        this.pokedex = pokedex; 
+        this.nombre = nombre;  
         this.hp = hp; 
         this.attack = attack; 
         this.defense = defense; 
@@ -28,6 +30,7 @@ public class Pokemon {
     }
     
     public int getLevel(){return this.level;}
+    public int getPokedex(){return this.pokedex;}
     public String getNombre(){return this.nombre; }
     public int getHP(){return this.hp; }
     public int getAttack(){return this.attack;}
@@ -35,7 +38,7 @@ public class Pokemon {
     public boolean getObject() {return this.object; }
     
     public void setLevel(int level){this.level = level;}
-
+    public void setPokedex(int pokedex){this.pokedex = pokedex; }
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }

@@ -9,11 +9,13 @@ import Entity.Player;
 import Funciones.CargarDatosPokemon;
 import Funciones.Funciones_sobre_tiles;
 import Objects.SuperObject;
+import Pokemon.Pokemon;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 import tile.TileManager;
 
@@ -57,6 +59,10 @@ public class GamePanel extends JPanel implements Runnable{
     
     public CargarDatosPokemon nombres = new CargarDatosPokemon(this); 
     public String[] nombres_pokemon = new String[152]; 
+    
+    // --------- Variables sobre el equipo pokemon -----------------------------
+    
+    public ArrayList<Pokemon> equipo_pokemones = new ArrayList<>(); 
     
     
     // ------------------- Variables generales (NO TOCAR) ----------------------
@@ -144,6 +150,7 @@ public class GamePanel extends JPanel implements Runnable{
         
         // Cargar los nombres de los pokemones 
         nombres.cargar();
+        nombres.cargar_pokemones_equipo();
         
         gameState = titleState; 
     }
