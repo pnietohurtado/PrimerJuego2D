@@ -37,7 +37,6 @@ public class UI {
     
     public boolean messageOn = false; 
     public String message = ""; 
-    int messageCounter = 0; 
     public int commandNumber = 0; 
     public int titleScreenState = 0; // 0 : First Screen 
     Random random = new Random(); 
@@ -57,7 +56,7 @@ public class UI {
         //keyImage = key.image; 
         
         OBJ_Pokeball poke = new OBJ_Pokeball(); 
-        pokeImage = poke.image; 
+
         
         
         textoNPC[0] = "Hola que tal"; 
@@ -108,14 +107,7 @@ public class UI {
     
 
     
-    
-    
-    public int numeroAleatorio(int numero){
-        numero = random.nextInt(10) + 1; ; 
-        return numero; 
-    }
-    
-   
+    public int lvl; 
     BufferedImage image; 
     
     public void battleScreen(){
@@ -141,6 +133,8 @@ public class UI {
         g2.drawImage(gp.npc[998].f1, x + (gp.tileSize * 4), y - (gp.tileSize * (1 + 1/2)), gp.tileSize*4, gp.tileSize * 4, null); 
         
         
+        
+        
         // -------------- Barra de vida de atacante ----------------------------
         
         x = gp.tileSize * 1; 
@@ -154,15 +148,23 @@ public class UI {
         x += gp.tileSize; 
         y += gp.tileSize; 
         g2.drawString(gp.nombres_pokemon[gp.player.sprite_bicho_attack], x, y); 
-        int numero = 0; 
-        g2.drawString(" lvl. " + String.valueOf(numeroAleatorio(numero)), x * 3, y); 
+        g2.drawString(" lvl. " + String.valueOf(this.lvl), x * 3, y); 
         
-        // ---------------------------------------------------------------------
+        // ------------------------ Compañero de batalla -----------------------
+        
+        x = gp.tileSize; 
+        y = gp.tileSize / 2; 
+        
+        gp.npc[997] = new NPC_Pokemon(gp, gp.equipo_pokemones.get(0).getPokedex()); 
+        g2.drawImage(gp.npc[997].f1, x + (gp.tileSize * 3), y + (gp.tileSize * 6), gp.tileSize*4, gp.tileSize * 4, null);
+        
+        
+        
         
         
         // ------------------ Menu dentro de la batalla ------------------------
         
-        x = gp.tileSize * 1; 
+        x = gp.tileSize; 
         y = gp.tileSize / 2; 
         
         try {
@@ -170,7 +172,7 @@ public class UI {
         } catch (IOException ex) {
             Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
         }
-        g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * 7), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
+        g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * 8), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
         
         
         if(commandNumber == 0){
@@ -187,7 +189,7 @@ public class UI {
             Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
         }
         */
-        g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * 7), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
+        g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * 8), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
         if(commandNumber == 1){
             try {
                 image = ImageIO.read(getClass().getResourceAsStream("/Menu/MenuBatalla3.png"));
@@ -202,7 +204,7 @@ public class UI {
             Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
         }
         */
-        g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * 7), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
+        g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * 8), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
         if(commandNumber == 2){
             try {
                 image = ImageIO.read(getClass().getResourceAsStream("/Menu/MenuBatalla4.png"));
@@ -217,7 +219,7 @@ public class UI {
             Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
         }
         */
-        g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * (7 + 1/2)), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
+        g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * 8), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
         if(commandNumber == 3){
             try {
                 image = ImageIO.read(getClass().getResourceAsStream("/Menu/MenuBatalla5.png"));
@@ -226,7 +228,7 @@ public class UI {
             }
         }
         
-        g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * (7 + 1/2)), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
+        g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * 8), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
         
         
         
@@ -262,15 +264,13 @@ public class UI {
     
     // -------------------------------------------------------------------------
     
-    public String dialogueText; 
+    public String dialogueText = "No es seguro entrar sin pokemones..."; 
     
     public void drawDialogueScreen(){
         int x = gp.tileSize * 2; 
         int y = gp.tileSize / 2; 
         int width = gp.screenWidth - (gp.tileSize * 4); 
         int height = gp.tileSize * 4;
-        
-        int numeroAleatorio = random.nextInt(1); 
         
         drawSubWindow(x,y,width, height); 
         

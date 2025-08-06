@@ -28,27 +28,28 @@ public class Funciones_sobre_tiles {
     
     public void grassBattle01(){
         
-        
-        int numero[] = new int[6]; 
-        numero[0] = random.nextInt(151) + 1; 
-        numero[1] = random.nextInt(151) + 1; 
-        numero[2] = random.nextInt(151) + 1; 
-        numero[3] = random.nextInt(151) + 1; 
-        numero[4] = random.nextInt(151) + 1; 
-        numero[5] = random.nextInt(151) + 1; 
-                    
-                    
-        int numeroAleatorio = random.nextInt(200) + 1;  
-        int aparicion = random.nextInt(5); // Hay que poner exactamente el número de 
-        
-        if(numeroAleatorio == 1){
-            gp.player.sprite_bicho_attack = numero[aparicion]; 
-                       
-            gp.gameState = gp.battleState; 
+        if(!(gp.equipo_pokemones.isEmpty())){
+            
+            int numero[] = {37, 64, 83, 102, 111, 129, 143}; 
+
+            int numeroAleatorio = random.nextInt(200) + 1;  
+            int aparicion = random.nextInt(5); // Hay que poner exactamente el número de 
+
+            if(numeroAleatorio == 1){
+                gp.player.sprite_bicho_attack = numero[aparicion]; 
+
+                // Seteamos el lvl del pokemon en cuestión 
+                gp.ui.lvl = random.nextInt(10) + 1; 
+
+                gp.gameState = gp.battleState; 
 
 
-            gp.sonido.volume = -30.0f; 
-            gp.sonido.play(5,true); // Para poder poner la música
+                gp.sonido.volume = -30.0f; 
+                gp.sonido.play(5,true); // Para poder poner la música
+            }
+            
+        }else{
+            gp.gameState = gp.dialogueState; 
         }
     }
     

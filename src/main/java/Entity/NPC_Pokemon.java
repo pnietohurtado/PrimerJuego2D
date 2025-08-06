@@ -15,8 +15,8 @@ public class NPC_Pokemon extends Entity{
     public NPC_Pokemon(GamePanel gp, int n) {
         super(gp);
         
-        if(gp.player.sprite_bicho_attack != 0){
-            name = String.valueOf(gp.player.sprite_bicho_attack); 
+        if(n != 0){
+            name = String.valueOf(n); 
         }
         
         direction = "down"; 

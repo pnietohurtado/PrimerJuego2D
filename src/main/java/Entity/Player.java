@@ -209,13 +209,13 @@ public class Player extends Entity{
         
         // --------------------- Entrada en los edificios ----------------------
         
-        else if(collision == true && gp.cH.tile.nombre.equals("23")){
+        else if(collision == true && gp.cH.tile.nombre.equals("15")){
             
-            gp.fst.enternBuilding02();
+            gp.fst.enterBuilding01();
             
         }
         
-        else if(collision == true && gp.cH.tile.nombre.equals("17") ){ // En caso de que se entre en una de las puertas o (Bloque rojo) 
+        else if(collision == true && gp.cH.tile.nombre.equals("23") ){ // En caso de que se entre en una de las puertas o (Bloque rojo) 
             gp.fst.enternBuilding02();
         }
         

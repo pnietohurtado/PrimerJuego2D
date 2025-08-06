@@ -18,8 +18,11 @@ public class Pokemon {
     private int defense; 
     private boolean object; 
     
-    
+    public Pokemon(){
+        
+    }
     public Pokemon(int level, int pokedex, String nombre, int hp, int attack, int defense, boolean object){
+        this(); 
         this.level = level; 
         this.pokedex = pokedex; 
         this.nombre = nombre;  
