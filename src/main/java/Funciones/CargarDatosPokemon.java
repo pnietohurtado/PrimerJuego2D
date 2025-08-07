@@ -15,6 +15,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import tile.TileManager;
@@ -91,17 +92,22 @@ public class CargarDatosPokemon {
         
     }
     
+    private Random random = new Random(); 
     
     public void cargar_pokemon_capturado(){
         try { 
                      
             BufferedWriter br = new BufferedWriter(new FileWriter("EquipoPokemon.txt", true));
               
-            String linea = gp.ui.lvl + " " + gp.player.sprite_bicho_attack + " " + 
-                    gp.nombres_pokemon[gp.player.sprite_bicho_attack ] + " " + "12 " + "12 " + 
-                    "12 " + "true"; 
+            int hp = 12 + ((random.nextInt(2) + 1) * gp.ui.lvl); 
+            int attack = 12 + ((random.nextInt(2) + 1) * gp.ui.lvl); 
+            int defense = 12 + ((random.nextInt(2) + 1) * gp.ui.lvl); 
             
-            System.out.println("Datos " + linea);
+            String linea = gp.ui.lvl + " " + gp.player.sprite_bicho_attack + " " + 
+                    gp.nombres_pokemon[gp.player.sprite_bicho_attack ] + " " + String.valueOf(hp) + " " + String.valueOf(attack) +  " " + 
+                    String.valueOf(defense) + " " + "true"; 
+            
+            //System.out.println("Datos " + linea);
             
             br.write(linea);
             br.newLine();

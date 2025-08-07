@@ -5,6 +5,9 @@
 package Funciones;
 
 import Entity.NPC_MewTwo;
+import Objects.OBJ_Pokeball;
+import Objects.OBJ_PokeballPokemon;
+import Objects.SuperObject;
 import com.mycompany.primerjuego2d.main.GamePanel;
 import java.util.Random;
 
@@ -63,24 +66,22 @@ public class Funciones_sobre_tiles {
         gp.player.worldX = 24* gp.tileSize; 
         gp.player.worldY = 24* gp.tileSize; 
         
-        /*   
         gp.obj = new SuperObject[99]; // Volver a añadir objetos en el array
             
-        gp.obj[0] = new OBJ_Pokeball(); 
-        gp.obj[0].worldX = 25 * gp.tileSize; 
-        gp.obj[0].worldY = 22 * gp.tileSize; 
-        gp.obj[0].collision = true;
-            
-        gp.obj[1] = new OBJ_Pokeball(); 
-        gp.obj[1].worldX = 24 * gp.tileSize; 
+        gp.obj[1] = new OBJ_PokeballPokemon(); 
+        gp.obj[1].worldX = 23 * gp.tileSize; 
         gp.obj[1].worldY = 22 * gp.tileSize; 
         gp.obj[1].collision = true;
-            
-        gp.obj[2] = new OBJ_Pokeball(); 
-        gp.obj[2].worldX = 23 * gp.tileSize; 
+        
+        gp.obj[2] = new OBJ_PokeballPokemon(); 
+        gp.obj[2].worldX = 24 * gp.tileSize; 
         gp.obj[2].worldY = 22 * gp.tileSize; 
         gp.obj[2].collision = true;
-        */
+        
+        gp.obj[3] = new OBJ_PokeballPokemon(); 
+        gp.obj[3].worldX = 24 * gp.tileSize; 
+        gp.obj[3].worldY = 22 * gp.tileSize; 
+        gp.obj[3].collision = true;
         
     }
     
@@ -88,7 +89,10 @@ public class Funciones_sobre_tiles {
     public void enternBuilding02(){
         
         gp.tileManager.loadMap(gp.tileManager.mapas[2]); // Para poder cambiar el mapa
-        //gp.obj = new SuperObject[0]; // Para vaciar todos los objetos 
+        //gp.obj = new SuperObject[0]; // Para vaciar todos los objetos
+        
+        
+        
         gp.player.worldX = 24* gp.tileSize; 
         gp.player.worldY = 24* gp.tileSize; 
         

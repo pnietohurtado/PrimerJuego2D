@@ -104,6 +104,31 @@ public class UI {
     
     // ------------------------- Cambio a escena de batallas -------------------
     
+    public float damage_received = 0f ; 
+    
+    public void healthBar(int x, int y){
+        int width = 200;
+        int height = 30;
+
+        Color backgroundColor = new Color(247, 239, 163);
+        g2.setColor(backgroundColor);
+        g2.fillRoundRect(x, y, width, height, 35, 35);
+
+        Color borderColor = new Color(57, 97, 71);
+        g2.setColor(borderColor);
+        g2.setStroke(new BasicStroke(5));
+        g2.drawRoundRect(x + 5, y + 5, width - 10, height - 10, 25, 25);
+
+        // Calculamos el porcentaje de vida
+        float healthPercent = 1.0f - this.damage_received; 
+        int healthBarWidth = (int) ((width - 20) * healthPercent);
+
+        // Color de la vida (verde en este caso)
+        g2.setColor(Color.GREEN);
+        g2.fillRoundRect(x + 10, y + 10, healthBarWidth, height - 20, 15, 15);
+
+    }
+    
     
 
     
@@ -149,6 +174,8 @@ public class UI {
         y += gp.tileSize; 
         g2.drawString(gp.nombres_pokemon[gp.player.sprite_bicho_attack], x, y); 
         g2.drawString(" lvl. " + String.valueOf(this.lvl), x * 3, y); 
+        
+        healthBar(x , y + gp.tileSize); // Barra de vida de los pokemones enemigos 
         
         // ------------------------ Compañero de batalla -----------------------
         

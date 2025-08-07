@@ -219,6 +219,10 @@ public class KeyHandler implements KeyListener{
                 
             if(code == KeyEvent.VK_ENTER){
                 if(gp.ui.commandNumber == 0){
+                    gp.ui.damage_received = 0.1f; 
+                    gp.ui.damage_received = 0f; 
+                    
+                    
                 }else if(gp.ui.commandNumber == 2){
                     
                     gp.nombres.cargar_pokemon_capturado(); 

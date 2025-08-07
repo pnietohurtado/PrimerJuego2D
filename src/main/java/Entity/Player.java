@@ -4,7 +4,6 @@
  */
 package Entity;
 
-import Objects.OBJ_Pokeball;
 import Objects.SuperObject;
 import java.awt.image.BufferedImage;
 import com.mycompany.primerjuego2d.main.GamePanel;
@@ -209,13 +208,13 @@ public class Player extends Entity{
         
         // --------------------- Entrada en los edificios ----------------------
         
-        else if(collision == true && gp.cH.tile.nombre.equals("15")){
+        else if(collision == true && gp.cH.tile.nombre.equals("15")){ // En caso de que se entre en una de las puertas o (Bloque rojo) 
             
             gp.fst.enterBuilding01();
             
         }
         
-        else if(collision == true && gp.cH.tile.nombre.equals("23") ){ // En caso de que se entre en una de las puertas o (Bloque rojo) 
+        else if(collision == true && gp.cH.tile.nombre.equals("23") ){ 
             gp.fst.enternBuilding02();
         }
         
@@ -286,6 +285,11 @@ public class Player extends Entity{
                         //gp.gameState = gp.dialogueState;  
                         System.out.println(inventario);
                     //}
+                    break; 
+                    
+                    
+                case "PokeballPokemon": 
+                    gp.obj[i] = null; 
                     break; 
                
             

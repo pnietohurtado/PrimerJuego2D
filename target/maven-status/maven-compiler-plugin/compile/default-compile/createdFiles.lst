@@ -14,6 +14,7 @@ Tile\TileManager.class
 com\mycompany\primerjuego2d\main\ClaseAuxiliar.class
 Objects\OBJ_CentroPokemon.class
 com\mycompany\primerjuego2d\main\MouseClicker.class
+Objects\OBJ_PokeballPokemon.class
 com\mycompany\primerjuego2d\main\CollisionChecker.class
 Entity\NPC_MewTwo.class
 Entity\NPC_CocheJuan.class

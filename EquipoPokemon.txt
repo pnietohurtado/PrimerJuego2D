@@ -1,2 +1,6 @@
 4 1 Bulbasaur 12 12 12 false
 3 64 Kadabra 12 12 12 true
+10 83 Farfetch’d 12 12 12 true
+8 37 Vulpix 20 20 28 true
+1 102 Exeggcute 14 13 13 true
+3 111 Rhyhorn 15 18 15 true
