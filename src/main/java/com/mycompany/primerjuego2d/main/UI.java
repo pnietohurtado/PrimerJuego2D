@@ -120,7 +120,8 @@ public class UI {
         g2.drawRoundRect(x + 5, y + 5, width - 10, height - 10, 25, 25);
 
         // Calculamos el porcentaje de vida
-        float healthPercent = 1.0f - this.damage_received; 
+        gp.fst.pokemon_battle_health =  gp.fst.pokemon_battle_health - this.damage_received; 
+        float healthPercent = gp.fst.pokemon_battle_health; 
         int healthBarWidth = (int) ((width - 20) * healthPercent);
 
         // Color de la vida (verde en este caso)

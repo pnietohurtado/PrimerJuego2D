@@ -4,3 +4,5 @@
 8 37 Vulpix 20 20 28 true
 1 102 Exeggcute 14 13 13 true
 3 111 Rhyhorn 15 18 15 true
+6 111 Rhyhorn 18 24 24 true
+6 64 Kadabra 18 24 24 true
