@@ -1,1 +1,2 @@
-1 111 Rhyhorn 12 12 12 false
+4 1 Bulbasaur 12 12 12 false
+3 64 Kadabra 12 12 12 true
