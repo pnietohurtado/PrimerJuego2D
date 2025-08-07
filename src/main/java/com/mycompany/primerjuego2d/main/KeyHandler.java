@@ -5,14 +5,23 @@
 package com.mycompany.primerjuego2d.main;
 
 import Conexion.Conexion;
+import Pokemon.Pokemon;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import tile.TileManager;
 
 /**
  *
@@ -211,7 +220,31 @@ public class KeyHandler implements KeyListener{
                 
             if(code == KeyEvent.VK_ENTER){
                 if(gp.ui.commandNumber == 0){
+                }else if(gp.ui.commandNumber == 2){
+                    
+                    try { 
                         
+                        BufferedWriter br = new BufferedWriter(new FileWriter("G:/PrimerJuego2D/EquipoPokemon.txt"));
+                        
+                        br.write(gp.ui.lvl + " ");
+                        br.write(gp.player.sprite_bicho_attack + " ");
+                        br.write(gp.nombres_pokemon[gp.player.sprite_bicho_attack ] + " ");
+                        br.write("12 ");
+                        br.write("12 ");
+                        br.write("12 ");
+                        br.write("false");
+                        
+                        br.newLine();
+                        br.flush();
+                        br.close();
+                        gp.gameState = gp.playState; 
+                        
+                    } catch (IOException ex) {
+                        Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+        
+                    
+                    
                 }else if(gp.ui.commandNumber == 3){
                     gp.sonido.stop(5);
                     // gp.sonido.stop(6);
