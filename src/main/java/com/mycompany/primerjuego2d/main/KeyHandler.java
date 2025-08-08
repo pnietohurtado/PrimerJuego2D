@@ -219,7 +219,13 @@ public class KeyHandler implements KeyListener{
                 
             if(code == KeyEvent.VK_ENTER){
                 if(gp.ui.commandNumber == 0){
-                    gp.ui.damage_received = 1.0f; 
+                    int x = gp.tileSize * 1; 
+                    int y = gp.tileSize / 2; 
+                    
+                    x += gp.tileSize; 
+                    y += gp.tileSize;
+                    
+                    gp.ui.healthBar(x , y + gp.tileSize, 0.1f); // Barra de vida de los pokemones enemigos
                     
                     
                     

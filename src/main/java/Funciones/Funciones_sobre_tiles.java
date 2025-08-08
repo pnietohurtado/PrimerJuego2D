@@ -38,7 +38,7 @@ public class Funciones_sobre_tiles {
             int numeroAleatorio = random.nextInt(200) + 1;  
             int aparicion = random.nextInt(5); // Hay que poner exactamente el número de 
             
-            this.pokemon_battle_health = 12 + (gp.ui.lvl * 2); // Vida del pokemon rival 
+            this.pokemon_battle_health = 1.0f; // Vida del pokemon rival 
             
             if(numeroAleatorio == 1){
                 gp.player.sprite_bicho_attack = numero[aparicion]; 
