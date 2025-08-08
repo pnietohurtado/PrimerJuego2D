@@ -1,4 +1,2 @@
-3 150 Mewtwo 15 18 15 true
-1 150 Mewtwo 14 13 13 true
-8 149 Dragonite 20 28 20 true
-6 151 Mew 18 24 24 true
+
+4 150 Mewtwo 20 20 20 true

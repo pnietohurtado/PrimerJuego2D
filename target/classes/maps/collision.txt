@@ -29,7 +29,7 @@ true
 015.png
 false
 016.png
-false
+true
 017.png
 false
 018.png
@@ -95,4 +95,6 @@ true
 046.png
 false
 047.png
+false
+048.png
 false

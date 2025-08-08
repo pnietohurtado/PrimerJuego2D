@@ -41,15 +41,25 @@ public class UI {
     public int titleScreenState = 0; // 0 : First Screen 
     Random random = new Random(); 
     
-    // -------------------- Array de textos ------------------------------------
+    public int lvl; // Para poder darle un "level" específico a un pokemon 
     
-    public String textoNPC[] = new String[10]; 
+    BufferedImage image; 
+    
+    public String textoNPC[] = new String[10]; // Array de Textos 
+    
+    int x; 
+    int y; 
+    
+    // --------------------- Constructor de la clase ---------------------------
     
     
     public UI(GamePanel gp){
         this.gp = gp; 
         
         Random random = new Random(); 
+        
+        this.x = 0; 
+        this.y = 0; 
         
         arial_40 = new Font("Arial", Font.PLAIN, 20); 
         //OBJ_Key key = new OBJ_Key(); 
@@ -74,7 +84,7 @@ public class UI {
     public int getXForCenteredText(String text){
          
         int length = (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth();
-        int x = gp.screenWidth/2 - length/2; 
+        this.x = gp.screenWidth/2 - length/2; 
         return x; 
     }
     
@@ -131,14 +141,9 @@ public class UI {
     }
     
     
-
-    
-    public int lvl; 
-    BufferedImage image; 
-    
     public void battleScreen(){
-        int x = gp.tileSize * 2; 
-        int y = gp.tileSize / 2; 
+        this.x = gp.tileSize * 2; 
+        this.y = gp.tileSize / 2; 
         BufferedImage backgroundImage = null;
         
         try{
@@ -153,8 +158,8 @@ public class UI {
         g2.drawImage(backgroundImage, 0, 0, gp.screenWidth, gp.screenHeight, null);
         
         
-        x = gp.screenWidth/2 - (gp.tileSize*2)/2 ; 
-        y += gp.tileSize*2; 
+        this.x = gp.screenWidth/2 - (gp.tileSize*2)/2 ; 
+        this.y += gp.tileSize*2; 
         gp.npc[998] = new NPC_Pokemon(gp, gp.player.sprite_bicho_attack); 
         g2.drawImage(gp.npc[998].f1, x + (gp.tileSize * 4), y - (gp.tileSize * (1 + 1/2)), gp.tileSize*4, gp.tileSize * 4, null); 
         
@@ -164,16 +169,16 @@ public class UI {
         
         // -------------- Barra de vida de atacante ----------------------------
         
-        x = gp.tileSize * 1; 
-        y = gp.tileSize / 2; 
+        this.x = gp.tileSize * 1; 
+        this.y = gp.tileSize / 2; 
         int width = gp.screenWidth - (gp.tileSize * 7); 
         int height = gp.tileSize * 3;
         
         drawSubWindowBattle(x,y,width, height); 
         
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
-        x += gp.tileSize; 
-        y += gp.tileSize; 
+        this.x += gp.tileSize; 
+        this.y += gp.tileSize; 
         g2.drawString(gp.nombres_pokemon[gp.player.sprite_bicho_attack], x, y); 
         g2.drawString(" lvl. " + String.valueOf(this.lvl), x * 3, y); 
         
@@ -181,8 +186,8 @@ public class UI {
         
         // ------------------------ Compañero de batalla -----------------------
         
-        x = gp.tileSize; 
-        y = gp.tileSize / 2; 
+        this.x = gp.tileSize; 
+        this.y = gp.tileSize / 2; 
         
         gp.npc[997] = new NPC_Pokemon(gp, gp.equipo_pokemones.get(0).getPokedex()); 
         g2.drawImage(gp.npc[997].f1, x + (gp.tileSize * 3), y + (gp.tileSize * 6), gp.tileSize*4, gp.tileSize * 4, null);
@@ -194,12 +199,12 @@ public class UI {
         drawSubWindowBattle(x * 7 ,y * 11,width, height); 
         
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
-        x += gp.tileSize; 
-        y += gp.tileSize; 
-        g2.drawString(gp.equipo_pokemones.get(0).getNombre(), x * 4, y * (4 + 1/2)); 
-        g2.drawString(" lvl. " + gp.equipo_pokemones.get(0).getLevel(), x * 6, y * (4 + 1/2) ); 
+        this.x += gp.tileSize; 
+        this.y += gp.tileSize; 
+        g2.drawString(gp.equipo_pokemones.get(0).getNombre(), x * 4, y * 5); 
+        g2.drawString(" lvl. " + gp.equipo_pokemones.get(0).getLevel(), x * 6, y * 5 ); 
         
-        healthBar(x * 4 , y * 5, 0); // Barra de vida de los pokemones enemigos 
+        healthBar(x * 4 , y * 5, 1.0f); // Barra de vida de los pokemones enemigos 
         
         
         
@@ -208,8 +213,8 @@ public class UI {
         
         // ------------------ Menu dentro de la batalla ------------------------
         
-        x = gp.tileSize; 
-        y = gp.tileSize / 2; 
+        this.x = gp.tileSize; 
+        this.y = gp.tileSize / 2; 
         
         try {
             image = ImageIO.read(getClass().getResourceAsStream("/Menu/MenuBatalla1.png"));

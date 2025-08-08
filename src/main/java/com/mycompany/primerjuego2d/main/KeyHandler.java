@@ -217,7 +217,13 @@ public class KeyHandler implements KeyListener{
             if(code == KeyEvent.VK_ENTER){
                 if(gp.ui.commandNumber == 0){
                     
-                    hp_enemy -= 0.1f; 
+                    if(this.hp_enemy <= 0){
+                        gp.sonido.stop(5); 
+                        gp.gameState = gp.playState; 
+                    }else{
+                        hp_enemy -= 0.1f; 
+                    }
+                    
                     
                 }else if(gp.ui.commandNumber == 2){
                     

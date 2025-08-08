@@ -152,6 +152,20 @@ public class Funciones_sobre_tiles {
         gp.gameState = gp.playState;
         
     }
+    
+    
+    public void exitBuilding03(){
+        
+        gp.player.worldX = 48* gp.tileSize; 
+        gp.player.worldY = 215* gp.tileSize; 
+            
+        gp.tileManager.loadMap(gp.tileManager.mapas[0]);
+            
+        //gp.aSetter.setObject();
+            
+        gp.gameState = gp.playState;
+        
+    }
 
     
     

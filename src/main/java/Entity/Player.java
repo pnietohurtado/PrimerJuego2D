@@ -196,7 +196,7 @@ public class Player extends Entity{
         
         else if(collision == false && gp.cH.tile.nombre.equals("20")){
             
-            gp.fst.exitBuilding01();
+            gp.fst.exitBuilding03(); // Salida de el laboratorio del inicio
              
         }
         else if(collision == false && gp.cH.tile.nombre.equals("28")){ // Salida de la Factory (entrada secundaria pueblo paleta) 
@@ -298,6 +298,7 @@ public class Player extends Entity{
                     gp.player.sprite_bicho_attack = numero[aparicion]; 
                     gp.ui.lvl = random.nextInt(10) + 1; 
                     gp.nombres.cargar_pokemon_capturado();
+                    gp.nombres.cargar_pokemones_equipo();
                     
                     gp.obj[i] = null; 
                     break; 
