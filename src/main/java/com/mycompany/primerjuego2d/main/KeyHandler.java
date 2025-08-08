@@ -5,17 +5,15 @@
 package com.mycompany.primerjuego2d.main;
 
 import Conexion.Conexion;
-import Pokemon.Pokemon;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import tile.TileManager;
 
 /**
  *
@@ -60,12 +58,17 @@ public class KeyHandler implements KeyListener{
     
     public float hp_enemy ; 
     
+    public Random random; 
+    int posibilidad_de_captura; 
+    
     // -------------------------------------------------------------------------
     
     
     // Contructor de la clase 
     public KeyHandler(GamePanel gp){
         this.gp = gp; 
+        this.random = new Random(); 
+        this.posibilidad_de_captura = 0; 
     }
     
     // NO TOCAR 
@@ -226,8 +229,11 @@ public class KeyHandler implements KeyListener{
                     
                     
                 }else if(gp.ui.commandNumber == 2){
+                    this.posibilidad_de_captura = random.nextInt((gp.ui.lvl + gp.player.sprite_bicho_attack) / 12) + 1; 
                     
-                    gp.nombres.cargar_pokemon_capturado(); 
+                    if(this.posibilidad_de_captura == 1){
+                        gp.nombres.cargar_pokemon_capturado(); 
+                    }
         
                     
                     

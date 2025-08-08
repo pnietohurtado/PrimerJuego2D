@@ -190,21 +190,21 @@ public class UI {
         this.y = gp.tileSize / 2; 
         
         gp.npc[997] = new NPC_Pokemon(gp, gp.equipo_pokemones.get(0).getPokedex()); 
-        g2.drawImage(gp.npc[997].f1, x + (gp.tileSize * 3), y + (gp.tileSize * 6), gp.tileSize*4, gp.tileSize * 4, null);
+        g2.drawImage(gp.npc[997].f1, x + (gp.tileSize * 3), y + (gp.tileSize * 5), gp.tileSize*4, gp.tileSize * 4, null);
         
         
-        width = gp.screenWidth - (gp.tileSize * 7); 
-        height = gp.tileSize * 3;
+        width = gp.screenWidth - (gp.tileSize * 8); 
+        height = gp.tileSize * 2;
         
-        drawSubWindowBattle(x * 7 ,y * 11,width, height); 
+        drawSubWindowBattle(x * 8 ,y * 12,width, height); 
         
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
         this.x += gp.tileSize; 
         this.y += gp.tileSize; 
-        g2.drawString(gp.equipo_pokemones.get(0).getNombre(), x * 4, y * 5); 
-        g2.drawString(" lvl. " + gp.equipo_pokemones.get(0).getLevel(), x * 6, y * 5 ); 
+        g2.drawString(gp.equipo_pokemones.get(0).getNombre(), x * 5, y * 5); 
+        g2.drawString(" lvl. " + gp.equipo_pokemones.get(0).getLevel(), x * 7, y * 5 ); 
         
-        healthBar(x * 4 , y * 5, 1.0f); // Barra de vida de los pokemones enemigos 
+        healthBar(x * 5 , y * 5, 1.0f); // Barra de vida de los pokemones enemigos 
         
         
         

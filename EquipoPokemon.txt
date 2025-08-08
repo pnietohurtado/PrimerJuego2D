@@ -1,2 +1,8 @@
 
-4 150 Mewtwo 20 20 20 true
+4 143 Mewtwo 20 20 20 true
+8 150 Mewtwo 28 20 20 true
+2 64 Kadabra 14 16 14 true
+4 64 Kadabra 16 20 16 true
+3 83 Farfetch’d 18 18 15 true
+8 111 Rhyhorn 20 20 20 true
+4 64 Kadabra 16 16 16 true

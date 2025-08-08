@@ -49,6 +49,10 @@ public class Player extends Entity{
     
     public ArrayList<SuperObject> inventario; 
     
+    public boolean pokemon_inicial; // Si es false, es que no se ha elegido inicial 
+    
+    // --------------------------- Constructor de la clase ---------------------
+    
     public Player(GamePanel gp, KeyHandler kh){
         super(gp); 
         
@@ -57,6 +61,8 @@ public class Player extends Entity{
         inventario = new ArrayList<>(); 
         cantidades = new ArrayList<>(); 
          
+        this.pokemon_inicial = false; 
+        
         objetosInventario(); 
         
         screenX = gp.screenWidth/2 - (gp.tileSize / 2); 
@@ -225,9 +231,7 @@ public class Player extends Entity{
         else if(collision == true && gp.cH.tile.nombre.equals("21")){  // Entrando a la fabrica por la segunda puerta (Pueblo paleta) 
            gp.fst.enterBuilding03(); 
         }
-        else if(collision == false){
-            System.out.println("Nombre " + gp.cH.tile.nombre);
-        }
+        
         
     }
     
@@ -289,18 +293,21 @@ public class Player extends Entity{
                     
                     
                 case "PokeballPokemon": 
-                    gp.sonido.play(2, false);
-                    
-                    
-                    int numero[] = {149,151, 150}; 
-                    int aparicion = random.nextInt(3); // Hay que poner exactamente el número de 
+                    if(pokemon_inicial == false){
+                        gp.sonido.play(2, false);
 
-                    gp.player.sprite_bicho_attack = numero[aparicion]; 
-                    gp.ui.lvl = random.nextInt(10) + 1; 
-                    gp.nombres.cargar_pokemon_capturado();
-                    gp.nombres.cargar_pokemones_equipo();
-                    
-                    gp.obj[i] = null; 
+
+                        int numero[] = {149,151, 150}; 
+                        int aparicion = random.nextInt(3); // Hay que poner exactamente el número de 
+
+                        gp.player.sprite_bicho_attack = numero[aparicion]; 
+                        gp.ui.lvl = random.nextInt(10) + 1; 
+                        gp.nombres.cargar_pokemon_capturado();
+                        gp.nombres.cargar_pokemones_equipo();
+
+                        gp.obj[i] = null; 
+                        this.pokemon_inicial = true; 
+                    }
                     break; 
                
             
