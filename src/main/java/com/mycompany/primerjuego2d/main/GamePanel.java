@@ -71,7 +71,7 @@ public class GamePanel extends JPanel implements Runnable{
     public boolean showInventory = false; 
     
     //Instanciate the keyHandler 
-    KeyHandler keyHandler = new KeyHandler(this); 
+    public KeyHandler keyHandler = new KeyHandler(this); 
     
     // Añadimos un Lector de "Mouse"
     MouseClicker mClicker = new MouseClicker(this); 

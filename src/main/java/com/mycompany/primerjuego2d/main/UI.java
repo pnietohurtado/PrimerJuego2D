@@ -104,7 +104,7 @@ public class UI {
     
     // ------------------------- Cambio a escena de batallas -------------------
     
-    public float damage_received = 0f ; 
+
     
     public void healthBar(int x, int y, float damage){
         int width = 200;
@@ -121,7 +121,7 @@ public class UI {
 
         // Calculamos el porcentaje de vida
         
-        float healthPercent = 1.0f - damage; 
+        float healthPercent = damage; 
         int healthBarWidth = (int) ((width - 20) * healthPercent);
 
         // Color de la vida (verde en este caso)
@@ -177,7 +177,7 @@ public class UI {
         g2.drawString(gp.nombres_pokemon[gp.player.sprite_bicho_attack], x, y); 
         g2.drawString(" lvl. " + String.valueOf(this.lvl), x * 3, y); 
         
-//        healthBar(x , y + gp.tileSize); // Barra de vida de los pokemones enemigos 
+        gp.ui.healthBar(x , y + gp.tileSize, gp.keyHandler.hp_enemy); // Barra de vida de los pokemones enemigos
         
         // ------------------------ Compañero de batalla -----------------------
         
@@ -191,15 +191,15 @@ public class UI {
         width = gp.screenWidth - (gp.tileSize * 7); 
         height = gp.tileSize * 3;
         
-        drawSubWindowBattle(x * 7 ,y * 10,width, height); 
+        drawSubWindowBattle(x * 7 ,y * 11,width, height); 
         
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
         x += gp.tileSize; 
         y += gp.tileSize; 
-        g2.drawString(gp.equipo_pokemones.get(0).getNombre(), x * 4, y * 4); 
-        g2.drawString(" lvl. " + gp.equipo_pokemones.get(0).getLevel(), x * 6, y * 4); 
+        g2.drawString(gp.equipo_pokemones.get(0).getNombre(), x * 4, y * (4 + 1/2)); 
+        g2.drawString(" lvl. " + gp.equipo_pokemones.get(0).getLevel(), x * 6, y * (4 + 1/2) ); 
         
-        healthBar(x * 4 , y * (4 + 1/2), 0); // Barra de vida de los pokemones enemigos 
+        healthBar(x * 4 , y * 5, 0); // Barra de vida de los pokemones enemigos 
         
         
         

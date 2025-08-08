@@ -8,11 +8,6 @@ import Conexion.Conexion;
 import Pokemon.Pokemon;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -62,6 +57,8 @@ public class KeyHandler implements KeyListener{
     public GamePanel gp; 
     
     public boolean playMusic ; // Para poder poner la música 
+    
+    public float hp_enemy ; 
     
     // -------------------------------------------------------------------------
     
@@ -219,15 +216,8 @@ public class KeyHandler implements KeyListener{
                 
             if(code == KeyEvent.VK_ENTER){
                 if(gp.ui.commandNumber == 0){
-                    int x = gp.tileSize * 1; 
-                    int y = gp.tileSize / 2; 
                     
-                    x += gp.tileSize; 
-                    y += gp.tileSize;
-                    
-                    gp.ui.healthBar(x , y + gp.tileSize, 0.1f); // Barra de vida de los pokemones enemigos
-                    
-                    
+                    hp_enemy -= 0.1f; 
                     
                 }else if(gp.ui.commandNumber == 2){
                     

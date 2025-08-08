@@ -194,7 +194,7 @@ public class Player extends Entity{
         
         // --------------------- Salir de edificios ----------------------------
         
-        else if(collision == false && gp.cH.tile.nombre.equals("22")){
+        else if(collision == false && gp.cH.tile.nombre.equals("20")){
             
             gp.fst.exitBuilding01();
              
@@ -225,7 +225,7 @@ public class Player extends Entity{
         else if(collision == true && gp.cH.tile.nombre.equals("21")){  // Entrando a la fabrica por la segunda puerta (Pueblo paleta) 
            gp.fst.enterBuilding03(); 
         }
-        else if(collision == true){
+        else if(collision == false){
             System.out.println("Nombre " + gp.cH.tile.nombre);
         }
         
@@ -289,6 +289,16 @@ public class Player extends Entity{
                     
                     
                 case "PokeballPokemon": 
+                    gp.sonido.play(2, false);
+                    
+                    
+                    int numero[] = {149,151, 150}; 
+                    int aparicion = random.nextInt(3); // Hay que poner exactamente el número de 
+
+                    gp.player.sprite_bicho_attack = numero[aparicion]; 
+                    gp.ui.lvl = random.nextInt(10) + 1; 
+                    gp.nombres.cargar_pokemon_capturado();
+                    
                     gp.obj[i] = null; 
                     break; 
                
