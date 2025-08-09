@@ -229,8 +229,8 @@ public class KeyHandler implements KeyListener{
                     
                     
                 }else if(gp.ui.commandNumber == 2){
-                    this.posibilidad_de_captura = random.nextInt((gp.ui.lvl + gp.player.sprite_bicho_attack) / 12) + 1; 
-                    
+                    this.posibilidad_de_captura = random.nextInt((int)(gp.ui.lvl * (this.hp_enemy + 1) ) ) + 1; 
+                    //System.out.println("Objetivo " + (gp.ui.lvl * (this.hp_enemy + 1)));
                     if(this.posibilidad_de_captura == 1){
                         gp.nombres.cargar_pokemon_capturado(); 
                     }

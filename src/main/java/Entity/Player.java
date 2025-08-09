@@ -232,6 +232,12 @@ public class Player extends Entity{
            gp.fst.enterBuilding03(); 
         }
         
+        else if(collision == true){
+            System.out.println("Con colisión " + gp.cH.tile.nombre);
+        }else if(collision == false){
+            //System.out.println("Sin colisión " + gp.cH.tile.nombre);
+        }
+        
         
     }
     
@@ -246,6 +252,12 @@ public class Player extends Entity{
             String objectName = gp.obj[i].name; 
             
             switch(objectName){
+                
+                case "Llave" : 
+                    
+                    this.hasKey++; 
+                    
+                    break; 
                 
                
                 case "Pokeball": 
