@@ -15,7 +15,14 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import tile.TileManager;
 
@@ -125,7 +132,7 @@ public class GamePanel extends JPanel implements Runnable{
     
     // Constructor of our game panel 
     
-    
+    private BufferedImage backGroundImage = null; 
     
     public GamePanel()
     {
@@ -135,7 +142,21 @@ public class GamePanel extends JPanel implements Runnable{
         this.addKeyListener(keyHandler);
         this.addMouseListener(mClicker);
         this.setFocusable(true);
+        
+        /*
+        try {
+            // Cargar el fondo de pantalla
+            backGroundImage = ImageIO.read(getClass().getResourceAsStream("/Fondo/Fondo_Ataque.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(GamePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        */
     }
+    
+    
+    // -------------------------------------------------------------------------
+    
+    
     
     public void setUpGame()
             /*To print the object in the map*/
@@ -229,6 +250,8 @@ public class GamePanel extends JPanel implements Runnable{
     {
         super.paintComponent(g); // This way we could update the drawing as the player moves 
         
+        
+        
         Graphics2D g2 = (Graphics2D)g; // Add functions to the game
        
         
@@ -236,6 +259,7 @@ public class GamePanel extends JPanel implements Runnable{
         
         // Title Screen 
         if(gameState == titleState){
+            
             ui.draw(g2);
         }
         else{

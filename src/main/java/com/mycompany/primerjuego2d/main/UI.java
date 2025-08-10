@@ -480,15 +480,35 @@ public class UI {
     }
     
     
+    
+    
+    
+    
     // ------------------- Opciones gráficas del menú --------------------------
     
     public void drawTitleScreen(){
         
         if(titleScreenState == 0){
+            
+            
+            // ------------------------- Fondo de pantalla del inicio ----------
+            BufferedImage backgroundImage = null;
+        
+            try{
 
-            g2.setColor(Color.black);  // Set the background color 
-            g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
+                backgroundImage = ImageIO.read(getClass().getResource("/Fondo/Pokémon_Esmeralda.png"));
 
+            }catch(IOException e){
+
+            }
+            
+            g2.drawImage(backgroundImage, 0, 0, gp.screenWidth, gp.screenHeight, null); 
+            
+            // -----------------------------------------------------------------
+
+            
+            
+            /*
             g2.setFont(g2.getFont().deriveFont(Font.BOLD, 48F));
             String text = "Pokemón Rojo Fuego"; 
             int x = getXForCenteredText(text); 
@@ -505,7 +525,7 @@ public class UI {
             y += gp.tileSize*2; 
             g2.drawImage(gp.obj[3].image, x, y, gp.tileSize*2, gp.tileSize * 2, null); 
 
-
+            
             g2.setFont(g2.getFont().deriveFont(Font.BOLD, 48F));
 
             g2.setColor(Color.white);
@@ -532,7 +552,9 @@ public class UI {
             if(commandNumber == 2){
                 g2.drawString(">",x - gp.tileSize,y); 
             }
-        
+            */
+            
+            
         
         }else if(titleScreenState == 1){ // Seleccionar la clase del personaje 
             
