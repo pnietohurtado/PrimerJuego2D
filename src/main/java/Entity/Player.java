@@ -220,7 +220,7 @@ public class Player extends Entity{
             
         }
         
-        else if(collision == true && gp.cH.tile.nombre.equals("23") ){ 
+        else if(collision == true && gp.cH.tile.nombre.equals("22") ){ 
             gp.fst.enternBuilding02();
         }
         
@@ -233,7 +233,7 @@ public class Player extends Entity{
         }
         
         else if(collision == true){
-            System.out.println("Con colisión " + gp.cH.tile.nombre);
+            //System.out.println("Con colisión " + gp.cH.tile.nombre);
         }else if(collision == false){
             //System.out.println("Sin colisión " + gp.cH.tile.nombre);
         }
