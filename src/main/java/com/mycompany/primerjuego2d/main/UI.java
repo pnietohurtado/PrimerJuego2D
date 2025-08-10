@@ -486,14 +486,14 @@ public class UI {
     
     // ------------------- Opciones gráficas del menú --------------------------
     
+    private BufferedImage backgroundImage = null;
+    
     public void drawTitleScreen(){
         
         if(titleScreenState == 0){
             
             
             // ------------------------- Fondo de pantalla del inicio ----------
-            BufferedImage backgroundImage = null;
-        
             try{
 
                 backgroundImage = ImageIO.read(getClass().getResource("/Fondo/Pokémon_Esmeralda.png"));
@@ -504,111 +504,34 @@ public class UI {
             
             g2.drawImage(backgroundImage, 0, 0, gp.screenWidth, gp.screenHeight, null); 
             
-            // -----------------------------------------------------------------
-
-            
-            
-            /*
-            g2.setFont(g2.getFont().deriveFont(Font.BOLD, 48F));
-            String text = "Pokemón Rojo Fuego"; 
-            int x = getXForCenteredText(text); 
-            int y = gp.tileSize * 3; 
-
-            g2.setColor(Color.white); 
-            g2.drawString(text,x+2,y+2); 
-            g2.setColor(Color.red); // Set the text color 
-            g2.drawString(text,x,y); 
-
-
-
-            x = gp.screenWidth/2 - (gp.tileSize*2)/2 ; 
-            y += gp.tileSize*2; 
-            g2.drawImage(gp.obj[3].image, x, y, gp.tileSize*2, gp.tileSize * 2, null); 
-
-            
-            g2.setFont(g2.getFont().deriveFont(Font.BOLD, 48F));
-
-            g2.setColor(Color.white);
-            text = "NEW GAME"; 
-            x = getXForCenteredText(text); 
-            y = gp.tileSize * 8; 
-            g2.drawString(text, x, y); 
-            if(commandNumber == 0){
-                g2.drawString(">",x - gp.tileSize,y); 
-            }
-
-            text = "LOAD GAME"; 
-            x = getXForCenteredText(text); 
-            y = gp.tileSize * 9; 
-            g2.drawString(text, x, y); 
-            if(commandNumber == 1){
-                g2.drawString(">",x - gp.tileSize,y); 
-            }
-
-            text = "QUIT GAME"; 
-            x = getXForCenteredText(text); 
-            y = gp.tileSize * 10; 
-            g2.drawString(text, x, y); 
-            if(commandNumber == 2){
-                g2.drawString(">",x - gp.tileSize,y); 
-            }
-            */
             
             
         
         }else if(titleScreenState == 1){ // Seleccionar la clase del personaje 
             
-            g2.setColor(Color.red); 
-            g2.setFont(g2.getFont().deriveFont(42F));
             
-           
-            String text = "Select your class!"; 
-            int x = getXForCenteredText(text); 
-            int y = gp.tileSize * 3; 
-            g2.drawString(text,x,y); 
             
-            g2.drawString(text,x+2,y+2); 
-            g2.setColor(Color.red); // Set the text color 
-            g2.drawString(text,x,y); 
             
-            text = "Gipsy"; 
-            x = getXForCenteredText(text); 
-            y += gp.tileSize * 3; 
-            g2.drawString(text,x,y); 
+            
             if(commandNumber == 0){
-                g2.drawString(">", x - gp.tileSize, y); 
-                gp.gameState = gp.playState; 
-                gp.player.speed = 18; 
+                try{
+                    backgroundImage = ImageIO.read(getClass().getResource("/Fondo/Partida_Nueva.png"));
+                }catch(IOException e){
+                }
+                g2.drawImage(backgroundImage, 0, 0, gp.screenWidth, gp.screenHeight, null);  
             }
-            
-            
-            text = "Fighter"; 
-            x = getXForCenteredText(text); 
-            y += gp.tileSize  ; 
-            g2.drawString(text,x,y); 
             if(commandNumber == 1){
-                g2.drawString(">", x - gp.tileSize, y); 
+                try{
+                    backgroundImage = ImageIO.read(getClass().getResource("/Fondo/Fondo_Opciones.png"));
+                }catch(IOException e){
+                }
+                g2.drawImage(backgroundImage, 0, 0, gp.screenWidth, gp.screenHeight, null);  
             }
             
-            
-            
-            text = "RRHH"; 
-            x = getXForCenteredText(text); 
-            y += gp.tileSize; 
-            g2.drawString(text,x,y); 
-            if(commandNumber == 2){
-                g2.drawString(">", x - gp.tileSize, y); 
-            }
-            
-            text = "BACK"; 
-            x = getXForCenteredText(text); 
-            y += gp.tileSize; 
-            g2.drawString(text,x,y); 
-            if(commandNumber == 3){
-                g2.drawString(">", x - gp.tileSize, y); 
-            }
             
         }
+
+            
         
     }
     

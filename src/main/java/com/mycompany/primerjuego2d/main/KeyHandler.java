@@ -406,8 +406,10 @@ public class KeyHandler implements KeyListener{
                         }
                         
                         gp.sonido.stop(7);
-                        gp.sonido.play(1, true);
-                        gp.gameState = gp.playState; 
+                        gp.ui.titleScreenState = 1; 
+                        
+                        /*gp.sonido.play(1, true);
+                        gp.gameState = gp.playState; */
                     }else if(gp.ui.commandNumber == 2){
                         System.exit(0); 
                     }
@@ -420,7 +422,7 @@ public class KeyHandler implements KeyListener{
                     
                     gp.ui.commandNumber--; 
                     if(gp.ui.commandNumber < 0){
-                        gp.ui.commandNumber = 3; 
+                        gp.ui.commandNumber = 1; 
                     }
                 }
                 if(code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN)
@@ -429,7 +431,7 @@ public class KeyHandler implements KeyListener{
                     gp.sonido.play(3,false); // Para poder poner la música 
                     
                     gp.ui.commandNumber++; 
-                    if(gp.ui.commandNumber > 3){
+                    if(gp.ui.commandNumber > 1){
                         gp.ui.commandNumber = 0; 
                     }
 
@@ -437,13 +439,11 @@ public class KeyHandler implements KeyListener{
 
                 if(code == KeyEvent.VK_ENTER){
                     if(gp.ui.commandNumber == 0){
-                        gp.ui.titleScreenState = 1; 
+                        gp.sonido.play(1, true);
+                        gp.gameState = gp.playState;
+                        //gp.ui.titleScreenState = 1; 
                     }else if(gp.ui.commandNumber == 1){
-                        gp.gameState = gp.playState; 
-                    }else if(gp.ui.commandNumber == 2){
                         System.exit(0); 
-                    }else if(gp.ui.commandNumber == 3){
-                        gp.ui.titleScreenState = 0; 
                     }
                 }
             }
