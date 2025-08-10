@@ -5,6 +5,8 @@
 package com.mycompany.primerjuego2d.main;
 
 
+import Entity.NPC_CocheJuan;
+import Entity.NPC_ShopGuy;
 import Objects.*;
 
 /**
@@ -78,11 +80,15 @@ public class AssetSetter {
     public void setNPC(){ // Aquí es donde vamos a posicionar los NPC 
         /*
         gp.npc[0] = new NPC_CocheJuan(gp); 
-        gp.npc[0].worldX = gp.tileSize * 54; 
-        gp.npc[0].worldY = gp.tileSize * 207; 
+        gp.npc[0].worldX = gp.tileSize * 51; 
+        gp.npc[0].worldY = gp.tileSize * 172; 
         gp.npc[0].actionCountNPC = 1; 
         */
-
+        
+        gp.npc[0] = new NPC_ShopGuy(gp); 
+        gp.npc[0].worldX = gp.tileSize * 51; 
+        gp.npc[0].worldY = gp.tileSize * 173; 
+        gp.npc[0].actionCountNPC = 1; 
         
         
         /*

@@ -35,6 +35,8 @@ public class Entity {
     public int solidAreaDefaultX, solidAreaDefaultY; 
     public boolean collision = false; 
     
+    public boolean move = false; // False se puede mover, True no se puede mover 
+    
     public int actionCountNPC = 0;  // Interacciones del NPC por colision del usuario
     public boolean collisionPlayer = false; 
     
@@ -86,7 +88,7 @@ public class Entity {
     
     
     public void update(){
-        if(!(name.equals("MewTwo"))){
+        if(this.move == false){
         setAction(); 
         
         collision = false; 

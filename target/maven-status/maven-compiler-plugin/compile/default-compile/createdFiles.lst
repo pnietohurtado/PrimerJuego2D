@@ -10,6 +10,7 @@ Objects\OBJ_Hacha.class
 com\mycompany\primerjuego2d\main\GamePanel.class
 com\mycompany\primerjuego2d\main\AssetObject.class
 com\mycompany\primerjuego2d\main\UI.class
+Entity\NPC_ShopGuy.class
 Tile\TileManager.class
 com\mycompany\primerjuego2d\main\ClaseAuxiliar.class
 Objects\OBJ_CentroPokemon.class

@@ -5,45 +5,39 @@
 package Entity;
 
 import com.mycompany.primerjuego2d.main.GamePanel;
-import java.util.Random;
 
 /**
  *
  * @author pablo
  */
-public class NPC_MewTwo extends Entity{
+public class NPC_ShopGuy extends Entity{
     
-    
-    
-    public NPC_MewTwo(GamePanel gp) {
+    public NPC_ShopGuy(GamePanel gp) {
         super(gp);
-        super.name = "MewTwo"; 
+        name = "ShopGuy"; 
         
         direction = "down"; 
         speed = 1; 
         
         super.collision = true; 
-        super.move = true; // No se puede mover 
+        super.move = true;  // No se puede mover 
         getPlayerImage();
     }
     
     public void getPlayerImage(){
-        f1 = setUp("/Generacion1/150");
-        f2 = setUp("/Generacion1/150");
-        r1 = setUp("/Generacion1/150");
-        r2 = setUp("/Generacion1/150");
-        l1 = setUp("/Generacion1/150");
-        l2 = setUp("/Generacion1/150");
-        b1 = setUp("/Generacion1/150");
-        b2 = setUp("/Generacion1/150");
+        f1 = setUp("/Azul/Azul");
+        f2 = setUp("/Azul/Azul");
+        r1 = setUp("/Azul/Azul");
+        r2 = setUp("/Azul/Azul");
+        l1 = setUp("/Azul/Azul");
+        l2 = setUp("/Azul/Azul");
+        b1 = setUp("/Azul/Azul");
+        b2 = setUp("/Azul/Azul");
     }
     
     public void setAction(){
         
         actionLockCounter++; 
-        
-        
-        
         
     }
     
