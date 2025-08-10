@@ -15,14 +15,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import tile.TileManager;
 
@@ -125,6 +119,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int dialogueState = 3; // Opciones de dialogo dentro del juego
     public final int inventoryState = 4; // Mostrar el inventario del jugador
     public final int battleState = 5; // Luchar con los pokemons 
+    public final int shopMenu = 6; // Menu de la tienda 
     
     
     // -------------------------------------------------------------------------

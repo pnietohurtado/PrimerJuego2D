@@ -233,7 +233,7 @@ public class Player extends Entity{
         }
         
         else if(collision == true){
-            //System.out.println("Con colisión " + gp.cH.tile.nombre);
+            System.out.println("Con colisión " + gp.cH.tile.nombre);
         }else if(collision == false){
             //System.out.println("Sin colisión " + gp.cH.tile.nombre);
         }
@@ -383,6 +383,16 @@ public class Player extends Entity{
                     
                     gp.sonido.volume = -30.0f;
                     gp.sonido.play(6, true);
+                }
+                
+                case "ShopGuy" : {
+                    if(keyHandler.interactEntity == false){
+                    
+                        gp.gameState = gp.shopMenu; 
+                        
+                    }
+                    
+                    break; 
                 }
         
                 

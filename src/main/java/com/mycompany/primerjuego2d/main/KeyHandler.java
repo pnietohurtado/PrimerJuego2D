@@ -456,6 +456,43 @@ public class KeyHandler implements KeyListener{
             }
         }
         
+        
+        // Menu Shop 
+        if(gp.gameState == gp.shopMenu){
+            
+            if(code == KeyEvent.VK_ESCAPE){
+                gp.gameState = gp.playState; 
+            }
+            
+            if(code == KeyEvent.VK_W ||code == KeyEvent.VK_UP){
+                gp.sonido.volume = -20.0f; 
+                gp.sonido.play(3,false); // Para poder poner la música 
+                
+                gp.ui.commandNumber--; 
+                if(gp.ui.commandNumber < 0){
+                    gp.ui.commandNumber = 2; 
+                }
+            }
+            if(code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN){
+                gp.sonido.volume = -20.0f; 
+                gp.sonido.play(3,false); // Para poder poner la música 
+                
+                gp.ui.commandNumber++; 
+                if(gp.ui.commandNumber > 2){
+                    gp.ui.commandNumber = 0; 
+                }
+            }
+            
+            if(code == KeyEvent.VK_ENTER){
+                if(gp.ui.commandNumber == 0){
+                    gp.player.hasPokeball++; 
+                }else if(gp.ui.commandNumber == 1){
+                    gp.player.hasKey++; 
+                }
+            }
+            
+        }
+        
     }
 
     @Override

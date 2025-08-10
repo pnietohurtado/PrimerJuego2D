@@ -109,6 +109,8 @@ public class UI {
             drawInventoryScreen(); 
         }else if(gp.gameState == gp.battleState){
             battleScreen(); 
+        }else if(gp.gameState == gp.shopMenu){
+            shopScreen(); 
         }
     }
     
@@ -537,8 +539,34 @@ public class UI {
     
     // -------------------------------------------------------------------------
     
+    public String item = ""; 
     
-    
+    public void shopScreen(){
+        
+        x = gp.tileSize ; 
+        y = gp.tileSize / 2; 
+        int width = (gp.tileSize * 4); 
+        int height = gp.tileSize * 11;
+        
+        drawSubWindow(x,y,width, height); 
+        
+        this.item = "Pokeball"; 
+        x = gp.tileSize * 2; 
+        y = gp.tileSize * 2; 
+        g2.drawString(this.item, x , y); 
+        if(commandNumber == 0){
+            g2.drawString(">", x - gp.tileSize, y); 
+        }
+        
+        this.item = "Llave"; 
+        x = gp.tileSize * 2; 
+        y = gp.tileSize * 3; 
+        g2.drawString(this.item, x, y);
+        if(commandNumber == 1){
+            g2.drawString(">", x - gp.tileSize, y); 
+        }
+        
+    }
     
     
     
