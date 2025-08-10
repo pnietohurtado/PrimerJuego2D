@@ -337,11 +337,11 @@ public class UI {
     
     public void drawSubWindow(int x, int y, int width, int height){
         
-        Color c = new Color(0,0,0,210); // 220 is going to show the transparecy of the window  
+        Color c = new Color(192, 192, 192); // 220 is going to show the transparecy of the window  
         g2.setColor(c); 
         g2.fillRoundRect(x,y,width,height,35,35); 
         
-        c = new Color(255,255,255); 
+        c = new Color(135,206,250); 
         g2.setColor(c); 
         g2.setStroke(new BasicStroke(5)); 
         g2.drawRoundRect(x+5, y+5, width-10, height-10 , 25, 25);
@@ -399,7 +399,7 @@ public class UI {
         }
         
     }
-    //--------------------------------------------------------------------------
+    // ------------------------Dibujar Inventario ------------------------------
     
     public void drawInventoryCase(int x, int y){
          
@@ -464,17 +464,19 @@ public class UI {
                 }
                 
                 g2.setFont(arial_40);
-                g2.setColor(Color.red); 
+                g2.setColor(Color.red);
+                if(gp.player.inventario.get(i).name.equals("Pokeball")){
+                    g2.drawString("x"+gp.player.hasPokeball, gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
+                }
+                else if(gp.player.inventario.get(i).name.equals("Llave")){
+                    g2.drawString("x"+gp.player.hasKey, gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
+                }
+                else if(gp.player.inventario.get(i).name.equals("Hacha")){
+                    //g2.drawString("x"+gp.player.hasPokeball, gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
+                }
                 g2.drawString("x"+String.valueOf(contador), gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
                 xk++; 
-                /*
-                if(xk <= 12){
-                    xk += gp.tileSize;
-                }else{
-                    xk = 0; 
-                    yk += gp.tileSize; 
-                }
-                */
+                
                 
          
         }

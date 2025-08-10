@@ -470,7 +470,7 @@ public class KeyHandler implements KeyListener{
                 
                 gp.ui.commandNumber--; 
                 if(gp.ui.commandNumber < 0){
-                    gp.ui.commandNumber = 2; 
+                    gp.ui.commandNumber = 1; 
                 }
             }
             if(code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN){
@@ -478,16 +478,20 @@ public class KeyHandler implements KeyListener{
                 gp.sonido.play(3,false); // Para poder poner la música 
                 
                 gp.ui.commandNumber++; 
-                if(gp.ui.commandNumber > 2){
+                if(gp.ui.commandNumber > 1){
                     gp.ui.commandNumber = 0; 
                 }
             }
             
             if(code == KeyEvent.VK_ENTER){
+                gp.sonido.play(2, false);
                 if(gp.ui.commandNumber == 0){
                     gp.player.hasPokeball++; 
+                    gp.player.inventario.add(gp.object[2]); 
+                    //System.out.println("Pokeball " + gp.player.hasPokeball);
                 }else if(gp.ui.commandNumber == 1){
                     gp.player.hasKey++; 
+                    gp.player.inventario.add(gp.object[3]); 
                 }
             }
             

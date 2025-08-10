@@ -90,7 +90,7 @@ public class Funciones_sobre_tiles {
     
     public void enternBuilding02(){
         
-        if(gp.player.hasKey == 1){
+        //if(gp.player.hasKey >= 1){
         
             gp.tileManager.loadMap(gp.tileManager.mapas[2]); // Para poder cambiar el mapa
             //gp.obj = new SuperObject[0]; // Para vaciar todos los objetos
@@ -99,7 +99,7 @@ public class Funciones_sobre_tiles {
             gp.player.worldY = 24* gp.tileSize; 
             gp.player.hasKey--; 
             
-        }
+        //}
         
     }
     

@@ -220,7 +220,7 @@ public class Player extends Entity{
             
         }
         
-        else if(collision == true && gp.cH.tile.nombre.equals("22") ){ 
+        else if(collision == true && gp.cH.tile.nombre.equals("23") ){ 
             gp.fst.enternBuilding02();
         }
         

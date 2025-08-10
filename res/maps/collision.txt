@@ -45,7 +45,7 @@ true
 023.png
 true
 024.png
-false
+true
 025.png
 false
 026.png
