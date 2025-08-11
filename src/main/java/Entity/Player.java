@@ -51,6 +51,9 @@ public class Player extends Entity{
     
     public boolean pokemon_inicial; // Si es false, es que no se ha elegido inicial 
     
+    
+    public int dineroPlayer; // Dinero del jugador
+    
     // --------------------------- Constructor de la clase ---------------------
     
     public Player(GamePanel gp, KeyHandler kh){
@@ -62,6 +65,7 @@ public class Player extends Entity{
         cantidades = new ArrayList<>(); 
          
         this.pokemon_inicial = false; 
+        this.dineroPlayer = 4000; 
         
         objetosInventario(); 
         
@@ -284,12 +288,7 @@ public class Player extends Entity{
                     gp.obj[i].existe = false; 
                     gp.obj[i] = null;
                     
-                    if (randomObject == 1){
-                        
-                        gp.skinAppereance = 2; 
-                        changeSkin = true; 
-                        
-                    }
+                    
 
                     break; 
                     

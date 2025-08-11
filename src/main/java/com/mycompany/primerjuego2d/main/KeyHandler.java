@@ -487,10 +487,12 @@ public class KeyHandler implements KeyListener{
                 gp.sonido.play(2, false);
                 if(gp.ui.commandNumber == 0){
                     gp.player.hasPokeball++; 
+                    gp.player.dineroPlayer = gp.player.dineroPlayer - 300; 
                     gp.player.inventario.add(gp.object[2]); 
                     //System.out.println("Pokeball " + gp.player.hasPokeball);
                 }else if(gp.ui.commandNumber == 1){
                     gp.player.hasKey++; 
+                    gp.player.dineroPlayer = gp.player.dineroPlayer - 100; 
                     gp.player.inventario.add(gp.object[3]); 
                 }
             }

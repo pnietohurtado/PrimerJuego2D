@@ -451,32 +451,34 @@ public class UI {
         int xk = 3;
         int yk = 2; 
         
-        /*
+        
         System.out.println("Llave " + gp.player.hasKey);
         System.out.println("Pokeball " + gp.player.hasPokeball);
         System.out.println("Inventario " + gp.player.inventario);
-        */
+        
         for(int i = 0; i < inventario.size(); i++){
                 contador = 0; 
-            
-                g2.drawImage(inventario.get(i).image, gp.tileSize * xk, gp.tileSize * yk, gp.tileSize, gp.tileSize , null); 
-                
-                g2.setFont(arial_40);
-                g2.setColor(Color.red);
-                
-                //System.out.println("Item " + gp.player.inventario.get(i));
-                if(gp.player.inventario.get(i).name.equals("Pokeball")){
-                    g2.drawString("x"+gp.player.hasPokeball, gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
-                }
-                else if(gp.player.inventario.get(i).name.equals("Llave")){
-                    g2.drawString("x"+gp.player.hasKey, gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
-                }
-                else if(gp.player.inventario.get(i).name.equals("Hacha")){
-                    //g2.drawString("x"+gp.player.hasPokeball, gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
-                }
-                
-                xk++; 
-                
+
+                    
+
+                    g2.drawImage(inventario.get(i).image, gp.tileSize * xk, gp.tileSize * yk, gp.tileSize, gp.tileSize , null); 
+
+                    g2.setFont(arial_40);
+                    g2.setColor(Color.red);
+
+                    //System.out.println("Item " + gp.player.inventario.get(i));
+                    if(gp.player.inventario.get(i).name.equals("Pokeball")){
+                        g2.drawString("x"+gp.player.hasPokeball, gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
+                    }
+                    else if(gp.player.inventario.get(i).name.equals("Llave")){
+                        g2.drawString("x"+gp.player.hasKey, gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
+                    }
+                    else if(gp.player.inventario.get(i).name.equals("Hacha")){
+                        //g2.drawString("x"+gp.player.hasPokeball, gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
+                    }
+
+                    xk++; 
+
                 
          
         }
@@ -554,18 +556,26 @@ public class UI {
         
         drawSubWindow(x,y,width, height); 
         
+        this.item = "Dinero Jugador: "; 
+        x = gp.tileSize * 2; 
+        y = gp.tileSize * 2; 
+        g2.drawString(this.item, x, y); 
+        g2.drawString(String.valueOf(gp.player.dineroPlayer), x + (gp.tileSize * 3),y); 
+        
         this.item = "Pokeball"; 
         x = gp.tileSize * 3; 
-        y = gp.tileSize * 2; 
+        y = gp.tileSize * 3; 
         g2.drawString(this.item, x , y); 
+        g2.drawString("$300", x + (gp.tileSize * 2), y); 
         if(commandNumber == 0){
             g2.drawString(">", x - gp.tileSize, y); 
         }
         
         this.item = "Llave"; 
         x = gp.tileSize * 3; 
-        y = gp.tileSize * 3; 
+        y = gp.tileSize * 4; 
         g2.drawString(this.item, x, y);
+        g2.drawString("$100", x + (gp.tileSize * 2), y); 
         if(commandNumber == 1){
             g2.drawString(">", x - gp.tileSize, y); 
         }
