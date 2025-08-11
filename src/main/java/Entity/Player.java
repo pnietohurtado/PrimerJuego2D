@@ -270,8 +270,15 @@ public class Player extends Entity{
                     /*El objeto de cada pokeball es aleatorio*/
                     gp.ui.dialogueText = "Has encontrado un " + gp.object[randomObject]; 
                     gp.gameState = gp.dialogueState; 
-                    this.hasHacha++; 
+                    
                     inventario.add(gp.object[randomObject]); 
+                    if(gp.object[randomObject].name.equals("Pokeball")){
+                        this.hasPokeball++; 
+                    }else if(gp.object[randomObject].name.equals("Llave")){
+                        this.hasKey++; 
+                    }else if(gp.object[randomObject].name.equals("Hacha")){
+                        this.hasHacha++; 
+                    }
                     
                     gp.obj[i].existe = false; 
                     gp.obj[i] = null;

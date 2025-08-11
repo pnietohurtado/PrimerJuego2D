@@ -337,7 +337,7 @@ public class UI {
     
     public void drawSubWindow(int x, int y, int width, int height){
         
-        Color c = new Color(192, 192, 192); // 220 is going to show the transparecy of the window  
+        Color c = new Color(0, 0, 0); // 220 is going to show the transparecy of the window  
         g2.setColor(c); 
         g2.fillRoundRect(x,y,width,height,35,35); 
         
@@ -410,7 +410,7 @@ public class UI {
         g2.setColor(c); 
         g2.fillRoundRect(x,y,width,height,35,35); 
         
-        c = new Color(255,255,255); 
+        c = new Color(135,206,250); 
         g2.setColor(c); 
         g2.setStroke(new BasicStroke(5)); 
         g2.drawRoundRect(x+5, y+5, width-10, height-10 , 25, 25);
@@ -421,8 +421,8 @@ public class UI {
         
         // Hay que tener en cuenta que esta función se va a repetir constantemente 
         
-        int x = gp.tileSize ; 
-        int y = gp.tileSize / 2; 
+        this.x = gp.tileSize ; 
+        this.y = gp.tileSize / 2; 
         int width = gp.screenWidth - (gp.tileSize * 2); 
         int height = gp.tileSize * 11;
         int contador = 0; 
@@ -432,6 +432,7 @@ public class UI {
         
         // Parte en la que añado a la vez que abro el inventario la colisión de las tiles 
         // y lo limito al tamaño de la pantalla 
+        
         
         for(int i = 3; i <= 12 ; i++){
             for(int j = 2; j <= 9; j++){
@@ -446,8 +447,11 @@ public class UI {
         //Map<String, Integer> cantidades = new HashMap<>(); 
         
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
+        
         int xk = 3;
         int yk = 2; 
+        
+        
 
         for(int i = 0; i < inventario.size(); i++){
                 contador = 0; 
@@ -455,14 +459,14 @@ public class UI {
                 g2.drawImage(inventario.get(i).image, gp.tileSize * xk, gp.tileSize * yk, gp.tileSize, gp.tileSize , null); 
 
                 //g2.drawString(inventario.get(i).name, x + (2 * gp.tileSize), y + gp.tileSize);
-                
+                /*
                 for(int j = 0; j < gp.player.inventario.size(); j++){
                     if(gp.player.inventario.get(j).name.equals(gp.player.inventario.get(i).name)){
                         
                         contador++; 
                     }
                 }
-                
+                */
                 g2.setFont(arial_40);
                 g2.setColor(Color.red);
                 if(gp.player.inventario.get(i).name.equals("Pokeball")){
@@ -474,13 +478,15 @@ public class UI {
                 else if(gp.player.inventario.get(i).name.equals("Hacha")){
                     //g2.drawString("x"+gp.player.hasPokeball, gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
                 }
-                g2.drawString("x"+String.valueOf(contador), gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
+                //g2.drawString("x"+String.valueOf(contador), gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
                 xk++; 
                 
                 
          
         }
         
+
+
     }
     
     
@@ -545,15 +551,15 @@ public class UI {
     
     public void shopScreen(){
         
-        x = gp.tileSize ; 
+        x = gp.tileSize  ; 
         y = gp.tileSize / 2; 
-        int width = (gp.tileSize * 4); 
+        int width = (gp.tileSize *6); 
         int height = gp.tileSize * 11;
         
         drawSubWindow(x,y,width, height); 
         
         this.item = "Pokeball"; 
-        x = gp.tileSize * 2; 
+        x = gp.tileSize * 3; 
         y = gp.tileSize * 2; 
         g2.drawString(this.item, x , y); 
         if(commandNumber == 0){
@@ -561,7 +567,7 @@ public class UI {
         }
         
         this.item = "Llave"; 
-        x = gp.tileSize * 2; 
+        x = gp.tileSize * 3; 
         y = gp.tileSize * 3; 
         g2.drawString(this.item, x, y);
         if(commandNumber == 1){
