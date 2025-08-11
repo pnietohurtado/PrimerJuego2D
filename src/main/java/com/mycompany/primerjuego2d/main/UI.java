@@ -451,8 +451,10 @@ public class UI {
         int xk = 3;
         int yk = 2; 
         
-        
-
+        /*
+        System.out.println("Llave " + gp.player.hasKey);
+        System.out.println("Pokeball " + gp.player.hasPokeball);
+        */
         for(int i = 0; i < inventario.size(); i++){
                 contador = 0; 
             

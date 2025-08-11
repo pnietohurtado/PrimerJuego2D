@@ -271,7 +271,7 @@ public class Player extends Entity{
                     gp.ui.dialogueText = "Has encontrado un " + gp.object[randomObject]; 
                     gp.gameState = gp.dialogueState; 
                     
-                    inventario.add(gp.object[randomObject]); 
+                    //inventario.add(gp.object[randomObject]); 
                     if(gp.object[randomObject].name.equals("Pokeball")){
                         this.hasPokeball++; 
                     }else if(gp.object[randomObject].name.equals("Llave")){
