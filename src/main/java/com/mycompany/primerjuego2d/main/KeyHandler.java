@@ -485,15 +485,20 @@ public class KeyHandler implements KeyListener{
             
             if(code == KeyEvent.VK_ENTER){
                 gp.sonido.play(2, false);
-                if(gp.ui.commandNumber == 0){
+                if(gp.ui.commandNumber == 0 && gp.player.dineroPlayer >= 300){
                     gp.player.hasPokeball++; 
                     gp.player.dineroPlayer = gp.player.dineroPlayer - 300; 
                     gp.player.inventario.add(gp.object[2]); 
                     //System.out.println("Pokeball " + gp.player.hasPokeball);
-                }else if(gp.ui.commandNumber == 1){
+                }else if(gp.ui.commandNumber == 0 && gp.player.dineroPlayer < 300){
+                    System.out.println("No tienes suficiente dinero");
+                } 
+                if(gp.ui.commandNumber == 1 && gp.player.dineroPlayer >= 100){
                     gp.player.hasKey++; 
                     gp.player.dineroPlayer = gp.player.dineroPlayer - 100; 
                     gp.player.inventario.add(gp.object[3]); 
+                }else if(gp.ui.commandNumber == 1 && gp.player.dineroPlayer < 100){
+                    System.out.println("No tienes suficiente dinero");
                 }
             }
             
