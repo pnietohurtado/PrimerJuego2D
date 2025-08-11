@@ -220,8 +220,9 @@ public class Player extends Entity{
             
         }
         
-        else if(collision == true && gp.cH.tile.nombre.equals("23") ){ 
+        else if(collision == true && gp.cH.tile.nombre.equals("23") && gp.player.hasKey >= 1 ){ 
             gp.fst.enternBuilding02();
+            //gp.player.hasKey--; 
         }
         
         else if(collision == true && gp.cH.tile.nombre.equals("25")){ // Entrada al subsuelo (MewTwo) 
