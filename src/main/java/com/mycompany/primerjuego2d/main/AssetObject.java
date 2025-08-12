@@ -23,6 +23,8 @@ public class AssetObject {
         //gp.object[1] = new OBJ_Hacha(); 
         gp.object[1] = new OBJ_Pokeball(); 
         gp.object[2] = new OBJ_Key(); 
+        gp.object[3] = new OBJ_MTHp(); 
+        gp.object[4] = new OBJ_MTAttack(); 
         
         
         

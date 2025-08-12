@@ -48,6 +48,8 @@ public class Player extends Entity{
     public int hasPokeball = 0; 
     public int hasKey = 0; 
     public boolean changeSkin; // En caso de que haya un cambio
+    public int hasMTHp = 0; 
+    public int hasMTAttack = 0; 
     
     // --------------------------- Constructor de la clase ---------------------
     
@@ -233,7 +235,7 @@ public class Player extends Entity{
         }
         
         else if(collision == true){
-            System.out.println("Con colisión " + gp.cH.tile.nombre);
+            //System.out.println("Con colisión " + gp.cH.tile.nombre);
         }else if(collision == false){
             //System.out.println("Sin colisión " + gp.cH.tile.nombre);
         }
@@ -262,7 +264,7 @@ public class Player extends Entity{
                
                 case "Pokeball": 
                     
-                    int randomObject = random.nextInt(2) + 1 ; 
+                    int randomObject = random.nextInt(4) + 1 ; 
                     
                     gp.sonido.volume = -10.0f; 
                     gp.sonido.play(2, false); 
@@ -271,11 +273,15 @@ public class Player extends Entity{
                     gp.ui.dialogueText = "Has encontrado un " + gp.object[randomObject]; 
                     gp.gameState = gp.dialogueState; 
                     
-                    //inventario.add(gp.object[randomObject]); 
+                    inventario.add(gp.object[randomObject]); 
                     if(gp.object[randomObject].name.equals("Pokeball")){
                         this.hasPokeball++; 
                     }else if(gp.object[randomObject].name.equals("Llave")){
                         this.hasKey++; 
+                    }else if(gp.object[randomObject].name.equals("MTHp")){
+                        this.hasMTHp++; 
+                    }else if(gp.object[randomObject].name.equals("MTAttack")){
+                        this.hasMTAttack++; 
                     }
                     /*else if(gp.object[randomObject].name.equals("Hacha")){
                         this.hasHacha++; 

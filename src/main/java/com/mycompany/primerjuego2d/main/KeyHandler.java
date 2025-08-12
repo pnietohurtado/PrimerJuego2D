@@ -268,9 +268,6 @@ public class KeyHandler implements KeyListener{
         
         if(gp.gameState == gp.pauseState){
             
-            if(code == KeyEvent.VK_ESCAPE){
-                gp.gameState = gp.playState; 
-            }
             
             if(code == KeyEvent.VK_W ||code == KeyEvent.VK_UP){
                 gp.sonido.volume = -20.0f; 

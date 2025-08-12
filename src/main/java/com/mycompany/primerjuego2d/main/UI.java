@@ -451,16 +451,14 @@ public class UI {
         int xk = 3;
         int yk = 2; 
         
-        
+        /*
         System.out.println("Llave " + gp.player.hasKey);
         System.out.println("Pokeball " + gp.player.hasPokeball);
+        System.out.println("MTAttack " + gp.player.hasMTAttack);
+        System.out.println("MTAttack " + gp.player.hasMTHp);
         System.out.println("Inventario " + gp.player.inventario);
-        
+        */
         for(int i = 0; i < inventario.size(); i++){
-                contador = 0; 
-
-                    
-
                     g2.drawImage(inventario.get(i).image, gp.tileSize * xk, gp.tileSize * yk, gp.tileSize, gp.tileSize , null); 
 
                     g2.setFont(arial_40);
@@ -475,6 +473,12 @@ public class UI {
                     }
                     else if(gp.player.inventario.get(i).name.equals("Hacha")){
                         //g2.drawString("x"+gp.player.hasPokeball, gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
+                    }
+                    else if(gp.player.inventario.get(i).name.equals("MTHp")){
+                        g2.drawString("x"+gp.player.hasMTHp, gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
+                    }
+                    else if(gp.player.inventario.get(i).name.equals("MTAttack")){
+                        g2.drawString("x"+gp.player.hasMTAttack, gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
                     }
 
                     xk++; 
