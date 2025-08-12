@@ -20,9 +20,9 @@ public class AssetObject {
     
     public void setObject(){
         
-        gp.object[1] = new OBJ_Hacha(); 
-        gp.object[2] = new OBJ_Pokeball(); 
-        gp.object[3] = new OBJ_Key(); 
+        //gp.object[1] = new OBJ_Hacha(); 
+        gp.object[1] = new OBJ_Pokeball(); 
+        gp.object[2] = new OBJ_Key(); 
         
         
         

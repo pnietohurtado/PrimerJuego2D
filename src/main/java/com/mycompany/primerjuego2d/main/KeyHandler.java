@@ -444,13 +444,13 @@ public class KeyHandler implements KeyListener{
                                 String partes[] = linea.split(" "); 
                                 gp.player.pokemon_inicial = Boolean.parseBoolean(partes[0]); 
                                 gp.player.dineroPlayer = Integer.parseInt(partes[1]); 
-                                if(Integer.parseInt(partes[2]) > 0){
+                                if(Integer.parseInt(partes[1]) > 0){
                                     gp.player.hasPokeball = Integer.parseInt(partes[2]); 
-                                    gp.player.inventario.add(gp.object[2]); 
+                                    gp.player.inventario.add(gp.object[1]); 
                                 }
-                                if(Integer.parseInt(partes[3]) > 0){
+                                if(Integer.parseInt(partes[2]) > 0){
                                     gp.player.hasKey = Integer.parseInt(partes[3]); 
-                                    gp.player.inventario.add(gp.object[3]); 
+                                    gp.player.inventario.add(gp.object[2]); 
                                 }
                             }
                         } catch (FileNotFoundException ex) {
@@ -537,7 +537,7 @@ public class KeyHandler implements KeyListener{
                 if(gp.ui.commandNumber == 0 && gp.player.dineroPlayer >= 300){
                     gp.player.hasPokeball++; 
                     gp.player.dineroPlayer = gp.player.dineroPlayer - 300; 
-                    gp.player.inventario.add(gp.object[2]); 
+                    gp.player.inventario.add(gp.object[1]); 
                     //System.out.println("Pokeball " + gp.player.hasPokeball);
                 }else if(gp.ui.commandNumber == 0 && gp.player.dineroPlayer < 300){
                     System.out.println("No tienes suficiente dinero");
@@ -545,7 +545,7 @@ public class KeyHandler implements KeyListener{
                 if(gp.ui.commandNumber == 1 && gp.player.dineroPlayer >= 100){
                     gp.player.hasKey++; 
                     gp.player.dineroPlayer = gp.player.dineroPlayer - 100; 
-                    gp.player.inventario.add(gp.object[3]); 
+                    gp.player.inventario.add(gp.object[2]); 
                 }else if(gp.ui.commandNumber == 1 && gp.player.dineroPlayer < 100){
                     System.out.println("No tienes suficiente dinero");
                 }

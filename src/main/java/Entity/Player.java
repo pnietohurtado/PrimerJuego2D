@@ -262,7 +262,7 @@ public class Player extends Entity{
                
                 case "Pokeball": 
                     
-                    int randomObject = random.nextInt(3) + 1 ; 
+                    int randomObject = random.nextInt(2) + 1 ; 
                     
                     gp.sonido.volume = -10.0f; 
                     gp.sonido.play(2, false); 
@@ -276,9 +276,10 @@ public class Player extends Entity{
                         this.hasPokeball++; 
                     }else if(gp.object[randomObject].name.equals("Llave")){
                         this.hasKey++; 
-                    }else if(gp.object[randomObject].name.equals("Hacha")){
-                        this.hasHacha++; 
                     }
+                    /*else if(gp.object[randomObject].name.equals("Hacha")){
+                        this.hasHacha++; 
+                    }*/
                     
                     gp.obj[i].existe = false; 
                     gp.obj[i] = null;
