@@ -36,23 +36,18 @@ public class Player extends Entity{
     public final int screenX;
     public final int screenY; 
     
-    //public int hasKey = 0; // How many key the player currently has 
-    public int hasPokeball = 0; // It works as a "Inventory" 
-    public int hasKey = 0;
-    
     public int hasHacha = 0; 
-    public boolean changeSkin; 
     
-    public ArrayList<Integer> cantidades;  
-    
-    
-    
+    public ArrayList<Integer> cantidades;
     public ArrayList<SuperObject> inventario; 
     
+    // --------------------------- Variables iniciales de jugador --------------
+    
     public boolean pokemon_inicial; // Si es false, es que no se ha elegido inicial 
-    
-    
     public int dineroPlayer; // Dinero del jugador
+    public int hasPokeball = 0; 
+    public int hasKey = 0; 
+    public boolean changeSkin; // En caso de que haya un cambio
     
     // --------------------------- Constructor de la clase ---------------------
     

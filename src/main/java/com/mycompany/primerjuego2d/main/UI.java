@@ -464,7 +464,7 @@ public class UI {
                     g2.drawImage(inventario.get(i).image, gp.tileSize * xk, gp.tileSize * yk, gp.tileSize, gp.tileSize , null); 
 
                     g2.setFont(arial_40);
-                    g2.setColor(Color.red);
+                    g2.setColor(Color.WHITE);
 
                     //System.out.println("Item " + gp.player.inventario.get(i));
                     if(gp.player.inventario.get(i).name.equals("Pokeball")){

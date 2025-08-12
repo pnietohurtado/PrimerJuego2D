@@ -306,6 +306,17 @@ public class KeyHandler implements KeyListener{
                             pt2.executeUpdate(); 
                         }
                         
+                        pt = getConnection().prepareStatement("TRUNCATE game_data"); 
+                        pt.executeUpdate(); 
+                        
+                        pt = getConnection().prepareStatement("INSERT INTO game_data VALUES (?,?,?,?)"); 
+                        pt.setBoolean(1, gp.player.pokemon_inicial);
+                        pt.setInt(2, gp.player.dineroPlayer);
+                        pt.setInt(3, gp.player.hasPokeball);
+                        pt.setInt(4, gp.player.hasKey);
+                        pt.executeUpdate(); 
+                        
+                        
                         gp.gameState = gp.playState; 
                     } catch (SQLException ex) {
                         Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
@@ -344,6 +355,11 @@ public class KeyHandler implements KeyListener{
         
         
         if(gp.gameState == gp.inventoryState){
+            
+            if(code == KeyEvent.VK_ESCAPE){
+                gp.gameState = gp.playState; 
+            }
+            
             if(code == KeyEvent.VK_ENTER ){
                 gp.gameState = gp.playState; 
             }
@@ -406,6 +422,15 @@ public class KeyHandler implements KeyListener{
                                 
                             }
                             
+                            
+                            pt = getConnection().prepareStatement("SELECT * FROM game_data");
+                            rs = pt.executeQuery(); 
+                            while(rs.next()){
+                                gp.player.pokemon_inicial = rs.getBoolean("pokemon_inicial"); 
+                                gp.player.dineroPlayer = rs.getInt("dineroPlayer"); 
+                                gp.player.hasPokeball = rs.getInt("hasPokeball"); 
+                                gp.player.hasKey = rs.getInt("hasKey"); 
+                            }
                             
                             
                         } catch (SQLException ex) {

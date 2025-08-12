@@ -4,3 +4,5 @@
 3 150 Mewtwo 18 18 15 true
 1 37 Vulpix 13 14 13 true
 7 150 Mewtwo 19 19 26 true
+8 151 Mew 28 28 20 true
+7 150 Mewtwo 19 19 26 true
