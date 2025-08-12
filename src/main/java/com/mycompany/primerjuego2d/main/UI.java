@@ -584,6 +584,24 @@ public class UI {
             g2.drawString(">", x - gp.tileSize, y); 
         }
         
+        this.item = "MT01"; 
+        x = gp.tileSize * 3; 
+        y = gp.tileSize * 5; 
+        g2.drawString(this.item, x, y);
+        g2.drawString("$1000", x + (gp.tileSize * 2), y); 
+        if(commandNumber == 2){
+            g2.drawString(">", x - gp.tileSize, y); 
+        }
+        
+        this.item = "MT02"; 
+        x = gp.tileSize * 3; 
+        y = gp.tileSize * 6; 
+        g2.drawString(this.item, x, y);
+        g2.drawString("$1000", x + (gp.tileSize * 2), y); 
+        if(commandNumber == 3){
+            g2.drawString(">", x - gp.tileSize, y); 
+        }
+        
     }
     
     

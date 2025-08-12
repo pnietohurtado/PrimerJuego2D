@@ -7,3 +7,4 @@
 8 151 Mew 28 28 20 true
 7 150 Mewtwo 19 19 26 true
 1 150 Mewtwo 14 14 13 true
+1 102 Exeggcute 14 14 13 true

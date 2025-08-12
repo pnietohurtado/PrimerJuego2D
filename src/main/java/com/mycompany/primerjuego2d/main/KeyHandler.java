@@ -477,7 +477,7 @@ public class KeyHandler implements KeyListener{
                 
                 gp.ui.commandNumber--; 
                 if(gp.ui.commandNumber < 0){
-                    gp.ui.commandNumber = 1; 
+                    gp.ui.commandNumber = 3; 
                 }
             }
             if(code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN){
@@ -485,7 +485,7 @@ public class KeyHandler implements KeyListener{
                 gp.sonido.play(3,false); // Para poder poner la música 
                 
                 gp.ui.commandNumber++; 
-                if(gp.ui.commandNumber > 1){
+                if(gp.ui.commandNumber > 3){
                     gp.ui.commandNumber = 0; 
                 }
             }
@@ -505,6 +505,20 @@ public class KeyHandler implements KeyListener{
                     gp.player.dineroPlayer = gp.player.dineroPlayer - 100; 
                     gp.player.inventario.add(gp.object[2]); 
                 }else if(gp.ui.commandNumber == 1 && gp.player.dineroPlayer < 100){
+                    System.out.println("No tienes suficiente dinero");
+                }
+                if(gp.ui.commandNumber == 2 && gp.player.dineroPlayer >= 1000){
+                    gp.player.hasMTHp++; 
+                    gp.player.dineroPlayer = gp.player.dineroPlayer - 1000; 
+                    gp.player.inventario.add(gp.object[3]); 
+                }else if(gp.ui.commandNumber == 1 && gp.player.dineroPlayer < 1000){
+                    System.out.println("No tienes suficiente dinero");
+                }
+                if(gp.ui.commandNumber == 3 && gp.player.dineroPlayer >= 1000){
+                    gp.player.hasMTAttack++; 
+                    gp.player.dineroPlayer = gp.player.dineroPlayer - 1000; 
+                    gp.player.inventario.add(gp.object[4]); 
+                }else if(gp.ui.commandNumber == 1 && gp.player.dineroPlayer < 1000){
                     System.out.println("No tienes suficiente dinero");
                 }
             }
