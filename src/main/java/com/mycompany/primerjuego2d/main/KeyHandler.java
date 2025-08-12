@@ -7,6 +7,12 @@ package com.mycompany.primerjuego2d.main;
 import Conexion.Conexion;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -306,22 +312,25 @@ public class KeyHandler implements KeyListener{
                             pt2.executeUpdate(); 
                         }
                         
-                        pt = getConnection().prepareStatement("TRUNCATE game_data"); 
-                        pt.executeUpdate(); 
                         
-                        pt = getConnection().prepareStatement("INSERT INTO game_data VALUES (?,?,?,?)"); 
-                        pt.setBoolean(1, gp.player.pokemon_inicial);
-                        pt.setInt(2, gp.player.dineroPlayer);
-                        pt.setInt(3, gp.player.hasPokeball);
-                        pt.setInt(4, gp.player.hasKey);
-                        pt.executeUpdate(); 
-                        
-                        
-                        gp.gameState = gp.playState; 
                     } catch (SQLException ex) {
                         Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     
+                    try { 
+                        BufferedWriter bw = new BufferedWriter(new FileWriter("data_game.txt", false));
+                        String linea = gp.player.pokemon_inicial + " " + gp.player.dineroPlayer + " " +  gp.player.hasPokeball
+                                + " " + gp.player.hasKey; 
+                        bw.write(linea);
+                        bw.newLine(); 
+                        bw.close();
+                          
+                    } catch (IOException ex) {
+                        Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    
+                    
+                    gp.gameState = gp.playState; 
                 }else if(gp.ui.commandNumber == 1){
                     gp.gameState = gp.playState; 
                 }else if(gp.ui.commandNumber == 2){
@@ -423,19 +432,34 @@ public class KeyHandler implements KeyListener{
                             }
                             
                             
-                            pt = getConnection().prepareStatement("SELECT * FROM game_data");
-                            rs = pt.executeQuery(); 
-                            while(rs.next()){
-                                gp.player.pokemon_inicial = rs.getBoolean("pokemon_inicial"); 
-                                gp.player.dineroPlayer = rs.getInt("dineroPlayer"); 
-                                gp.player.hasPokeball = rs.getInt("hasPokeball"); 
-                                gp.player.hasKey = rs.getInt("hasKey"); 
-                            }
-                            
-                            
                         } catch (SQLException ex) {
                             Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
                         }
+                        
+                        try { 
+                            BufferedReader br = new BufferedReader( new FileReader("data_game.txt"));
+                            String linea; 
+                            
+                            while((linea = br.readLine()) != null){
+                                String partes[] = linea.split(" "); 
+                                gp.player.pokemon_inicial = Boolean.parseBoolean(partes[0]); 
+                                gp.player.dineroPlayer = Integer.parseInt(partes[1]); 
+                                if(Integer.parseInt(partes[2]) > 0){
+                                    gp.player.hasPokeball = Integer.parseInt(partes[2]); 
+                                    gp.player.inventario.add(gp.object[2]); 
+                                }
+                                if(Integer.parseInt(partes[3]) > 0){
+                                    gp.player.hasKey = Integer.parseInt(partes[3]); 
+                                    gp.player.inventario.add(gp.object[3]); 
+                                }
+                            }
+                        } catch (FileNotFoundException ex) {
+                            Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (IOException ex) {
+                            Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        
+                        
                         
                         gp.sonido.stop(7);
                         gp.ui.titleScreenState = 1; 
