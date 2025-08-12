@@ -194,7 +194,7 @@ public class KeyHandler implements KeyListener{
         
         
         
-        // Battle 
+        // ----------------------- Battle --------------------------------------
         
         if(gp.gameState == gp.battleState){
             if(code == KeyEvent.VK_ESCAPE){
@@ -261,9 +261,16 @@ public class KeyHandler implements KeyListener{
         
         
         
-        // Pause Game 
+        
+        
+        
+        // ------------------------ Pause Game ---------------------------------
         
         if(gp.gameState == gp.pauseState){
+            
+            if(code == KeyEvent.VK_ESCAPE){
+                gp.gameState = gp.playState; 
+            }
             
             if(code == KeyEvent.VK_W ||code == KeyEvent.VK_UP){
                 gp.sonido.volume = -20.0f; 
@@ -286,40 +293,10 @@ public class KeyHandler implements KeyListener{
             
             if(code == KeyEvent.VK_ENTER){
                 if(gp.ui.commandNumber == 0){
-                    try { 
-                        pt = getConnection().prepareStatement("INSERT INTO jugador(Pos_X, Pos_Y) VALUES(?,?)");
-                        pt.setInt(1, (gp.player.worldX) );
-                        pt.setInt(2, (gp.player.worldY) );
-                        pt.executeUpdate(); 
-                        
-                        PreparedStatement pt3 = getConnection().prepareStatement("TRUNCATE inventario"); 
-                        pt3.executeUpdate(); 
-                        
-                        for(int i = 1; i < gp.player.inventario.size(); i++){
-                            
-                            PreparedStatement pt2 = getConnection().prepareStatement("INSERT INTO inventario VALUES(?,?,?,?,?)"); 
-                            pt2.setInt(1, i);
-                            pt2.setString(2, gp.player.inventario.get(i).name);
-                            pt2.setInt(3, gp.player.inventario.get(i).worldX);
-                            pt2.setInt(4, gp.player.inventario.get(i).worldY);
-                            
-                            if(gp.player.inventario.get(i).existe == false){
-                                pt2.setBoolean(5, false);
-                            }else{
-                                pt2.setBoolean(5, true);
-                            }
-                         
-                            pt2.executeUpdate(); 
-                        }
-                        
-                        
-                    } catch (SQLException ex) {
-                        Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
-                    }
                     
                     try { 
                         BufferedWriter bw = new BufferedWriter(new FileWriter("data_game.txt", false));
-                        String linea = gp.player.pokemon_inicial + " " + gp.player.dineroPlayer + " " +  gp.player.hasPokeball
+                        String linea =gp.player.worldX + " " + gp.player.worldY + " " + gp.player.pokemon_inicial + " " + gp.player.dineroPlayer + " " +  gp.player.hasPokeball
                                 + " " + gp.player.hasKey; 
                         bw.write(linea);
                         bw.newLine(); 
@@ -350,7 +327,11 @@ public class KeyHandler implements KeyListener{
         }
         
     
-        // Dialogue State 
+        
+        
+        
+        
+        // ------------------------ Dialogue State -----------------------------
         if(gp.gameState == gp.dialogueState){
             this.showData = false; // Para que los datos de las coordenadas no interrumpan el texto del dialogo
             if(code == KeyEvent.VK_ENTER){
@@ -362,7 +343,7 @@ public class KeyHandler implements KeyListener{
         
         
         
-        
+        // ------------------------ Inventario ---------------------------------
         if(gp.gameState == gp.inventoryState){
             
             if(code == KeyEvent.VK_ESCAPE){
@@ -382,7 +363,7 @@ public class KeyHandler implements KeyListener{
         
         
         
-        // Title statement 
+        // ------------------------ Title statement ----------------------------
         
         if(gp.gameState == gp.titleState){
             
@@ -413,28 +394,6 @@ public class KeyHandler implements KeyListener{
                 if(code == KeyEvent.VK_ENTER){
                     
                     if(gp.ui.commandNumber == 0){
-                        try { 
-                            pt = getConnection().prepareStatement("SELECT Pos_X, Pos_Y FROM jugador ORDER BY ID DESC LIMIT 1");
-                            rs = pt.executeQuery(); 
-                            
-                            while(rs.next()){
-                                gp.player.worldX = rs.getInt("Pos_X");
-                                gp.player.worldY = rs.getInt("Pos_Y");
-                            }
-                            
-                            pt = getConnection().prepareStatement("SELECT ID FROM inventario WHERE Existe = 0");
-                            rs = pt.executeQuery(); 
-                            
-                            while(rs.next()){
-                                
-                                gp.obj[rs.getInt("ID")] = null; 
-                                
-                            }
-                            
-                            
-                        } catch (SQLException ex) {
-                            Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
-                        }
                         
                         try { 
                             BufferedReader br = new BufferedReader( new FileReader("data_game.txt"));
@@ -442,14 +401,16 @@ public class KeyHandler implements KeyListener{
                             
                             while((linea = br.readLine()) != null){
                                 String partes[] = linea.split(" "); 
-                                gp.player.pokemon_inicial = Boolean.parseBoolean(partes[0]); 
-                                gp.player.dineroPlayer = Integer.parseInt(partes[1]); 
-                                if(Integer.parseInt(partes[1]) > 0){
-                                    gp.player.hasPokeball = Integer.parseInt(partes[2]); 
+                                gp.player.worldX = Integer.parseInt(partes[0]); 
+                                gp.player.worldY = Integer.parseInt(partes[1]); 
+                                gp.player.pokemon_inicial = Boolean.parseBoolean(partes[2]); 
+                                gp.player.dineroPlayer = Integer.parseInt(partes[3]); 
+                                if(Integer.parseInt(partes[4]) > 0){
+                                    gp.player.hasPokeball = Integer.parseInt(partes[4]); 
                                     gp.player.inventario.add(gp.object[1]); 
                                 }
-                                if(Integer.parseInt(partes[2]) > 0){
-                                    gp.player.hasKey = Integer.parseInt(partes[3]); 
+                                if(Integer.parseInt(partes[5]) > 0){
+                                    gp.player.hasKey = Integer.parseInt(partes[5]); 
                                     gp.player.inventario.add(gp.object[2]); 
                                 }
                             }
@@ -506,7 +467,7 @@ public class KeyHandler implements KeyListener{
         }
         
         
-        // Menu Shop 
+        // ----------------------------- Menu Shop -----------------------------
         if(gp.gameState == gp.shopMenu){
             
             if(code == KeyEvent.VK_ESCAPE){
