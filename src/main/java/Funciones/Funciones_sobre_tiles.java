@@ -50,6 +50,9 @@ public class Funciones_sobre_tiles {
                 gp.nombres.cargar_vida_pokemon_actual(gp.equipo_pokemones.get(0).getNombre()); // Obtenemos vida maxima; 
                 gp.player.vida_pokemon_restante = (int) gp.player.vida_pokemon_compañero; // Ajustamos la vida
                 
+                // Turno 
+                gp.turnos.battle_turn = true; 
+                
                 gp.sonido.stop(1);
                 gp.gameState = gp.battleState; 
 

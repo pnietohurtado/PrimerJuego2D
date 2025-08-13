@@ -13,7 +13,7 @@ import com.mycompany.primerjuego2d.main.GamePanel;
 public class Battle {
     
     private GamePanel gp; 
-    public boolean battle_turn = false; 
+    public boolean battle_turn ; 
     
     public Battle(GamePanel gp){
         this.gp = gp; 

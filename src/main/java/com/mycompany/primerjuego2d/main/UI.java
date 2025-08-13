@@ -185,10 +185,10 @@ public class UI {
         g2.drawString(" lvl. " + String.valueOf(this.lvl), x * 3, y); 
         
         
-        if(gp.turnos.battle_turn == true){
+        if(gp.turnos.battle_turn == false){
             System.out.println("Turno " + gp.turnos.battle_turn);
             gp.player.vida_pokemon_restante -= 2; 
-            gp.turnos.battle_turn = false; 
+            gp.turnos.battle_turn = true; 
         }
         
         gp.ui.healthBar(x , y + gp.tileSize, gp.keyHandler.hp_enemy); // Barra de vida de los pokemones enemigos
@@ -236,46 +236,46 @@ public class UI {
         g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * 8), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
         
         
-        if(commandNumber == 0 && gp.turnos.battle_turn == false){
+        if(commandNumber == 0 && gp.turnos.battle_turn == true){
             try {
                 image = ImageIO.read(getClass().getResourceAsStream("/Menu/MenuBatalla2.png"));
             } catch (IOException ex) {
                 Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            gp.turnos.battle_turn = true; // Cambiar turno 
+            gp.turnos.battle_turn = false; // Cambiar turno 
         }
         g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * 8), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
-        if(commandNumber == 1 && gp.turnos.battle_turn == false){
+        if(commandNumber == 1 && gp.turnos.battle_turn == true){
             try {
                 image = ImageIO.read(getClass().getResourceAsStream("/Menu/MenuBatalla3.png"));
             } catch (IOException ex) {
                 Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            gp.turnos.battle_turn = true; // Cambiar turno 
+            gp.turnos.battle_turn = false; // Cambiar turno 
             
         }
         g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * 8), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
-        if(commandNumber == 2 && gp.turnos.battle_turn == false){
+        if(commandNumber == 2 && gp.turnos.battle_turn == true){
             try {
                 image = ImageIO.read(getClass().getResourceAsStream("/Menu/MenuBatalla4.png"));
             } catch (IOException ex) {
                 Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            gp.turnos.battle_turn = true;  // Cambiar turno 
+            gp.turnos.battle_turn = false;  // Cambiar turno 
             
         }
         g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * 8), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
-        if(commandNumber == 3 && gp.turnos.battle_turn == false ){
+        if(commandNumber == 3 && gp.turnos.battle_turn == true ){
             try {
                 image = ImageIO.read(getClass().getResourceAsStream("/Menu/MenuBatalla5.png"));
             } catch (IOException ex) {
                 Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            gp.turnos.battle_turn = true; // Cambiar turno
+            gp.turnos.battle_turn = false; // Cambiar turno
         }
         
         g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * 8), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
