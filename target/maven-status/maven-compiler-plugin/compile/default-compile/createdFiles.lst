@@ -2,6 +2,7 @@ Objects\OBJ_MTHp.class
 com\mycompany\primerjuego2d\main\AssetSetter.class
 Battle\Battle.class
 tile\Tile.class
+Funciones\GuardadoDeLosObjetos.class
 Objects\OBJ_Key.class
 com\mycompany\primerjuego2d\main\Sound.class
 Objects\OBJ_Hacha.class

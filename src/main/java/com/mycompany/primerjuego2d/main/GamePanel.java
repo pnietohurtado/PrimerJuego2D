@@ -9,6 +9,7 @@ import Entity.Entity;
 import Entity.Player;
 import Funciones.CargarDatosPokemon;
 import Funciones.Funciones_sobre_tiles;
+import Funciones.GuardadoDeLosObjetos;
 import Objects.SuperObject;
 import Pokemon.Pokemon;
 import java.awt.Color;
@@ -110,6 +111,9 @@ public class GamePanel extends JPanel implements Runnable{
     
     // Cargar los turnos de las batalla pokemon 
     public Battle turnos = new Battle(this); 
+    
+    // Guardar los objetos 
+    public GuardadoDeLosObjetos guardado = new GuardadoDeLosObjetos(this); 
     
     // -------------------------------------------------------------------------
     

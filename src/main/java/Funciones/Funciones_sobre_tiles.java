@@ -76,6 +76,8 @@ public class Funciones_sobre_tiles {
         gp.player.worldX = 24* gp.tileSize; 
         gp.player.worldY = 24* gp.tileSize; 
         
+        gp.guardado.cargar_objetos();
+        
         gp.obj = new SuperObject[99]; // Volver a añadir objetos en el array
             
         gp.obj[1] = new OBJ_PokeballPokemon(); 
@@ -171,6 +173,7 @@ public class Funciones_sobre_tiles {
             
         gp.tileManager.loadMap(gp.tileManager.mapas[0]);
             
+        gp.guardado.poner_objetos();
         //gp.aSetter.setObject();
             
         gp.gameState = gp.playState;

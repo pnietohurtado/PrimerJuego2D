@@ -295,7 +295,7 @@ public class Player extends Entity{
                         this.hasHacha++; 
                     }*/
                     
-                    gp.obj[i].existe = false; 
+                    gp.obj[i].existe = 0; 
                     gp.obj[i] = null;
                     
                     

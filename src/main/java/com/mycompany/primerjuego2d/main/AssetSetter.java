@@ -5,7 +5,6 @@
 package com.mycompany.primerjuego2d.main;
 
 
-import Entity.NPC_CocheJuan;
 import Entity.NPC_ShopGuy;
 import Objects.*;
 

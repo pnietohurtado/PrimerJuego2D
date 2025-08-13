@@ -29,7 +29,7 @@ public class SuperObject
     public int solidAreaDefaultY = 0;
     
     // Para comprobar que el objeto sigue en el mapa
-    public boolean existe = true; 
+    public int existe = 1; 
     
     // ------- En el caso de que queramos que el objeto sea más grande ---------
     public int multiplicadorSizeX = 1; 
