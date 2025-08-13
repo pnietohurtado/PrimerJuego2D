@@ -123,4 +123,39 @@ public class CargarDatosPokemon {
             Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    
+    
+    public void cargar_vida_pokemon_actual(String nombre_pokemon){
+        BufferedReader br; 
+        
+        try {
+            br = new BufferedReader(new FileReader("EquipoPokemon.txt"));
+            
+            String linea; 
+            
+            try {
+                while((linea = br.readLine()) != null){
+                        
+                    linea = linea.trim();
+                    if (linea.isEmpty()) continue;  
+
+                    String partes[] = linea.split(" "); 
+                    if (partes.length < 7) continue; 
+
+                    int nada = Integer.parseInt(partes[0]); 
+                    int nada2 = Integer.parseInt(partes[1]); 
+                    String nombre = partes[2]; 
+                    
+                    if(partes[2].equals(nombre_pokemon)){
+                        gp.player.vida_pokemon_compañero = Float.parseFloat(partes[3]); 
+}                   }
+ 
+            } catch (IOException ex) {
+                Logger.getLogger(TileManager.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(CargarDatosPokemon.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
 }

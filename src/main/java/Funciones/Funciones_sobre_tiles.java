@@ -46,6 +46,10 @@ public class Funciones_sobre_tiles {
                 // Seteamos el lvl del pokemon en cuestión 
                 gp.ui.lvl = random.nextInt(10) + 1; 
 
+                // Seteamos la vida pokemon aliado; 
+                gp.nombres.cargar_vida_pokemon_actual(gp.equipo_pokemones.get(0).getNombre()); // Obtenemos vida maxima; 
+                gp.player.vida_pokemon_restante = (int) gp.player.vida_pokemon_compañero; // Ajustamos la vida
+                
                 gp.sonido.stop(1);
                 gp.gameState = gp.battleState; 
 

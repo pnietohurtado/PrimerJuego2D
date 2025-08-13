@@ -5,6 +5,8 @@
 package com.mycompany.primerjuego2d.main;
 
 import java.awt.Container;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,12 +17,14 @@ import javax.swing.JLabel;
  */
 public class main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
 
         JFrame window = new JFrame(); 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         window.setResizable(false); 
         window.setTitle("Mi primer juego 2D"); 
+        
+        window.setIconImage(ImageIO.read(main.class.getResource("/Objetos/Pokeball.png"))); 
         
         GamePanel gamePanel = new GamePanel(); 
         

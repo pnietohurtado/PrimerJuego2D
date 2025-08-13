@@ -27,6 +27,11 @@ public class Player extends Entity{
     
     public int sprite_bicho_attack = 1; 
     
+    // ---------------------- Vida del pokemon compañero -----------------------
+    
+    public float vida_pokemon_compañero = 0; 
+    public int vida_pokemon_restante; 
+    
     // -------------------------------------------------------------------------
     
     // Indice del objeto que tenemos 
@@ -56,7 +61,7 @@ public class Player extends Entity{
     public Player(GamePanel gp, KeyHandler kh){
         super(gp); 
         
-        this.keyHandler = kh; 
+        this.keyHandler = kh;  
         
         inventario = new ArrayList<>(); 
         cantidades = new ArrayList<>(); 

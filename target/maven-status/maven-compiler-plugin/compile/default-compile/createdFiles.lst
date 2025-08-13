@@ -3,8 +3,8 @@ com\mycompany\primerjuego2d\main\AssetSetter.class
 Entity\NPC_Pokemon.class
 Entity\Entity.class
 Objects\SuperObject.class
+tile\Tile.class
 Objects\OBJ_Key.class
-Tile\Tile.class
 com\mycompany\primerjuego2d\main\Sound.class
 Pokemon\Pokemon.class
 Objects\OBJ_Hacha.class
@@ -12,7 +12,6 @@ com\mycompany\primerjuego2d\main\GamePanel.class
 com\mycompany\primerjuego2d\main\AssetObject.class
 com\mycompany\primerjuego2d\main\UI.class
 Entity\NPC_ShopGuy.class
-Tile\TileManager.class
 com\mycompany\primerjuego2d\main\ClaseAuxiliar.class
 Objects\OBJ_CentroPokemon.class
 com\mycompany\primerjuego2d\main\MouseClicker.class
@@ -22,6 +21,7 @@ Entity\NPC_MewTwo.class
 Entity\NPC_CocheJuan.class
 Funciones\CargarDatosPokemon.class
 Objects\OBJ_Pokeball.class
+tile\TileManager.class
 com\mycompany\primerjuego2d\main\KeyHandler.class
 Funciones\Funciones_sobre_tiles.class
 Conexion\Conexion.class

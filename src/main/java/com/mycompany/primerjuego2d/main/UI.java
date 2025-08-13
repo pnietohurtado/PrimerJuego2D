@@ -206,7 +206,12 @@ public class UI {
         g2.drawString(gp.equipo_pokemones.get(0).getNombre(), x * 5, y * 5); 
         g2.drawString(" lvl. " + gp.equipo_pokemones.get(0).getLevel(), x * 7, y * 5 ); 
         
-        healthBar(x * 5 , y * 5, 1.0f); // Barra de vida de los pokemones enemigos 
+        g2.setColor(Color.RED); 
+        g2.drawString(gp.equipo_pokemones.get(0).getNombre(), x * 3, y * 6); 
+        
+        
+        System.out.println("Vida " + gp.player.vida_pokemon_restante );
+        healthBar(x * 5 , y * 5, gp.player.vida_pokemon_restante / gp.player.vida_pokemon_compañero); // Barra de vida de los pokemones enemigos 
         
         
         
