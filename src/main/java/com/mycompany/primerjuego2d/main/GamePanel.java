@@ -4,6 +4,7 @@
  */
 package com.mycompany.primerjuego2d.main;
 
+import Battle.Battle;
 import Entity.Entity;
 import Entity.Player;
 import Funciones.CargarDatosPokemon;
@@ -106,6 +107,9 @@ public class GamePanel extends JPanel implements Runnable{
     
     // Aquí vamos a cargar las funciones que queremos que lleven a cabo alguna acción 
     public Funciones_sobre_tiles fst = new Funciones_sobre_tiles(this); 
+    
+    // Cargar los turnos de las batalla pokemon 
+    public Battle turnos = new Battle(this); 
     
     // -------------------------------------------------------------------------
     
