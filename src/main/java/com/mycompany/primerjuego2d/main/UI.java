@@ -440,55 +440,40 @@ public class UI {
             }
         }
         
-        
-        
         objetosUnicos = new LinkedHashSet<>(this.gp.player.inventario); 
         inventario = new ArrayList<>(objetosUnicos);
-        //Map<String, Integer> cantidades = new HashMap<>(); 
         
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
         
         int xk = 3;
-        int yk = 2; 
+        int yk = 2;
         
-        /*
-        System.out.println("Llave " + gp.player.hasKey);
-        System.out.println("Pokeball " + gp.player.hasPokeball);
-        System.out.println("MTAttack " + gp.player.hasMTAttack);
-        System.out.println("MTAttack " + gp.player.hasMTHp);
-        System.out.println("Inventario " + gp.player.inventario);
-        */
         for(int i = 0; i < inventario.size(); i++){
                     g2.drawImage(inventario.get(i).image, gp.tileSize * xk, gp.tileSize * yk, gp.tileSize, gp.tileSize , null); 
 
                     g2.setFont(arial_40);
                     g2.setColor(Color.WHITE);
 
-                    //System.out.println("Item " + gp.player.inventario.get(i));
-                    if(gp.player.inventario.get(i).name.equals("Pokeball")){
-                        g2.drawString("x"+gp.player.hasPokeball, gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
+                    switch(inventario.get(i).name){
+                        case "Pokeball" : 
+                            g2.drawString("x"+gp.player.hasPokeball, gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
+                            break; 
+                        case "Llave": 
+                            g2.drawString("x"+gp.player.hasKey, gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
+                            break; 
+                        case "Hacha": 
+                            break; 
+                        case "MTHp": 
+                            g2.drawString("x"+gp.player.hasMTHp, gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
+                            break; 
+                        case "MTAttack": 
+                            g2.drawString("x"+gp.player.hasMTAttack, gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
+                            break; 
+                            
                     }
-                    else if(gp.player.inventario.get(i).name.equals("Llave")){
-                        g2.drawString("x"+gp.player.hasKey, gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
-                    }
-                    else if(gp.player.inventario.get(i).name.equals("Hacha")){
-                        //g2.drawString("x"+gp.player.hasPokeball, gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
-                    }
-                    else if(gp.player.inventario.get(i).name.equals("MTHp")){
-                        g2.drawString("x"+gp.player.hasMTHp, gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
-                    }
-                    else if(gp.player.inventario.get(i).name.equals("MTAttack")){
-                        g2.drawString("x"+gp.player.hasMTAttack, gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
-                    }
-
+                    
                     xk++; 
-
-                
-         
         }
-        
-
-
     }
     
     

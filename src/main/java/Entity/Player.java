@@ -190,6 +190,9 @@ public class Player extends Entity{
             
         }
     }
+    
+    
+    
     // ------------------ Prueba sobre la detección de las tiles ---------------
     public void detectTile(){
         
@@ -273,7 +276,6 @@ public class Player extends Entity{
                     gp.ui.dialogueText = "Has encontrado un " + gp.object[randomObject]; 
                     gp.gameState = gp.dialogueState; 
                     
-                    //inventario.add(gp.object[randomObject]); 
                     if(gp.object[randomObject].name.equals("Pokeball")){
                         this.hasPokeball++; 
                     }else if(gp.object[randomObject].name.equals("Llave")){
@@ -283,6 +285,7 @@ public class Player extends Entity{
                     }else if(gp.object[randomObject].name.equals("MTAttack")){
                         this.hasMTAttack++; 
                     }
+                    inventario.add(gp.object[randomObject]); 
                     /*else if(gp.object[randomObject].name.equals("Hacha")){
                         this.hasHacha++; 
                     }*/

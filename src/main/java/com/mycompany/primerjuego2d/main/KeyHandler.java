@@ -511,14 +511,14 @@ public class KeyHandler implements KeyListener{
                     gp.player.hasMTHp++; 
                     gp.player.dineroPlayer = gp.player.dineroPlayer - 1000; 
                     gp.player.inventario.add(gp.object[3]); 
-                }else if(gp.ui.commandNumber == 1 && gp.player.dineroPlayer < 1000){
+                }else if(gp.ui.commandNumber == 2 && gp.player.dineroPlayer < 1000){
                     System.out.println("No tienes suficiente dinero");
                 }
                 if(gp.ui.commandNumber == 3 && gp.player.dineroPlayer >= 1000){
                     gp.player.hasMTAttack++; 
                     gp.player.dineroPlayer = gp.player.dineroPlayer - 1000; 
                     gp.player.inventario.add(gp.object[4]); 
-                }else if(gp.ui.commandNumber == 1 && gp.player.dineroPlayer < 1000){
+                }else if(gp.ui.commandNumber == 3 && gp.player.dineroPlayer < 1000){
                     System.out.println("No tienes suficiente dinero");
                 }
             }

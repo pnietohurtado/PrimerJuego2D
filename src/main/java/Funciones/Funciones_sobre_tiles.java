@@ -46,6 +46,7 @@ public class Funciones_sobre_tiles {
                 // Seteamos el lvl del pokemon en cuestión 
                 gp.ui.lvl = random.nextInt(10) + 1; 
 
+                gp.sonido.stop(1);
                 gp.gameState = gp.battleState; 
 
 
