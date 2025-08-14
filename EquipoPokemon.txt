@@ -9,3 +9,4 @@
 1 150 Mewtwo 14 14 13 true
 1 102 Exeggcute 14 14 13 true
 1 64 Kadabra 14 14 14 true
+8 111 Rhyhorn 28 28 28 true

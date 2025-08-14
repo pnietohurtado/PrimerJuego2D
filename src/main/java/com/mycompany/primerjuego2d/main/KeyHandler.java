@@ -225,7 +225,7 @@ public class KeyHandler implements KeyListener{
                 }
                 
             if(code == KeyEvent.VK_ENTER){
-                if(gp.ui.commandNumber == 0){
+                if(gp.ui.commandNumber == 0 && gp.turnos.battle_turn == true){
                     
                     if(this.hp_enemy <= 0){
                         gp.sonido.stop(5); 
@@ -233,9 +233,14 @@ public class KeyHandler implements KeyListener{
                     }else{
                         hp_enemy -= 0.1f; 
                     }
+                    gp.turnos.battle_turn = false; // Cambiar turno
                     
                     
-                }else if(gp.ui.commandNumber == 2){
+                }else if(gp.ui.commandNumber == 1 && gp.turnos.battle_turn == true) {
+                    
+                    gp.turnos.battle_turn = false; // Cambiar turno
+                    
+                }else if(gp.ui.commandNumber == 2 && gp.turnos.battle_turn == true){
                     
                     if(gp.player.hasPokeball > 0){
                         this.posibilidad_de_captura = random.nextInt((int)(gp.ui.lvl * (this.hp_enemy + 1) ) ) + 1; 
@@ -249,12 +254,13 @@ public class KeyHandler implements KeyListener{
                         System.out.println("No tienes pokeballs");
                     }
         
+                    gp.turnos.battle_turn = false; // Cambiar turno
                     
-                    
-                }else if(gp.ui.commandNumber == 3){
+                }else if(gp.ui.commandNumber == 3 && gp.turnos.battle_turn == true){
                     gp.sonido.stop(5);
                     // gp.sonido.stop(6);
                     gp.gameState = gp.playState; 
+                    gp.turnos.battle_turn = false; // Cambiar turno
                 }
             }
             

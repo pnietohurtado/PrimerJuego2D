@@ -236,46 +236,40 @@ public class UI {
         g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * 8), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
         
         
-        if(commandNumber == 0 && gp.turnos.battle_turn == true){
+        if(commandNumber == 0 ){
             try {
                 image = ImageIO.read(getClass().getResourceAsStream("/Menu/MenuBatalla2.png"));
             } catch (IOException ex) {
                 Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-            gp.turnos.battle_turn = false; // Cambiar turno 
         }
         g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * 8), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
-        if(commandNumber == 1 && gp.turnos.battle_turn == true){
+        if(commandNumber == 1){
             try {
                 image = ImageIO.read(getClass().getResourceAsStream("/Menu/MenuBatalla3.png"));
             } catch (IOException ex) {
                 Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-            gp.turnos.battle_turn = false; // Cambiar turno 
-            
         }
         g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * 8), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
-        if(commandNumber == 2 && gp.turnos.battle_turn == true){
+        if(commandNumber == 2 ){
             try {
                 image = ImageIO.read(getClass().getResourceAsStream("/Menu/MenuBatalla4.png"));
             } catch (IOException ex) {
                 Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            gp.turnos.battle_turn = false;  // Cambiar turno 
             
         }
         g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * 8), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
-        if(commandNumber == 3 && gp.turnos.battle_turn == true ){
+        if(commandNumber == 3){
             try {
                 image = ImageIO.read(getClass().getResourceAsStream("/Menu/MenuBatalla5.png"));
             } catch (IOException ex) {
                 Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            gp.turnos.battle_turn = false; // Cambiar turno
+            
         }
         
         g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * 8), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
