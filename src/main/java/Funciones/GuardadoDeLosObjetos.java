@@ -33,13 +33,14 @@ public class GuardadoDeLosObjetos {
     public void cargar_objetos(){
         try { 
             bw = new BufferedWriter(new FileWriter("datos_objetos.txt", false));
-            for(int i = 0; i < gp.player.inventario.size(); i++){
-                
-               String linea = gp.player.inventario.get(i).worldX + " " + gp.player.inventario.get(i).worldY
-                       + " " + gp.player.inventario.get(i).existe; 
-                System.out.println("linea " + linea);
-               bw.write(linea);
-               bw.newLine();
+            for(int i = 1; i < gp.obj.length; i++){
+                if(gp.obj[i] != null){
+                    String linea = gp.obj[i].worldX + " " + gp.obj[i].worldY
+                            + " " + gp.obj[i].existe; 
+                    
+                    bw.write(linea);
+                    bw.newLine();
+                }
                
             }
             

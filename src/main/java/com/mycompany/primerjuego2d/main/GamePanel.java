@@ -168,6 +168,7 @@ public class GamePanel extends JPanel implements Runnable{
         aSetter.setNPC();
         aObjects.setObject();
         
+        
         // Poner la música del principio 
         this.keyHandler.playMusic = true; 
         sonido.play(7, true); // Se pone la música de la intro (Main Theme) 
