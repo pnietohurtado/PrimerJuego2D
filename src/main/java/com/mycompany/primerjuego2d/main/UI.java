@@ -39,12 +39,13 @@ public class UI {
     public String message = ""; 
     public int commandNumber = 0; 
     public int titleScreenState = 0; // 0 : First Screen 
-    Random random = new Random(); 
+    private Random random;  
+    private int aleatorio; 
     
     public int lvl; // Para poder darle un "level" específico a un pokemon 
     
-    BufferedImage image; 
-    
+    private BufferedImage image; 
+   
     public String textoNPC[] = new String[10]; // Array de Textos 
     
     int x; 
@@ -56,7 +57,7 @@ public class UI {
     public UI(GamePanel gp){
         this.gp = gp; 
         
-        Random random = new Random(); 
+        random = new Random(); 
         
         this.x = 0; 
         this.y = 0; 
@@ -187,7 +188,14 @@ public class UI {
         
         if(gp.turnos.battle_turn == false){
             System.out.println("Turno " + gp.turnos.battle_turn);
-            gp.player.vida_pokemon_restante -= 2; 
+            this.aleatorio = random.nextInt(1000) + 1; 
+            if(this.aleatorio == 1 && gp.player.vida_pokemon_restante > 0){
+                gp.player.vida_pokemon_restante -= 3; 
+            }else if(gp.player.vida_pokemon_restante > 0){
+                gp.player.vida_pokemon_restante -= 1; 
+            }else{
+                gp.gameState = gp.playState; 
+            }
             gp.turnos.battle_turn = true; 
         }
         

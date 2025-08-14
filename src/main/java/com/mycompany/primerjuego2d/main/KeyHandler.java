@@ -33,9 +33,6 @@ public class KeyHandler implements KeyListener{
         return Conexion.getConnection(); 
     }
     
-    PreparedStatement pt; 
-    ResultSet rs; 
-    
     
     // ------------------------- Variables de esta clase -----------------------
     
@@ -65,7 +62,8 @@ public class KeyHandler implements KeyListener{
     
     public float hp_enemy ; 
     
-    public Random random; 
+    private Random random; 
+    private int aleatorio ; 
     int posibilidad_de_captura; 
     
     // -------------------------------------------------------------------------
@@ -226,12 +224,15 @@ public class KeyHandler implements KeyListener{
                 
             if(code == KeyEvent.VK_ENTER){
                 if(gp.ui.commandNumber == 0 && gp.turnos.battle_turn == true){
+                    this.aleatorio = random.nextInt(1000) +1 ; 
                     
                     if(this.hp_enemy <= 0){
                         gp.sonido.stop(5); 
                         gp.gameState = gp.playState; 
+                    }else if(this.aleatorio == 1){
+                        hp_enemy -= 0.3f; 
                     }else{
-                        hp_enemy -= 0.1f; 
+                        hp_enemy -= 0.2f; 
                     }
                     gp.turnos.battle_turn = false; // Cambiar turno
                     
@@ -244,7 +245,7 @@ public class KeyHandler implements KeyListener{
                     
                     if(gp.player.hasPokeball > 0){
                         this.posibilidad_de_captura = random.nextInt((int)(gp.ui.lvl * (this.hp_enemy + 1) ) ) + 1; 
-                        //System.out.println("Objetivo " + (gp.ui.lvl * (this.hp_enemy + 1)));
+                        
                         if(this.posibilidad_de_captura == 1){
                             gp.nombres.cargar_pokemon_capturado(); 
                         }
@@ -258,7 +259,6 @@ public class KeyHandler implements KeyListener{
                     
                 }else if(gp.ui.commandNumber == 3 && gp.turnos.battle_turn == true){
                     gp.sonido.stop(5);
-                    // gp.sonido.stop(6);
                     gp.gameState = gp.playState; 
                     gp.turnos.battle_turn = false; // Cambiar turno
                 }
