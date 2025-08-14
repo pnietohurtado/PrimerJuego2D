@@ -5,6 +5,7 @@
 package com.mycompany.primerjuego2d.main;
 
 import Conexion.Conexion;
+import Objects.SuperObject;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.BufferedReader;
@@ -303,6 +304,8 @@ public class KeyHandler implements KeyListener{
                         Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     
+                    gp.guardado.cargar_objetos();
+                    gp.obj = new SuperObject[99]; // Volver a añadir objetos en el array
                     
                     gp.gameState = gp.playState; 
                 }else if(gp.ui.commandNumber == 1){
@@ -417,7 +420,7 @@ public class KeyHandler implements KeyListener{
                             Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
                         }
                         
-                        
+                        gp.guardado.poner_objetos();
                         
                         gp.sonido.stop(7);
                         gp.ui.titleScreenState = 1; 
