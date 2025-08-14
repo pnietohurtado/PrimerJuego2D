@@ -230,8 +230,12 @@ public class KeyHandler implements KeyListener{
                         gp.sonido.stop(5); 
                         gp.gameState = gp.playState; 
                     }else if(this.aleatorio == 1){
+                        gp.sonido.volume = -20.0f; 
+                        gp.sonido.play(9, false);
                         hp_enemy -= 0.3f; 
                     }else{
+                        gp.sonido.volume = -20.0f; 
+                        gp.sonido.play(8, false);
                         hp_enemy -= 0.2f; 
                     }
                     gp.turnos.battle_turn = false; // Cambiar turno

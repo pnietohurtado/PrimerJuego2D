@@ -19,7 +19,7 @@ import javax.sound.sampled.FloatControl;
 public class Sound {
     
     //Clip clip; 
-    URL soundURL[] = new URL[10]; 
+    URL soundURL[] = new URL[100]; 
     private final Map<Integer, Clip> clips = new HashMap<>();
     public float volume; 
     
@@ -32,6 +32,9 @@ public class Sound {
         soundURL[5] = getClass().getResource("/sonido/pokemon_battle.wav"); // Batalla pokemon 
         soundURL[6] = getClass().getResource("/sonido/BattleMewTwo.wav");
         soundURL[7] = getClass().getResource("/sonido/MainTheme.wav");
+        soundURL[8] = getClass().getResource("/sonido/Ataque_Normal.wav");
+        soundURL[9] = getClass().getResource("/sonido/Ataque_Critico.wav");
+        soundURL[10] = getClass().getResource("/sonido/Pisar_Hierba.wav");
         this.volume = -20.0f; 
     }
     

@@ -37,6 +37,7 @@ public class Player extends Entity{
     // Indice del objeto que tenemos 
     public int objIndex; 
     
+    private int actionLocker = 0; // Para controlar el numero de veces que se ejecuta una acción 
     
     public final int screenX;
     public final int screenY; 
@@ -204,6 +205,12 @@ public class Player extends Entity{
         // --------------------- Apariciones en a hierba -----------------------
         
         if(collision == false && gp.cH.tile.nombre.equals("12")){
+            this.actionLocker++; 
+            
+            if(this.actionLocker == 15){
+                gp.sonido.play(10, false);
+                this.actionLocker = 0; 
+            }
             gp.fst.grassBattle01();
         }
         

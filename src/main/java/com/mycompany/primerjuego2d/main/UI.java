@@ -187,11 +187,14 @@ public class UI {
         
         
         if(gp.turnos.battle_turn == false){
-            System.out.println("Turno " + gp.turnos.battle_turn);
             this.aleatorio = random.nextInt(1000) + 1; 
             if(this.aleatorio == 1 && gp.player.vida_pokemon_restante > 0){
+                gp.sonido.volume = -20.0f; 
+                gp.sonido.play(9, false); 
                 gp.player.vida_pokemon_restante -= 3; 
             }else if(gp.player.vida_pokemon_restante > 0){
+                gp.sonido.volume = -20.0f; 
+                gp.sonido.play(8, false);
                 gp.player.vida_pokemon_restante -= 1; 
             }else{
                 gp.gameState = gp.playState; 
