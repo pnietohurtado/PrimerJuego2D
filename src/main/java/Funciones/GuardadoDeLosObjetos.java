@@ -59,7 +59,7 @@ public class GuardadoDeLosObjetos {
         }
             
         String linea; 
-        int contador = 0;         
+        int contador = 1;         
         try {
             while((linea = br.readLine()) != null){
                 

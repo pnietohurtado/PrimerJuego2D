@@ -106,6 +106,7 @@ public class Funciones_sobre_tiles {
             //gp.obj = new SuperObject[0]; // Para vaciar todos los objetos
 
             gp.guardado.cargar_objetos(); // Cargar los objetos que están fuera 
+            gp.obj = new SuperObject[99]; // Volver a añadir objetos en el array
             
             gp.player.worldX = 24* gp.tileSize; 
             gp.player.worldY = 24* gp.tileSize; 
@@ -135,6 +136,7 @@ public class Funciones_sobre_tiles {
         gp.tileManager.loadMap(gp.tileManager.mapas[2]); // Para poder cambiar el mapa
         
         gp.guardado.cargar_objetos(); // Cargar los objetos que están fuera 
+        gp.obj = new SuperObject[99]; // Volver a añadir objetos en el array
         
         gp.player.worldX = 25 * gp.tileSize; 
         gp.player.worldY = 8 * gp.tileSize;

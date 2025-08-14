@@ -1,3 +1,7 @@
+2688 10320 1 Pokeball
+2736 10320 1 Pokeball
 2784 10320 1 Pokeball
 2832 10320 1 Pokeball
+2352 8448 1 Pokeball
 3504 8016 1 Pokeball
+2688 7680 1 Hacha
