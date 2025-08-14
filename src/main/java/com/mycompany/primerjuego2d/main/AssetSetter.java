@@ -71,13 +71,7 @@ public class AssetSetter {
         gp.obj[8].worldX = 56 * gp.tileSize; 
         gp.obj[8].worldY = 160 * gp.tileSize; 
         gp.obj[8].collision = true;
-        
-        gp.obj[11] = new OBJ_CentroPokemon(); 
-        gp.obj[11].worldX = 53 * gp.tileSize; 
-        gp.obj[11].worldY = 162 * gp.tileSize; 
-        gp.obj[11].collision = true;
-        gp.obj[11].multiplicadorSizeX = 3; 
-        gp.obj[11].multiplicadorSizeY = 3; 
+         
         
     }
     

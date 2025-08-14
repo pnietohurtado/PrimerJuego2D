@@ -105,6 +105,8 @@ public class Funciones_sobre_tiles {
             gp.tileManager.loadMap(gp.tileManager.mapas[2]); // Para poder cambiar el mapa
             //gp.obj = new SuperObject[0]; // Para vaciar todos los objetos
 
+            gp.guardado.cargar_objetos(); // Cargar los objetos que están fuera 
+            
             gp.player.worldX = 24* gp.tileSize; 
             gp.player.worldY = 24* gp.tileSize; 
             gp.player.hasKey--; 
@@ -131,6 +133,9 @@ public class Funciones_sobre_tiles {
     public void enterBuilding03() { // Entrada secundaria para la fabrica desde pueblo Paleta
         
         gp.tileManager.loadMap(gp.tileManager.mapas[2]); // Para poder cambiar el mapa
+        
+        gp.guardado.cargar_objetos(); // Cargar los objetos que están fuera 
+        
         gp.player.worldX = 25 * gp.tileSize; 
         gp.player.worldY = 8 * gp.tileSize;
         
@@ -147,6 +152,8 @@ public class Funciones_sobre_tiles {
         gp.tileManager.loadMap(gp.tileManager.mapas[0]);
             
         //gp.aSetter.setObject();
+        
+        gp.guardado.poner_objetos(); // Poner todos los objetos 
             
         gp.gameState = gp.playState;
         
@@ -160,6 +167,8 @@ public class Funciones_sobre_tiles {
         gp.tileManager.loadMap(gp.tileManager.mapas[0]);
             
         //gp.aSetter.setObject();
+        
+        gp.guardado.poner_objetos(); // Poner todos los objetos 
             
         gp.gameState = gp.playState;
         

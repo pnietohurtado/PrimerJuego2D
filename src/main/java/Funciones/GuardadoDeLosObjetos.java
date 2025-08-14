@@ -4,6 +4,7 @@
  */
 package Funciones;
 
+import Objects.OBJ_Hacha;
 import Objects.OBJ_Pokeball;
 import com.mycompany.primerjuego2d.main.GamePanel;
 import java.io.BufferedReader;
@@ -14,7 +15,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import tile.TileManager;
 
 /**
  *
@@ -36,7 +36,7 @@ public class GuardadoDeLosObjetos {
             for(int i = 1; i < gp.obj.length; i++){
                 if(gp.obj[i] != null){
                     String linea = gp.obj[i].worldX + " " + gp.obj[i].worldY
-                            + " " + gp.obj[i].existe; 
+                            + " " + gp.obj[i].existe + " " + gp.obj[i].name; 
                     
                     bw.write(linea);
                     bw.newLine();
@@ -67,14 +67,20 @@ public class GuardadoDeLosObjetos {
                 if (linea.isEmpty()) continue;
                 
                 String partes[] = linea.split(" ");
-                if (partes.length < 3) continue;
+                if (partes.length < 4) continue;
                 
                 int X = Integer.parseInt(partes[0]);
                 int Y = Integer.parseInt(partes[1]); 
                 int existe = Integer.parseInt(partes[2]);
+                String nombre = partes[3]; 
                 
-                if(existe == 1){
+                if(existe == 1 && nombre.equals("Pokeball")){
                     gp.obj[contador] = new OBJ_Pokeball(); 
+                    gp.obj[contador].worldX = X; 
+                    gp.obj[contador].worldY = Y; 
+                    gp.obj[contador].collision = true;
+                }else if(existe == 1 && nombre.equals("Hacha")){
+                    gp.obj[contador] = new OBJ_Hacha(); 
                     gp.obj[contador].worldX = X; 
                     gp.obj[contador].worldY = Y; 
                     gp.obj[contador].collision = true;
