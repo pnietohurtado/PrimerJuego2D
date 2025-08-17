@@ -5,6 +5,7 @@
 package com.mycompany.primerjuego2d.main;
 
 import Battle.Battle;
+import CreacionDeSubVentanas.SubWindow;
 import Entity.Entity;
 import Entity.Player;
 import Funciones.CargarDatosPokemon;
@@ -114,6 +115,9 @@ public class GamePanel extends JPanel implements Runnable{
     
     // Guardar los objetos 
     public GuardadoDeLosObjetos guardado = new GuardadoDeLosObjetos(this); 
+    
+    // SubVentanas UI 
+    public SubWindow subwindow = new SubWindow(this); 
     
     // -------------------------------------------------------------------------
     
@@ -289,6 +293,7 @@ public class GamePanel extends JPanel implements Runnable{
             player.draw(g2); 
             mClicker.draw(g2);
             ui.draw(g2);
+            subwindow.draw(g2); 
             
         
         }

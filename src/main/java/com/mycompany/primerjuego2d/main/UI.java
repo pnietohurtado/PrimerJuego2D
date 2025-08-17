@@ -51,6 +51,9 @@ public class UI {
     int x; 
     int y; 
     
+    Color c1; 
+    Color c2; 
+    
     // --------------------- Constructor de la clase ---------------------------
     
     
@@ -68,7 +71,8 @@ public class UI {
         
         OBJ_Pokeball poke = new OBJ_Pokeball(); 
 
-        
+        c1 = new Color(0,0,0); 
+        c2 = new Color(0,0,0);
         
         textoNPC[0] = "Hola que tal"; 
         textoNPC[1] = "Que dices chacho"; 
@@ -328,7 +332,9 @@ public class UI {
         int width = gp.screenWidth - (gp.tileSize * 4); 
         int height = gp.tileSize * 4;
         
-        drawSubWindow(x,y,width, height); 
+        c1 = new Color(247, 239, 163);
+        c2 = new Color(57, 97, 71);
+        gp.subwindow.SubWindow(x, y, width, height, c1, c2);
         
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
         x += gp.tileSize; 
@@ -337,21 +343,7 @@ public class UI {
         
         
     }
-    
-    
-    
-    public void drawSubWindow(int x, int y, int width, int height){
-        
-        Color c = new Color(0, 0, 0); // 220 is going to show the transparecy of the window  
-        g2.setColor(c); 
-        g2.fillRoundRect(x,y,width,height,35,35); 
-        
-        c = new Color(135,206,250); 
-        g2.setColor(c); 
-        g2.setStroke(new BasicStroke(5)); 
-        g2.drawRoundRect(x+5, y+5, width-10, height-10 , 25, 25);
-        
-    }
+  
     
     
     // ----------------------- Pausa del juego con un dialogo ------------------
@@ -363,7 +355,9 @@ public class UI {
         int contador = 0; 
         String text = ""; 
         
-        drawSubWindow(x,y,width, height); 
+        c1 = new Color(247, 239, 163);
+        c2 = new Color(57, 97, 71);
+        gp.subwindow.SubWindow(x, y, width, height, c1, c2);
         
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
         x += gp.tileSize * 0.5; 
@@ -432,7 +426,10 @@ public class UI {
         int height = gp.tileSize * 11;
         int contador = 0; 
         
-        drawSubWindow(x,y,width, height); 
+        
+        c1 = new Color(247, 239, 163);
+        c2 = new Color(247, 239, 163);
+        gp.subwindow.SubWindow(x, y, width, height, c1, c2);
         
         
         // Parte en la que añado a la vez que abro el inventario la colisión de las tiles 
@@ -548,7 +545,9 @@ public class UI {
         int width = (gp.tileSize *6); 
         int height = gp.tileSize * 11;
         
-        drawSubWindow(x,y,width, height); 
+        c1 = new Color(247, 239, 163);
+        c2 = new Color(57, 97, 71);
+        gp.subwindow.SubWindow(x, y, width, height, c1, c2);
         
         this.item = "Dinero Jugador: "; 
         x = gp.tileSize * 2; 
@@ -607,12 +606,14 @@ public class UI {
         int width = (gp.tileSize *6); 
         int height = gp.tileSize * 11;
         
-        drawSubWindow(x,y,width, height); 
+        c1 = new Color(247, 239, 163);
+        c2 = new Color(57, 97, 71);
+        gp.subwindow.SubWindow(x, y, width, height, c1, c2);
         
         for(int i = 0; i < gp.equipo_pokemones.size(); i++){
             gp.npc[997] = new NPC_Pokemon(gp, gp.equipo_pokemones.get(i).getPokedex()); 
             g2.drawImage(gp.npc[997].f1, x, y, null); 
-            y = gp.tileSize * 2; 
+            y = gp.tileSize * (i + 2); 
                     
         }
     }

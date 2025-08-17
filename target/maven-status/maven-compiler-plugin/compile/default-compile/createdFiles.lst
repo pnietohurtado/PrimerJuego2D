@@ -19,6 +19,7 @@ Entity\NPC_Pokemon.class
 Entity\Entity.class
 Objects\SuperObject.class
 Pokemon\Pokemon.class
+CreacionDeSubVentanas\SubWindow.class
 com\mycompany\primerjuego2d\main\UI.class
 com\mycompany\primerjuego2d\main\ClaseAuxiliar.class
 com\mycompany\primerjuego2d\main\MouseClicker.class
