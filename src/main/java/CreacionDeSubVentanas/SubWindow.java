@@ -40,4 +40,14 @@ public class SubWindow {
         
     }
     
+    
+    public void drawInventoryCase(int x, int y, Color c1, Color c2){
+        int width = gp.tileSize * (1 + (1/2)); 
+        int height = gp.tileSize * (1 + (1/2)) ; 
+        g2.setColor(c1); 
+        g2.fillRoundRect(x,y,width,height,35,35); 
+        g2.setColor(c2); 
+        g2.setStroke(new BasicStroke(5)); 
+        g2.drawRoundRect(x+5, y+5, width-10, height-10 , 25, 25);
+    }
 }

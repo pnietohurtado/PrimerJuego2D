@@ -367,8 +367,8 @@ public class UI {
         int contador = 0; 
         String text = ""; 
         
-        c1 = new Color(247, 239, 163);
-        c2 = new Color(57, 97, 71);
+        c1 = new Color(0, 0,0);
+        c2 = new Color(135, 206, 250);
         sb.SubWindow(x, y, width, height, c1, c2);
         
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
@@ -412,20 +412,6 @@ public class UI {
     }
     // ------------------------Dibujar Inventario ------------------------------
     
-    public void drawInventoryCase(int x, int y){
-         
-        int width = gp.tileSize * (1 + (1/2)); 
-        int height = gp.tileSize * (1 + (1/2)) ; 
-        
-        Color c = new Color(0,0,0,210); // 220 is going to show the transparecy of the window  
-        g2.setColor(c); 
-        g2.fillRoundRect(x,y,width,height,35,35); 
-        
-        c = new Color(135,206,250); 
-        g2.setColor(c); 
-        g2.setStroke(new BasicStroke(5)); 
-        g2.drawRoundRect(x+5, y+5, width-10, height-10 , 25, 25);
-    }
     
      
     public void drawInventoryScreen(){
@@ -439,18 +425,19 @@ public class UI {
         int contador = 0; 
         
         
-        c1 = new Color(247, 239, 163);
-        c2 = new Color(247, 239, 163);
+        c1 = new Color(0, 0,0);
+        c2 = new Color(135, 206, 250);
         sb.SubWindow(x, y, width, height, c1, c2);
         
         
         // Parte en la que añado a la vez que abro el inventario la colisión de las tiles 
         // y lo limito al tamaño de la pantalla 
-        
+        c1 = new Color(0,0,0,210);
+        c2 = new Color(135,206,250); 
         
         for(int i = 3; i <= 12 ; i++){
             for(int j = 2; j <= 9; j++){
-                drawInventoryCase(gp.tileSize * i, gp.tileSize * j); 
+                sb.drawInventoryCase(gp.tileSize * i, gp.tileSize * j, c1, c2); 
             }
         }
         
@@ -557,8 +544,8 @@ public class UI {
         int width = (gp.tileSize *6); 
         int height = gp.tileSize * 11;
         
-        c1 = new Color(247, 239, 163);
-        c2 = new Color(57, 97, 71);
+        c1 = new Color(0, 0,0);
+        c2 = new Color(135, 206, 250);
         sb.SubWindow(x, y, width, height, c1, c2);
         
         this.item = "Dinero Jugador: "; 
@@ -618,13 +605,15 @@ public class UI {
         int width = (gp.tileSize *6); 
         int height = gp.tileSize * 11;
         
-        c1 = new Color(247, 239, 163);
-        c2 = new Color(57, 97, 71);
+        c1 = new Color(0, 0,0);
+        c2 = new Color(135, 206, 250);
         sb.SubWindow(x, y, width, height, c1, c2);
         
         for(int i = 0; i < gp.equipo_pokemones.size(); i++){
             gp.npc[997] = new NPC_Pokemon(gp, gp.equipo_pokemones.get(i).getPokedex()); 
             g2.drawImage(gp.npc[997].f1, x, y, null); 
+            g2.drawString(gp.equipo_pokemones.get(i).getNombre(), x + (gp.tileSize * 2), y + gp.tileSize);
+            g2.drawString(String.valueOf(gp.equipo_pokemones.get(i).getHP()), x + (gp.tileSize * 4), y + gp.tileSize);
             y = gp.tileSize * (i + 2); 
                     
         }

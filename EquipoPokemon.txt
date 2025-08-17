@@ -1,5 +1,5 @@
 
-4 150 Mewtwo 20 20 20 true
+4 150 Joselín 20 20 20 true
 
 3 150 Mewtwo 18 18 15 true
 1 37 Vulpix 13 14 13 true
