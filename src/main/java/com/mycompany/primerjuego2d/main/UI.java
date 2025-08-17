@@ -4,6 +4,7 @@
  */
 package com.mycompany.primerjuego2d.main;
 
+import CreacionDeSubVentanas.SubWindow;
 import Entity.NPC_Pokemon;
 import Objects.OBJ_Pokeball;
 import Objects.SuperObject;
@@ -54,6 +55,8 @@ public class UI {
     Color c1; 
     Color c2; 
     
+    public SubWindow sb ; 
+    
     // --------------------- Constructor de la clase ---------------------------
     
     
@@ -73,6 +76,8 @@ public class UI {
 
         c1 = new Color(0,0,0); 
         c2 = new Color(0,0,0);
+        
+        
         
         textoNPC[0] = "Hola que tal"; 
         textoNPC[1] = "Que dices chacho"; 
@@ -105,18 +110,25 @@ public class UI {
         if(gp.gameState == gp.playState){
             
         }else if(gp.gameState == gp.pauseState){
+            sb = new SubWindow(gp,g2); 
             drawPauseScreen(); 
         }else if(gp.gameState == gp.titleState){
+            sb = new SubWindow(gp,g2); 
             drawTitleScreen(); 
         }else if(gp.gameState == gp.dialogueState){
+            sb = new SubWindow(gp,g2); 
             drawDialogueScreen(); 
         }else if(gp.gameState == gp.inventoryState){
+            sb = new SubWindow(gp,g2); 
             drawInventoryScreen(); 
         }else if(gp.gameState == gp.battleState){
+            sb = new SubWindow(gp,g2); 
             battleScreen(); 
         }else if(gp.gameState == gp.shopMenu){
+            sb = new SubWindow(gp,g2); 
             shopScreen(); 
         }else if(gp.gameState == gp.teamPokemon){
+            sb = new SubWindow(gp,g2); 
             pokemonTeam(); 
         }
     }
@@ -334,7 +346,7 @@ public class UI {
         
         c1 = new Color(247, 239, 163);
         c2 = new Color(57, 97, 71);
-        gp.subwindow.SubWindow(x, y, width, height, c1, c2);
+        sb.SubWindow(x, y, width, height, c1, c2);
         
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
         x += gp.tileSize; 
@@ -357,7 +369,7 @@ public class UI {
         
         c1 = new Color(247, 239, 163);
         c2 = new Color(57, 97, 71);
-        gp.subwindow.SubWindow(x, y, width, height, c1, c2);
+        sb.SubWindow(x, y, width, height, c1, c2);
         
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
         x += gp.tileSize * 0.5; 
@@ -429,7 +441,7 @@ public class UI {
         
         c1 = new Color(247, 239, 163);
         c2 = new Color(247, 239, 163);
-        gp.subwindow.SubWindow(x, y, width, height, c1, c2);
+        sb.SubWindow(x, y, width, height, c1, c2);
         
         
         // Parte en la que añado a la vez que abro el inventario la colisión de las tiles 
@@ -547,7 +559,7 @@ public class UI {
         
         c1 = new Color(247, 239, 163);
         c2 = new Color(57, 97, 71);
-        gp.subwindow.SubWindow(x, y, width, height, c1, c2);
+        sb.SubWindow(x, y, width, height, c1, c2);
         
         this.item = "Dinero Jugador: "; 
         x = gp.tileSize * 2; 
@@ -608,7 +620,7 @@ public class UI {
         
         c1 = new Color(247, 239, 163);
         c2 = new Color(57, 97, 71);
-        gp.subwindow.SubWindow(x, y, width, height, c1, c2);
+        sb.SubWindow(x, y, width, height, c1, c2);
         
         for(int i = 0; i < gp.equipo_pokemones.size(); i++){
             gp.npc[997] = new NPC_Pokemon(gp, gp.equipo_pokemones.get(i).getPokedex()); 

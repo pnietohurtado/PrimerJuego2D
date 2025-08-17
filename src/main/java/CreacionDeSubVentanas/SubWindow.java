@@ -19,18 +19,12 @@ public class SubWindow {
     
     private Graphics2D g2; 
     private GamePanel gp; 
-    private int X; 
-    private int Y; 
-    private Color color1; 
-    private Color color2; 
     
     // ------------------------- Constructor -----------------------------------
     
-    public SubWindow(GamePanel gp) {
+    public SubWindow(GamePanel gp, Graphics2D g2) {
         this.gp = gp; 
-        
-        this.X = 0; 
-        this.Y = 0; 
+        this.g2 = g2; 
     }
     
     // ------------------------- SubVentana personalizada ----------------------
@@ -44,12 +38,6 @@ public class SubWindow {
         g2.setStroke(new BasicStroke(5)); 
         g2.drawRoundRect(x+5, y+5, width-10, height-10 , 25, 25);
         
-    }
-    
-    // ------------------------ Draw -------------------------------------------
-    
-    public void draw(Graphics2D g2){
-        this.g2 = g2; 
     }
     
 }
