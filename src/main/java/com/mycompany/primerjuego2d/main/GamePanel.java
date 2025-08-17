@@ -128,6 +128,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int inventoryState = 4; // Mostrar el inventario del jugador
     public final int battleState = 5; // Luchar con los pokemons 
     public final int shopMenu = 6; // Menu de la tienda 
+    public final int teamPokemon = 7; // Mostrar equipo pokemon 
     
     
     // -------------------------------------------------------------------------

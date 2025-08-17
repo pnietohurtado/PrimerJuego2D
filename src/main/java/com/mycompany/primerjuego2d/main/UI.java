@@ -112,6 +112,8 @@ public class UI {
             battleScreen(); 
         }else if(gp.gameState == gp.shopMenu){
             shopScreen(); 
+        }else if(gp.gameState == gp.teamPokemon){
+            pokemonTeam(); 
         }
     }
     
@@ -211,7 +213,6 @@ public class UI {
         
         gp.npc[997] = new NPC_Pokemon(gp, gp.equipo_pokemones.get(0).getPokedex()); 
         g2.drawImage(gp.npc[997].f1, x + (gp.tileSize * 3), y + (gp.tileSize * 5), gp.tileSize*4, gp.tileSize * 4, null);
-        
         
         width = gp.screenWidth - (gp.tileSize * 8); 
         height = gp.tileSize * 2;
@@ -594,5 +595,26 @@ public class UI {
     }
     
     
+    
+    
+    
+    // --------------------- Ventana de el equipo pokemon -------------------
+    
+    public void pokemonTeam(){
+        
+        x = gp.tileSize  ; 
+        y = gp.tileSize / 2; 
+        int width = (gp.tileSize *6); 
+        int height = gp.tileSize * 11;
+        
+        drawSubWindow(x,y,width, height); 
+        
+        for(int i = 0; i < gp.equipo_pokemones.size(); i++){
+            gp.npc[997] = new NPC_Pokemon(gp, gp.equipo_pokemones.get(i).getPokedex()); 
+            g2.drawImage(gp.npc[997].f1, x, y, null); 
+            y = gp.tileSize * 2; 
+                    
+        }
+    }
     
 }

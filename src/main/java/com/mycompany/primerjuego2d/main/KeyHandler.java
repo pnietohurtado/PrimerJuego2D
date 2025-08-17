@@ -185,6 +185,10 @@ public class KeyHandler implements KeyListener{
                         this.enterPressed = false; 
                     }
                 }
+                
+                if(code == KeyEvent.VK_Q){
+                    gp.gameState = gp.teamPokemon; 
+                }
         }
         
         
@@ -536,6 +540,14 @@ public class KeyHandler implements KeyListener{
                 }
             }
             
+        }
+        
+        
+        
+        if(gp.gameState == gp.teamPokemon){
+            if(code == KeyEvent.VK_ESCAPE ){
+                gp.gameState = gp.playState; 
+            }
         }
         
     }
