@@ -17,11 +17,12 @@ public class Pokemon {
     private int attack; 
     private int defense; 
     private boolean object; 
+    private int id; 
     
     public Pokemon(){
         
     }
-    public Pokemon(int level, int pokedex, String nombre, int hp, int attack, int defense, boolean object){
+    public Pokemon(int level, int pokedex, String nombre, int hp, int attack, int defense, boolean object, int id){
         this(); 
         this.level = level; 
         this.pokedex = pokedex; 
@@ -30,6 +31,7 @@ public class Pokemon {
         this.attack = attack; 
         this.defense = defense; 
         this.object = object; 
+        this.id = id; 
     }
     
     public int getLevel(){return this.level;}
@@ -39,6 +41,7 @@ public class Pokemon {
     public int getAttack(){return this.attack;}
     public int getDefense() {return this.defense; }
     public boolean getObject() {return this.object; }
+    public int getId(){return this.id; }
     
     public void setLevel(int level){this.level = level;}
     public void setPokedex(int pokedex){this.pokedex = pokedex; }

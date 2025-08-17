@@ -32,6 +32,7 @@ public class CargarDatosPokemon {
         this.gp = gp; 
     }
     
+    // ----------------- Cargar los sprites de todos los pokemones -------------
     public void cargar(){
         InputStream is = getClass().getResourceAsStream("/DatosPokemon/pokemon_151.txt"); 
         BufferedReader br = new BufferedReader(new InputStreamReader(is)); 
@@ -52,6 +53,9 @@ public class CargarDatosPokemon {
         }
     }
     
+    // -------------------------------------------------------------------------
+    
+    
     
     public void cargar_pokemones_equipo(){
         
@@ -68,7 +72,7 @@ public class CargarDatosPokemon {
                     if (linea.isEmpty()) continue;  
 
                     String partes[] = linea.split(" "); 
-                    if (partes.length < 7) continue; 
+                    if (partes.length < 8) continue; 
 
                     int lvl = Integer.parseInt(partes[0]); 
                     int pokedex = Integer.parseInt(partes[1]); 
@@ -77,8 +81,9 @@ public class CargarDatosPokemon {
                     int ataque = Integer.parseInt(partes[4]); 
                     int defensa = Integer.parseInt(partes[5]); 
                     boolean objeto = Boolean.parseBoolean(partes[6]); 
+                    int id = Integer.parseInt(partes[7]); 
 
-                    Pokemon po = new Pokemon(lvl, pokedex, nombre, vida, ataque, defensa, objeto); 
+                    Pokemon po = new Pokemon(lvl, pokedex, nombre, vida, ataque, defensa, objeto, id); 
                     gp.equipo_pokemones.add(po); 
 }
  
@@ -105,7 +110,7 @@ public class CargarDatosPokemon {
             
             String linea = gp.ui.lvl + " " + gp.player.sprite_bicho_attack + " " + 
                     gp.nombres_pokemon[gp.player.sprite_bicho_attack ] + " " + String.valueOf(hp) + " " + String.valueOf(attack) +  " " + 
-                    String.valueOf(defense) + " " + "true"; 
+                    String.valueOf(defense) + " " + "true " + gp.equipo_pokemones.size()+1; 
             
             //System.out.println("Datos " + linea);
             

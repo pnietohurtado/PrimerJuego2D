@@ -614,6 +614,7 @@ public class UI {
             g2.drawImage(gp.npc[997].f1, x, y, null); 
             g2.drawString(gp.equipo_pokemones.get(i).getNombre(), x + (gp.tileSize * 2), y + gp.tileSize);
             g2.drawString(String.valueOf(gp.equipo_pokemones.get(i).getHP()), x + (gp.tileSize * 4), y + gp.tileSize);
+            g2.drawString(String.valueOf(gp.equipo_pokemones.get(i).getId()), x + (gp.tileSize * 5), y + gp.tileSize); 
             y = gp.tileSize * (i + 2); 
                     
         }
