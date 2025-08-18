@@ -198,7 +198,7 @@ public class CargarDatosPokemon {
                     int id = Integer.parseInt(partes[7]);
                     
                     if(id == 0){
-                        String linea2 = lvl + " " + pokedex + " " + nombre + " " + gp.player.vida_pokemon_restante + " " + ataque
+                        linea = lvl + " " + pokedex + " " + nombre + " " + gp.player.vida_pokemon_restante + " " + ataque
                                 + " " + defensa + " " + objeto + " " + id; 
                         
                     }

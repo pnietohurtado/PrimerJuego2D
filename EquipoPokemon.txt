@@ -1,1 +1,1 @@
-84 150 Juanico 20 20 20 false 0
+84 150 Juanico 0 20 20 false 0
