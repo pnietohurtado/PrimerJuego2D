@@ -269,14 +269,6 @@ public class Player extends Entity{
             String objectName = gp.obj[i].name; 
             
             switch(objectName){
-                
-                case "Llave" : 
-                    
-                    this.hasKey++; 
-                    
-                    break; 
-                
-               
                 case "Pokeball": 
                     
                     int randomObject = random.nextInt(4) + 1 ; 
@@ -389,18 +381,6 @@ public class Player extends Entity{
                     break; 
                 }
                 
-                case "Bulbasur": {
-                    this.sprite_bicho_attack = i; 
-                    gp.gameState = gp.battleState; 
-                    
-                    
-                     
-                    //gp.playMusicOnce(5); // Para poder poner la música
-                    
-                    
-                    break; 
-                }
-                
                 case "MewTwo" : {
                     this.sprite_bicho_attack = 150; 
                     gp.gameState = gp.battleState; 
@@ -433,10 +413,6 @@ public class Player extends Entity{
     
     public void draw(Graphics2D g2) 
     {
-        /*
-        g2.setColor(Color.white); 
-        g2.fillRect(this.x, this.y, gamePanel.tileSize, gamePanel.tileSize);  
-        */
         if(changeSkin == true){ // Si no hago esto se realentiza bastante el juego 
             getPlayerImage(); // Ayuda a actualizar la skin del personaje y este pueda cambiar
             changeSkin = false; 
@@ -473,14 +449,6 @@ public class Player extends Entity{
                 }
                 break;
         }
-        // ------------ Usamos estas declaraciones para cambiar opacidad -------
-            /*
-            float alpha = 0.5f; 
-            AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha); 
-            g2.setComposite(ac);
-            */
-        // ---------------------------------------------------------------------
-        
             g2.drawImage(image,screenX,screenY,gp.tileSize, gp.tileSize,null); 
             
             

@@ -463,12 +463,11 @@ public class KeyHandler implements KeyListener{
                         
                         gp.guardado.poner_objetos();
                         
-                        
                         gp.sonido.play(1, true);
                         gp.gameState = gp.playState;
-                        //gp.ui.titleScreenState = 1; 
                     }else if(gp.ui.commandNumber == 1){
-                        gp.aSetter.setObject();
+                        gp.equipo_pokemones.clear(); // No tiene pokemones 
+                        gp.aSetter.setObject(); // Setteamos todos los objetos 
                         gp.sonido.play(1, true);
                         gp.gameState = gp.playState; 
                         
