@@ -211,15 +211,22 @@ public class UI {
                 gp.sonido.play(9, false); 
                 gp.player.vida_pokemon_restante -= 3; 
                 
+                // Se encarga de actualizar la vida en el .txt 
                 gp.nombres.actualizar_vida_compañero();
             }else if(gp.player.vida_pokemon_restante > 0){
                 gp.sonido.volume = -20.0f; 
                 gp.sonido.play(8, false);
                 gp.player.vida_pokemon_restante -= 1; 
                 
+                // Se encarga de actualizar la vida en el .txt 
                 gp.nombres.actualizar_vida_compañero();
             }else{
+                // Se encarga de actualizar la vida en el .txt 
                 gp.nombres.actualizar_vida_compañero();
+                
+                // Encargado de limpiar el array y cargarlo de nuevo con los nuevos valores 
+                gp.equipo_pokemones.clear(); 
+                gp.nombres.cargar_pokemones_equipo(); 
                 
                 gp.sonido.stop(5);
                 gp.gameState = gp.playState; 

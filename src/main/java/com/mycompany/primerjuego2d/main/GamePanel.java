@@ -153,7 +153,8 @@ public class GamePanel extends JPanel implements Runnable{
     public void setUpGame()
             /*To print the object in the map*/
     {
-        aSetter.setObject();
+        // Para poner los objetos se usa "aSetter.setObject();" pero lo voy a usar en "KeyHandler" 
+        // en el caso de que el jugador le de a la opción de "Opciones" es decir nueva partida.
         aSetter.setNPC();
         aObjects.setObject();
         

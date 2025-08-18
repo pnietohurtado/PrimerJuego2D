@@ -5,7 +5,6 @@
 package com.mycompany.primerjuego2d.main;
 
 import Conexion.Conexion;
-import Objects.SuperObject;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.BufferedReader;
@@ -405,40 +404,10 @@ public class KeyHandler implements KeyListener{
                 if(code == KeyEvent.VK_ENTER){
                     
                     if(gp.ui.commandNumber == 0){
-                        
-                        try { 
-                            BufferedReader br = new BufferedReader( new FileReader("data_game.txt"));
-                            String linea; 
-                            
-                            while((linea = br.readLine()) != null){
-                                String partes[] = linea.split(" "); 
-                                gp.player.worldX = Integer.parseInt(partes[0]); 
-                                gp.player.worldY = Integer.parseInt(partes[1]); 
-                                gp.player.pokemon_inicial = Boolean.parseBoolean(partes[2]); 
-                                gp.player.dineroPlayer = Integer.parseInt(partes[3]); 
-                                if(Integer.parseInt(partes[4]) > 0){
-                                    gp.player.hasPokeball = Integer.parseInt(partes[4]); 
-                                    gp.player.inventario.add(gp.object[1]); 
-                                }
-                                if(Integer.parseInt(partes[5]) > 0){
-                                    gp.player.hasKey = Integer.parseInt(partes[5]); 
-                                    gp.player.inventario.add(gp.object[2]); 
-                                }
-                            }
-                        } catch (FileNotFoundException ex) {
-                            Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
-                        } catch (IOException ex) {
-                            Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                        
-                        gp.guardado.poner_objetos();
-                        
                         gp.sonido.stop(7);
                         gp.ui.titleScreenState = 1; 
                         
-                        /*gp.sonido.play(1, true);
-                        gp.gameState = gp.playState; */
-                    }else if(gp.ui.commandNumber == 2){
+                    }else if(gp.ui.commandNumber == 1){
                         System.exit(0); 
                     }
                 }
@@ -467,11 +436,42 @@ public class KeyHandler implements KeyListener{
 
                 if(code == KeyEvent.VK_ENTER){
                     if(gp.ui.commandNumber == 0){
+                        try { 
+                            BufferedReader br = new BufferedReader( new FileReader("data_game.txt"));
+                            String linea; 
+                            
+                            while((linea = br.readLine()) != null){
+                                String partes[] = linea.split(" "); 
+                                gp.player.worldX = Integer.parseInt(partes[0]); 
+                                gp.player.worldY = Integer.parseInt(partes[1]); 
+                                gp.player.pokemon_inicial = Boolean.parseBoolean(partes[2]); 
+                                gp.player.dineroPlayer = Integer.parseInt(partes[3]); 
+                                if(Integer.parseInt(partes[4]) > 0){
+                                    gp.player.hasPokeball = Integer.parseInt(partes[4]); 
+                                    gp.player.inventario.add(gp.object[1]); 
+                                }
+                                if(Integer.parseInt(partes[5]) > 0){
+                                    gp.player.hasKey = Integer.parseInt(partes[5]); 
+                                    gp.player.inventario.add(gp.object[2]); 
+                                }
+                            }
+                        } catch (FileNotFoundException ex) {
+                            Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (IOException ex) {
+                            Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        
+                        gp.guardado.poner_objetos();
+                        
+                        
                         gp.sonido.play(1, true);
                         gp.gameState = gp.playState;
                         //gp.ui.titleScreenState = 1; 
                     }else if(gp.ui.commandNumber == 1){
-                        System.exit(0); 
+                        gp.aSetter.setObject();
+                        gp.sonido.play(1, true);
+                        gp.gameState = gp.playState; 
+                        
                     }
                 }
             }
