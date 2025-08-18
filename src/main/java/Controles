@@ -24,6 +24,14 @@ Sobre los controles del juego:
     , el nombre del mismo siempre va a ser "5" pase lo que pase. 
 
 
+    18/08/2025
+
+    ~ Hay algunos problemas los cuales me tengo que encargar de encontrar la solución, tales como el hecho de que al guardar 
+    la partida dentro del juego, todos los objetos se convierten en NULL y desaparecen del mapa. Además, debo solucionar el
+    tema con los arrays de los pokemones ya que debo encontrar una forma más sencilla de poder encontrar un imagen de pokemon 
+    mediante un único array y no mediante dos como tengo hecho ahora. 
+
+
 
 !! Notas 
 

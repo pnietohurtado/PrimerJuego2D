@@ -215,6 +215,7 @@ public class UI {
                 gp.sonido.play(8, false);
                 gp.player.vida_pokemon_restante -= 1; 
             }else{
+                gp.sonido.stop(5);
                 gp.gameState = gp.playState; 
             }
             gp.turnos.battle_turn = true; 
@@ -240,9 +241,6 @@ public class UI {
         this.y += gp.tileSize; 
         g2.drawString(gp.equipo_pokemones.get(0).getNombre(), x * 5, y * 5); 
         g2.drawString(" lvl. " + gp.equipo_pokemones.get(0).getLevel(), x * 7, y * 5 ); 
-        
-        g2.setColor(Color.RED); 
-        g2.drawString(gp.equipo_pokemones.get(0).getNombre(), x * 3, y * 6); 
         
         healthBar(x * 5 , y * 5, gp.player.vida_pokemon_restante / gp.player.vida_pokemon_compañero); // Barra de vida de los pokemones enemigos 
         
@@ -302,6 +300,11 @@ public class UI {
         
         g2.drawImage(image, x - (gp.tileSize * (1 + (1/2))), y + (gp.tileSize * 8), gp.tileSize* (16 + 1/2), gp.tileSize * 4, null); 
         
+        this.x = gp.tileSize; 
+        this.y = gp.tileSize / 2; 
+        
+        g2.setColor(Color.RED); 
+        g2.drawString(gp.equipo_pokemones.get(0).getNombre(), x * 3, y * 6); 
         
         
         // ---------------------------------------------------------------------

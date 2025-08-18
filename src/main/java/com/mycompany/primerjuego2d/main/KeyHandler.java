@@ -319,7 +319,6 @@ public class KeyHandler implements KeyListener{
                     }
                     
                     gp.guardado.cargar_objetos();
-                    gp.obj = new SuperObject[99]; // Volver a añadir objetos en el array
                     
                     gp.gameState = gp.playState; 
                 }else if(gp.ui.commandNumber == 1){

@@ -207,7 +207,7 @@ public class Player extends Entity{
         if(collision == false && gp.cH.tile.nombre.equals("12")){
             this.actionLocker++; 
             
-            if(this.actionLocker == 15){
+            if(this.actionLocker == 17){
                 gp.sonido.play(10, false);
                 this.actionLocker = 0; 
             }
