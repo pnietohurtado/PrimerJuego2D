@@ -462,7 +462,6 @@ public class KeyHandler implements KeyListener{
                         }
                         
                         gp.guardado.poner_objetos();
-                        
                         gp.sonido.play(1, true);
                         gp.gameState = gp.playState;
                     }else if(gp.ui.commandNumber == 1){
