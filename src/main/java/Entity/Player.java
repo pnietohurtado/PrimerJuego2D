@@ -13,6 +13,7 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Random;
+import javax.swing.JOptionPane;
 /**/
 /**
  *
@@ -330,7 +331,10 @@ public class Player extends Entity{
 
                         gp.player.sprite_bicho_attack = numero[aparicion]; 
                         gp.ui.lvl = random.nextInt(10) + 1; 
-                        gp.nombres.cargar_pokemon_capturado();
+                        
+                        String nombre = null; 
+                        nombre = JOptionPane.showInputDialog("Elige un nombre"); 
+                        gp.nombres.cargar_pokemon_capturado(nombre);
                         gp.nombres.cargar_pokemones_equipo();
 
                         gp.obj[i] = null; 

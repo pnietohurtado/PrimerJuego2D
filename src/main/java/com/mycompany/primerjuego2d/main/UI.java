@@ -323,8 +323,8 @@ public class UI {
         this.x = gp.tileSize; 
         this.y = gp.tileSize / 2; 
         
-        g2.setColor(Color.RED); 
-        g2.drawString(gp.equipo_pokemones.get(0).getNombre(), x * 3, y * 6); 
+        g2.setColor(Color.WHITE); 
+        g2.drawString("Que va a hacer"+" "+gp.equipo_pokemones.get(0).getNombre(), x , y * 21); 
         
         
         // ---------------------------------------------------------------------

@@ -101,7 +101,7 @@ public class CargarDatosPokemon {
     
     private Random random = new Random(); 
     
-    public void cargar_pokemon_capturado(){
+    public void cargar_pokemon_capturado(String nombre){
         try { 
                      
             BufferedWriter br = new BufferedWriter(new FileWriter("EquipoPokemon.txt", true));
@@ -109,12 +109,17 @@ public class CargarDatosPokemon {
             int hp = 12 + ((random.nextInt(2) + 1) * gp.ui.lvl); 
             int attack = 12 + ((random.nextInt(2) + 1) * gp.ui.lvl); 
             int defense = 12 + ((random.nextInt(2) + 1) * gp.ui.lvl); 
+            String linea; 
             
-            String linea = gp.ui.lvl + " " + gp.player.sprite_bicho_attack + " " + 
+            if(nombre == null){
+                linea = gp.ui.lvl + " " + gp.player.sprite_bicho_attack + " " + 
                     gp.nombres_pokemon[gp.player.sprite_bicho_attack ] + " " + String.valueOf(hp) + " " + String.valueOf(attack) +  " " + 
                     String.valueOf(defense) + " " + "true " + gp.equipo_pokemones.size()+1; 
-            
-            //System.out.println("Datos " + linea);
+            }else{
+                linea = gp.ui.lvl + " " + gp.player.sprite_bicho_attack + " " + 
+                    nombre + " " + String.valueOf(hp) + " " + String.valueOf(attack) +  " " + 
+                    String.valueOf(defense) + " " + "true " + gp.equipo_pokemones.size()+1; 
+            }
             
             br.write(linea);
             br.newLine();

@@ -18,6 +18,7 @@ import java.sql.SQLException;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -229,15 +230,21 @@ public class KeyHandler implements KeyListener{
                     
                     if(this.hp_enemy <= 0){
                         gp.sonido.stop(5); 
+                        // Se encarga de actualizar la vida en el .txt 
+                        gp.nombres.actualizar_vida_compañero();
                         gp.gameState = gp.playState; 
                     }else if(this.aleatorio == 1){
                         gp.sonido.volume = -20.0f; 
                         gp.sonido.play(9, false);
                         hp_enemy -= 0.3f; 
+                        // Se encarga de actualizar la vida en el .txt 
+                        gp.nombres.actualizar_vida_compañero();
                     }else{
                         gp.sonido.volume = -20.0f; 
                         gp.sonido.play(8, false);
                         hp_enemy -= 0.2f; 
+                        // Se encarga de actualizar la vida en el .txt 
+                        gp.nombres.actualizar_vida_compañero();
                     }
                     gp.turnos.battle_turn = false; // Cambiar turno
                     
@@ -252,7 +259,9 @@ public class KeyHandler implements KeyListener{
                         this.posibilidad_de_captura = random.nextInt((int)(gp.ui.lvl * (this.hp_enemy + 1) ) ) + 1; 
                         
                         if(this.posibilidad_de_captura == 1){
-                            gp.nombres.cargar_pokemon_capturado(); 
+                            String nombre = null; 
+                            nombre = JOptionPane.showInputDialog("Elige un nombre"); 
+                            gp.nombres.cargar_pokemon_capturado(nombre); 
                         }
                         
                         gp.player.hasPokeball--; 
