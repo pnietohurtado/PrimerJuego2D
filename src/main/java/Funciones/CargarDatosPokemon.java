@@ -7,6 +7,7 @@ package Funciones;
 import Pokemon.Pokemon;
 import com.mycompany.primerjuego2d.main.GamePanel;
 import com.mycompany.primerjuego2d.main.KeyHandler;
+import java.awt.List;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -15,6 +16,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -163,4 +165,72 @@ public class CargarDatosPokemon {
                 Logger.getLogger(CargarDatosPokemon.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
+    
+    
+    
+    public void actualizar_vida_compañero(){
+        BufferedReader br;
+        BufferedWriter bw; 
+        try { 
+        
+            br = new BufferedReader(new FileReader("EquipoPokemon.txt"));
+            ArrayList<String> lineas = new ArrayList<>(); 
+            String linea;     
+            
+            while((linea = br.readLine()) != null){
+                        
+                    linea = linea.trim();
+                    if (linea.isEmpty()) continue;  
+
+                    String partes[] = linea.split(" "); 
+                    if (partes.length < 8){
+                        lineas.add(linea); 
+                        continue;
+                    } 
+                    
+                    int lvl = Integer.parseInt(partes[0]); 
+                    int pokedex = Integer.parseInt(partes[1]); 
+                    String nombre = partes[2]; 
+                    int vida = Integer.parseInt(partes[3]); 
+                    int ataque = Integer.parseInt(partes[4]); 
+                    int defensa = Integer.parseInt(partes[5]); 
+                    boolean objeto = Boolean.parseBoolean(partes[6]); 
+                    int id = Integer.parseInt(partes[7]);
+                    
+                    if(id == 0){
+                        String linea2 = lvl + " " + pokedex + " " + nombre + " " + gp.player.vida_pokemon_restante + " " + ataque
+                                + " " + defensa + " " + objeto + " " + id; 
+                        
+                    }
+                    
+                    lineas.add(linea); 
+                    
+                    
+            }
+            
+            br.close();
+            bw = new BufferedWriter(new FileWriter("EquipoPokemon.txt", false));
+            
+            for(String l: lineas){
+                bw.write(l);
+                bw.newLine();
+            }
+            bw.close(); 
+                        
+        } catch (IOException ex) {
+            Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+    }
+
+
+
+
+
+
+
+
+
+
+
 }

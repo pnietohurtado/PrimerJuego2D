@@ -5,7 +5,6 @@
 package com.mycompany.primerjuego2d.main;
 
 import Battle.Battle;
-import CreacionDeSubVentanas.SubWindow;
 import Entity.Entity;
 import Entity.Player;
 import Funciones.CargarDatosPokemon;
@@ -62,7 +61,7 @@ public class GamePanel extends JPanel implements Runnable{
     // ---------- Variable donde cargamos los nombres de los pokemones ---------
     
     public CargarDatosPokemon nombres = new CargarDatosPokemon(this); 
-    public String[] nombres_pokemon = new String[152]; 
+    public String[] nombres_pokemon = new String[152]; // No tocar ninguno 
     
     // --------- Variables sobre el equipo pokemon -----------------------------
     
@@ -83,7 +82,7 @@ public class GamePanel extends JPanel implements Runnable{
     //Incatnce of the tile
     public TileManager tileManager = new TileManager(this, keyHandler); 
     
-    // Here's de "Game Clock" 
+    // El reloj del sistema 
     Thread gameThread; 
     
     // Entity of the player 
@@ -136,9 +135,6 @@ public class GamePanel extends JPanel implements Runnable{
     
     
     // Constructor of our game panel 
-    
-    private BufferedImage backGroundImage = null; 
-    
     public GamePanel()
     {
         this.setPreferredSize(new Dimension(this.screenWidth, this.screenHeight));
@@ -147,15 +143,6 @@ public class GamePanel extends JPanel implements Runnable{
         this.addKeyListener(keyHandler);
         this.addMouseListener(mClicker);
         this.setFocusable(true);
-        
-        /*
-        try {
-            // Cargar el fondo de pantalla
-            backGroundImage = ImageIO.read(getClass().getResourceAsStream("/Fondo/Fondo_Ataque.png"));
-        } catch (IOException ex) {
-            Logger.getLogger(GamePanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        */
     }
     
     

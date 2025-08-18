@@ -8,3 +8,6 @@
 2496 8448 1 Pokeball
 2448 8448 1 Pokeball
 2400 8448 1 Pokeball
+2496 8448 1 Pokeball
+2448 8448 1 Pokeball
+2400 8448 1 Pokeball

@@ -210,11 +210,17 @@ public class UI {
                 gp.sonido.volume = -20.0f; 
                 gp.sonido.play(9, false); 
                 gp.player.vida_pokemon_restante -= 3; 
+                
+                gp.nombres.actualizar_vida_compañero();
             }else if(gp.player.vida_pokemon_restante > 0){
                 gp.sonido.volume = -20.0f; 
                 gp.sonido.play(8, false);
                 gp.player.vida_pokemon_restante -= 1; 
+                
+                gp.nombres.actualizar_vida_compañero();
             }else{
+                gp.nombres.actualizar_vida_compañero();
+                
                 gp.sonido.stop(5);
                 gp.gameState = gp.playState; 
             }
