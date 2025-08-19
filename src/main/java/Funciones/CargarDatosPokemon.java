@@ -163,7 +163,7 @@ public class CargarDatosPokemon {
                     String nombre = partes[2]; 
                     
                     if(partes[2].equals(nombre_pokemon)){
-                        gp.player.vida_pokemon_compañero = Float.parseFloat(partes[3]); 
+                        gp.player.vida_pokemon_compañero = Float.parseFloat(partes[4]); 
 }                   }
  
             } catch (IOException ex) {
@@ -210,7 +210,7 @@ public class CargarDatosPokemon {
                     if(id == 0){
                         linea = lvl + " " + pokedex + " " + nombre +" "+ vidaMax +  " " + gp.player.vida_pokemon_restante + " " + ataque
                                 + " " + defensa + " " + objeto + " " + id + " " + xp; 
-                        
+                        System.out.println("Linea " + linea);
                     }
                     
                     lineas.add(linea); 
@@ -297,7 +297,6 @@ public class CargarDatosPokemon {
                         vida = vidaMax; 
                         linea = lvl + " " + pokedex + " " + nombre +" "+ vidaMax +  " " + vida + " " + ataque
                                 + " " + defensa + " " + objeto + " " + id + " " + xp; 
-                        System.out.println("Linea " + linea);
                     }
                     
                     lineas.add(linea); 
