@@ -39,7 +39,7 @@ public class TileManager {
     
     // Array de los mapas 
     
-    public String mapas[] = {"/maps/MapaVF.txt", "/maps/Mapa2.txt", "/maps/Fabrica02.txt", "/maps/FabricaUnderground.txt"}; 
+    public String mapas[] = {"/maps/MapaNewTile.txt", "/maps/Mapa2.txt", "/maps/Fabrica02.txt", "/maps/FabricaUnderground.txt"}; 
     
     
     // Constructor 
@@ -103,7 +103,7 @@ public class TileManager {
         try{
             
             tile[index] = new Tile(); 
-            tile[index].image = ImageIO.read(getClass().getResourceAsStream("/Tiles/"+imagePath)); 
+            tile[index].image = ImageIO.read(getClass().getResourceAsStream("/Tiles2/"+imagePath)); 
             tile[index].image = uTool.scaleImage(tile[index].image, gp.tileSize, gp.tileSize); 
             tile[index].collision = collsion; 
             
