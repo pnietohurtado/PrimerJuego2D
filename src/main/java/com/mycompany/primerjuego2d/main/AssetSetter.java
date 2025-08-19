@@ -53,12 +53,12 @@ public class AssetSetter {
         gp.obj[7].worldX = 82 * gp.tileSize; 
         gp.obj[7].worldY = 161 * gp.tileSize; 
         gp.obj[7].collision = true;
-        
+        /*
         gp.obj[8] = new OBJ_Hacha(); 
         gp.obj[8].worldX = 64 * gp.tileSize; 
         gp.obj[8].worldY = 157 * gp.tileSize; 
         gp.obj[8].collision = true;
-         
+        */
         
     }
     
@@ -70,11 +70,12 @@ public class AssetSetter {
         gp.npc[0].actionCountNPC = 1; 
         */
         
+        /*
         gp.npc[0] = new NPC_ShopGuy(gp); 
         gp.npc[0].worldX = gp.tileSize * 61; 
         gp.npc[0].worldY = gp.tileSize * 158; 
         gp.npc[0].actionCountNPC = 1; 
-        
+        */
         
         /*
         gp.npc[1] = new NPC_CocheJuan(gp); 

@@ -1,4 +1,4 @@
-84 150 Juanico 0 20 20 false 0
+84 150 Juanico 48 20 20 false 0
 6 151 Mew 18 24 18 true 11
 2 150 Mewtwo 16 16 16 true 01
 2 102 ManoloLama 16 16 14 true 31

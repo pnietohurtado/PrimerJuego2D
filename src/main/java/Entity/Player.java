@@ -212,7 +212,12 @@ public class Player extends Entity{
                 gp.sonido.play(10, false);
                 this.actionLocker = 0; 
             }
-            gp.fst.grassBattle01();
+            if((gp.player.worldY > (170 * gp.tileSize) || gp.player.worldY < (191 * gp.tileSize)) && (gp.player.worldX < (71 * gp.tileSize) || gp.player.worldX > (57 * gp.tileSize))){
+                gp.fst.grassBattle01(1,2,3,4,5,6,7);
+            }
+            else if((gp.player.worldY > (142 * gp.tileSize) || gp.player.worldY < (170 * gp.tileSize)) && (gp.player.worldX < (57 * gp.tileSize) || gp.player.worldX > (23 * gp.tileSize))){
+                gp.fst.grassBattle01(150,151,75,58,69,41,47);
+            }
         }
         
         // --------------------- Salir de edificios ----------------------------
@@ -221,13 +226,16 @@ public class Player extends Entity{
             
             gp.fst.exitBuilding03(); // Salida de el laboratorio del inicio
              
+        }else if(collision == true && gp.cH.tile.nombre.equals("22") && gp.cH.direction.equals("down")){
+            gp.fst.exitPokemonCenter(); // Salida del centro pokemon 
         }
+        /*
         else if(collision == false && gp.cH.tile.nombre.equals("28")){ // Salida de la Factory (entrada secundaria pueblo paleta) 
             gp.fst.exitBuilding01();
         }
         else if(collision == false && gp.cH.tile.nombre.equals("27")){ // Salida de la Factory (entrada secundaria ruta01) 
             gp.fst.exitBuilding02();
-         }       
+         }*/       
         // --------------------- Entrada en los edificios ----------------------
         
         else if(collision == true && gp.cH.tile.nombre.equals("12") && gp.cH.direction.equals("up")){ // En caso de que entre al laboratorio 
@@ -235,7 +243,10 @@ public class Player extends Entity{
             gp.fst.enterBuilding01();
             
         }
-        
+        else if(collision == true && gp.cH.tile.nombre.equals("22") && gp.cH.direction.equals("up")){  // Entrada al centro pokemon
+           gp.fst.enterPokemonCenter(); 
+        }
+        /*
         else if(collision == true && gp.cH.tile.nombre.equals("23") && gp.player.hasKey >= 1 ){ 
             gp.fst.enternBuilding02();
             //gp.player.hasKey--; 
@@ -244,10 +255,8 @@ public class Player extends Entity{
         else if(collision == true && gp.cH.tile.nombre.equals("25")){ // Entrada al subsuelo (MewTwo) 
             gp.fst.enterBuildingUnderground(); 
         }
+        */
         
-        else if(collision == true && gp.cH.tile.nombre.equals("21")){  // Entrando a la fabrica por la segunda puerta (Pueblo paleta) 
-           gp.fst.enterBuilding03(); 
-        }
         
         else if(collision == true){
             System.out.println("Con colisión " + gp.cH.tile.nombre);

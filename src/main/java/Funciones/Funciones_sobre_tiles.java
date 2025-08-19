@@ -29,11 +29,11 @@ public class Funciones_sobre_tiles {
     
     // ----------------------- Apariciones Pokemones en ruta -------------------
     
-    public void grassBattle01(){
+    public void grassBattle01(int i1, int i2, int i3, int i4, int i5, int i6, int i7){
         
         if(!(gp.equipo_pokemones.isEmpty())){
             
-            int numero[] = {37, 64, 83, 102, 111, 129, 143}; 
+            int numero[] = {i1, i2, i3, i4, i5, i6, i7}; 
 
             int numeroAleatorio = random.nextInt(200) + 1;  
             int aparicion = random.nextInt(5); // Hay que poner exactamente el número de 
@@ -141,6 +141,18 @@ public class Funciones_sobre_tiles {
         
     }
     
+    public void enterPokemonCenter(){
+        
+        
+        if(gp.player.worldX <= (14 * gp.tileSize) && gp.player.worldY > (147 * gp.tileSize)){
+            gp.player.worldX = 9 * gp.tileSize; 
+            gp.player.worldY = 153 * gp.tileSize;
+        }else{
+            gp.player.worldX = 64 * gp.tileSize; 
+            gp.player.worldY = 158 * gp.tileSize;
+        }
+    }
+    
     
     // ----------------------- Salida de la construcción -----------------------
     
@@ -180,6 +192,17 @@ public class Funciones_sobre_tiles {
         gp.player.worldX = 72* gp.tileSize; 
         gp.player.worldY = 207* gp.tileSize; 
         gp.guardado.poner_objetos();
+    }
+    
+    public void exitPokemonCenter(){
+        
+        if(gp.player.worldX <= (14 * gp.tileSize) && gp.player.worldY > (147 * gp.tileSize)){
+            gp.player.worldX = 9 * gp.tileSize; 
+            gp.player.worldY = 155 * gp.tileSize;
+        }else{
+            gp.player.worldX = 64 * gp.tileSize; 
+            gp.player.worldY = 160 * gp.tileSize;
+        }
     }
 
     
