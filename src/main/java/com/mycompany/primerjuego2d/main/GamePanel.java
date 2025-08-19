@@ -67,6 +67,9 @@ public class GamePanel extends JPanel implements Runnable{
     
     public ArrayList<Pokemon> equipo_pokemones = new ArrayList<>(); 
     
+    // 6 primeros pokemones
+    public ArrayList<Pokemon> seis_iniciales = new ArrayList<>(); 
+    
     
     // ------------------- Variables generales (NO TOCAR) ----------------------
     
@@ -114,6 +117,8 @@ public class GamePanel extends JPanel implements Runnable{
     
     // Guardar los objetos 
     public GuardadoDeLosObjetos guardado = new GuardadoDeLosObjetos(this); 
+     
+    
     
     // -------------------------------------------------------------------------
     
@@ -166,6 +171,9 @@ public class GamePanel extends JPanel implements Runnable{
         // Cargar los nombres de los pokemones 
         nombres.cargar();
         nombres.cargar_pokemones_equipo();
+        
+        // Cargar los seis iniciales 
+        
         
         gameState = titleState; 
     }

@@ -233,6 +233,9 @@ public class KeyHandler implements KeyListener{
                         // Se encarga de actualizar la vida en el .txt 
                         gp.nombres.actualizar_vida_compañero();
                         gp.gameState = gp.playState; 
+                        
+                        gp.nombres.actualizar_xp("xp"); 
+                        
                     }else if(this.aleatorio == 1){
                         gp.sonido.volume = -20.0f; 
                         gp.sonido.play(9, false);

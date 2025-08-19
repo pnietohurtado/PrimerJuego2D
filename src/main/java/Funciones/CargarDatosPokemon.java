@@ -4,6 +4,7 @@
  */
 package Funciones;
 
+import Entity.NPC_Pokemon;
 import Pokemon.Pokemon;
 import com.mycompany.primerjuego2d.main.GamePanel;
 import com.mycompany.primerjuego2d.main.KeyHandler;
@@ -74,16 +75,18 @@ public class CargarDatosPokemon {
                     if (linea.isEmpty()) continue;  
 
                     String partes[] = linea.split(" "); 
-                    if (partes.length < 8) continue; 
+                    if (partes.length < 9) continue; 
 
                     int lvl = Integer.parseInt(partes[0]); 
                     int pokedex = Integer.parseInt(partes[1]); 
                     String nombre = partes[2]; 
-                    int vida = Integer.parseInt(partes[3]); 
-                    int ataque = Integer.parseInt(partes[4]); 
-                    int defensa = Integer.parseInt(partes[5]); 
-                    boolean objeto = Boolean.parseBoolean(partes[6]); 
-                    int id = Integer.parseInt(partes[7]); 
+                    int vidaMax = Integer.parseInt(partes[3]); 
+                    int vida = Integer.parseInt(partes[4]); 
+                    int ataque = Integer.parseInt(partes[5]); 
+                    int defensa = Integer.parseInt(partes[6]); 
+                    boolean objeto = Boolean.parseBoolean(partes[7]); 
+                    int id = Integer.parseInt(partes[8]);
+                    int xp = Integer.parseInt(partes[9]);
 
                     Pokemon po = new Pokemon(lvl, pokedex, nombre, vida, ataque, defensa, objeto, id); 
                     gp.equipo_pokemones.add(po); 
@@ -153,7 +156,7 @@ public class CargarDatosPokemon {
                     if (linea.isEmpty()) continue;  
 
                     String partes[] = linea.split(" "); 
-                    if (partes.length < 7) continue; 
+                    if (partes.length < 9) continue; 
 
                     int nada = Integer.parseInt(partes[0]); 
                     int nada2 = Integer.parseInt(partes[1]); 
@@ -188,7 +191,7 @@ public class CargarDatosPokemon {
                     if (linea.isEmpty()) continue;  
 
                     String partes[] = linea.split(" "); 
-                    if (partes.length < 8){
+                    if (partes.length < 9){
                         lineas.add(linea); 
                         continue;
                     } 
@@ -196,15 +199,17 @@ public class CargarDatosPokemon {
                     int lvl = Integer.parseInt(partes[0]); 
                     int pokedex = Integer.parseInt(partes[1]); 
                     String nombre = partes[2]; 
-                    int vida = Integer.parseInt(partes[3]); 
-                    int ataque = Integer.parseInt(partes[4]); 
-                    int defensa = Integer.parseInt(partes[5]); 
-                    boolean objeto = Boolean.parseBoolean(partes[6]); 
-                    int id = Integer.parseInt(partes[7]);
+                    int vidaMax = Integer.parseInt(partes[3]); 
+                    int vida = Integer.parseInt(partes[4]); 
+                    int ataque = Integer.parseInt(partes[5]); 
+                    int defensa = Integer.parseInt(partes[6]); 
+                    boolean objeto = Boolean.parseBoolean(partes[7]); 
+                    int id = Integer.parseInt(partes[8]);
+                    int xp = Integer.parseInt(partes[9]); 
                     
                     if(id == 0){
-                        linea = lvl + " " + pokedex + " " + nombre + " " + gp.player.vida_pokemon_restante + " " + ataque
-                                + " " + defensa + " " + objeto + " " + id; 
+                        linea = lvl + " " + pokedex + " " + nombre +" "+ vidaMax +  " " + gp.player.vida_pokemon_restante + " " + ataque
+                                + " " + defensa + " " + objeto + " " + id + " " + xp; 
                         
                     }
                     
@@ -227,8 +232,94 @@ public class CargarDatosPokemon {
         }
          
     }
+    /*
+    int j = 990; 
+    // Cargar los seis pokemones del equipo 
+    public void add_seis_iniciales(){
+        for(int i = 0; i < gp.equipo_pokemones.size(); i++){
+            
+            gp.npc[j] = new NPC_Pokemon(gp, gp.equipo_pokemones.get(i).getPokedex()); 
+            Pokemon poke = (Pokemon) gp.npc[j]; 
+            gp.seis_iniciales.add(gp.npc[j]); 
+            
+            if(i < 6){
+                break; 
+            }
+            j++; 
+        }
+    }
 
+*/
 
+    public void actualizar_xp(String accion) {
+        BufferedReader br;
+        BufferedWriter bw; 
+        try { 
+        
+            br = new BufferedReader(new FileReader("EquipoPokemon.txt"));
+            ArrayList<String> lineas = new ArrayList<>(); 
+            String linea;     
+            
+            while((linea = br.readLine()) != null){
+                        
+                    linea = linea.trim();
+                    if (linea.isEmpty()) continue;  
+
+                    String partes[] = linea.split(" "); 
+                    if (partes.length < 9){
+                        lineas.add(linea); 
+                        continue;
+                    } 
+                    
+                    int lvl = Integer.parseInt(partes[0]); 
+                    int pokedex = Integer.parseInt(partes[1]); 
+                    String nombre = partes[2]; 
+                    int vidaMax = Integer.parseInt(partes[3]); 
+                    int vida = Integer.parseInt(partes[4]); 
+                    int ataque = Integer.parseInt(partes[5]); 
+                    int defensa = Integer.parseInt(partes[6]); 
+                    boolean objeto = Boolean.parseBoolean(partes[7]); 
+                    int id = Integer.parseInt(partes[8]);
+                    int xp = Integer.parseInt(partes[9]); 
+                    
+                    if(xp + 50 == 100){
+                        lvl++; 
+                        vidaMax = lvl + pokedex; 
+                        linea = lvl + " " + pokedex + " " + nombre +" "+ vidaMax +  " " + vida + " " + ataque
+                                + " " + defensa + " " + objeto + " " + id + " " + 0; 
+                        
+                    }else if(accion.equals("xp")){
+                        xp += 50; 
+                        linea = lvl + " " + pokedex + " " + nombre +" "+ vidaMax +  " " + vida + " " + ataque
+                                + " " + defensa + " " + objeto + " " + id + " " + xp; 
+                        
+                    }else if(accion.equals("vida")){
+                        vida = vidaMax; 
+                        linea = lvl + " " + pokedex + " " + nombre +" "+ vidaMax +  " " + vida + " " + ataque
+                                + " " + defensa + " " + objeto + " " + id + " " + xp; 
+                        System.out.println("Linea " + linea);
+                    }
+                    
+                    lineas.add(linea); 
+                    
+                    
+            }
+            
+            br.close();
+            bw = new BufferedWriter(new FileWriter("EquipoPokemon.txt", false));
+            
+            for(String l: lineas){
+                bw.write(l);
+                bw.newLine();
+            }
+            bw.close(); 
+                        
+        } catch (IOException ex) {
+            Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
 
 
 
