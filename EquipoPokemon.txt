@@ -7,3 +7,4 @@
 1 151 Mew 13 13 13 true 61
 4 151  20 16 16 true 01
 4 150 pep 20 20 20 true 81
+3 150 MewTwo 18 15 15 true 91

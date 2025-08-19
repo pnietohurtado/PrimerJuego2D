@@ -105,14 +105,14 @@ public class Player extends Entity{
     
     // ---------------- Variables de prueba sobre las skins player -------------
     
-    String front1[] = {"/player/Front1","/NPC/CocheFront", "/JugadorOBJ/Front1"}; 
-    String front2[] = {"/player/Front2","/NPC/CocheFront", "/JugadorOBJ/Front2"}; 
-    String right1[] = {"/player/Rigth1","/NPC/CocheR1",  "/player/Rigth1"};  
-    String right2[] = {"/player/Rigth2","/NPC/CocheR2", "/player/Rigth2"}; 
-    String left1[] = {"/player/Left1","/NPC/CocheL1", "/player/Left1"}; 
-    String left2[] = {"/player/Left2","/NPC/CocheL2", "/player/Left2"}; 
-    String back1[] = {"/player/Up1","/NPC/CocheB", "/JugadorOBJ/Up"}; 
-    String back2[] = {"/player/Up2","/NPC/CocheB", "/JugadorOBJ/Up2"}; 
+    String front1[] = {"/player/F1","/NPC/CocheFront", "/JugadorOBJ/Front1"}; 
+    String front2[] = {"/player/F2","/NPC/CocheFront", "/JugadorOBJ/Front2"}; 
+    String right1[] = {"/player/R1","/NPC/CocheR1",  "/player/R1"};  
+    String right2[] = {"/player/R2","/NPC/CocheR2", "/player/R2"}; 
+    String left1[] = {"/player/L1","/NPC/CocheL1", "/player/L1"}; 
+    String left2[] = {"/player/L2","/NPC/CocheL2", "/player/L2"}; 
+    String back1[] = {"/player/U1","/NPC/CocheB", "/JugadorOBJ/Up"}; 
+    String back2[] = {"/player/U2","/NPC/CocheB", "/JugadorOBJ/Up2"}; 
     
     // -------------------------------------------------------------------------
     
