@@ -97,8 +97,8 @@ public class Player extends Entity{
     
     public void setDefaultValues()
     {
-        worldX = gp.tileSize * 55 ; 
-        worldY = gp.tileSize * 215 ; 
+        worldX = gp.tileSize * 66 ; 
+        worldY = gp.tileSize * 201 ; 
         speed = 4; 
         direction = "down"; 
     }
@@ -205,7 +205,7 @@ public class Player extends Entity{
         
         // --------------------- Apariciones en a hierba -----------------------
         
-        if(collision == false && gp.cH.tile.nombre.equals("12")){
+        if(collision == false && gp.cH.tile.nombre.equals("5")){
             this.actionLocker++; 
             
             if(this.actionLocker == 17){
@@ -217,7 +217,7 @@ public class Player extends Entity{
         
         // --------------------- Salir de edificios ----------------------------
         
-        else if(collision == false && gp.cH.tile.nombre.equals("20")){
+        else if(collision == true && gp.cH.tile.nombre.equals("12") && gp.cH.direction.equals("down") ){
             
             gp.fst.exitBuilding03(); // Salida de el laboratorio del inicio
              
@@ -227,11 +227,10 @@ public class Player extends Entity{
         }
         else if(collision == false && gp.cH.tile.nombre.equals("27")){ // Salida de la Factory (entrada secundaria ruta01) 
             gp.fst.exitBuilding02();
-        }
-        
+         }       
         // --------------------- Entrada en los edificios ----------------------
         
-        else if(collision == true && gp.cH.tile.nombre.equals("15")){ // En caso de que se entre en una de las puertas o (Bloque rojo) 
+        else if(collision == true && gp.cH.tile.nombre.equals("12") && gp.cH.direction.equals("up")){ // En caso de que entre al laboratorio 
             
             gp.fst.enterBuilding01();
             
@@ -251,7 +250,7 @@ public class Player extends Entity{
         }
         
         else if(collision == true){
-            //System.out.println("Con colisión " + gp.cH.tile.nombre);
+            System.out.println("Con colisión " + gp.cH.tile.nombre);
         }else if(collision == false){
             //System.out.println("Sin colisión " + gp.cH.tile.nombre);
         }

@@ -23,53 +23,40 @@ public class AssetSetter {
        
         
         gp.obj[1] = new OBJ_Pokeball(); 
-        gp.obj[1].worldX = 56 * gp.tileSize; 
-        gp.obj[1].worldY = 215 * gp.tileSize; 
+        gp.obj[1].worldX = 68 * gp.tileSize; 
+        gp.obj[1].worldY = 202 * gp.tileSize; 
         gp.obj[1].collision = true;
         
+        /*
         gp.obj[2] = new OBJ_Pokeball(); 
-        gp.obj[2].worldX = 57 * gp.tileSize; 
-        gp.obj[2].worldY = 215 * gp.tileSize; 
+        gp.obj[2].worldX = 69 * gp.tileSize; 
+        gp.obj[2].worldY = 202 * gp.tileSize; 
         gp.obj[2].collision = true;
         
         gp.obj[3] = new OBJ_Pokeball(); 
-        gp.obj[3].worldX = 58 * gp.tileSize; 
-        gp.obj[3].worldY = 215 * gp.tileSize; 
+        gp.obj[3].worldX = 70 * gp.tileSize; 
+        gp.obj[3].worldY = 202 * gp.tileSize; 
         gp.obj[3].collision = true;
         
         gp.obj[4] = new OBJ_Pokeball(); 
-        gp.obj[4].worldX = 59 * gp.tileSize; 
-        gp.obj[4].worldY = 215 * gp.tileSize; 
+        gp.obj[4].worldX = 71 * gp.tileSize; 
+        gp.obj[4].worldY = 202 * gp.tileSize; 
         gp.obj[4].collision = true;
+        */
         
         gp.obj[6] = new OBJ_Pokeball(); 
-        gp.obj[6].worldX = 49 * gp.tileSize; 
-        gp.obj[6].worldY = 176 * gp.tileSize; 
+        gp.obj[6].worldX = 59 * gp.tileSize; 
+        gp.obj[6].worldY = 171 * gp.tileSize; 
         gp.obj[6].collision = true;
         
-        gp.obj[99] = new OBJ_Pokeball(); 
-        gp.obj[99].worldX = 50 * gp.tileSize; 
-        gp.obj[99].worldY = 176 * gp.tileSize; 
-        gp.obj[99].collision = true;
-        
-        gp.obj[98] = new OBJ_Pokeball(); 
-        gp.obj[98].worldX = 51 * gp.tileSize; 
-        gp.obj[98].worldY = 176 * gp.tileSize; 
-        gp.obj[98].collision = true;
-        
-        gp.obj[97] = new OBJ_Pokeball(); 
-        gp.obj[97].worldX = 52 * gp.tileSize; 
-        gp.obj[97].worldY = 176 * gp.tileSize; 
-        gp.obj[97].collision = true;
-        
         gp.obj[7] = new OBJ_Pokeball(); 
-        gp.obj[7].worldX = 73 * gp.tileSize; 
-        gp.obj[7].worldY = 167 * gp.tileSize; 
+        gp.obj[7].worldX = 82 * gp.tileSize; 
+        gp.obj[7].worldY = 161 * gp.tileSize; 
         gp.obj[7].collision = true;
         
         gp.obj[8] = new OBJ_Hacha(); 
-        gp.obj[8].worldX = 56 * gp.tileSize; 
-        gp.obj[8].worldY = 160 * gp.tileSize; 
+        gp.obj[8].worldX = 64 * gp.tileSize; 
+        gp.obj[8].worldY = 157 * gp.tileSize; 
         gp.obj[8].collision = true;
          
         
@@ -84,8 +71,8 @@ public class AssetSetter {
         */
         
         gp.npc[0] = new NPC_ShopGuy(gp); 
-        gp.npc[0].worldX = gp.tileSize * 51; 
-        gp.npc[0].worldY = gp.tileSize * 173; 
+        gp.npc[0].worldX = gp.tileSize * 61; 
+        gp.npc[0].worldY = gp.tileSize * 158; 
         gp.npc[0].actionCountNPC = 1; 
         
         

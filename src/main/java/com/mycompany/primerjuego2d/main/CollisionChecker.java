@@ -15,6 +15,7 @@ public class CollisionChecker {
 
     public GamePanel gp; 
     public Tile tile; 
+    public String direction; 
     
     public CollisionChecker(GamePanel gp){
         this.gp = gp; 
@@ -43,14 +44,14 @@ public class CollisionChecker {
                     entity.collision = true; 
                     tile = gp.tileManager.tile[tileNum1]; 
                     tile.nombre = String.valueOf(gp.tileManager.mapTileNum[entityRightCol][entityTopRow]); 
-                    
+                    this.direction = "up"; 
                     
                     
                     
                 }else if(gp.tileManager.tile[tileNum1].collision == false ||gp.tileManager.tile[tileNum2].collision == false){
                     tile = gp.tileManager.tile[tileNum1]; 
                     tile.nombre = String.valueOf(gp.tileManager.mapTileNum[entityRightCol][entityTopRow]); 
-                   
+                    this.direction = "up"; 
                 }
                 break; 
             case "down": 
@@ -61,11 +62,12 @@ public class CollisionChecker {
                     entity.collision = true; 
                     tile = gp.tileManager.tile[tileNum1]; 
                     tile.nombre = String.valueOf(gp.tileManager.mapTileNum[entityLeftCol][entityBottomRow]); 
+                    this.direction = "down"; 
                 }
                 else if(gp.tileManager.tile[tileNum1].collision == false ||gp.tileManager.tile[tileNum2].collision == false){
                     tile = gp.tileManager.tile[tileNum1]; 
                     tile.nombre = String.valueOf(gp.tileManager.mapTileNum[entityLeftCol][entityBottomRow]); 
-                    
+                    this.direction = "down"; 
                 }
                 break;
             case "left": 
@@ -76,10 +78,11 @@ public class CollisionChecker {
                     entity.collision = true; 
                     tile = gp.tileManager.tile[tileNum1]; 
                     tile.nombre = String.valueOf(gp.tileManager.mapTileNum[entityLeftCol][entityTopRow]); 
+                    this.direction = "left"; 
                 }else if(gp.tileManager.tile[tileNum1].collision == false ||gp.tileManager.tile[tileNum2].collision == false){
                     tile = gp.tileManager.tile[tileNum1]; 
                     tile.nombre = String.valueOf(gp.tileManager.mapTileNum[entityLeftCol][entityTopRow]); 
-                    
+                    this.direction = "left"; 
                 }
                 break; 
             case "right": 
@@ -90,10 +93,11 @@ public class CollisionChecker {
                     entity.collision = true; 
                     tile = gp.tileManager.tile[tileNum1]; 
                     tile.nombre = String.valueOf(gp.tileManager.mapTileNum[entityRightCol][entityBottomRow]);
+                    this.direction = "right"; 
                 }else if(gp.tileManager.tile[tileNum1].collision == false ||gp.tileManager.tile[tileNum2].collision == false){
                     tile = gp.tileManager.tile[tileNum1]; 
                     tile.nombre = String.valueOf(gp.tileManager.mapTileNum[entityRightCol][entityBottomRow]); 
-                    
+                    this.direction = "right"; 
                 }
                 break; 
         }

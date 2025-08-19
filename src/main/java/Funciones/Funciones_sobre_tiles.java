@@ -70,29 +70,27 @@ public class Funciones_sobre_tiles {
     // ----------------------- Entrada a contrucciones -------------------------
     
     public void enterBuilding01(){
-        
-        gp.tileManager.loadMap(gp.tileManager.mapas[1]); // Para poder cambiar el mapa 
-        //gp.obj = new SuperObject[0]; // Para vaciar todos los objetos 
-        gp.player.worldX = 24* gp.tileSize; 
-        gp.player.worldY = 24* gp.tileSize; 
+
+        gp.player.worldX = 72* gp.tileSize; 
+        gp.player.worldY = 205* gp.tileSize; 
         
         gp.guardado.cargar_objetos();
         
         gp.obj = new SuperObject[99]; // Volver a añadir objetos en el array
             
         gp.obj[1] = new OBJ_PokeballPokemon(); 
-        gp.obj[1].worldX = 23 * gp.tileSize; 
-        gp.obj[1].worldY = 22 * gp.tileSize; 
+        gp.obj[1].worldX = 71 * gp.tileSize; 
+        gp.obj[1].worldY = 202 * gp.tileSize; 
         gp.obj[1].collision = true;
         
         gp.obj[2] = new OBJ_PokeballPokemon(); 
-        gp.obj[2].worldX = 24 * gp.tileSize; 
-        gp.obj[2].worldY = 22 * gp.tileSize; 
+        gp.obj[2].worldX = 72 * gp.tileSize; 
+        gp.obj[2].worldY = 202 * gp.tileSize; 
         gp.obj[2].collision = true;
         
         gp.obj[3] = new OBJ_PokeballPokemon(); 
-        gp.obj[3].worldX = 25 * gp.tileSize; 
-        gp.obj[3].worldY = 22 * gp.tileSize; 
+        gp.obj[3].worldX = 73 * gp.tileSize; 
+        gp.obj[3].worldY = 202 * gp.tileSize; 
         gp.obj[3].collision = true;
         
     }
@@ -179,16 +177,9 @@ public class Funciones_sobre_tiles {
     
     public void exitBuilding03(){
         
-        gp.player.worldX = 48* gp.tileSize; 
-        gp.player.worldY = 215* gp.tileSize; 
-            
-        gp.tileManager.loadMap(gp.tileManager.mapas[0]);
-            
+        gp.player.worldX = 72* gp.tileSize; 
+        gp.player.worldY = 207* gp.tileSize; 
         gp.guardado.poner_objetos();
-        //gp.aSetter.setObject();
-            
-        gp.gameState = gp.playState;
-        
     }
 
     

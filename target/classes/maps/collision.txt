@@ -12,3 +12,15 @@ true
 false
 007.png
 true
+008.png
+true
+009.png
+true
+010.png
+true
+011.png
+false
+012.png
+true
+013.png
+true
