@@ -111,8 +111,8 @@ public class Player extends Entity{
     String right2[] = {"/player/R2","/NPC/CocheR2", "/player/R2"}; 
     String left1[] = {"/player/L1","/NPC/CocheL1", "/player/L1"}; 
     String left2[] = {"/player/L2","/NPC/CocheL2", "/player/L2"}; 
-    String back1[] = {"/player/U1","/NPC/CocheB", "/JugadorOBJ/Up"}; 
-    String back2[] = {"/player/U2","/NPC/CocheB", "/JugadorOBJ/Up2"}; 
+    String back1[] = {"/player/F1","/NPC/CocheB", "/JugadorOBJ/Up"}; 
+    String back2[] = {"/player/F2","/NPC/CocheB", "/JugadorOBJ/Up2"}; 
     
     // -------------------------------------------------------------------------
     
