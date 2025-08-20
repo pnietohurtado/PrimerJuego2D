@@ -262,11 +262,6 @@ public class UI {
         g2.drawString(gp.equipo_pokemones.get(0).getNombre(), x * 5, y * 5); 
         g2.drawString(" lvl. " + gp.equipo_pokemones.get(0).getLevel(), x * 7, y * 5 ); 
         
-        /*
-        // Seteamos la vida pokemon aliado; 
-        gp.nombres.cargar_vida_pokemon_actual(gp.equipo_pokemones.get(0).getNombre()); // Obtenemos vida maxima; 
-        gp.player.vida_pokemon_restante = (int) gp.player.vida_pokemon_compañero; // Ajustamos la vida
-        */
         healthBar(x * 5 , y * 5, gp.player.vida_pokemon_restante / gp.player.vida_pokemon_compañero); // Barra de vida de los pokemones enemigos 
         
         

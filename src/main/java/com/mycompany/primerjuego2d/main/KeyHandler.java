@@ -255,7 +255,11 @@ public class KeyHandler implements KeyListener{
                 }else if(gp.ui.commandNumber == 1 && gp.turnos.battle_turn == true) {
                     
                     gp.turnos.battle_turn = false; // Cambiar turno
-                    
+                    /*
+                    // Seteamos la vida pokemon aliado; 
+                    gp.nombres.cargar_vida_pokemon_actual(gp.equipo_pokemones.get(0).getNombre()); // Obtenemos vida maxima; 
+                    gp.player.vida_pokemon_restante = (int) gp.player.vida_pokemon_compañero; // Ajustamos la vida
+                    */
                 }else if(gp.ui.commandNumber == 2 && gp.turnos.battle_turn == true){
                     
                     if(gp.player.hasPokeball > 0){
@@ -271,12 +275,21 @@ public class KeyHandler implements KeyListener{
                     }else{
                         System.out.println("No tienes pokeballs");
                     }
-        
+                    /*
+                    // Seteamos la vida pokemon aliado; 
+                    gp.nombres.cargar_vida_pokemon_actual(gp.equipo_pokemones.get(0).getNombre()); // Obtenemos vida maxima; 
+                    gp.player.vida_pokemon_restante = (int) gp.player.vida_pokemon_compañero; // Ajustamos la vida
+                    */
                     gp.turnos.battle_turn = false; // Cambiar turno
                     
                 }else if(gp.ui.commandNumber == 3 && gp.turnos.battle_turn == true){
                     gp.sonido.stop(5);
                     gp.gameState = gp.playState; 
+                    /*
+                    // Seteamos la vida pokemon aliado; 
+                    gp.nombres.cargar_vida_pokemon_actual(gp.equipo_pokemones.get(0).getNombre()); // Obtenemos vida maxima; 
+                    gp.player.vida_pokemon_restante = (int) gp.player.vida_pokemon_compañero; // Ajustamos la vida
+                    */
                     gp.turnos.battle_turn = false; // Cambiar turno
                 }
             }

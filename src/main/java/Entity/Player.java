@@ -220,43 +220,19 @@ public class Player extends Entity{
             }
         }
         
-        // --------------------- Salir de edificios ----------------------------
+        // Interacción con objetos 
         
-        else if(collision == true && gp.cH.tile.nombre.equals("12") && gp.cH.direction.equals("down") ){
-            
-            gp.fst.exitBuilding03(); // Salida de el laboratorio del inicio
-             
-        }else if(collision == true && gp.cH.tile.nombre.equals("22") && gp.cH.direction.equals("down")){
-            gp.fst.exitPokemonCenter(); // Salida del centro pokemon 
-        }
-        /*
-        else if(collision == false && gp.cH.tile.nombre.equals("28")){ // Salida de la Factory (entrada secundaria pueblo paleta) 
-            gp.fst.exitBuilding01();
-        }
-        else if(collision == false && gp.cH.tile.nombre.equals("27")){ // Salida de la Factory (entrada secundaria ruta01) 
-            gp.fst.exitBuilding02();
-         }*/       
-        // --------------------- Entrada en los edificios ----------------------
-        
-        else if(collision == true && gp.cH.tile.nombre.equals("12") && gp.cH.direction.equals("up")){ // En caso de que entre al laboratorio 
-            
-            gp.fst.enterBuilding01();
+        if(collision == true && gp.cH.tile.nombre.equals("29")){
+            gp.ui.sb.drawDialogueSubWindow("Estás en pueblo paleta");
+            if(gp.player.worldX == (70 * gp.tileSize) && gp.player.worldY == (207 * gp.tileSize)){
+                gp.ui.sb.drawDialogueSubWindow("Estás en pueblo paleta");
+            }else if(gp.player.worldX == (67 * gp.tileSize) && gp.player.worldY == (160 * gp.tileSize)){
+                gp.ui.sb.drawDialogueSubWindow("Estás en pueblo Esmeralda");
+            }else if(gp.player.worldX == (81 * gp.tileSize) && gp.player.worldY == (156 * gp.tileSize)){
+                gp.ui.sb.drawDialogueSubWindow("Estás en la ruta 102");
+            }
             
         }
-        else if(collision == true && gp.cH.tile.nombre.equals("22") && gp.cH.direction.equals("up")){  // Entrada al centro pokemon
-           gp.fst.enterPokemonCenter(); 
-        }
-        /*
-        else if(collision == true && gp.cH.tile.nombre.equals("23") && gp.player.hasKey >= 1 ){ 
-            gp.fst.enternBuilding02();
-            //gp.player.hasKey--; 
-        }
-        
-        else if(collision == true && gp.cH.tile.nombre.equals("25")){ // Entrada al subsuelo (MewTwo) 
-            gp.fst.enterBuildingUnderground(); 
-        }
-        */
-        
         else if(collision == true && gp.cH.tile.nombre.equals("25")&& gp.cH.direction.equals("up")){
             
             this.actionLocker++; 
@@ -266,6 +242,26 @@ public class Player extends Entity{
                 this.actionLocker = 0; 
                 gp.nombres.actualizar_xp("vida");
             }
+        }
+        
+        // --------------------- Salir de edificios ----------------------------
+        
+        else if(collision == true && gp.cH.tile.nombre.equals("12") && gp.cH.direction.equals("down") ){
+            
+            gp.fst.exitBuilding03(); // Salida de el laboratorio del inicio
+             
+        }else if(collision == true && gp.cH.tile.nombre.equals("22") && gp.cH.direction.equals("down")){
+            gp.fst.exitPokemonCenter(); // Salida del centro pokemon 
+        }     
+        // --------------------- Entrada en los edificios ----------------------
+        
+        else if(collision == true && gp.cH.tile.nombre.equals("12") && gp.cH.direction.equals("up")){ // En caso de que entre al laboratorio 
+            
+            gp.fst.enterBuilding01();
+            
+        }
+        else if(collision == true && gp.cH.tile.nombre.equals("22") && gp.cH.direction.equals("up")){  // Entrada al centro pokemon
+           gp.fst.enterPokemonCenter(); 
         }
         else if(collision == true){
             //System.out.println("Con colisión " + gp.cH.tile.nombre);

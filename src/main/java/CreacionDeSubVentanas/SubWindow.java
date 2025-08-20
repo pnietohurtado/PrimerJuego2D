@@ -7,6 +7,7 @@ package CreacionDeSubVentanas;
 import com.mycompany.primerjuego2d.main.GamePanel;
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
 
 /**
@@ -50,4 +51,24 @@ public class SubWindow {
         g2.setStroke(new BasicStroke(5)); 
         g2.drawRoundRect(x+5, y+5, width-10, height-10 , 25, 25);
     }
+    
+    public void drawDialogueSubWindow(String message){
+        int x = gp.tileSize * 2; 
+        int y = gp.tileSize / 2; 
+        int width = gp.screenWidth - (gp.tileSize * 4); 
+        int height = gp.tileSize * 4;
+        
+        Color c1 = new Color(247, 239, 163);
+        Color c2 = new Color(57, 97, 71);
+        SubWindow(x, y, width, height, c1, c2);
+        
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
+        x += gp.tileSize; 
+        y += gp.tileSize; 
+        g2.drawString(message, x, y); 
+    
+    }
+    
+    
+    
 }
