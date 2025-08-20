@@ -486,12 +486,14 @@ public class KeyHandler implements KeyListener{
                             Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
                         }
                         
+                        gp.nombres.cargar_pokemones_equipo();
                         gp.guardado.poner_objetos();
                         gp.sonido.play(1, true);
                         gp.gameState = gp.playState;
                     }else if(gp.ui.commandNumber == 1){
                         gp.equipo_pokemones.clear(); // No tiene pokemones 
                         gp.aSetter.setObject(); // Setteamos todos los objetos 
+                        gp.cargar_random.cargar_pokemoenes_random(); // Vamos a poner todos los pokemons de ruta random 
                         gp.sonido.play(1, true);
                         gp.gameState = gp.playState; 
                         

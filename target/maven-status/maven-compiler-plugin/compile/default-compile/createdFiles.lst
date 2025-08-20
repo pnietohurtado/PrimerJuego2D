@@ -22,6 +22,7 @@ Pokemon\Pokemon.class
 CreacionDeSubVentanas\SubWindow.class
 com\mycompany\primerjuego2d\main\UI.class
 com\mycompany\primerjuego2d\main\ClaseAuxiliar.class
+Funciones\CargarRadonmizador.class
 com\mycompany\primerjuego2d\main\MouseClicker.class
 Objects\OBJ_PokeballPokemon.class
 com\mycompany\primerjuego2d\main\CollisionChecker.class

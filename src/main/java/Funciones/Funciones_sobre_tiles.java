@@ -20,21 +20,30 @@ public class Funciones_sobre_tiles {
     // --------------------------- Variables -----------------------------------
     
     Random random = new Random(); 
-    
+    int i1,i2,i3,i4,i5,i6,i7; 
     public Funciones_sobre_tiles(GamePanel gp){
         this.gp = gp; 
+        i1 = 1; 
+        i2 = 1; 
+        i3 = 1; 
+        i4 = 1; 
+        i5 = 1; 
+        i6 = 1; 
+        i7 = 1; 
+        
     }
-
+    
+    
    
     
     // ----------------------- Apariciones Pokemones en ruta -------------------
     
-    public void grassBattle01(int i1, int i2, int i3, int i4, int i5, int i6, int i7){
+    public void grassBattle01(int i){
         
         if(!(gp.equipo_pokemones.isEmpty())){
-            
+            gp.cargar_random.leer_pokemons_random(i);
             int numero[] = {i1, i2, i3, i4, i5, i6, i7}; 
-
+            
             int numeroAleatorio = random.nextInt(200) + 1;  
             int aparicion = random.nextInt(5); // Hay que poner exactamente el número de 
             
@@ -42,7 +51,7 @@ public class Funciones_sobre_tiles {
             
             if(numeroAleatorio == 1){
                 gp.player.sprite_bicho_attack = numero[aparicion]; 
-
+               
                 // Seteamos el lvl del pokemon en cuestión 
                 gp.ui.lvl = random.nextInt(10) + 1; 
 
@@ -60,8 +69,9 @@ public class Funciones_sobre_tiles {
                 gp.sonido.volume = -30.0f; 
                 gp.sonido.play(5,true); // Para poder poner la música
             }
-            
+           
         }else{
+            gp.ui.message = "No es seguro entrar sin pokemones..."; 
             gp.gameState = gp.dialogueState; 
         }
     }
@@ -95,52 +105,6 @@ public class Funciones_sobre_tiles {
         
     }
     
-    
-    public void enternBuilding02(){
-        
-        //if(gp.player.hasKey >= 1){
-        
-            gp.tileManager.loadMap(gp.tileManager.mapas[2]); // Para poder cambiar el mapa
-            //gp.obj = new SuperObject[0]; // Para vaciar todos los objetos
-
-            gp.guardado.cargar_objetos(); // Cargar los objetos que están fuera 
-            gp.obj = new SuperObject[99]; // Volver a añadir objetos en el array
-            
-            gp.player.worldX = 24* gp.tileSize; 
-            gp.player.worldY = 24* gp.tileSize; 
-            gp.player.hasKey--; 
-            
-        //}
-        
-    }
-    
-    
-    public void enterBuildingUnderground(){ // Entrada al subsuelo 
-        
-        gp.tileManager.loadMap(gp.tileManager.mapas[3]); // Para poder cambiar el mapa
-        gp.player.worldX = 25* gp.tileSize; 
-        gp.player.worldY = 29* gp.tileSize;
-        
-        
-        gp.npc[0] = new NPC_MewTwo(gp); 
-        gp.npc[0].worldX = gp.tileSize * 25; 
-        gp.npc[0].worldY = gp.tileSize * 20; 
-        
-        
-    }
-    
-    public void enterBuilding03() { // Entrada secundaria para la fabrica desde pueblo Paleta
-        
-        gp.tileManager.loadMap(gp.tileManager.mapas[2]); // Para poder cambiar el mapa
-        
-        gp.guardado.cargar_objetos(); // Cargar los objetos que están fuera 
-        gp.obj = new SuperObject[99]; // Volver a añadir objetos en el array
-        
-        gp.player.worldX = 25 * gp.tileSize; 
-        gp.player.worldY = 8 * gp.tileSize;
-        
-    }
-    
     public void enterPokemonCenter(){
         
         
@@ -156,36 +120,7 @@ public class Funciones_sobre_tiles {
     
     // ----------------------- Salida de la construcción -----------------------
     
-    public void exitBuilding01(){ // Segunda salida Fabrica01 
-        
-        gp.player.worldX = 55* gp.tileSize; 
-        gp.player.worldY = 166* gp.tileSize; 
-            
-        gp.tileManager.loadMap(gp.tileManager.mapas[0]);
-            
-        //gp.aSetter.setObject();
-        
-        gp.guardado.poner_objetos(); // Poner todos los objetos 
-            
-        gp.gameState = gp.playState;
-        
-    }
-    
-    public void exitBuilding02(){ // Segunda salida Fabrica02 
-        
-        gp.player.worldX = 55* gp.tileSize; 
-        gp.player.worldY = 171* gp.tileSize; 
-            
-        gp.tileManager.loadMap(gp.tileManager.mapas[0]);
-            
-        //gp.aSetter.setObject();
-        
-        gp.guardado.poner_objetos(); // Poner todos los objetos 
-            
-        gp.gameState = gp.playState;
-        
-    }
-    
+   
     
     public void exitBuilding03(){
         

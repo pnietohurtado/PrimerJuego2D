@@ -266,7 +266,7 @@ public class CargarDatosPokemon {
                     if (linea.isEmpty()) continue;  
 
                     String partes[] = linea.split(" "); 
-                    if (partes.length < 9){
+                    if (partes.length < 10){
                         lineas.add(linea); 
                         continue;
                     } 

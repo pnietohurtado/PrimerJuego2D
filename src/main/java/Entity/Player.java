@@ -213,24 +213,18 @@ public class Player extends Entity{
                 this.actionLocker = 0; 
             }
             if((gp.player.worldY > (170 * gp.tileSize) || gp.player.worldY < (191 * gp.tileSize)) && (gp.player.worldX < (71 * gp.tileSize) || gp.player.worldX > (57 * gp.tileSize))){
-                gp.fst.grassBattle01(1,2,3,4,5,6,7);
+                gp.fst.grassBattle01(0);
             }
             else if((gp.player.worldY > (142 * gp.tileSize) || gp.player.worldY < (170 * gp.tileSize)) && (gp.player.worldX < (57 * gp.tileSize) || gp.player.worldX > (23 * gp.tileSize))){
-                gp.fst.grassBattle01(150,151,75,58,69,41,47);
+                gp.fst.grassBattle01(1);
             }
         }
         
         // Interacción con objetos 
         
-        if(collision == true && (gp.cH.tile.nombre.equals("29") || gp.cH.tile.nombre.equals("19") || gp.cH.tile.nombre.equals("1"))){
-         
-            if(gp.player.worldX == (70 * gp.tileSize) && gp.player.worldY == (207 * gp.tileSize)){
-                gp.ui.sb.drawDialogueSubWindow("Estás en pueblo paleta");
-            }else if(gp.player.worldX == (67 * gp.tileSize) && gp.player.worldY == (160 * gp.tileSize)){
-                gp.ui.sb.drawDialogueSubWindow("Estás en pueblo Esmeralda");
-            }else if(gp.player.worldX == (81 * gp.tileSize) && gp.player.worldY == (156 * gp.tileSize)){
-                gp.ui.sb.drawDialogueSubWindow("Estás en la ruta 102");
-            }
+        if(collision == true && gp.cH.tile.nombre.equals("29")){
+            gp.ui.message = "Te encuentras en pueblo Paleta"; 
+            gp.gameState = gp.dialogueState; 
             
         }
         else if(collision == true && gp.cH.tile.nombre.equals("33") && gp.cH.direction.equals("down")){
@@ -296,7 +290,7 @@ public class Player extends Entity{
                     gp.sonido.play(2, false); 
                     
                     /*El objeto de cada pokeball es aleatorio*/
-                    gp.ui.dialogueText = "Has encontrado un " + gp.object[randomObject]; 
+                    gp.ui.message = "Has encontrado un " + gp.object[randomObject]; 
                     gp.gameState = gp.dialogueState; 
                     
                     if(gp.object[randomObject].name.equals("Pokeball")){

@@ -8,6 +8,7 @@ import Battle.Battle;
 import Entity.Entity;
 import Entity.Player;
 import Funciones.CargarDatosPokemon;
+import Funciones.CargarRadonmizador;
 import Funciones.Funciones_sobre_tiles;
 import Funciones.GuardadoDeLosObjetos;
 import Objects.SuperObject;
@@ -62,6 +63,7 @@ public class GamePanel extends JPanel implements Runnable{
     
     public CargarDatosPokemon nombres = new CargarDatosPokemon(this); 
     public String[] nombres_pokemon = new String[152]; // No tocar ninguno 
+    public CargarRadonmizador cargar_random = new CargarRadonmizador(this); 
     
     // --------- Variables sobre el equipo pokemon -----------------------------
     
@@ -70,6 +72,9 @@ public class GamePanel extends JPanel implements Runnable{
     // 6 primeros pokemones
     public ArrayList<Pokemon> seis_iniciales = new ArrayList<>(); 
     
+    // ------------------- Rutas de pokemon ------------------------------------
+    
+    public int ruta01[] = new int[6]; 
     
     // ------------------- Variables generales (NO TOCAR) ----------------------
     
@@ -162,6 +167,7 @@ public class GamePanel extends JPanel implements Runnable{
         // en el caso de que el jugador le de a la opción de "Opciones" es decir nueva partida.
         aSetter.setNPC();
         aObjects.setObject();
+        
         
         
         // Poner la música del principio 

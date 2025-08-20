@@ -86,11 +86,6 @@ public class UI {
     
     // -------------------------- Funciones de  asistencia ---------------------
     
-    public void showMessage(String text){
-        message = text; 
-        messageOn = true; 
-    }
-    
     public int getXForCenteredText(String text){
          
         int length = (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth();
@@ -117,7 +112,7 @@ public class UI {
             drawTitleScreen(); 
         }else if(gp.gameState == gp.dialogueState){
             sb = new SubWindow(gp,g2); 
-            drawDialogueScreen(); 
+            sb.drawDialogueSubWindow(this.message);
         }else if(gp.gameState == gp.inventoryState){
             sb = new SubWindow(gp,g2); 
             drawInventoryScreen(); 
@@ -172,7 +167,7 @@ public class UI {
     public void battleScreen(){
         this.x = gp.tileSize * 2; 
         this.y = gp.tileSize / 2; 
-        BufferedImage backgroundImage = null;
+       
         
         try{
             
@@ -355,29 +350,7 @@ public class UI {
     
     
     
-    
-    
-    // -------------------------------------------------------------------------
-    
-    public String dialogueText = "No es seguro entrar sin pokemones..."; 
-    
-    public void drawDialogueScreen(){
-        int x = gp.tileSize * 2; 
-        int y = gp.tileSize / 2; 
-        int width = gp.screenWidth - (gp.tileSize * 4); 
-        int height = gp.tileSize * 4;
-        
-        c1 = new Color(247, 239, 163);
-        c2 = new Color(57, 97, 71);
-        sb.SubWindow(x, y, width, height, c1, c2);
-        
-        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
-        x += gp.tileSize; 
-        y += gp.tileSize; 
-        g2.drawString(dialogueText, x, y); 
-        
-        
-    }
+   
   
     
     
@@ -635,6 +608,7 @@ public class UI {
         float vida; 
         
         for(int i = 0; i < gp.equipo_pokemones.size(); i++){
+            
             vida = gp.equipo_pokemones.get(i).getHP(); 
             
             gp.npc[997] = new NPC_Pokemon(gp, gp.equipo_pokemones.get(i).getPokedex()); 
