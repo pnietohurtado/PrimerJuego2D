@@ -222,8 +222,8 @@ public class Player extends Entity{
         
         // Interacción con objetos 
         
-        if(collision == true && gp.cH.tile.nombre.equals("29")){
-            gp.ui.sb.drawDialogueSubWindow("Estás en pueblo paleta");
+        if(collision == true && (gp.cH.tile.nombre.equals("29") || gp.cH.tile.nombre.equals("19") || gp.cH.tile.nombre.equals("1"))){
+         
             if(gp.player.worldX == (70 * gp.tileSize) && gp.player.worldY == (207 * gp.tileSize)){
                 gp.ui.sb.drawDialogueSubWindow("Estás en pueblo paleta");
             }else if(gp.player.worldX == (67 * gp.tileSize) && gp.player.worldY == (160 * gp.tileSize)){
@@ -232,6 +232,12 @@ public class Player extends Entity{
                 gp.ui.sb.drawDialogueSubWindow("Estás en la ruta 102");
             }
             
+        }
+        else if(collision == true && gp.cH.tile.nombre.equals("33") && gp.cH.direction.equals("down")){
+            gp.sonido.volume = -10.0f; 
+            gp.sonido.play(12, false);
+            gp.player.worldX = gp.player.worldX; 
+            gp.player.worldY = gp.player.worldY + gp.tileSize; 
         }
         else if(collision == true && gp.cH.tile.nombre.equals("25")&& gp.cH.direction.equals("up")){
             
@@ -264,7 +270,7 @@ public class Player extends Entity{
            gp.fst.enterPokemonCenter(); 
         }
         else if(collision == true){
-            //System.out.println("Con colisión " + gp.cH.tile.nombre);
+            System.out.println("Con colisión " + gp.cH.tile.nombre);
         }else if(collision == false){
             //System.out.println("Sin colisión " + gp.cH.tile.nombre);
         }

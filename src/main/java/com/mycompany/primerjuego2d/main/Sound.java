@@ -36,6 +36,7 @@ public class Sound {
         soundURL[9] = getClass().getResource("/sonido/Ataque_Critico.wav");
         soundURL[10] = getClass().getResource("/sonido/Pisar_Hierba.wav");
         soundURL[11] = getClass().getResource("/sonido/Curados.wav");
+        soundURL[12] = getClass().getResource("/sonido/Salto.wav");
         this.volume = -20.0f; 
     }
     

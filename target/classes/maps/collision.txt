@@ -58,3 +58,15 @@ false
 false
 020.png
 true
+021.png
+true
+022.png
+true
+023.png
+true
+024.png
+true
+025.png
+false
+026.png
+false
