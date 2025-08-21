@@ -127,8 +127,7 @@ public class KeyHandler implements KeyListener{
                 }
                 if(code == KeyEvent.VK_ESCAPE) // In order to pause the game
                 {
-                    gp.sonido.volume = -10.0f; 
-                    gp.sonido.play(3, false); // Para poder poner la música 
+                    gp.sonido.play(3, false, "effect"); // Para poder poner la música 
                     
                     gp.gameState = gp.pauseState; 
 
@@ -204,8 +203,7 @@ public class KeyHandler implements KeyListener{
             }
             if(code == KeyEvent.VK_UP)
                 {
-                    gp.sonido.volume = -20.0f; 
-                    gp.sonido.play(3,false); // Para poder poner la música 
+                    gp.sonido.play(3,false, "effect"); // Para poder poner la música 
                     
                     gp.ui.commandNumber--; 
                     if(gp.ui.commandNumber < 0){
@@ -214,8 +212,7 @@ public class KeyHandler implements KeyListener{
                 }
             if(code == KeyEvent.VK_DOWN)
                 {
-                    gp.sonido.volume = -20.0f; 
-                    gp.sonido.play(3,false); // Para poder poner la música 
+                    gp.sonido.play(3,false, "effect"); // Para poder poner la música 
                     
                     gp.ui.commandNumber++; 
                     if(gp.ui.commandNumber > 3){
@@ -237,14 +234,12 @@ public class KeyHandler implements KeyListener{
                         gp.nombres.actualizar_xp("xp"); 
                         
                     }else if(this.aleatorio == 1){
-                        gp.sonido.volume = -20.0f; 
-                        gp.sonido.play(9, false);
+                        gp.sonido.play(9, false, "effect");
                         hp_enemy -= 0.3f; 
                         // Se encarga de actualizar la vida en el .txt 
                         gp.nombres.actualizar_vida_compañero(1);
                     }else{
-                        gp.sonido.volume = -20.0f; 
-                        gp.sonido.play(8, false);
+                        gp.sonido.play(8, false, "effect");
                         hp_enemy -= 0.2f; 
                         // Se encarga de actualizar la vida en el .txt 
                         gp.nombres.actualizar_vida_compañero(1);
@@ -294,8 +289,7 @@ public class KeyHandler implements KeyListener{
             
             
             if(code == KeyEvent.VK_W ||code == KeyEvent.VK_UP){
-                gp.sonido.volume = -20.0f; 
-                gp.sonido.play(3,false); // Para poder poner la música 
+                gp.sonido.play(3,false, "effect"); // Para poder poner la música 
                 
                 gp.ui.commandNumber--; 
                 if(gp.ui.commandNumber < 0){
@@ -303,8 +297,7 @@ public class KeyHandler implements KeyListener{
                 }
             }
             if(code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN){
-                gp.sonido.volume = -20.0f; 
-                gp.sonido.play(3,false); // Para poder poner la música 
+                gp.sonido.play(3,false,"effect"); // Para poder poner la música 
                 
                 gp.ui.commandNumber++; 
                 if(gp.ui.commandNumber > 4){
@@ -334,8 +327,7 @@ public class KeyHandler implements KeyListener{
                     gp.gameState = gp.playState; 
                 }else if(gp.ui.commandNumber == 2){
                     if(this.playMusic == false){
-                        gp.sonido.play(1,true);
-                        gp.sonido.volume = -20.0f; 
+                        gp.sonido.play(1,true, "music");
                         this.playMusic = true; 
                     }else if(this.playMusic == true){
                         gp.sonido.stop(1);
@@ -393,8 +385,7 @@ public class KeyHandler implements KeyListener{
 
                 if(code == KeyEvent.VK_W || code == KeyEvent.VK_UP)
                 {
-                    gp.sonido.volume = -20.0f; 
-                    gp.sonido.play(3,false); // Para poder poner la música 
+                    gp.sonido.play(3,false, "effect"); // Para poder poner la música 
                     
                     gp.ui.commandNumber--; 
                     if(gp.ui.commandNumber < 0){
@@ -403,8 +394,7 @@ public class KeyHandler implements KeyListener{
                 }
                 if(code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN)
                 {
-                    gp.sonido.volume = -20.0f; 
-                    gp.sonido.play(3,false); // Para poder poner la música 
+                    gp.sonido.play(3,false, "effect"); // Para poder poner la música 
                     
                     gp.ui.commandNumber++; 
                     if(gp.ui.commandNumber > 0){
@@ -426,8 +416,7 @@ public class KeyHandler implements KeyListener{
             }else if(gp.ui.titleScreenState == 1){
                 if(code == KeyEvent.VK_W || code == KeyEvent.VK_UP)
                 {
-                    gp.sonido.volume = -10.0f; 
-                    gp.sonido.play(3,false); // Para poder poner la música 
+                    gp.sonido.play(3,false, "effect"); // Para poder poner la música 
                     
                     gp.ui.commandNumber--; 
                     if(gp.ui.commandNumber < 0){
@@ -436,8 +425,7 @@ public class KeyHandler implements KeyListener{
                 }
                 if(code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN)
                 {
-                    gp.sonido.volume = -10.0f; 
-                    gp.sonido.play(3,false); // Para poder poner la música 
+                    gp.sonido.play(3,false, "effect"); // Para poder poner la música 
                     
                     gp.ui.commandNumber++; 
                     if(gp.ui.commandNumber > 1){
@@ -475,14 +463,14 @@ public class KeyHandler implements KeyListener{
                         
                         gp.nombres.cargar_pokemones_equipo();
                         gp.guardado.poner_objetos();
-                        gp.sonido.play(1, true);
+                        gp.sonido.play(1, true, "music");
                         gp.gameState = gp.playState;
                     }else if(gp.ui.commandNumber == 1){
                         gp.equipo_pokemones.clear(); // No tiene pokemones 
                         gp.aSetter.setObject(); // Setteamos todos los objetos 
                         gp.cargar_random.cargar_pokemoenes_random(); // Vamos a poner todos los pokemons de ruta random 
                         gp.nombres.borrar_datos_equipo_pokemon(); // Borra todos los datos de los pokemones anteriores
-                        gp.sonido.play(1, true);
+                        gp.sonido.play(1, true, "music");
                         gp.gameState = gp.playState; 
                         
                     }
@@ -499,8 +487,7 @@ public class KeyHandler implements KeyListener{
             }
             
             if(code == KeyEvent.VK_W ||code == KeyEvent.VK_UP){
-                gp.sonido.volume = -20.0f; 
-                gp.sonido.play(3,false); // Para poder poner la música 
+                gp.sonido.play(3,false, "effect"); // Para poder poner la música 
                 
                 gp.ui.commandNumber--; 
                 if(gp.ui.commandNumber < 0){
@@ -508,8 +495,7 @@ public class KeyHandler implements KeyListener{
                 }
             }
             if(code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN){
-                gp.sonido.volume = -20.0f; 
-                gp.sonido.play(3,false); // Para poder poner la música 
+                gp.sonido.play(3,false, "effect"); // Para poder poner la música 
                 
                 gp.ui.commandNumber++; 
                 if(gp.ui.commandNumber > 3){
@@ -518,7 +504,7 @@ public class KeyHandler implements KeyListener{
             }
             
             if(code == KeyEvent.VK_ENTER){
-                gp.sonido.play(2, false);
+                gp.sonido.play(2, false,"effect");
                 if(gp.ui.commandNumber == 0 && gp.player.dineroPlayer >= 300){
                     gp.player.hasPokeball++; 
                     gp.player.dineroPlayer = gp.player.dineroPlayer - 300; 

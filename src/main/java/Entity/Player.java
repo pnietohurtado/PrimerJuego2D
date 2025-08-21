@@ -209,7 +209,7 @@ public class Player extends Entity{
             this.actionLocker++; 
             
             if(this.actionLocker == 17){
-                gp.sonido.play(10, false);
+                gp.sonido.play(10, false, "effect");
                 this.actionLocker = 0; 
             }
             if((gp.player.worldY > (170 * gp.tileSize) || gp.player.worldY < (191 * gp.tileSize)) && (gp.player.worldX < (71 * gp.tileSize) || gp.player.worldX > (57 * gp.tileSize))){
@@ -228,8 +228,7 @@ public class Player extends Entity{
             
         }
         else if(collision == true && gp.cH.tile.nombre.equals("33") && gp.cH.direction.equals("down")){
-            gp.sonido.volume = -10.0f; 
-            gp.sonido.play(12, false);
+            gp.sonido.play(12, false, "effect");
             gp.player.worldX = gp.player.worldX; 
             gp.player.worldY = gp.player.worldY + gp.tileSize; 
         }
@@ -238,7 +237,7 @@ public class Player extends Entity{
             this.actionLocker++; 
             
             if(this.actionLocker == 17){
-                gp.sonido.play(11, false);
+                gp.sonido.play(11, false, "effect");
                 this.actionLocker = 0; 
                 gp.nombres.actualizar_xp("vida");
             }
@@ -286,8 +285,7 @@ public class Player extends Entity{
                     
                     int randomObject = random.nextInt(4) + 1 ; 
                     
-                    gp.sonido.volume = -10.0f; 
-                    gp.sonido.play(2, false); 
+                    gp.sonido.play(2, false, "effect"); 
                     
                     /*El objeto de cada pokeball es aleatorio*/
                     gp.ui.message = "Has encontrado un " + gp.object[randomObject]; 
@@ -335,7 +333,7 @@ public class Player extends Entity{
                     
                 case "PokeballPokemon": 
                     if(pokemon_inicial == false){
-                        gp.sonido.play(2, false);
+                        gp.sonido.play(2, false, "effect");
 
                         //System.out.println("Pokemon " + gp.nombres_pokemon[]);
 
@@ -375,7 +373,6 @@ public class Player extends Entity{
                 case "CocheJuan" : {
                     if(keyHandler.interactEntity == false){
 
-                        gp.sonido.volume = -10.0f; 
                         //gp.playMusicOnce(4); // Para poder poner la música
 
                         gp.gameState = gp.dialogueState; 
@@ -402,8 +399,7 @@ public class Player extends Entity{
                     this.sprite_bicho_attack = 150; 
                     gp.gameState = gp.battleState; 
                     
-                    gp.sonido.volume = -30.0f;
-                    gp.sonido.play(6, true);
+                    gp.sonido.play(6, true, "music");
                 }
                 
                 case "ShopGuy" : {

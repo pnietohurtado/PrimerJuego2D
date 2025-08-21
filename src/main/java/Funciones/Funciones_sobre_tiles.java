@@ -67,8 +67,7 @@ public class Funciones_sobre_tiles {
                 gp.gameState = gp.battleState; 
 
 
-                gp.sonido.volume = -30.0f; 
-                gp.sonido.play(5,true); // Para poder poner la música
+                gp.sonido.play(5,true, "music"); // Para poder poner la música
             }
            
         }else{

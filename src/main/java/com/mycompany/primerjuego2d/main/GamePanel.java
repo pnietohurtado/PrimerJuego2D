@@ -172,7 +172,7 @@ public class GamePanel extends JPanel implements Runnable{
         
         // Poner la música del principio 
         this.keyHandler.playMusic = true; 
-        sonido.play(7, true); // Se pone la música de la intro (Main Theme) 
+        sonido.play(7, true, "music"); // Se pone la música de la intro (Main Theme) 
         
         // Cargar los nombres de los pokemones 
         nombres.cargar();

@@ -1,3 +1,0 @@
-11 150 Mewtwo 161 24 20 28 true 1 50
-4 38 Ninetales 42 40 13 14 true 3 50
-11 38  49 47 30 30 true 5 50

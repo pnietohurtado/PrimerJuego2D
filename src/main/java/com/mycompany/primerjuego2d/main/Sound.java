@@ -21,7 +21,8 @@ public class Sound {
     //Clip clip; 
     URL soundURL[] = new URL[100]; 
     private final Map<Integer, Clip> clips = new HashMap<>();
-    public float volume; 
+    public float volumeMusic; 
+    public float volumeEffect; 
     
     public Sound(){ 
         
@@ -37,25 +38,43 @@ public class Sound {
         soundURL[10] = getClass().getResource("/sonido/Pisar_Hierba.wav");
         soundURL[11] = getClass().getResource("/sonido/Curados.wav");
         soundURL[12] = getClass().getResource("/sonido/Salto.wav");
-        this.volume = -30.0f; 
+        
+        this.volumeMusic = -20.0f; 
+        this.volumeEffect = -20.0f; 
     }
     
     
-    public void play(int i, boolean loop){
+    public void play(int i, boolean loop, String accion){
         try (AudioInputStream ais = AudioSystem.getAudioInputStream(soundURL[i])) {
-            Clip newClip = AudioSystem.getClip();
-            newClip.open(ais);
+            if(accion.equals("music")){
+                Clip newClip = AudioSystem.getClip();
+                newClip.open(ais);
 
-            FloatControl audioVolume = (FloatControl) newClip.getControl(FloatControl.Type.MASTER_GAIN);
-            audioVolume.setValue(volume);
+                FloatControl audioVolume = (FloatControl) newClip.getControl(FloatControl.Type.MASTER_GAIN);
+                audioVolume.setValue(volumeMusic);
 
-            if (loop) {
-                newClip.loop(Clip.LOOP_CONTINUOUSLY);
-            } else {
-                newClip.start();
+                if (loop) {
+                    newClip.loop(Clip.LOOP_CONTINUOUSLY);
+                } else {
+                    newClip.start();
+                }
+
+                clips.put(i, newClip); 
+            }else if(accion.equals("effect")){
+                Clip newClip = AudioSystem.getClip();
+                newClip.open(ais);
+
+                FloatControl audioVolume = (FloatControl) newClip.getControl(FloatControl.Type.MASTER_GAIN);
+                audioVolume.setValue(volumeEffect);
+
+                if (loop) {
+                    newClip.loop(Clip.LOOP_CONTINUOUSLY);
+                } else {
+                    newClip.start();
+                }
+
+                clips.put(i, newClip); 
             }
-
-            clips.put(i, newClip); 
         } catch (Exception e) {
             e.printStackTrace();
         }
