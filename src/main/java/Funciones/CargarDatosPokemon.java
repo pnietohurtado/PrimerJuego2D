@@ -116,12 +116,12 @@ public class CargarDatosPokemon {
             
             if(nombre == null){
                 linea = gp.ui.lvl + " " + gp.player.sprite_bicho_attack + " " + 
-                    gp.nombres_pokemon[gp.player.sprite_bicho_attack ] + " " + String.valueOf(hp) + " " + String.valueOf(attack) +  " " + 
-                    String.valueOf(defense) + " " + "true " + gp.equipo_pokemones.size()+1; 
+                    gp.nombres_pokemon[gp.player.sprite_bicho_attack ] + " " + (gp.ui.lvl + gp.player.sprite_bicho_attack) + " "+  String.valueOf(hp) + " " + String.valueOf(attack) +  " " + 
+                    String.valueOf(defense) + " " + "true " + (gp.equipo_pokemones.size()+1) +" " +  0; 
             }else{
                 linea = gp.ui.lvl + " " + gp.player.sprite_bicho_attack + " " + 
-                    nombre + " " + String.valueOf(hp) + " " + String.valueOf(attack) +  " " + 
-                    String.valueOf(defense) + " " + "true " + gp.equipo_pokemones.size()+1; 
+                    nombre + " " + (gp.ui.lvl + gp.player.sprite_bicho_attack) + " "+  String.valueOf(hp) + " " + String.valueOf(attack) +  " " + 
+                    String.valueOf(defense) + " " + "true " + (gp.equipo_pokemones.size()+1) +" " + 0; 
             }
             
             br.write(linea);

@@ -53,6 +53,11 @@ public class AssetSetter {
         gp.obj[7].worldX = 82 * gp.tileSize; 
         gp.obj[7].worldY = 161 * gp.tileSize; 
         gp.obj[7].collision = true;
+        
+        gp.obj[8] = new OBJ_Pokeball(); 
+        gp.obj[8].worldX = 61 * gp.tileSize; 
+        gp.obj[8].worldY = 202 * gp.tileSize; 
+        gp.obj[8].collision = true;
         /*
         gp.obj[8] = new OBJ_Hacha(); 
         gp.obj[8].worldX = 64 * gp.tileSize; 

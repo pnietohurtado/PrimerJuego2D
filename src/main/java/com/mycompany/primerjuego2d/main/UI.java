@@ -356,9 +356,9 @@ public class UI {
     
     // ----------------------- Pausa del juego con un dialogo ------------------
     public void drawPauseScreen(){
-        int x = gp.tileSize * 4; 
+        int x = gp.tileSize * 3; 
         int y = gp.tileSize / 2; 
-        int width = gp.screenWidth - (gp.tileSize * 8); 
+        int width = gp.screenWidth - (gp.tileSize * 6); 
         int height = gp.tileSize * 10;
         int contador = 0; 
         String text = ""; 
@@ -372,7 +372,7 @@ public class UI {
         y += gp.tileSize; 
         g2.drawString("Juego Pausado" , x, y);
 
-        text = "SAVE GAME"; 
+        text = "SAVE"; 
         x = getXForCenteredText(text); 
         y = gp.tileSize * 4; 
         g2.drawString(text, x, y); 
@@ -380,9 +380,9 @@ public class UI {
             g2.drawString(">",x - gp.tileSize,y); 
         }
 
-        text = "BACK TO THE GAME"; 
+        text = "BACK"; 
         x = getXForCenteredText(text); 
-        y = gp.tileSize * 6; 
+        y = gp.tileSize * 5; 
         g2.drawString(text, x, y); 
         if(commandNumber == 1){
             g2.drawString(">",x - gp.tileSize,y); 
@@ -390,7 +390,7 @@ public class UI {
         
         text = "STOP MUSIC"; 
         x = getXForCenteredText(text); 
-        y = gp.tileSize * 8; 
+        y = gp.tileSize * 7; 
         g2.drawString(text, x, y); 
         if(commandNumber == 2){
             g2.drawString(">",x - gp.tileSize,y); 
@@ -399,7 +399,7 @@ public class UI {
         
         text = "QUIT GAME"; 
         x = getXForCenteredText(text); 
-        y = gp.tileSize * 10; 
+        y = gp.tileSize * 9; 
         g2.drawString(text, x, y); 
         if(commandNumber == 3){
             g2.drawString(">",x - gp.tileSize,y); 
