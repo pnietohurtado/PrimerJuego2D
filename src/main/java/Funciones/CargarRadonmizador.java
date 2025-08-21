@@ -66,7 +66,6 @@ public class CargarRadonmizador {
                     String partes[] = linea.split(" "); 
                     
                     int numero = Integer.parseInt(partes[0]); 
-                    System.out.println("Antes del if " + x + " " + numero);
                     if(numero == x){
                         gp.fst.i1 = Integer.parseInt(partes[1]);
                         gp.fst.i2 = Integer.parseInt(partes[2]);

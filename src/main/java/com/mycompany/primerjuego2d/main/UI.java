@@ -214,17 +214,17 @@ public class UI {
                 gp.player.vida_pokemon_restante -= 3; 
                 
                 // Se encarga de actualizar la vida en el .txt 
-                gp.nombres.actualizar_vida_compañero();
+                gp.nombres.actualizar_vida_compañero(1);
             }else if(gp.player.vida_pokemon_restante > 0){
                 gp.sonido.volume = -20.0f; 
                 gp.sonido.play(8, false);
                 gp.player.vida_pokemon_restante -= 1; 
                 
                 // Se encarga de actualizar la vida en el .txt 
-                gp.nombres.actualizar_vida_compañero();
+                gp.nombres.actualizar_vida_compañero(1);
             }else{
                 // Se encarga de actualizar la vida en el .txt 
-                gp.nombres.actualizar_vida_compañero();
+                gp.nombres.actualizar_vida_compañero(1);
                 
                 // Encargado de limpiar el array y cargarlo de nuevo con los nuevos valores 
                 gp.equipo_pokemones.clear(); 
@@ -257,10 +257,11 @@ public class UI {
         g2.drawString(gp.equipo_pokemones.get(0).getNombre(), x * 5, y * 5); 
         g2.drawString(" lvl. " + gp.equipo_pokemones.get(0).getLevel(), x * 7, y * 5 ); 
         
+        
         healthBar(x * 5 , y * 5, gp.player.vida_pokemon_restante / gp.player.vida_pokemon_compañero); // Barra de vida de los pokemones enemigos 
+                                    // vida que le queda                    // vida maxima 
         
-        
-        
+      
         
         
         

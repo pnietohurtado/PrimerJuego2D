@@ -151,19 +151,15 @@ public class CargarDatosPokemon {
             
             try {
                 while((linea = br.readLine()) != null){
-                        
-                    linea = linea.trim();
-                    if (linea.isEmpty()) continue;  
-
                     String partes[] = linea.split(" "); 
-                    if (partes.length < 9) continue; 
+                     
 
                     int nada = Integer.parseInt(partes[0]); 
                     int nada2 = Integer.parseInt(partes[1]); 
                     String nombre = partes[2]; 
                     
                     if(partes[2].equals(nombre_pokemon)){
-                        gp.player.vida_pokemon_compañero = Float.parseFloat(partes[4]); 
+                        gp.player.vida_pokemon_compañero = Float.parseFloat(partes[3]); 
 }                   }
  
             } catch (IOException ex) {
@@ -176,7 +172,7 @@ public class CargarDatosPokemon {
     
     
     
-    public void actualizar_vida_compañero(){
+    public void actualizar_vida_compañero(int ID){
         BufferedReader br;
         BufferedWriter bw; 
         try { 
@@ -191,7 +187,7 @@ public class CargarDatosPokemon {
                     if (linea.isEmpty()) continue;  
 
                     String partes[] = linea.split(" "); 
-                    if (partes.length < 9){
+                    if (partes.length < 10){
                         lineas.add(linea); 
                         continue;
                     } 
@@ -207,10 +203,11 @@ public class CargarDatosPokemon {
                     int id = Integer.parseInt(partes[8]);
                     int xp = Integer.parseInt(partes[9]); 
                     
-                    if(id == 0){
+                    if(id == ID){
+                        
                         linea = lvl + " " + pokedex + " " + nombre +" "+ vidaMax +  " " + gp.player.vida_pokemon_restante + " " + ataque
                                 + " " + defensa + " " + objeto + " " + id + " " + xp; 
-                        System.out.println("Linea " + linea);
+                        
                     }
                     
                     lineas.add(linea); 
@@ -232,24 +229,7 @@ public class CargarDatosPokemon {
         }
          
     }
-    /*
-    int j = 990; 
-    // Cargar los seis pokemones del equipo 
-    public void add_seis_iniciales(){
-        for(int i = 0; i < gp.equipo_pokemones.size(); i++){
-            
-            gp.npc[j] = new NPC_Pokemon(gp, gp.equipo_pokemones.get(i).getPokedex()); 
-            Pokemon poke = (Pokemon) gp.npc[j]; 
-            gp.seis_iniciales.add(gp.npc[j]); 
-            
-            if(i < 6){
-                break; 
-            }
-            j++; 
-        }
-    }
-
-*/
+   
 
     public void actualizar_xp(String accion) {
         BufferedReader br;
@@ -332,6 +312,26 @@ public class CargarDatosPokemon {
         }
     }
 
+    
+    public void cargar_vida_pokemon_restante(){
+        try { 
+            BufferedReader br = new BufferedReader(new FileReader("EquipoPokemon.txt"));
+            
+            String linea; 
+            
+            while((linea = br.readLine()) != null){
+                String partes[] = linea.split(" "); 
+                
+                gp.player.vida_pokemon_restante = Integer.parseInt(partes[4]); 
+            }
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(CargarDatosPokemon.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(CargarDatosPokemon.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
 
 
 

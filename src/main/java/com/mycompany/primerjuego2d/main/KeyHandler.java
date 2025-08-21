@@ -231,7 +231,7 @@ public class KeyHandler implements KeyListener{
                     if(this.hp_enemy <= 0){
                         gp.sonido.stop(5); 
                         // Se encarga de actualizar la vida en el .txt 
-                        gp.nombres.actualizar_vida_compañero();
+                        gp.nombres.actualizar_vida_compañero(1);
                         gp.gameState = gp.playState; 
                         
                         gp.nombres.actualizar_xp("xp"); 
@@ -241,13 +241,13 @@ public class KeyHandler implements KeyListener{
                         gp.sonido.play(9, false);
                         hp_enemy -= 0.3f; 
                         // Se encarga de actualizar la vida en el .txt 
-                        gp.nombres.actualizar_vida_compañero();
+                        gp.nombres.actualizar_vida_compañero(1);
                     }else{
                         gp.sonido.volume = -20.0f; 
                         gp.sonido.play(8, false);
                         hp_enemy -= 0.2f; 
                         // Se encarga de actualizar la vida en el .txt 
-                        gp.nombres.actualizar_vida_compañero();
+                        gp.nombres.actualizar_vida_compañero(1);
                     }
                     gp.turnos.battle_turn = false; // Cambiar turno
                     
