@@ -84,24 +84,20 @@ public class Funciones_sobre_tiles {
         gp.player.worldX = 72* gp.tileSize; 
         gp.player.worldY = 205* gp.tileSize; 
         
-        gp.guardado.cargar_objetos();
+        gp.obj[99] = new OBJ_PokeballPokemon(); 
+        gp.obj[99].worldX = 71 * gp.tileSize; 
+        gp.obj[99].worldY = 202 * gp.tileSize; 
+        gp.obj[99].collision = true;
         
-        gp.obj = new SuperObject[99]; // Volver a añadir objetos en el array
-            
-        gp.obj[1] = new OBJ_PokeballPokemon(); 
-        gp.obj[1].worldX = 71 * gp.tileSize; 
-        gp.obj[1].worldY = 202 * gp.tileSize; 
-        gp.obj[1].collision = true;
+        gp.obj[98] = new OBJ_PokeballPokemon(); 
+        gp.obj[98].worldX = 72 * gp.tileSize; 
+        gp.obj[98].worldY = 202 * gp.tileSize; 
+        gp.obj[98].collision = true;
         
-        gp.obj[2] = new OBJ_PokeballPokemon(); 
-        gp.obj[2].worldX = 72 * gp.tileSize; 
-        gp.obj[2].worldY = 202 * gp.tileSize; 
-        gp.obj[2].collision = true;
-        
-        gp.obj[3] = new OBJ_PokeballPokemon(); 
-        gp.obj[3].worldX = 73 * gp.tileSize; 
-        gp.obj[3].worldY = 202 * gp.tileSize; 
-        gp.obj[3].collision = true;
+        gp.obj[97] = new OBJ_PokeballPokemon(); 
+        gp.obj[97].worldX = 73 * gp.tileSize; 
+        gp.obj[97].worldY = 202 * gp.tileSize; 
+        gp.obj[97].collision = true;
         
     }
     

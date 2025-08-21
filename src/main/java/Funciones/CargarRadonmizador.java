@@ -11,7 +11,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -61,19 +60,15 @@ public class CargarRadonmizador {
             String linea;     
             
             try {
+                
                 while((linea = br.readLine()) != null){
                     
-                    linea = linea.trim();
-                    if (linea.isEmpty()) continue;  
-
                     String partes[] = linea.split(" "); 
-                    if (partes.length < 9) continue; 
                     
                     int numero = Integer.parseInt(partes[0]); 
-                    
+                    System.out.println("Antes del if " + x + " " + numero);
                     if(numero == x){
                         gp.fst.i1 = Integer.parseInt(partes[1]);
-                        System.out.println("Primero " + partes[1]);
                         gp.fst.i2 = Integer.parseInt(partes[2]);
                         gp.fst.i3 = Integer.parseInt(partes[3]);
                         gp.fst.i4 = Integer.parseInt(partes[4]);
