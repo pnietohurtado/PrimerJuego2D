@@ -321,6 +321,16 @@ public class CargarDatosPokemon {
     }
 
 
+    public void borrar_datos_equipo_pokemon(){
+        try { 
+            BufferedWriter bw = new BufferedWriter(new FileWriter("EquipoPokemon.txt"));
+            
+            bw.write("");
+            
+        } catch (IOException ex) {
+            Logger.getLogger(CargarDatosPokemon.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 
 

@@ -37,7 +37,7 @@ public class Sound {
         soundURL[10] = getClass().getResource("/sonido/Pisar_Hierba.wav");
         soundURL[11] = getClass().getResource("/sonido/Curados.wav");
         soundURL[12] = getClass().getResource("/sonido/Salto.wav");
-        this.volume = -20.0f; 
+        this.volume = -30.0f; 
     }
     
     
