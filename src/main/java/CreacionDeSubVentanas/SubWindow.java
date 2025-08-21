@@ -70,5 +70,29 @@ public class SubWindow {
     }
     
     
+    public void volumeBar(int x, int y, float volume){
+        int width = 200;
+        int height = 30;
+
+        g2.setColor(Color.BLACK);
+        g2.fillRoundRect(x, y, width, height, 35, 35);
+
+        Color borderColor = new Color(57, 97, 71);
+        g2.setColor(borderColor);
+        g2.setStroke(new BasicStroke(5));
+        g2.drawRoundRect(x + 5, y + 5, width - 10, height - 10, 25, 25);
+
+        // Calculamos el porcentaje de vida
+        
+        float healthPercent = volume; 
+        int healthBarWidth = (int) ((width - 20) * healthPercent);
+
+        g2.setColor(Color.WHITE); 
+        
+        g2.fillRoundRect(x + 10, y + 10, healthBarWidth, height - 20, 15, 15);
+
+    }
+    
+    
     
 }

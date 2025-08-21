@@ -373,7 +373,7 @@ public class UI {
         g2.drawString("Juego Pausado" , x, y);
 
         text = "SAVE"; 
-        x = getXForCenteredText(text); 
+        x = getXForCenteredText(text) - (gp.tileSize * 2); 
         y = gp.tileSize * 4; 
         g2.drawString(text, x, y); 
         if(commandNumber == 0){
@@ -381,27 +381,36 @@ public class UI {
         }
 
         text = "BACK"; 
-        x = getXForCenteredText(text); 
+        x = getXForCenteredText(text) - (gp.tileSize * 2); 
         y = gp.tileSize * 5; 
         g2.drawString(text, x, y); 
         if(commandNumber == 1){
             g2.drawString(">",x - gp.tileSize,y); 
         }
         
-        text = "STOP MUSIC"; 
-        x = getXForCenteredText(text); 
-        y = gp.tileSize * 7; 
+        text = "MUSIC Vol."; 
+        x = getXForCenteredText(text) - (gp.tileSize * 2); 
+        y = gp.tileSize * 6; 
         g2.drawString(text, x, y); 
+        sb.volumeBar(x + (gp.tileSize * 4), y, 1);
         if(commandNumber == 2){
             g2.drawString(">",x - gp.tileSize,y); 
         }
         
+        text = "MUSIC Vol."; 
+        x = getXForCenteredText(text) - (gp.tileSize * 2); 
+        y = gp.tileSize * 7; 
+        g2.drawString(text, x, y); 
+        sb.volumeBar(x + (gp.tileSize * 4), y, 1);
+        if(commandNumber == 3){
+            g2.drawString(">",x - gp.tileSize,y); 
+        }
         
         text = "QUIT GAME"; 
-        x = getXForCenteredText(text); 
-        y = gp.tileSize * 9; 
+        x = getXForCenteredText(text) - (gp.tileSize * 2); 
+        y = gp.tileSize * 8; 
         g2.drawString(text, x, y); 
-        if(commandNumber == 3){
+        if(commandNumber == 4){
             g2.drawString(">",x - gp.tileSize,y); 
         }
         
