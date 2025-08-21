@@ -13,25 +13,29 @@ public class Pokemon {
     private int level; 
     private int pokedex; 
     private String nombre; 
+    private int vidaMax; 
     private int hp; 
     private int attack; 
     private int defense; 
     private boolean object; 
     private int id; 
+    private int xp; 
     
     public Pokemon(){
         
     }
-    public Pokemon(int level, int pokedex, String nombre, int hp, int attack, int defense, boolean object, int id){
+    public Pokemon(int level, int pokedex, String nombre,int vidaMax, int hp, int attack, int defense, boolean object, int id, int xp){
         this(); 
         this.level = level; 
         this.pokedex = pokedex; 
         this.nombre = nombre;  
+        this.vidaMax = vidaMax;
         this.hp = hp; 
         this.attack = attack; 
         this.defense = defense; 
         this.object = object; 
         this.id = id; 
+        this.xp = xp; 
     }
     
     public int getLevel(){return this.level;}

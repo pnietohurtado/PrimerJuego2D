@@ -1,1 +1,2 @@
-179 149 don 328 295 22 22 true 1 0
+8 150 Mewtwo 158 33 20 28 true 1 50
+1 38 Ninetales 39 39 13 14 true 3 50

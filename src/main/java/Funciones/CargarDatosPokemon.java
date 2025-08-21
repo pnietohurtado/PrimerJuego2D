@@ -88,7 +88,7 @@ public class CargarDatosPokemon {
                     int id = Integer.parseInt(partes[8]);
                     int xp = Integer.parseInt(partes[9]);
 
-                    Pokemon po = new Pokemon(lvl, pokedex, nombre, vida, ataque, defensa, objeto, id); 
+                    Pokemon po = new Pokemon(lvl, pokedex, nombre,vidaMax, vida, ataque, defensa, objeto, id, xp); 
                     gp.equipo_pokemones.add(po); 
 }
  
@@ -116,11 +116,11 @@ public class CargarDatosPokemon {
             
             if(nombre == null){
                 linea = gp.ui.lvl + " " + gp.player.sprite_bicho_attack + " " + 
-                    gp.nombres_pokemon[gp.player.sprite_bicho_attack ] + " " + (gp.ui.lvl + gp.player.sprite_bicho_attack) + " "+  String.valueOf(hp) + " " + String.valueOf(attack) +  " " + 
+                    gp.nombres_pokemon[gp.player.sprite_bicho_attack ] + " " + (gp.ui.lvl + gp.player.sprite_bicho_attack) + " "+  (gp.ui.lvl + gp.player.sprite_bicho_attack) + " " + String.valueOf(attack) +  " " + 
                     String.valueOf(defense) + " " + "true " + (gp.equipo_pokemones.size()+1) +" " +  0; 
             }else{
                 linea = gp.ui.lvl + " " + gp.player.sprite_bicho_attack + " " + 
-                    nombre + " " + (gp.ui.lvl + gp.player.sprite_bicho_attack) + " "+  String.valueOf(hp) + " " + String.valueOf(attack) +  " " + 
+                    nombre + " " + (gp.ui.lvl + gp.player.sprite_bicho_attack) + " "+  (gp.ui.lvl + gp.player.sprite_bicho_attack) + " " + String.valueOf(attack) +  " " + 
                     String.valueOf(defense) + " " + "true " + (gp.equipo_pokemones.size()+1) +" " + 0; 
             }
             
@@ -152,11 +152,6 @@ public class CargarDatosPokemon {
             try {
                 while((linea = br.readLine()) != null){
                     String partes[] = linea.split(" "); 
-                     
-
-                    int nada = Integer.parseInt(partes[0]); 
-                    int nada2 = Integer.parseInt(partes[1]); 
-                    String nombre = partes[2]; 
                     
                     if(partes[2].equals(nombre_pokemon)){
                         gp.player.vida_pokemon_compañero = Float.parseFloat(partes[3]); 

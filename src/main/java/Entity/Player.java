@@ -337,6 +337,7 @@ public class Player extends Entity{
                     if(pokemon_inicial == false){
                         gp.sonido.play(2, false);
 
+                        //System.out.println("Pokemon " + gp.nombres_pokemon[]);
 
                         int numero[] = {149,151, 150}; 
                         int aparicion = random.nextInt(3); // Hay que poner exactamente el número de 
