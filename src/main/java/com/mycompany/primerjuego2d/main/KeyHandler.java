@@ -334,6 +334,10 @@ public class KeyHandler implements KeyListener{
                         this.playMusic = false; 
                     }
                 }else if(gp.ui.commandNumber == 3){
+                    if(code == KeyEvent.VK_LEFT){
+                        
+                    }
+                }else if(gp.ui.commandNumber == 4){
                     System.exit(0); 
                 }
             }

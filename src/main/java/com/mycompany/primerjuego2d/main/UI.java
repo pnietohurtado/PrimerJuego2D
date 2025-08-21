@@ -422,16 +422,16 @@ public class UI {
         x = getXForCenteredText(text) - (gp.tileSize * 2); 
         y = gp.tileSize * 6; 
         g2.drawString(text, x, y); 
-        sb.volumeBar(x + (gp.tileSize * 4), y, 1);
+        sb.volumeBar(x + (gp.tileSize * 4), y, gp.sonido.volumeMusic);
         if(commandNumber == 2){
             g2.drawString(">",x - gp.tileSize,y); 
         }
         
-        text = "MUSIC Vol."; 
+        text = "EFFECT Vol."; 
         x = getXForCenteredText(text) - (gp.tileSize * 2); 
         y = gp.tileSize * 7; 
         g2.drawString(text, x, y); 
-        sb.volumeBar(x + (gp.tileSize * 4), y, 1);
+        sb.volumeBar(x + (gp.tileSize * 4), y, gp.sonido.volumeEffect);
         if(commandNumber == 3){
             g2.drawString(">",x - gp.tileSize,y); 
         }
