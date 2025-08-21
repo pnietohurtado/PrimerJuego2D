@@ -163,6 +163,37 @@ public class UI {
 
     }
     
+    public void healthBar_enemigo(int x, int y, float damage){
+        int width = 200;
+        int height = 30;
+
+        Color backgroundColor = new Color(247, 239, 163);
+        g2.setColor(backgroundColor);
+        g2.fillRoundRect(x, y, width, height, 35, 35);
+
+        Color borderColor = new Color(57, 97, 71);
+        g2.setColor(borderColor);
+        g2.setStroke(new BasicStroke(5));
+        g2.drawRoundRect(x + 5, y + 5, width - 10, height - 10, 25, 25);
+
+        // Calculamos el porcentaje de vida
+        
+        float healthPercent = damage; 
+        int healthBarWidth = (int) ((width - 20) * healthPercent);
+
+        // Color de la vida (verde en este caso)
+        if(gp.keyHandler.hp_enemy < 0.25 ){
+            g2.setColor(Color.RED); 
+        }else if(gp.keyHandler.hp_enemy < 0.5 ){
+            g2.setColor(Color.ORANGE); 
+        }else{
+            g2.setColor(Color.GREEN);
+        }
+        
+        g2.fillRoundRect(x + 10, y + 10, healthBarWidth, height - 20, 15, 15);
+
+    }
+    
     
     public void battleScreen(){
         this.x = gp.tileSize * 2; 
@@ -236,7 +267,7 @@ public class UI {
             gp.turnos.battle_turn = true; 
         }
         
-        gp.ui.healthBar(x , y + gp.tileSize, gp.keyHandler.hp_enemy); // Barra de vida de los pokemones enemigos
+        gp.ui.healthBar_enemigo(x , y + gp.tileSize, gp.keyHandler.hp_enemy); // Barra de vida de los pokemones enemigos
         
         // ------------------------ Compañero de batalla -----------------------
         

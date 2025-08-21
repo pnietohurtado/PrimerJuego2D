@@ -57,7 +57,7 @@ public class Funciones_sobre_tiles {
 
                 // Seteamos la vida pokemon aliado; 
                 gp.nombres.cargar_vida_pokemon_actual(gp.equipo_pokemones.get(0).getNombre()); // Obtenemos vida maxima; 
-                gp.nombres.cargar_vida_pokemon_restante(); 
+                gp.nombres.cargar_vida_pokemon_restante(1); 
                 
                 
                 // Turno 

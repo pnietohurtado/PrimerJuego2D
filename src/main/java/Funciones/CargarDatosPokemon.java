@@ -308,7 +308,7 @@ public class CargarDatosPokemon {
     }
 
     
-    public void cargar_vida_pokemon_restante(){
+    public void cargar_vida_pokemon_restante(int id){
         try { 
             BufferedReader br = new BufferedReader(new FileReader("EquipoPokemon.txt"));
             
@@ -316,8 +316,9 @@ public class CargarDatosPokemon {
             
             while((linea = br.readLine()) != null){
                 String partes[] = linea.split(" "); 
-                
-                gp.player.vida_pokemon_restante = Integer.parseInt(partes[4]); 
+                if(Integer.parseInt(partes[8]) == id){
+                    gp.player.vida_pokemon_restante = Integer.parseInt(partes[4]); 
+                }
             }
             
         } catch (FileNotFoundException ex) {
