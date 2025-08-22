@@ -11,12 +11,12 @@ import javax.imageio.ImageIO;
  *
  * @author pablo
  */
-public class OBJ_CentroPokemon extends SuperObject{
+public class Hierba_Alta extends SuperObject{
     
-    public OBJ_CentroPokemon(){
-        name = "CentroPokemon"; 
+    public Hierba_Alta(){
+        name = "HierbaAlta"; 
         try{
-            image = ImageIO.read(getClass().getResourceAsStream("/Objetos/CentroPokemon.png")); 
+            image = ImageIO.read(getClass().getResourceAsStream("/Objetos/Hierba_Alta.png")); 
         }catch(IOException e){
             e.printStackTrace(); 
         }

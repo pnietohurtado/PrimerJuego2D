@@ -4,6 +4,7 @@
  */
 package Funciones;
 
+import Objects.Hierba_Alta;
 import Objects.OBJ_Hacha;
 import Objects.OBJ_Pokeball;
 import com.mycompany.primerjuego2d.main.GamePanel;
@@ -81,6 +82,11 @@ public class GuardadoDeLosObjetos {
                     gp.obj[contador].collision = true;
                 }else if(existe == 1 && nombre.equals("Hacha")){
                     gp.obj[contador] = new OBJ_Hacha(); 
+                    gp.obj[contador].worldX = X; 
+                    gp.obj[contador].worldY = Y; 
+                    gp.obj[contador].collision = true;
+                }else if(existe == 1 && nombre.equals("HierbaAlta")){
+                    gp.obj[contador] = new Hierba_Alta(); 
                     gp.obj[contador].worldX = X; 
                     gp.obj[contador].worldY = Y; 
                     gp.obj[contador].collision = true;

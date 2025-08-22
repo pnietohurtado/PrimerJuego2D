@@ -33,6 +33,10 @@ public class Player extends Entity{
     public float vida_pokemon_compañero = 0; 
     public int vida_pokemon_restante; 
     
+    // --- 
+    
+    public int lvl_compero = 0; 
+    
     // -------------------------------------------------------------------------
     
     // Indice del objeto que tenemos 
@@ -328,16 +332,19 @@ public class Player extends Entity{
                         gp.obj[i] = null; 
                         
                         // ---------- Ambas variables son necesarias para cambiar skin
-                        gp.skinAppereance = 2; 
-                        changeSkin = true; 
+                        //gp.skinAppereance = 2; 
+                        //changeSkin = true; 
                         // -----------------------------------------------------
                         
-                        //gp.gameState = gp.dialogueState;  
-                        System.out.println(inventario);
                     //}
                     break; 
-                    
-                    
+                
+                case "HierbaAlta" : 
+                    if(this.hasHacha > 0){
+                        gp.sonido.play(9, false, "effect");
+                        gp.obj[i] = null; 
+                    }
+                    break; 
                 case "PokeballPokemon": 
                     if(pokemon_inicial == false){
                         int numero[] = {149,151, 150}; 

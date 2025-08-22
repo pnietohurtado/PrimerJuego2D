@@ -58,12 +58,17 @@ public class AssetSetter {
         gp.obj[8].worldX = 62 * gp.tileSize; 
         gp.obj[8].worldY = 203 * gp.tileSize; 
         gp.obj[8].collision = true;
-        /*
-        gp.obj[8] = new OBJ_Hacha(); 
-        gp.obj[8].worldX = 64 * gp.tileSize; 
-        gp.obj[8].worldY = 157 * gp.tileSize; 
-        gp.obj[8].collision = true;
-        */
+        
+        gp.obj[9] = new Hierba_Alta(); 
+        gp.obj[9].worldX = 58 * gp.tileSize; 
+        gp.obj[9].worldY = 199 * gp.tileSize; 
+        gp.obj[9].collision = true;
+        
+        gp.obj[10] = new OBJ_Hacha(); 
+        gp.obj[10].worldX = 58 * gp.tileSize; 
+        gp.obj[10].worldY = 200 * gp.tileSize; 
+        gp.obj[10].collision = true;
+        
         
     }
     

@@ -9,7 +9,6 @@ Objects\OBJ_Hacha.class
 com\mycompany\primerjuego2d\main\GamePanel.class
 com\mycompany\primerjuego2d\main\AssetObject.class
 Entity\NPC_ShopGuy.class
-Objects\OBJ_CentroPokemon.class
 Entity\NPC_MewTwo.class
 Entity\NPC_CocheJuan.class
 Funciones\Funciones_sobre_tiles.class
@@ -18,6 +17,7 @@ Entity\Player.class
 Entity\NPC_Pokemon.class
 Entity\Entity.class
 Objects\SuperObject.class
+Objects\Hierba_Alta.class
 Pokemon\Pokemon.class
 CreacionDeSubVentanas\SubWindow.class
 com\mycompany\primerjuego2d\main\UI.class

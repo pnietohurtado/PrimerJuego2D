@@ -198,8 +198,9 @@ public class CargarDatosPokemon {
                     int id = Integer.parseInt(partes[8]);
                     int xp = Integer.parseInt(partes[9]); 
                     
+                    
                     if(id == ID){
-                        
+                        gp.player.lvl_compero = lvl; 
                         linea = lvl + " " + pokedex + " " + nombre +" "+ vidaMax +  " " + gp.player.vida_pokemon_restante + " " + ataque
                                 + " " + defensa + " " + objeto + " " + id + " " + xp; 
                         
@@ -260,8 +261,8 @@ public class CargarDatosPokemon {
                     if(xp + 50 == 100){
                         lvl++; 
                         vidaMax = lvl + pokedex; 
-                        linea = lvl + " " + pokedex + " " + nombre +" "+ vidaMax +  " " + vida + " " + ataque
-                                + " " + defensa + " " + objeto + " " + id + " " + 0; 
+                        linea = lvl + " " + pokedex + " " + nombre +" "+ vidaMax +  " " + vida + " " + (ataque +2)
+                                + " " + (defensa + 2) + " " + objeto + " " + id + " " + 0; 
                         
                     }else if(accion.equals("xp")){
                         xp += 50; 

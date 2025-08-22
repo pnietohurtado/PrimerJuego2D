@@ -284,7 +284,7 @@ public class UI {
         this.x += gp.tileSize; 
         this.y += gp.tileSize; 
         g2.drawString(gp.equipo_pokemones.get(0).getNombre(), x * 5, y * 5); 
-        g2.drawString(" lvl. " + gp.equipo_pokemones.get(0).getLevel(), x * 7, y * 5 ); 
+        g2.drawString(" lvl. " + gp.player.lvl_compero, x * 7, y * 5 ); 
         
         
         healthBar(x * 5 , y * 5, gp.player.vida_pokemon_restante / gp.player.vida_pokemon_compañero); // Barra de vida de los pokemones enemigos 
