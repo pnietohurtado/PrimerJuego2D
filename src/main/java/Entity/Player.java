@@ -218,7 +218,14 @@ public class Player extends Entity{
             else if((gp.player.worldY > (142 * gp.tileSize) || gp.player.worldY < (170 * gp.tileSize)) && (gp.player.worldX < (57 * gp.tileSize) || gp.player.worldX > (23 * gp.tileSize))){
                 gp.fst.grassBattle01(1);
             }
+        }else if(collision == false && (gp.cH.tile.nombre.equals("1") || gp.cH.tile.nombre.equals("34") || gp.cH.tile.nombre.equals("35"))){
+            this.actionLocker++; 
+            if(this.actionLocker == 17){
+                gp.sonido.play(14, false, "effect");
+                this.actionLocker = 0; 
+            }
         }
+        
         
         // Interacción con objetos 
         
@@ -263,7 +270,7 @@ public class Player extends Entity{
            gp.fst.enterPokemonCenter(); 
         }
         else if(collision == true){
-            System.out.println("Con colisión " + gp.cH.tile.nombre);
+            //System.out.println("Con colisión " + gp.cH.tile.nombre);
         }else if(collision == false){
             //System.out.println("Sin colisión " + gp.cH.tile.nombre);
         }
@@ -333,10 +340,6 @@ public class Player extends Entity{
                     
                 case "PokeballPokemon": 
                     if(pokemon_inicial == false){
-                        gp.sonido.play(2, false, "effect");
-
-                        //System.out.println("Pokemon " + gp.nombres_pokemon[]);
-
                         int numero[] = {149,151, 150}; 
                         int aparicion = random.nextInt(3); // Hay que poner exactamente el número de 
 
@@ -348,6 +351,8 @@ public class Player extends Entity{
                         gp.nombres.cargar_pokemon_capturado(nombre);
                         gp.nombres.cargar_pokemones_equipo();
 
+                        gp.sonido.play(13, false, "effect"); // Poner efecto especial 
+                        
                         gp.obj[i] = null; 
                         this.pokemon_inicial = true; 
                     }

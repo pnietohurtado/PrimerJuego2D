@@ -1,4 +1,3 @@
-3264 9696 1 Pokeball
 2832 8208 1 Pokeball
 3936 7728 1 Pokeball
 2976 9744 1 Pokeball

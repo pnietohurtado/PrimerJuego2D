@@ -38,6 +38,8 @@ public class Sound {
         soundURL[10] = getClass().getResource("/sonido/Pisar_Hierba.wav");
         soundURL[11] = getClass().getResource("/sonido/Curados.wav");
         soundURL[12] = getClass().getResource("/sonido/Salto.wav");
+        soundURL[13] = getClass().getResource("/sonido/Primer_Pokemon.wav");
+        soundURL[14] = getClass().getResource("/sonido/Andar_Por_Hierba.wav");
         
         this.volumeMusic = -20.0f; 
         this.volumeEffect = -20.0f; 
