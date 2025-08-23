@@ -4,7 +4,6 @@
  */
 package com.mycompany.primerjuego2d.main;
 
-import Conexion.Conexion;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.BufferedReader;
@@ -13,8 +12,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,11 +23,6 @@ import javax.swing.JOptionPane;
  */
 public class KeyHandler implements KeyListener{
 
-    // Conexion para poder guardar la partida
-    private Connection getConnection() throws SQLException{
-        return Conexion.getConnection(); 
-    }
-    
     
     // ------------------------- Variables de esta clase -----------------------
     
@@ -99,12 +91,7 @@ public class KeyHandler implements KeyListener{
                 if(code == KeyEvent.VK_A)
                 {
                     this.leftPressed = true; 
-                    /* Tried to make the player sprint when the key "SHIFT" is pressed
-                    if(code == KeyEvent.VK_SHIFT){
-                        System.out.println("FIUMMMMMM");
-                        gp.player.speed = 17; 
-                    }
-                    */
+                    
                 }
                 if(code == KeyEvent.VK_D)
                 {
@@ -141,8 +128,6 @@ public class KeyHandler implements KeyListener{
                         gp.tileManager.hayColision = false; 
                     }
                     gp.tileManager.getTileImage();
-                    //System.out.println("Valor en GP: " + gp.tileManager.hayColision);
-                   
                 }
 
                 if(code  == KeyEvent.VK_T)
@@ -153,28 +138,10 @@ public class KeyHandler implements KeyListener{
                         drawTime = false; 
                     }
                 }
-
-                if(code == KeyEvent.VK_E){ // To catch any object on the floor 
-                    this.interactEntity = true; 
-                }
-
-                // In order to enter the menu State 
-                if(code == KeyEvent.VK_CONTROL){
-                    gp.gameState = gp.titleState; 
-                }
                 
                 if(code == KeyEvent.VK_I){
                     gp.gameState = gp.inventoryState; 
                 }
-                
-                if(code == KeyEvent.VK_H && gp.gameState == gp.playState ){
-                    if(tileCollision == false){
-                        this.tileCollision = true; 
-                    }else if(tileCollision == true){
-                        this.tileCollision = false; 
-                    }
-                }
-                
                 if(code == KeyEvent.VK_ENTER){
                     if(enterPressed == false){
                         this.enterPressed = true; 
