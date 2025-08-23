@@ -5,7 +5,9 @@ tile\Tile.class
 Funciones\GuardadoDeLosObjetos.class
 Objects\OBJ_Key.class
 com\mycompany\primerjuego2d\main\Sound.class
+Funciones\Apariciones_en_hierba.class
 Objects\OBJ_Hacha.class
+Funciones\Interacciones_con_objetos.class
 com\mycompany\primerjuego2d\main\GamePanel.class
 com\mycompany\primerjuego2d\main\AssetObject.class
 Entity\NPC_ShopGuy.class

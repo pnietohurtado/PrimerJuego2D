@@ -14,7 +14,7 @@ import java.util.Random;
 public class Apariciones_en_hierba {
     private GamePanel gp; 
     private Random random = new Random(); 
-    private int i1,i2,i3,i4,i5,i6,i7; 
+    public int i1,i2,i3,i4,i5,i6,i7; 
     
     public Apariciones_en_hierba(GamePanel gp){
         this.gp = gp; 

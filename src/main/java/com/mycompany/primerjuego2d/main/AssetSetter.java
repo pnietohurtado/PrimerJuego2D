@@ -7,6 +7,15 @@ package com.mycompany.primerjuego2d.main;
 
 import Entity.NPC_ShopGuy;
 import Objects.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import tile.TileManager;
 
 /**
  *
@@ -20,56 +29,54 @@ public class AssetSetter {
     }
     
     public void setObject(){
+       int i = 1; 
+        BufferedReader br = null;
+        try {
+            br = new BufferedReader(new FileReader("data_newgame.txt"));
+            String linea;
+            try {
+                while((linea = br.readLine()) != null){
+                    String partes[] = linea.split(" ");
+                    int X = Integer.parseInt(partes[0]);
+                    int Y = Integer.parseInt(partes[1]);
+                    String nombre = partes[2];
+                    
+                    switch(nombre){
+                        case "Pokeball":
+                            gp.obj[i] = new OBJ_Pokeball();
+                            gp.obj[i].worldX = X;
+                            gp.obj[i].worldY = Y;
+                            gp.obj[i].collision = true;
+                            break;
+                        case "Hacha":
+                            gp.obj[i] = new OBJ_Hacha();
+                            gp.obj[i].worldX = X;
+                            gp.obj[i].worldY = Y;
+                            gp.obj[i].collision = true;
+                            break;
+                        case "Hierba" :
+                            gp.obj[i] = new Hierba_Alta();
+                            gp.obj[i].worldX = X; 
+                            gp.obj[i].worldY = Y;
+                            gp.obj[i].collision = true;
+                            break;
+                    }
+                    i ++; 
+                }
+                br.close();
+            } catch (IOException ex) {
+                Logger.getLogger(TileManager.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AssetSetter.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                br.close();
+            } catch (IOException ex) {
+                Logger.getLogger(AssetSetter.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
        
-        
-        gp.obj[1] = new OBJ_Pokeball(); 
-        gp.obj[1].worldX = 68 * gp.tileSize; 
-        gp.obj[1].worldY = 202 * gp.tileSize; 
-        gp.obj[1].collision = true;
-        
-        /*
-        gp.obj[2] = new OBJ_Pokeball(); 
-        gp.obj[2].worldX = 69 * gp.tileSize; 
-        gp.obj[2].worldY = 202 * gp.tileSize; 
-        gp.obj[2].collision = true;
-        
-        gp.obj[3] = new OBJ_Pokeball(); 
-        gp.obj[3].worldX = 70 * gp.tileSize; 
-        gp.obj[3].worldY = 202 * gp.tileSize; 
-        gp.obj[3].collision = true;
-        
-        gp.obj[4] = new OBJ_Pokeball(); 
-        gp.obj[4].worldX = 71 * gp.tileSize; 
-        gp.obj[4].worldY = 202 * gp.tileSize; 
-        gp.obj[4].collision = true;
-        */
-        
-        gp.obj[6] = new OBJ_Pokeball(); 
-        gp.obj[6].worldX = 59 * gp.tileSize; 
-        gp.obj[6].worldY = 171 * gp.tileSize; 
-        gp.obj[6].collision = true;
-        
-        gp.obj[7] = new OBJ_Pokeball(); 
-        gp.obj[7].worldX = 82 * gp.tileSize; 
-        gp.obj[7].worldY = 161 * gp.tileSize; 
-        gp.obj[7].collision = true;
-        
-        gp.obj[8] = new OBJ_Pokeball(); 
-        gp.obj[8].worldX = 62 * gp.tileSize; 
-        gp.obj[8].worldY = 203 * gp.tileSize; 
-        gp.obj[8].collision = true;
-        
-        gp.obj[9] = new Hierba_Alta(); 
-        gp.obj[9].worldX = 58 * gp.tileSize; 
-        gp.obj[9].worldY = 199 * gp.tileSize; 
-        gp.obj[9].collision = true;
-        
-        gp.obj[10] = new OBJ_Hacha(); 
-        gp.obj[10].worldX = 58 * gp.tileSize; 
-        gp.obj[10].worldY = 200 * gp.tileSize; 
-        gp.obj[10].collision = true;
-        
-        
     }
     
     public void setNPC(){ // Aquí es donde vamos a posicionar los NPC 

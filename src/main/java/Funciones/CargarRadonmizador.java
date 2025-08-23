@@ -67,13 +67,13 @@ public class CargarRadonmizador {
                     
                     int numero = Integer.parseInt(partes[0]); 
                     if(numero == x){
-                        gp.fst.i1 = Integer.parseInt(partes[1]);
-                        gp.fst.i2 = Integer.parseInt(partes[2]);
-                        gp.fst.i3 = Integer.parseInt(partes[3]);
-                        gp.fst.i4 = Integer.parseInt(partes[4]);
-                        gp.fst.i5 = Integer.parseInt(partes[5]);
-                        gp.fst.i6 = Integer.parseInt(partes[6]);
-                        gp.fst.i7 = Integer.parseInt(partes[7]);
+                        gp.apariciones_pokemon.i1 = Integer.parseInt(partes[1]);
+                        gp.apariciones_pokemon.i2 = Integer.parseInt(partes[2]);
+                        gp.apariciones_pokemon.i3 = Integer.parseInt(partes[3]);
+                        gp.apariciones_pokemon.i4 = Integer.parseInt(partes[4]);
+                        gp.apariciones_pokemon.i5 = Integer.parseInt(partes[5]);
+                        gp.apariciones_pokemon.i6 = Integer.parseInt(partes[6]);
+                        gp.apariciones_pokemon.i7 = Integer.parseInt(partes[7]);
                     }
                     
                 }

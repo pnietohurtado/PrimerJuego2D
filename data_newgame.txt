@@ -1,0 +1,6 @@
+3264 9696 Pokeball 1
+2832 8208 Pokeball 2	
+3936 7728 Pokeball 3
+2976 9744 Pokeball 4
+2784 9552 Hierba 5
+2784 9600 Hacha 6

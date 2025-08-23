@@ -1,4 +1,0 @@
-Proximas actualizaciones para el juego 2D: 
-
-
-Me gustaría que cuando me pongo en el modo dios, El jugador cambie de skin y pase a estar en una nube con cierta animación.
