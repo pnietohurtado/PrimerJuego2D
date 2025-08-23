@@ -66,7 +66,9 @@ public class CargarRadonmizador {
                     String partes[] = linea.split(" "); 
                     
                     int numero = Integer.parseInt(partes[0]); 
+                    
                     if(numero == x){
+                        //System.out.println("numero " + numero);
                         gp.apariciones_pokemon.i1 = Integer.parseInt(partes[1]);
                         gp.apariciones_pokemon.i2 = Integer.parseInt(partes[2]);
                         gp.apariciones_pokemon.i3 = Integer.parseInt(partes[3]);

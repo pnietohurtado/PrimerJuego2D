@@ -210,10 +210,11 @@ public class Player extends Entity{
                 gp.sonido.play(10, false, "effect");
                 this.actionLocker = 0; 
             }
-            if((gp.player.worldY > (170 * gp.tileSize) || gp.player.worldY < (191 * gp.tileSize)) && (gp.player.worldX < (71 * gp.tileSize) || gp.player.worldX > (57 * gp.tileSize))){
+            if((gp.player.worldY > (170 * gp.tileSize) && gp.player.worldY < (191 * gp.tileSize)) && (gp.player.worldX < (71 * gp.tileSize) && gp.player.worldX > (57 * gp.tileSize))){
+                System.out.println("X: " + gp.player.worldX + " Y: "+ gp.player.worldY);
                 gp.apariciones_pokemon.grassBattle01(0);
             }
-            else if((gp.player.worldY > (142 * gp.tileSize) || gp.player.worldY < (170 * gp.tileSize)) && (gp.player.worldX < (57 * gp.tileSize) || gp.player.worldX > (23 * gp.tileSize))){
+            else if((gp.player.worldY > (142 * gp.tileSize) && gp.player.worldY < (170 * gp.tileSize)) && (gp.player.worldX < (57 * gp.tileSize) && gp.player.worldX > (23 * gp.tileSize))){
                 gp.apariciones_pokemon.grassBattle01(1);
             }
         }else if(collision == false && (gp.cH.tile.nombre.equals("1") || gp.cH.tile.nombre.equals("34") || gp.cH.tile.nombre.equals("35"))){
