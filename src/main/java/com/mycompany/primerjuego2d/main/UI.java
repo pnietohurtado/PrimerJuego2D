@@ -46,9 +46,6 @@ public class UI {
     public int lvl; // Para poder darle un "level" específico a un pokemon 
     
     private BufferedImage image; 
-   
-    public String textoNPC[] = new String[10]; // Array de Textos 
-    
     int x; 
     int y; 
     
@@ -69,18 +66,9 @@ public class UI {
         this.y = 0; 
         
         arial_40 = new Font("Arial", Font.PLAIN, 20); 
-        //OBJ_Key key = new OBJ_Key(); 
-        //keyImage = key.image; 
-        
-        OBJ_Pokeball poke = new OBJ_Pokeball(); 
-
         c1 = new Color(0,0,0); 
         c2 = new Color(0,0,0);
         
-        
-        
-        textoNPC[0] = "Hola que tal"; 
-        textoNPC[1] = "Que dices chacho"; 
         
     }
     
@@ -130,69 +118,7 @@ public class UI {
     
     // ------------------------- Cambio a escena de batallas -------------------
     
-
     
-    public void healthBar(int x, int y, float damage){
-        int width = 200;
-        int height = 30;
-
-        Color backgroundColor = new Color(247, 239, 163);
-        g2.setColor(backgroundColor);
-        g2.fillRoundRect(x, y, width, height, 35, 35);
-
-        Color borderColor = new Color(57, 97, 71);
-        g2.setColor(borderColor);
-        g2.setStroke(new BasicStroke(5));
-        g2.drawRoundRect(x + 5, y + 5, width - 10, height - 10, 25, 25);
-
-        // Calculamos el porcentaje de vida
-        
-        float healthPercent = damage; 
-        int healthBarWidth = (int) ((width - 20) * healthPercent);
-
-        // Color de la vida (verde en este caso)
-        if(gp.player.vida_pokemon_restante < (gp.player.vida_pokemon_compañero * 0.25) ){
-            g2.setColor(Color.RED); 
-        }else if(gp.player.vida_pokemon_restante < (gp.player.vida_pokemon_compañero /2) ){
-            g2.setColor(Color.ORANGE); 
-        }else{
-            g2.setColor(Color.GREEN);
-        }
-        
-        g2.fillRoundRect(x + 10, y + 10, healthBarWidth, height - 20, 15, 15);
-
-    }
-    
-    public void healthBar_enemigo(int x, int y, float damage){
-        int width = 200;
-        int height = 30;
-
-        Color backgroundColor = new Color(247, 239, 163);
-        g2.setColor(backgroundColor);
-        g2.fillRoundRect(x, y, width, height, 35, 35);
-
-        Color borderColor = new Color(57, 97, 71);
-        g2.setColor(borderColor);
-        g2.setStroke(new BasicStroke(5));
-        g2.drawRoundRect(x + 5, y + 5, width - 10, height - 10, 25, 25);
-
-        // Calculamos el porcentaje de vida
-        
-        float healthPercent = damage; 
-        int healthBarWidth = (int) ((width - 20) * healthPercent);
-
-        // Color de la vida (verde en este caso)
-        if(gp.keyHandler.hp_enemy < 0.25 ){
-            g2.setColor(Color.RED); 
-        }else if(gp.keyHandler.hp_enemy < 0.5 ){
-            g2.setColor(Color.ORANGE); 
-        }else{
-            g2.setColor(Color.GREEN);
-        }
-        
-        g2.fillRoundRect(x + 10, y + 10, healthBarWidth, height - 20, 15, 15);
-
-    }
     
     
     public void battleScreen(){
@@ -228,7 +154,9 @@ public class UI {
         int width = gp.screenWidth - (gp.tileSize * 7); 
         int height = gp.tileSize * 3;
         
-        drawSubWindowBattle(x,y,width, height); 
+        c1 = new Color(247, 239, 163);
+        c2 = new Color(57, 97, 71);
+        sb.SubWindow(x,y,width, height,c1,c2); 
         
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
         this.x += gp.tileSize; 
@@ -265,7 +193,7 @@ public class UI {
             gp.turnos.battle_turn = true; 
         }
         
-        gp.ui.healthBar_enemigo(x , y + gp.tileSize, gp.keyHandler.hp_enemy); // Barra de vida de los pokemones enemigos
+        sb.healthBar(x , y + gp.tileSize, gp.keyHandler.hp_enemy, "enemy"); // Barra de vida de los pokemones enemigos
         
         // ------------------------ Compañero de batalla -----------------------
         
@@ -278,7 +206,9 @@ public class UI {
         width = gp.screenWidth - (gp.tileSize * 8); 
         height = gp.tileSize * 2;
         
-        drawSubWindowBattle(x * 8 ,y * 12,width, height); 
+        c1 = new Color(247, 239, 163);
+        c2 = new Color(57, 97, 71);
+        sb.SubWindow(x * 8 ,y * 12,width, height,c1,c2); 
         
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
         this.x += gp.tileSize; 
@@ -287,7 +217,7 @@ public class UI {
         g2.drawString(" lvl. " + gp.player.lvl_compero, x * 7, y * 5 ); 
         
         
-        healthBar(x * 5 , y * 5, gp.player.vida_pokemon_restante / gp.player.vida_pokemon_compañero); // Barra de vida de los pokemones enemigos 
+        sb.healthBar(x * 5 , y * 5, gp.player.vida_pokemon_restante / gp.player.vida_pokemon_compañero, "ally"); // Barra de vida de los pokemones enemigos 
                                     // vida que le queda                    // vida maxima 
         
       
@@ -354,43 +284,16 @@ public class UI {
         
         // ---------------------------------------------------------------------
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    public void drawSubWindowBattle(int x, int y, int width, int height){
-        
-        Color c = new Color(247, 239, 163); // 220 is going to show the transparecy of the window  
-        g2.setColor(c); 
-        g2.fillRoundRect(x,y,width,height,35,35); 
-        
-        c = new Color(57, 97, 71); 
-        g2.setColor(c); 
-        g2.setStroke(new BasicStroke(5)); 
-        g2.drawRoundRect(x+5, y+5, width-10, height-10 , 25, 25);
-        
-    }
-    
-    
-    
-    
-    
-    
    
   
     
     
     // ----------------------- Pausa del juego con un dialogo ------------------
     public void drawPauseScreen(){
-        int x = gp.tileSize * 3; 
-        int y = gp.tileSize / 2; 
+        this.x = gp.tileSize * 3; 
+        this.y = gp.tileSize / 2; 
         int width = gp.screenWidth - (gp.tileSize * 6); 
         int height = gp.tileSize * 10;
-        int contador = 0; 
         String text = ""; 
         
         c1 = new Color(0, 0,0);
@@ -457,7 +360,6 @@ public class UI {
         this.y = gp.tileSize / 2; 
         int width = gp.screenWidth - (gp.tileSize * 2); 
         int height = gp.tileSize * 11;
-        int contador = 0; 
         
         
         c1 = new Color(0, 0,0);

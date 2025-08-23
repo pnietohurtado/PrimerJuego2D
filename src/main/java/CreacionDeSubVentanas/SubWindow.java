@@ -24,6 +24,7 @@ public class SubWindow {
     // ------------------------- Constructor -----------------------------------
     
     public SubWindow(GamePanel gp, Graphics2D g2) {
+        // Clase declarada dentro de la propia UI 
         this.gp = gp; 
         this.g2 = g2; 
     }
@@ -93,6 +94,42 @@ public class SubWindow {
 
     }
     
+    
+    
+    // Health Bar(
+    public void healthBar(int x, int y, float damage, String ally_enemy){
+        int width = 200;
+        int height = 30;
+
+        Color backgroundColor = new Color(247, 239, 163);
+        g2.setColor(backgroundColor);
+        g2.fillRoundRect(x, y, width, height, 35, 35);
+
+        Color borderColor = new Color(57, 97, 71);
+        g2.setColor(borderColor);
+        g2.setStroke(new BasicStroke(5));
+        g2.drawRoundRect(x + 5, y + 5, width - 10, height - 10, 25, 25);
+
+        // Calculamos el porcentaje de vida
+        
+        float healthPercent = damage; 
+        int healthBarWidth = (int) ((width - 20) * healthPercent);
+
+        // Color de la vida (verde en este caso)
+        if((ally_enemy.equals("ally") && gp.player.vida_pokemon_restante < (gp.player.vida_pokemon_compañero * 0.25)) 
+                || (ally_enemy.equals("enemy") && gp.keyHandler.hp_enemy < 0.25)){
+            g2.setColor(Color.RED); 
+        }else if((ally_enemy.equals("ally") && gp.player.vida_pokemon_restante < (gp.player.vida_pokemon_compañero /2))
+                || (ally_enemy.equals("enemy") && gp.keyHandler.hp_enemy < 0.5 )){
+            g2.setColor(Color.ORANGE); 
+        }else{
+            g2.setColor(Color.GREEN);
+        }
+        
+        g2.fillRoundRect(x + 10, y + 10, healthBarWidth, height - 20, 15, 15);
+
+    }
+  
     
     
 }
