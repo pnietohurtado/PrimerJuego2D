@@ -47,9 +47,7 @@ public class Player extends Entity{
     public final int screenX;
     public final int screenY; 
     
-    public int hasHacha = 0; 
-    
-    public ArrayList<Integer> cantidades;
+    //public ArrayList<Integer> cantidades;
     public ArrayList<SuperObject> inventario; 
     
     // --------------------------- Variables iniciales de jugador --------------
@@ -61,6 +59,7 @@ public class Player extends Entity{
     public boolean changeSkin; // En caso de que haya un cambio
     public int hasMTHp = 0; 
     public int hasMTAttack = 0; 
+     public int hasHacha = 0; 
     
     // --------------------------- Constructor de la clase ---------------------
     
@@ -70,13 +69,12 @@ public class Player extends Entity{
         this.keyHandler = kh;  
         
         inventario = new ArrayList<>(); 
-        cantidades = new ArrayList<>(); 
-         
+        
+        // -- Valores iniciales 
         this.pokemon_inicial = false; 
         this.dineroPlayer = 4000; 
         
-        objetosInventario(); 
-        
+        // -- Colisiones y ajustes 
         screenX = gp.screenWidth/2 - (gp.tileSize / 2); 
         screenY = gp.screenHeight/2 - (gp.tileSize /2); 
         
@@ -92,14 +90,10 @@ public class Player extends Entity{
         
         setDefaultValues(); 
         getPlayerImage(); 
+        // -- 
     }
     
-    public void objetosInventario(){
-        cantidades.add(hasPokeball); 
-        cantidades.add(hasHacha); 
-    }
-    
-    public void setDefaultValues()
+    public void setDefaultValues() // Posicion Inicial
     {
         worldX = gp.tileSize * 66 ; 
         worldY = gp.tileSize * 201 ; 
@@ -109,14 +103,14 @@ public class Player extends Entity{
     
     // ---------------- Variables de prueba sobre las skins player -------------
     
-    String front1[] = {"/player/F1","/NPC/CocheFront", "/JugadorOBJ/Front1"}; 
-    String front2[] = {"/player/F2","/NPC/CocheFront", "/JugadorOBJ/Front2"}; 
+    String front1[] = {"/player/F1","/NPC/CocheFront", "/player/F1"}; 
+    String front2[] = {"/player/F2","/NPC/CocheFront", "/player/F2"}; 
     String right1[] = {"/player/R1","/NPC/CocheR1",  "/player/R1"};  
     String right2[] = {"/player/R2","/NPC/CocheR2", "/player/R2"}; 
     String left1[] = {"/player/L1","/NPC/CocheL1", "/player/L1"}; 
     String left2[] = {"/player/L2","/NPC/CocheL2", "/player/L2"}; 
-    String back1[] = {"/player/F1","/NPC/CocheB", "/JugadorOBJ/Up"}; 
-    String back2[] = {"/player/F2","/NPC/CocheB", "/JugadorOBJ/Up2"}; 
+    String back1[] = {"/player/F1","/NPC/CocheB", "/player/F1"}; 
+    String back2[] = {"/player/F2","/NPC/CocheB", "/player/F2"}; 
     
     // -------------------------------------------------------------------------
     
@@ -217,10 +211,10 @@ public class Player extends Entity{
                 this.actionLocker = 0; 
             }
             if((gp.player.worldY > (170 * gp.tileSize) || gp.player.worldY < (191 * gp.tileSize)) && (gp.player.worldX < (71 * gp.tileSize) || gp.player.worldX > (57 * gp.tileSize))){
-                gp.fst.grassBattle01(0);
+                gp.apariciones_pokemon.grassBattle01(0);
             }
             else if((gp.player.worldY > (142 * gp.tileSize) || gp.player.worldY < (170 * gp.tileSize)) && (gp.player.worldX < (57 * gp.tileSize) || gp.player.worldX > (23 * gp.tileSize))){
-                gp.fst.grassBattle01(1);
+                gp.apariciones_pokemon.grassBattle01(1);
             }
         }else if(collision == false && (gp.cH.tile.nombre.equals("1") || gp.cH.tile.nombre.equals("34") || gp.cH.tile.nombre.equals("35"))){
             this.actionLocker++; 
@@ -234,8 +228,7 @@ public class Player extends Entity{
         // Interacción con objetos 
         
         if(collision == true && gp.cH.tile.nombre.equals("29")){
-            gp.ui.message = "Te encuentras en pueblo Paleta"; 
-            gp.gameState = gp.dialogueState; 
+            gp.interacciones_objetos.showDialogue("Te encuentras en pueblo Paleta!");
             
         }
         else if(collision == true && gp.cH.tile.nombre.equals("33") && gp.cH.direction.equals("down")){
@@ -405,13 +398,6 @@ public class Player extends Entity{
                     }
                     
                     break; 
-                }
-                
-                case "MewTwo" : {
-                    this.sprite_bicho_attack = 150; 
-                    gp.gameState = gp.battleState; 
-                    
-                    gp.sonido.play(6, true, "music");
                 }
                 
                 case "ShopGuy" : {

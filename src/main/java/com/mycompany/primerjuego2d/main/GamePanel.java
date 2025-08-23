@@ -5,20 +5,11 @@
 package com.mycompany.primerjuego2d.main;
 
 import Battle.Battle;
-import Entity.Entity;
-import Entity.Player;
-import Funciones.CargarDatosPokemon;
-import Funciones.CargarRadonmizador;
-import Funciones.Funciones_sobre_tiles;
-import Funciones.GuardadoDeLosObjetos;
+import Entity.*;
+import Funciones.*;
 import Objects.SuperObject;
 import Pokemon.Pokemon;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
+import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import tile.TileManager;
@@ -116,6 +107,11 @@ public class GamePanel extends JPanel implements Runnable{
     
     // Aquí vamos a cargar las funciones que queremos que lleven a cabo alguna acción 
     public Funciones_sobre_tiles fst = new Funciones_sobre_tiles(this); 
+    
+    // -- Apariciones en la hierba
+    public Apariciones_en_hierba apariciones_pokemon = new Apariciones_en_hierba(this); 
+    // -- Interacciones con objetos 
+    public Interacciones_con_objetos interacciones_objetos = new Interacciones_con_objetos(this); 
     
     // Cargar los turnos de las batalla pokemon 
     public Battle turnos = new Battle(this); 
