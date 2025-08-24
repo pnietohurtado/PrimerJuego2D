@@ -216,8 +216,13 @@ public class KeyHandler implements KeyListener{
                     
                     
                 }else if(gp.ui.commandNumber == 1 && gp.turnos.battle_turn == true) {
-                    gp.player.seleccion_pokemon = 1; 
-                    
+                    gp.player.seleccion_pokemon++; 
+                    if(gp.player.seleccion_pokemon < 0){
+                        gp.player.seleccion_pokemon = gp.equipo_pokemones.size(); 
+                    }else if(gp.player.seleccion_pokemon >= gp.equipo_pokemones.size()){
+                        gp.player.seleccion_pokemon = 0; 
+                    }
+                   
                     gp.turnos.battle_turn = false; // Cambiar turno
                     
                 }else if(gp.ui.commandNumber == 2 && gp.turnos.battle_turn == true){

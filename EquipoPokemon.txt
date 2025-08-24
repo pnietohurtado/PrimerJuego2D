@@ -1,4 +1,4 @@
-13 150 Pablo 163 143 42 35 true 1 0
-20 6 Chorizard 26 143 47 42 true 2 0
+13 150 Pablo 163 32 42 35 true 1 0
+20 6 Chorizard 26 32 47 42 true 2 50
 3 21 Pepe 24 24 18 18 true 3 50
 10 136 Juanico 146 146 22 22 true 4 50
