@@ -172,16 +172,16 @@ public class UI {
                 gp.player.vida_pokemon_restante -= 3; 
                 
                 // Se encarga de actualizar la vida en el .txt 
-                gp.nombres.actualizar_vida_compañero(1);
+                gp.nombres.actualizar_vida_compañero(gp.player.seleccion_pokemon);
             }else if(gp.player.vida_pokemon_restante > 0){
                 gp.sonido.play(8, false, "effect");
                 gp.player.vida_pokemon_restante -= 1; 
                 
                 // Se encarga de actualizar la vida en el .txt 
-                gp.nombres.actualizar_vida_compañero(1);
+                gp.nombres.actualizar_vida_compañero(gp.player.seleccion_pokemon);
             }else{
                 // Se encarga de actualizar la vida en el .txt 
-                gp.nombres.actualizar_vida_compañero(1);
+                gp.nombres.actualizar_vida_compañero(gp.player.seleccion_pokemon);
                 
                 // Encargado de limpiar el array y cargarlo de nuevo con los nuevos valores 
                 gp.equipo_pokemones.clear(); 

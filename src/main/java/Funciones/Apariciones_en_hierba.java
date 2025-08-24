@@ -50,8 +50,8 @@ public class Apariciones_en_hierba {
                 gp.player.vida_enemigo_restante = (int) gp.player.vida_enemigo; 
                 
                 // Seteamos la vida pokemon aliado; 
-                gp.nombres.cargar_vida_pokemon_actual(gp.equipo_pokemones.get(0).getNombre()); // Obtenemos vida maxima; 
-                gp.nombres.cargar_vida_pokemon_restante(1); 
+                gp.nombres.cargar_vida_pokemon_actual(gp.equipo_pokemones.get(gp.player.seleccion_pokemon).getNombre()); // Obtenemos vida maxima; 
+                gp.nombres.cargar_vida_pokemon_restante(gp.player.seleccion_pokemon); 
                 
                 
                 // Turno 
