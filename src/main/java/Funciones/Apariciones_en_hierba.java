@@ -38,14 +38,17 @@ public class Apariciones_en_hierba {
             int numeroAleatorio = random.nextInt(200) + 1;  
             int aparicion = random.nextInt(5); // Hay que poner exactamente el número de 
             
-            gp.keyHandler.hp_enemy = 1.0f; // Vida del pokemon rival 
             
             if(numeroAleatorio == 1){
                 gp.player.sprite_bicho_attack = numero[aparicion]; 
                
                 // Seteamos el lvl del pokemon en cuestión 
                 gp.ui.lvl = random.nextInt(10) + 1; 
-
+                
+                // -- Ajustamos la vida del enemigo
+                gp.player.vida_enemigo = gp.player.sprite_bicho_attack + gp.ui.lvl; 
+                gp.player.vida_enemigo_restante = (int) gp.player.vida_enemigo; 
+                
                 // Seteamos la vida pokemon aliado; 
                 gp.nombres.cargar_vida_pokemon_actual(gp.equipo_pokemones.get(0).getNombre()); // Obtenemos vida maxima; 
                 gp.nombres.cargar_vida_pokemon_restante(1); 

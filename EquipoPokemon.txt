@@ -1,3 +1,3 @@
-3 150 Pablo 153 142 18 15 true 1 0
-10 6 Chorizard 16 16 22 22 true 3 0
-5 150 Mew2 155 155 17 22 true 3 0
+6 150 Pablo 156 118 24 21 true 1 0
+13 6 Chorizard 19 16 28 28 true 3 0
+8 150 Mew2 158 155 23 28 true 3 0

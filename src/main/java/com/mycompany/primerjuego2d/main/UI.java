@@ -193,7 +193,8 @@ public class UI {
             gp.turnos.battle_turn = true; 
         }
         
-        sb.healthBar(x , y + gp.tileSize, gp.keyHandler.hp_enemy, "enemy"); // Barra de vida de los pokemones enemigos
+        
+        sb.healthBar(x , y + gp.tileSize, gp.player.vida_enemigo_restante / gp.player.vida_enemigo, "enemy"); // Barra de vida de los pokemones enemigos
         
         // ------------------------ Compañero de batalla -----------------------
         

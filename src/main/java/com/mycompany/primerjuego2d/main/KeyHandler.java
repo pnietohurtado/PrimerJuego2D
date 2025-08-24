@@ -50,7 +50,6 @@ public class KeyHandler implements KeyListener{
     
     public boolean playMusic ; // Para poder poner la música 
     
-    public float hp_enemy ; 
     
     private Random random; 
     private int aleatorio ; 
@@ -192,7 +191,7 @@ public class KeyHandler implements KeyListener{
                 if(gp.ui.commandNumber == 0 && gp.turnos.battle_turn == true){
                     this.aleatorio = random.nextInt(1000) +1 ; 
                     
-                    if(this.hp_enemy <= 0){
+                    if(gp.player.vida_enemigo_restante <= 1){
                         gp.sonido.stop(5); 
                         // Se encarga de actualizar la vida en el .txt 
                         gp.nombres.actualizar_vida_compañero(1);
@@ -201,13 +200,15 @@ public class KeyHandler implements KeyListener{
                         gp.nombres.actualizar_xp("xp"); 
                         
                     }else if(this.aleatorio == 1){
+                        
                         gp.sonido.play(9, false, "effect");
-                        hp_enemy -= 0.3f; 
+                        gp.player.vida_enemigo_restante -= 3 * gp.equipo_pokemones.get(0).getAttack(); 
                         // Se encarga de actualizar la vida en el .txt 
                         gp.nombres.actualizar_vida_compañero(1);
                     }else{
+                        
                         gp.sonido.play(8, false, "effect");
-                        hp_enemy -= 0.2f; 
+                        gp.player.vida_enemigo_restante -= 2 * gp.equipo_pokemones.get(0).getAttack(); 
                         // Se encarga de actualizar la vida en el .txt 
                         gp.nombres.actualizar_vida_compañero(1);
                     }
@@ -221,7 +222,7 @@ public class KeyHandler implements KeyListener{
                 }else if(gp.ui.commandNumber == 2 && gp.turnos.battle_turn == true){
                     
                     if(gp.player.hasPokeball > 0){
-                        this.posibilidad_de_captura = random.nextInt((int)(gp.ui.lvl * (this.hp_enemy + 1) ) ) + 1; 
+                        this.posibilidad_de_captura = random.nextInt((int)(gp.ui.lvl * (gp.player.vida_enemigo_restante + 1) ) ) + 1; 
                         
                         if(this.posibilidad_de_captura == 1){
                             String nombre = null; 

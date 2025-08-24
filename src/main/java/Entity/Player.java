@@ -32,6 +32,8 @@ public class Player extends Entity{
     
     public float vida_pokemon_compañero = 0; 
     public int vida_pokemon_restante; 
+    public float vida_enemigo = 0; // Vida Maxima 
+    public int vida_enemigo_restante; 
     
     // --- 
     

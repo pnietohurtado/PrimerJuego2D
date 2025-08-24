@@ -117,10 +117,10 @@ public class SubWindow {
 
         // Color de la vida (verde en este caso)
         if((ally_enemy.equals("ally") && gp.player.vida_pokemon_restante < (gp.player.vida_pokemon_compañero * 0.25)) 
-                || (ally_enemy.equals("enemy") && gp.keyHandler.hp_enemy < 0.25)){
+                || (ally_enemy.equals("enemy") && gp.player.vida_enemigo_restante < (gp.player.vida_enemigo * 0.25))){
             g2.setColor(Color.RED); 
         }else if((ally_enemy.equals("ally") && gp.player.vida_pokemon_restante < (gp.player.vida_pokemon_compañero /2))
-                || (ally_enemy.equals("enemy") && gp.keyHandler.hp_enemy < 0.5 )){
+                || (ally_enemy.equals("enemy") && gp.player.vida_enemigo_restante < (gp.player.vida_enemigo * 0.5) )){
             g2.setColor(Color.ORANGE); 
         }else{
             g2.setColor(Color.GREEN);
