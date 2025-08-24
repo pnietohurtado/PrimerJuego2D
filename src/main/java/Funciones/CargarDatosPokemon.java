@@ -71,12 +71,8 @@ public class CargarDatosPokemon {
             
             try {
                 while((linea = br.readLine()) != null){
-                    linea = linea.trim();
-                    if (linea.isEmpty()) continue;  
-
                     String partes[] = linea.split(" "); 
-                    if (partes.length < 9) continue; 
-
+                    
                     int lvl = Integer.parseInt(partes[0]); 
                     int pokedex = Integer.parseInt(partes[1]); 
                     String nombre = partes[2]; 
@@ -117,11 +113,11 @@ public class CargarDatosPokemon {
             if(nombre == null){
                 linea = gp.ui.lvl + " " + gp.player.sprite_bicho_attack + " " + 
                     gp.nombres_pokemon[gp.player.sprite_bicho_attack ] + " " + (gp.ui.lvl + gp.player.sprite_bicho_attack) + " "+  (gp.ui.lvl + gp.player.sprite_bicho_attack) + " " + String.valueOf(attack) +  " " + 
-                    String.valueOf(defense) + " " + "true " + (gp.equipo_pokemones.size()+1) +" " +  0; 
+                    String.valueOf(defense) + " " + "true " + (gp.equipo_pokemones.size()) +" " +  0; 
             }else{
                 linea = gp.ui.lvl + " " + gp.player.sprite_bicho_attack + " " + 
                     nombre + " " + (gp.ui.lvl + gp.player.sprite_bicho_attack) + " "+  (gp.ui.lvl + gp.player.sprite_bicho_attack) + " " + String.valueOf(attack) +  " " + 
-                    String.valueOf(defense) + " " + "true " + (gp.equipo_pokemones.size()+1) +" " + 0; 
+                    String.valueOf(defense) + " " + "true " + (gp.equipo_pokemones.size()) +" " + 0; 
             }
             
             br.write(linea);
@@ -227,7 +223,7 @@ public class CargarDatosPokemon {
     }
    
 
-    public void actualizar_xp(String accion) {
+    public void actualizar_xp(String accion, int ID) {
         BufferedReader br;
         BufferedWriter bw; 
         try { 
@@ -258,18 +254,18 @@ public class CargarDatosPokemon {
                     int id = Integer.parseInt(partes[8]);
                     int xp = Integer.parseInt(partes[9]); 
                     
-                    if(xp + 50 == 100){
+                    if(xp + 50 == 100 && id == ID){
                         lvl++; 
                         vidaMax = lvl + pokedex; 
-                        linea = lvl + " " + pokedex + " " + nombre +" "+ vidaMax +  " " + vida + " " + (ataque +2)
+                        linea = lvl + " " + pokedex + " " + nombre +" "+ vidaMax +  " " + vida + " " + (ataque + 3)
                                 + " " + (defensa + 2) + " " + objeto + " " + id + " " + 0; 
                         
-                    }else if(accion.equals("xp")){
+                    }else if(accion.equals("xp") && id == ID){
                         xp += 50; 
                         linea = lvl + " " + pokedex + " " + nombre +" "+ vidaMax +  " " + vida + " " + ataque
                                 + " " + defensa + " " + objeto + " " + id + " " + xp; 
                         
-                    }else if(accion.equals("vida")){
+                    }else if(accion.equals("vida") ){
                         vida = vidaMax; 
                         linea = lvl + " " + pokedex + " " + nombre +" "+ vidaMax +  " " + vida + " " + ataque
                                 + " " + defensa + " " + objeto + " " + id + " " + xp; 

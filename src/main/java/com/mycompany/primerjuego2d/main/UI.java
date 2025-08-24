@@ -201,7 +201,7 @@ public class UI {
         this.x = gp.tileSize; 
         this.y = gp.tileSize / 2; 
         
-        gp.npc[997] = new NPC_Pokemon(gp, gp.equipo_pokemones.get(0).getPokedex()); 
+        gp.npc[997] = new NPC_Pokemon(gp, gp.equipo_pokemones.get(gp.player.seleccion_pokemon).getPokedex()); 
         g2.drawImage(gp.npc[997].f1, x + (gp.tileSize * 3), y + (gp.tileSize * 5), gp.tileSize*4, gp.tileSize * 4, null);
         
         width = gp.screenWidth - (gp.tileSize * 8); 
@@ -214,7 +214,7 @@ public class UI {
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32F)); 
         this.x += gp.tileSize; 
         this.y += gp.tileSize; 
-        g2.drawString(gp.equipo_pokemones.get(0).getNombre(), x * 5, y * 5); 
+        g2.drawString(gp.equipo_pokemones.get(gp.player.seleccion_pokemon).getNombre(), x * 5, y * 5); 
         g2.drawString(" lvl. " + gp.player.lvl_compero, x * 7, y * 5 ); 
         
         

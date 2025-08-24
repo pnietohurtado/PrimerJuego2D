@@ -38,6 +38,7 @@ public class Player extends Entity{
     // --- 
     
     public int lvl_compero = 0; 
+    public int seleccion_pokemon = 0; 
     
     // -------------------------------------------------------------------------
     
@@ -213,7 +214,7 @@ public class Player extends Entity{
                 this.actionLocker = 0; 
             }
             if((gp.player.worldY > (170 * gp.tileSize) && gp.player.worldY < (191 * gp.tileSize)) && (gp.player.worldX < (71 * gp.tileSize) && gp.player.worldX > (57 * gp.tileSize))){
-                System.out.println("X: " + gp.player.worldX + " Y: "+ gp.player.worldY);
+                System.out.println("Apariciones " + gp.equipo_pokemones);
                 gp.apariciones_pokemon.grassBattle01(0);
             }else if((gp.player.worldY > (142 * gp.tileSize) && gp.player.worldY < (170 * gp.tileSize)) && (gp.player.worldX < (57 * gp.tileSize) && gp.player.worldX > (23 * gp.tileSize))){
                 gp.apariciones_pokemon.grassBattle01(1);
@@ -247,7 +248,7 @@ public class Player extends Entity{
             if(this.actionLocker == 17){
                 gp.sonido.play(11, false, "effect");
                 this.actionLocker = 0; 
-                gp.nombres.actualizar_xp("vida");
+                gp.nombres.actualizar_xp("vida", gp.player.seleccion_pokemon);
             }
         }
         

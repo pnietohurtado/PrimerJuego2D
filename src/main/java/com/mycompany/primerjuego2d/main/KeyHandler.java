@@ -194,28 +194,29 @@ public class KeyHandler implements KeyListener{
                     if(gp.player.vida_enemigo_restante <= 1){
                         gp.sonido.stop(5); 
                         // Se encarga de actualizar la vida en el .txt 
-                        gp.nombres.actualizar_vida_compañero(1);
+                        gp.nombres.actualizar_vida_compañero(gp.player.seleccion_pokemon + 1);
                         gp.gameState = gp.playState; 
                         
-                        gp.nombres.actualizar_xp("xp"); 
+                        gp.nombres.actualizar_xp("xp", gp.player.seleccion_pokemon + 1); 
                         
                     }else if(this.aleatorio == 1){
                         
                         gp.sonido.play(9, false, "effect");
-                        gp.player.vida_enemigo_restante -= 3 * gp.equipo_pokemones.get(0).getAttack(); 
+                        gp.player.vida_enemigo_restante -= 3 * gp.equipo_pokemones.get(gp.player.seleccion_pokemon).getAttack(); 
                         // Se encarga de actualizar la vida en el .txt 
-                        gp.nombres.actualizar_vida_compañero(1);
+                        gp.nombres.actualizar_vida_compañero(gp.player.seleccion_pokemon +1 );
                     }else{
                         
                         gp.sonido.play(8, false, "effect");
-                        gp.player.vida_enemigo_restante -= 2 * gp.equipo_pokemones.get(0).getAttack(); 
+                        gp.player.vida_enemigo_restante -= 2 * gp.equipo_pokemones.get(gp.player.seleccion_pokemon).getAttack(); 
                         // Se encarga de actualizar la vida en el .txt 
-                        gp.nombres.actualizar_vida_compañero(1);
+                        gp.nombres.actualizar_vida_compañero(gp.player.seleccion_pokemon + 1);
                     }
                     gp.turnos.battle_turn = false; // Cambiar turno
                     
                     
                 }else if(gp.ui.commandNumber == 1 && gp.turnos.battle_turn == true) {
+                    gp.player.seleccion_pokemon = 1; 
                     
                     gp.turnos.battle_turn = false; // Cambiar turno
                     
@@ -433,7 +434,7 @@ public class KeyHandler implements KeyListener{
                             Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
                         }
                         
-                        gp.nombres.cargar_pokemones_equipo();
+                        //gp.nombres.cargar_pokemones_equipo();
                         gp.guardado.poner_objetos();
                         gp.sonido.play(1, true, "music");
                         gp.gameState = gp.playState;
