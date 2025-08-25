@@ -436,6 +436,11 @@ public class KeyHandler implements KeyListener{
                                     gp.player.hasKey = Integer.parseInt(partes[5]); 
                                     gp.player.inventario.add(gp.object[2]); 
                                 }
+                                if(Integer.parseInt(partes[6]) > 0){
+                                    gp.player.hasNadar = Integer.parseInt(partes[6]); 
+                                    gp.player.inventario.add(gp.object[5]); 
+                                    
+                                }
                             }
                         } catch (FileNotFoundException ex) {
                             Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
@@ -443,7 +448,6 @@ public class KeyHandler implements KeyListener{
                             Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
                         }
                         
-                        //gp.nombres.cargar_pokemones_equipo();
                         gp.guardado.poner_objetos();
                         gp.sonido.play(1, true, "music");
                         gp.gameState = gp.playState;
