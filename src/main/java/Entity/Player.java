@@ -250,8 +250,11 @@ public class Player extends Entity{
                 gp.nombres.actualizar_xp("vida", gp.player.seleccion_pokemon);
             }
         }
-        else if(collision == true && gp.cH.tile.nombre.equals("30")){
-            
+        else if(collision == true && (gp.cH.tile.nombre.equals("32") || gp.cH.tile.nombre.equals("31") || gp.cH.tile.nombre.equals("33"))){
+            gp.cH.tile.collision = false; 
+            // ---------- Ambas variables son necesarias para cambiar skin
+            gp.skinAppereance = 3; 
+            changeSkin = true; 
         }
         
         // --------------------- Salir de edificios ----------------------------
