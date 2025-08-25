@@ -6,7 +6,6 @@ package com.mycompany.primerjuego2d.main;
 
 import CreacionDeSubVentanas.SubWindow;
 import Entity.NPC_Pokemon;
-import Objects.OBJ_Pokeball;
 import Objects.SuperObject;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -408,6 +407,9 @@ public class UI {
                         case "MTAttack": 
                             g2.drawString("x"+gp.player.hasMTAttack, gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
                             break; 
+                        case "Nadar" : 
+                            g2.drawString("x"+gp.player.hasNadar, gp.tileSize * xk  ,gp.tileSize * (yk + 1) );
+                            break;
                             
                     }
                     

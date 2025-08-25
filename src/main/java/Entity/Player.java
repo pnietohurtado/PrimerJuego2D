@@ -63,6 +63,7 @@ public class Player extends Entity{
     public int hasMTHp = 0; 
     public int hasMTAttack = 0; 
      public int hasHacha = 0; 
+    public int hasNadar = 0; 
     
     // --------------------------- Constructor de la clase ---------------------
     
@@ -251,12 +252,23 @@ public class Player extends Entity{
             }
         }
         else if(collision == true && (gp.cH.tile.nombre.equals("32") || gp.cH.tile.nombre.equals("31") || gp.cH.tile.nombre.equals("33"))){
-            gp.cH.tile.collision = false; 
+            
+            if(gp.player.hasNadar > 0){
+                gp.cH.tile.collision = false; 
+                // ---------- Ambas variables son necesarias para cambiar skin
+                gp.skinAppereance = 3; 
+                changeSkin = true; 
+                
+                gp.player.hasNadar--; 
+            }else {
+                gp.cH.tile.collision = true; 
+            }
+        }
+        else if(collision == false && (gp.cH.tile.nombre.equals("26"))){
             // ---------- Ambas variables son necesarias para cambiar skin
-            gp.skinAppereance = 3; 
+            gp.skinAppereance = 0; 
             changeSkin = true; 
         }
-        
         // --------------------- Salir de edificios ----------------------------
         
         else if(collision == true && gp.cH.tile.nombre.equals("12") && gp.cH.direction.equals("down") ){

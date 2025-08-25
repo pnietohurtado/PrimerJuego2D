@@ -20,6 +20,7 @@ com\mycompany\primerjuego2d\main\UI.class
 Entity\NPC_ShopGuy.class
 com\mycompany\primerjuego2d\main\ClaseAuxiliar.class
 Funciones\CargarRadonmizador.class
+Objects\OBJ_Nadar.class
 com\mycompany\primerjuego2d\main\MouseClicker.class
 Objects\OBJ_PokeballPokemon.class
 com\mycompany\primerjuego2d\main\CollisionChecker.class

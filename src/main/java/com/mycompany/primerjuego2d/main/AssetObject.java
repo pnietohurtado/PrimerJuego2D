@@ -24,6 +24,7 @@ public class AssetObject {
         gp.object[2] = new OBJ_Key(); 
         gp.object[3] = new OBJ_MTHp(); 
         gp.object[4] = new OBJ_MTAttack(); 
+        gp.object[5] = new OBJ_Nadar(); 
         
     }
     
