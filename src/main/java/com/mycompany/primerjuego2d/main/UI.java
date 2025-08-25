@@ -563,16 +563,16 @@ public class UI {
             if(vida <= 0){
                 g2.setColor(Color.RED);
                 g2.drawString(gp.equipo_pokemones.get(i).getNombre(), x + (gp.tileSize * 2), y + gp.tileSize);
-                g2.drawString(String.valueOf(gp.equipo_pokemones.get(i).getHP()), x + (gp.tileSize * 4), y + gp.tileSize);
+                g2.drawString(String.valueOf(gp.player.vida_pokemon_restante), x + (gp.tileSize * 4), y + gp.tileSize);
                 g2.drawString(String.valueOf(gp.equipo_pokemones.get(i).getId()), x + (gp.tileSize * 5), y + gp.tileSize);
             }else if(vida< (gp.player.vida_pokemon_compañero / 2)){
                 g2.setColor(Color.ORANGE); 
                 g2.drawString(gp.equipo_pokemones.get(i).getNombre(), x + (gp.tileSize * 2), y + gp.tileSize);
-                g2.drawString(String.valueOf(gp.equipo_pokemones.get(i).getHP()), x + (gp.tileSize * 4), y + gp.tileSize);
+                g2.drawString(String.valueOf(gp.player.vida_pokemon_restante), x + (gp.tileSize * 4), y + gp.tileSize);
                 g2.drawString(String.valueOf(gp.equipo_pokemones.get(i).getId()), x + (gp.tileSize * 5), y + gp.tileSize);
             }else{
                 g2.drawString(gp.equipo_pokemones.get(i).getNombre(), x + (gp.tileSize * 2), y + gp.tileSize);
-                g2.drawString(String.valueOf(gp.equipo_pokemones.get(i).getHP()), x + (gp.tileSize * 4), y + gp.tileSize);
+                g2.drawString(String.valueOf(gp.player.vida_pokemon_restante), x + (gp.tileSize * 4), y + gp.tileSize);
                 g2.drawString(String.valueOf(gp.equipo_pokemones.get(i).getId()), x + (gp.tileSize * 5), y + gp.tileSize);
             }
             g2.setColor(c2); 

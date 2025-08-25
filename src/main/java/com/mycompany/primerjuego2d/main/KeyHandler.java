@@ -144,6 +144,7 @@ public class KeyHandler implements KeyListener{
                 if(code == KeyEvent.VK_ENTER){
                     if(enterPressed == false){
                         this.enterPressed = true; 
+                        
                     }else if(enterPressed == true){
                         this.enterPressed = false; 
                     }
@@ -194,23 +195,23 @@ public class KeyHandler implements KeyListener{
                     if(gp.player.vida_enemigo_restante <= 1){
                         gp.sonido.stop(5); 
                         // Se encarga de actualizar la vida en el .txt 
-                        gp.nombres.actualizar_vida_compañero(gp.player.seleccion_pokemon + 1);
+                        gp.nombres.actualizar_vida_compañero(gp.player.seleccion_pokemon );
                         gp.gameState = gp.playState; 
                         
-                        gp.nombres.actualizar_xp("xp", gp.player.seleccion_pokemon + 1); 
+                        gp.nombres.actualizar_xp("xp", gp.player.seleccion_pokemon ); 
                         
                     }else if(this.aleatorio == 1){
                         
                         gp.sonido.play(9, false, "effect");
                         gp.player.vida_enemigo_restante -= 3 * gp.equipo_pokemones.get(gp.player.seleccion_pokemon).getAttack(); 
                         // Se encarga de actualizar la vida en el .txt 
-                        gp.nombres.actualizar_vida_compañero(gp.player.seleccion_pokemon +1 );
+                        gp.nombres.actualizar_vida_compañero(gp.player.seleccion_pokemon  );
                     }else{
                         
                         gp.sonido.play(8, false, "effect");
                         gp.player.vida_enemigo_restante -= 2 * gp.equipo_pokemones.get(gp.player.seleccion_pokemon).getAttack(); 
                         // Se encarga de actualizar la vida en el .txt 
-                        gp.nombres.actualizar_vida_compañero(gp.player.seleccion_pokemon + 1);
+                        gp.nombres.actualizar_vida_compañero(gp.player.seleccion_pokemon );
                     }
                     gp.turnos.battle_turn = false; // Cambiar turno
                     
@@ -232,7 +233,7 @@ public class KeyHandler implements KeyListener{
                 }else if(gp.ui.commandNumber == 2 && gp.turnos.battle_turn == true){
                     
                     if(gp.player.hasPokeball > 0){
-                        this.posibilidad_de_captura = random.nextInt((int)(gp.ui.lvl * (gp.player.vida_enemigo_restante + 1) ) ) + 1; 
+                        this.posibilidad_de_captura = random.nextInt(10 )+1; 
                         
                         if(this.posibilidad_de_captura == 1){
                             String nombre = null; 

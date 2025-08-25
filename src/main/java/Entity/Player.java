@@ -215,10 +215,16 @@ public class Player extends Entity{
                 this.actionLocker = 0; 
             }
             if((gp.player.worldY > (170 * gp.tileSize) && gp.player.worldY < (191 * gp.tileSize)) && (gp.player.worldX < (71 * gp.tileSize) && gp.player.worldX > (57 * gp.tileSize))){                
+                //Ruta01
+                gp.ui.lvl = random.nextInt(10) + 1; 
                 gp.apariciones_pokemon.grassBattle01(0);
             }else if((gp.player.worldY > (142 * gp.tileSize) && gp.player.worldY < (170 * gp.tileSize)) && (gp.player.worldX < (57 * gp.tileSize) && gp.player.worldX > (23 * gp.tileSize))){
+                //Ruta02 
+                gp.ui.lvl = random.nextInt(25) + 10; 
                 gp.apariciones_pokemon.grassBattle01(1);
             }else if((gp.player.worldY > (155 * gp.tileSize) && gp.player.worldY < (166 * gp.tileSize)) && (gp.player.worldX < (106 * gp.tileSize) && gp.player.worldX > (73 * gp.tileSize))){
+                //Ruta03 
+                gp.ui.lvl = random.nextInt(35) + 10; 
                 gp.apariciones_pokemon.grassBattle01(2);
             }
         }else if(collision == false && (gp.cH.tile.nombre.equals("1") || gp.cH.tile.nombre.equals("34") || gp.cH.tile.nombre.equals("35"))){
@@ -253,18 +259,20 @@ public class Player extends Entity{
         }
         else if(collision == true && (gp.cH.tile.nombre.equals("32") || gp.cH.tile.nombre.equals("31") || gp.cH.tile.nombre.equals("33"))){
             
-            if(gp.player.hasNadar > 0){
+            if(gp.player.hasNadar > 0 && gp.keyHandler.enterPressed == true){
                 gp.cH.tile.collision = false; 
                 // ---------- Ambas variables son necesarias para cambiar skin
                 gp.skinAppereance = 3; 
                 changeSkin = true; 
                 
-                gp.player.hasNadar--; 
             }else {
                 gp.cH.tile.collision = true; 
             }
         }
         else if(collision == false && (gp.cH.tile.nombre.equals("26"))){
+            if(gp.keyHandler.enterPressed == false){
+                gp.player.hasNadar--; 
+            }
             // ---------- Ambas variables son necesarias para cambiar skin
             gp.skinAppereance = 0; 
             changeSkin = true; 

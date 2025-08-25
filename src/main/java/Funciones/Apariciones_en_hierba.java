@@ -41,9 +41,6 @@ public class Apariciones_en_hierba {
             
             if(numeroAleatorio == 1){
                 gp.player.sprite_bicho_attack = numero[aparicion]; 
-               
-                // Seteamos el lvl del pokemon en cuestión 
-                gp.ui.lvl = random.nextInt(10) + 1; 
                 
                 // -- Ajustamos la vida del enemigo
                 gp.player.vida_enemigo = gp.player.sprite_bicho_attack + gp.ui.lvl; 
