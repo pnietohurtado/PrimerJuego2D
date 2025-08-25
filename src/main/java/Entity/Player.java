@@ -106,14 +106,14 @@ public class Player extends Entity{
     
     // ---------------- Variables de prueba sobre las skins player -------------
     
-    String front1[] = {"/player/F1","/NPC/CocheFront", "/player/F1"}; 
-    String front2[] = {"/player/F2","/NPC/CocheFront", "/player/F2"}; 
-    String right1[] = {"/player/R1","/NPC/CocheR1",  "/player/R1"};  
-    String right2[] = {"/player/R2","/NPC/CocheR2", "/player/R2"}; 
-    String left1[] = {"/player/L1","/NPC/CocheL1", "/player/L1"}; 
-    String left2[] = {"/player/L2","/NPC/CocheL2", "/player/L2"}; 
-    String back1[] = {"/player/F1","/NPC/CocheB", "/player/F1"}; 
-    String back2[] = {"/player/F2","/NPC/CocheB", "/player/F2"}; 
+    String front1[] = {"/player/F1","/NPC/CocheFront", "/player/F1", "/Agua/Down"}; 
+    String front2[] = {"/player/F2","/NPC/CocheFront", "/player/F2", "/Agua/Down"}; 
+    String right1[] = {"/player/R1","/NPC/CocheR1",  "/player/R1", "/Agua/Right"};  
+    String right2[] = {"/player/R2","/NPC/CocheR2", "/player/R2", "/Agua/Right"}; 
+    String left1[] = {"/player/L1","/NPC/CocheL1", "/player/L1", "/Agua/Left"}; 
+    String left2[] = {"/player/L2","/NPC/CocheL2", "/player/L2", "/Agua/Left"}; 
+    String back1[] = {"/player/F1","/NPC/CocheB", "/player/F1", "/Agua/Up"}; 
+    String back2[] = {"/player/F2","/NPC/CocheB", "/player/F2", "/Agua/Up"}; 
     
     // -------------------------------------------------------------------------
     
@@ -213,8 +213,7 @@ public class Player extends Entity{
                 gp.sonido.play(10, false, "effect");
                 this.actionLocker = 0; 
             }
-            if((gp.player.worldY > (170 * gp.tileSize) && gp.player.worldY < (191 * gp.tileSize)) && (gp.player.worldX < (71 * gp.tileSize) && gp.player.worldX > (57 * gp.tileSize))){
-                System.out.println("Apariciones " + gp.equipo_pokemones);
+            if((gp.player.worldY > (170 * gp.tileSize) && gp.player.worldY < (191 * gp.tileSize)) && (gp.player.worldX < (71 * gp.tileSize) && gp.player.worldX > (57 * gp.tileSize))){                
                 gp.apariciones_pokemon.grassBattle01(0);
             }else if((gp.player.worldY > (142 * gp.tileSize) && gp.player.worldY < (170 * gp.tileSize)) && (gp.player.worldX < (57 * gp.tileSize) && gp.player.worldX > (23 * gp.tileSize))){
                 gp.apariciones_pokemon.grassBattle01(1);
@@ -250,6 +249,9 @@ public class Player extends Entity{
                 this.actionLocker = 0; 
                 gp.nombres.actualizar_xp("vida", gp.player.seleccion_pokemon);
             }
+        }
+        else if(collision == true && gp.cH.tile.nombre.equals("30")){
+            
         }
         
         // --------------------- Salir de edificios ----------------------------
