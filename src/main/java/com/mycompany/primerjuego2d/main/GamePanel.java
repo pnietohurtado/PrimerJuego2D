@@ -63,6 +63,9 @@ public class GamePanel extends JPanel implements Runnable{
     // 6 primeros pokemones
     public ArrayList<Pokemon> seis_iniciales = new ArrayList<>(); 
     
+    // -- Evolucion Pokemon 
+    public Evolucion_pokemon evolucion = new Evolucion_pokemon(this); 
+    
     // ------------------- Rutas de pokemon ------------------------------------
     
     public int ruta01[] = new int[6]; 

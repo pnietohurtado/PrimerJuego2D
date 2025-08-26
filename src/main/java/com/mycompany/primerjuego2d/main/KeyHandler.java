@@ -121,12 +121,8 @@ public class KeyHandler implements KeyListener{
                 
                 // ---------------- Cambiar al modo Dios -----------------------
                 if(code == KeyEvent.VK_L){
-                    if(gp.tileManager.hayColision == false){
-                        gp.tileManager.hayColision = true; 
-                    }else{
-                        gp.tileManager.hayColision = false; 
-                    }
-                    gp.tileManager.getTileImage();
+                   /* System.out.println("Activado");
+                    gp.equipo_pokemones.get(gp.player.seleccion_pokemon).setPokedex(2);*/
                 }
 
                 if(code  == KeyEvent.VK_T)
@@ -199,6 +195,7 @@ public class KeyHandler implements KeyListener{
                         gp.gameState = gp.playState; 
                         
                         gp.nombres.actualizar_xp("xp", gp.player.seleccion_pokemon ); 
+                        gp.evolucion.evolucionar();
                         
                     }else if(this.aleatorio == 1){
                         
@@ -290,7 +287,7 @@ public class KeyHandler implements KeyListener{
                     try { 
                         BufferedWriter bw = new BufferedWriter(new FileWriter("data_game.txt", false));
                         String linea =gp.player.worldX + " " + gp.player.worldY + " " + gp.player.pokemon_inicial + " " + gp.player.dineroPlayer + " " +  gp.player.hasPokeball
-                                + " " + gp.player.hasKey; 
+                                + " " + gp.player.hasKey + " " + gp.player.hasNadar; 
                         bw.write(linea);
                         bw.newLine(); 
                         bw.close();
