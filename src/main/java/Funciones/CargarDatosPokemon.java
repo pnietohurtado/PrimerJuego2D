@@ -272,7 +272,7 @@ public class CargarDatosPokemon {
                     }else if(accion.equals("pokedex")){
                         linea = lvl + " " + gp.evolucion.pokedex_cambiada + " " + nombre +" "+ vidaMax +  " " + vida + " " + ataque
                                 + " " + defensa + " " + objeto + " " + id + " " + xp;
-                        //System.out.println("Linea " + linea);
+                        System.out.println("Linea " + linea);
                     }
                     
                     lineas.add(linea); 

@@ -46,9 +46,8 @@ public class Evolucion_pokemon {
                     
                     int lvl_esperado = Integer.parseInt(partes[0]); 
                     int pokedex_esperado = Integer.parseInt(partes[1]); 
-                    //System.out.println("lvl " + lvl_esperado + " pokedex " + pokedex_esperado);
-                    if(gp.equipo_pokemones.get(i).getLevel() >= lvl_esperado){
-                        //System.out.println("Cambiando " + pokedex_esperado);
+                    
+                    if(lvl_esperado <= gp.equipo_pokemones.get(i).getLevel()){
                         gp.equipo_pokemones.get(i).setPokedex(pokedex_esperado);
                         this.pokedex_cambiada = pokedex_esperado; 
                         gp.nombres.actualizar_xp("pokedex", i);
