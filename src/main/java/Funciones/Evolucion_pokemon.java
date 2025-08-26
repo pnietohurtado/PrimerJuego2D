@@ -11,6 +11,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,9 +36,9 @@ public class Evolucion_pokemon {
         
         for(int i = 0; i < gp.equipo_pokemones.size(); i++){
             
-            try { 
-                System.out.println("Pokedex " + gp.equipo_pokemones.get(i).getPokedex());
-                br = new BufferedReader(new FileReader(gp.equipo_pokemones.get(i).getPokedex()+".txt"));
+            try {
+                InputStream is = getClass().getResourceAsStream("/Datos_evolucion/"+gp.equipo_pokemones.get(i).getPokedex()+".txt"); 
+                br = new BufferedReader(new InputStreamReader(is)); 
                 String linea ; 
                 
                 while((linea = br.readLine()) != null){
@@ -44,8 +46,9 @@ public class Evolucion_pokemon {
                     
                     int lvl_esperado = Integer.parseInt(partes[0]); 
                     int pokedex_esperado = Integer.parseInt(partes[1]); 
-                    
+                    //System.out.println("lvl " + lvl_esperado + " pokedex " + pokedex_esperado);
                     if(gp.equipo_pokemones.get(i).getLevel() >= lvl_esperado){
+                        //System.out.println("Cambiando " + pokedex_esperado);
                         gp.equipo_pokemones.get(i).setPokedex(pokedex_esperado);
                         this.pokedex_cambiada = pokedex_esperado; 
                         gp.nombres.actualizar_xp("pokedex", i);
