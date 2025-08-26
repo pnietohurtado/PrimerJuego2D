@@ -23,11 +23,9 @@ import java.util.logging.Logger;
  */
 public class Evolucion_pokemon {
     private GamePanel gp; 
-    public int pokedex_cambiada; 
     
     public Evolucion_pokemon(GamePanel gp){
         this.gp = gp; 
-        this.pokedex_cambiada = 0; 
     }
     
     public void evolucionar(){
@@ -49,7 +47,7 @@ public class Evolucion_pokemon {
                     
                     if(lvl_esperado <= gp.equipo_pokemones.get(i).getLevel()){
                         gp.equipo_pokemones.get(i).setPokedex(pokedex_esperado);
-                        this.pokedex_cambiada = pokedex_esperado; 
+                        gp.player.pokedex_cambiada = pokedex_esperado; 
                         gp.nombres.actualizar_xp("pokedex", i);
                     }
                     

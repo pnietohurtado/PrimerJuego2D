@@ -40,6 +40,9 @@ public class Player extends Entity{
     public int lvl_compero = 0; 
     public int seleccion_pokemon = 0; 
     
+    // --- 
+    public int pokedex_cambiada = 0; 
+    
     // -------------------------------------------------------------------------
     
     // Indice del objeto que tenemos 
