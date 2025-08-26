@@ -63,7 +63,7 @@ true
 022.png
 true
 023.png
-true
+false
 024.png
 true
 025.png
@@ -73,4 +73,10 @@ false
 027.png
 true
 028.png
+false
+029.png
+false
+030.png
+false
+031.png
 false

@@ -74,3 +74,7 @@ false
 true
 028.png
 false
+029.png
+false
+030.png
+false
