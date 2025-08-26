@@ -65,6 +65,9 @@ public class Player extends Entity{
      public int hasHacha = 0; 
     public int hasNadar = 0; 
     
+    // -- Variable de un solo uso 
+    public boolean unUso = true; 
+    
     // --------------------------- Constructor de la clase ---------------------
     
     public Player(GamePanel gp, KeyHandler kh){
@@ -259,7 +262,7 @@ public class Player extends Entity{
         }
         else if(collision == true && (gp.cH.tile.nombre.equals("32") || gp.cH.tile.nombre.equals("31") || gp.cH.tile.nombre.equals("33"))){
             
-            if(gp.player.hasNadar > 0 && gp.keyHandler.enterPressed == true){
+            if(gp.player.hasNadar > 0 && this.unUso == false){
                 gp.cH.tile.collision = false; 
                 // ---------- Ambas variables son necesarias para cambiar skin
                 gp.skinAppereance = 3; 
@@ -270,8 +273,10 @@ public class Player extends Entity{
             }
         }
         else if(collision == false && (gp.cH.tile.nombre.equals("26"))){
-            if(gp.keyHandler.enterPressed == false){
+            //this.unUso = true; 
+            if(this.unUso == true){
                 gp.player.hasNadar--; 
+                this.unUso = false; 
             }
             // ---------- Ambas variables son necesarias para cambiar skin
             gp.skinAppereance = 0; 
