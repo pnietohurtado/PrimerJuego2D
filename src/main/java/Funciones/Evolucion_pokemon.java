@@ -8,12 +8,9 @@ import com.mycompany.primerjuego2d.main.GamePanel;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -44,10 +41,11 @@ public class Evolucion_pokemon {
                     
                     int lvl_esperado = Integer.parseInt(partes[0]); 
                     int pokedex_esperado = Integer.parseInt(partes[1]); 
-                    
+                    System.out.println("Derrotado!");
                     if(lvl_esperado <= gp.equipo_pokemones.get(i).getLevel()){
                         gp.equipo_pokemones.get(i).setPokedex(pokedex_esperado);
                         gp.player.pokedex_cambiada = pokedex_esperado; 
+                        System.out.println("Pokedex " + pokedex_esperado);
                         gp.nombres.actualizar_xp("pokedex", i);
                     }
                     
