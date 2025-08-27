@@ -176,6 +176,7 @@ public class GamePanel extends JPanel implements Runnable{
         // Cargar los nombres de los pokemones 
         nombres.cargar();
         nombres.cargar_pokemones_equipo();
+        player.lvl_compero = equipo_pokemones.get(player.seleccion_pokemon).getLevel(); 
         
         // Cargar los seis iniciales 
         
