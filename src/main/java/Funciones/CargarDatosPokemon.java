@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.SwingUtilities;
 import tile.TileManager;
 
 /**
@@ -224,75 +225,76 @@ public class CargarDatosPokemon {
    
 
     public void actualizar_xp(String accion, int ID) {
-        BufferedReader br;
-        BufferedWriter bw; 
-        try { 
-        
-            br = new BufferedReader(new FileReader("EquipoPokemon.txt"));
-            ArrayList<String> lineas = new ArrayList<>(); 
-            String linea;     
-            
-            while((linea = br.readLine()) != null){
-                        
-                    linea = linea.trim();
-                    if (linea.isEmpty()) continue;  
+        SwingUtilities.invokeLater(() -> {
+            BufferedReader br;
+            BufferedWriter bw; 
+            try { 
 
-                    String partes[] = linea.split(" "); 
-                    if (partes.length < 10){
+                br = new BufferedReader(new FileReader("EquipoPokemon.txt"));
+                ArrayList<String> lineas = new ArrayList<>(); 
+                String linea;     
+
+                while((linea = br.readLine()) != null){
+
+                        linea = linea.trim();
+                        if (linea.isEmpty()) continue;  
+
+                        String partes[] = linea.split(" "); 
+                        if (partes.length < 10){
+                            lineas.add(linea); 
+                            continue;
+                        } 
+
+                        int lvl = Integer.parseInt(partes[0]); 
+                        int pokedex = Integer.parseInt(partes[1]); 
+                        String nombre = partes[2]; 
+                        int vidaMax = Integer.parseInt(partes[3]); 
+                        int vida = Integer.parseInt(partes[4]); 
+                        int ataque = Integer.parseInt(partes[5]); 
+                        int defensa = Integer.parseInt(partes[6]); 
+                        boolean objeto = Boolean.parseBoolean(partes[7]); 
+                        int id = Integer.parseInt(partes[8]);
+                        int xp = Integer.parseInt(partes[9]); 
+
+                        if(xp + 50 == 100 && id == ID){
+                            lvl++; 
+                            vidaMax = lvl + pokedex; 
+                            linea = lvl + " " + pokedex + " " + nombre +" "+ vidaMax +  " " + vida + " " + (ataque + 3)
+                                    + " " + (defensa + 2) + " " + objeto + " " + id + " " + 0; 
+
+                        }else if(accion.equals("xp") && id == ID){
+                            xp += 50; 
+                            linea = lvl + " " + pokedex + " " + nombre +" "+ vidaMax +  " " + vida + " " + ataque
+                                    + " " + defensa + " " + objeto + " " + id + " " + xp; 
+
+                        }else if(accion.equals("vida") ){
+                            vida = vidaMax; 
+                            linea = lvl + " " + pokedex + " " + nombre +" "+ vidaMax +  " " + vida + " " + ataque
+                                    + " " + defensa + " " + objeto + " " + id + " " + xp; 
+                        }else if(accion.equals("pokedex")){
+                            linea = lvl + " " + gp.player.pokedex_cambiada + " " + nombre +" "+ vidaMax +  " " + vida + " " + ataque
+                                    + " " + defensa + " " + objeto + " " + id + " " + xp;
+                            System.out.println("Linea " + linea); // NO TOCARRRRRRRRR
+                        }
+
                         lineas.add(linea); 
-                        continue;
-                    } 
-                    
-                    int lvl = Integer.parseInt(partes[0]); 
-                    int pokedex = Integer.parseInt(partes[1]); 
-                    String nombre = partes[2]; 
-                    int vidaMax = Integer.parseInt(partes[3]); 
-                    int vida = Integer.parseInt(partes[4]); 
-                    int ataque = Integer.parseInt(partes[5]); 
-                    int defensa = Integer.parseInt(partes[6]); 
-                    boolean objeto = Boolean.parseBoolean(partes[7]); 
-                    int id = Integer.parseInt(partes[8]);
-                    int xp = Integer.parseInt(partes[9]); 
-                    
-                    if(xp + 50 == 100 && id == ID){
-                        lvl++; 
-                        vidaMax = lvl + pokedex; 
-                        linea = lvl + " " + pokedex + " " + nombre +" "+ vidaMax +  " " + vida + " " + (ataque + 3)
-                                + " " + (defensa + 2) + " " + objeto + " " + id + " " + 0; 
-                        
-                    }else if(accion.equals("xp") && id == ID){
-                        xp += 50; 
-                        linea = lvl + " " + pokedex + " " + nombre +" "+ vidaMax +  " " + vida + " " + ataque
-                                + " " + defensa + " " + objeto + " " + id + " " + xp; 
-                        
-                    }else if(accion.equals("vida") ){
-                        vida = vidaMax; 
-                        linea = lvl + " " + pokedex + " " + nombre +" "+ vidaMax +  " " + vida + " " + ataque
-                                + " " + defensa + " " + objeto + " " + id + " " + xp; 
-                    }else if(accion.equals("pokedex")){
-                        linea = lvl + " " + gp.player.pokedex_cambiada + " " + nombre +" "+ vidaMax +  " " + vida + " " + ataque
-                                + " " + defensa + " " + objeto + " " + id + " " + xp;
-                        System.out.println("Linea " + linea); // NO TOCARRRRRRRRR
-                    }
-                    
-                    lineas.add(linea); 
-                    
-                    
+
+
+                }
+
+                br.close();
+                bw = new BufferedWriter(new FileWriter("EquipoPokemon.txt", false));
+
+                for(String l: lineas){
+                    bw.write(l);
+                    bw.newLine();
+                }
+                bw.close(); 
+
+            } catch (IOException ex) {
+                Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-            br.close();
-            bw = new BufferedWriter(new FileWriter("EquipoPokemon.txt", false));
-            
-            for(String l: lineas){
-                bw.write(l);
-                bw.newLine();
-            }
-            bw.close(); 
-                        
-        } catch (IOException ex) {
-            Logger.getLogger(KeyHandler.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        });
         
     }
 

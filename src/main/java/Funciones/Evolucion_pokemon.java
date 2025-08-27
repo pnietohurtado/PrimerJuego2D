@@ -28,13 +28,13 @@ public class Evolucion_pokemon {
     
     public void evolucionar(){
         
-        SwingUtilities.invokeLater(() -> {
+        
             BufferedReader br; 
             BufferedWriter bw; 
             for(int i = 0; i < gp.equipo_pokemones.size(); i++){
-
+                gp.player.seleccion_pokemon = i; 
                 try {
-                    InputStream is = getClass().getResourceAsStream("/Datos_evolucion/"+gp.equipo_pokemones.get(i).getPokedex()+".txt"); 
+                    InputStream is = getClass().getResourceAsStream("/Datos_evolucion/"+gp.equipo_pokemones.get(gp.player.seleccion_pokemon).getPokedex()+".txt"); 
                     br = new BufferedReader(new InputStreamReader(is)); 
                     String linea ; 
 
@@ -44,13 +44,14 @@ public class Evolucion_pokemon {
                         int lvl_esperado = Integer.parseInt(partes[0]); 
                         int pokedex_esperado = Integer.parseInt(partes[1]); 
                         System.out.println("Derrotado!");
-
-                        if(lvl_esperado <= gp.equipo_pokemones.get(i).getLevel()){
-                            gp.equipo_pokemones.get(i).setPokedex(pokedex_esperado);
-                            gp.player.pokedex_cambiada = pokedex_esperado; 
-                            System.out.println("Pokedex " + pokedex_esperado);
-                            gp.nombres.actualizar_xp("pokedex", i);
-                        }
+                        SwingUtilities.invokeLater(() -> {
+                            if(lvl_esperado <= gp.equipo_pokemones.get(gp.player.seleccion_pokemon).getLevel()){
+                                gp.equipo_pokemones.get(gp.player.seleccion_pokemon).setPokedex(pokedex_esperado);
+                                gp.player.pokedex_cambiada = pokedex_esperado; 
+                                System.out.println("Pokedex " + pokedex_esperado);
+                                gp.nombres.actualizar_xp("pokedex", gp.player.seleccion_pokemon);
+                            }
+                        });
 
 
                     }
@@ -63,7 +64,6 @@ public class Evolucion_pokemon {
                 }
 
             }
-        });
     }
     
 }
