@@ -26,6 +26,7 @@ public class Evolucion_pokemon {
         this.gp = gp; 
     }
     
+    
     public void evolucionar(){
         
         
@@ -41,9 +42,11 @@ public class Evolucion_pokemon {
                     while((linea = br.readLine()) != null){
                         String partes[] = linea.split(" "); 
 
-                        int lvl_esperado = Integer.parseInt(partes[0]); 
-                        int pokedex_esperado = Integer.parseInt(partes[1]); 
-                        System.out.println("Derrotado!");
+                        final int lvl_esperado = Integer.parseInt(partes[0]); 
+                        final int pokedex_esperado = Integer.parseInt(partes[1]); 
+                        final int indice = gp.player.seleccion_pokemon; 
+                        
+                        System.out.println("Derrotado!" + " " + pokedex_esperado);
                         SwingUtilities.invokeLater(() -> {
                             if(lvl_esperado <= gp.equipo_pokemones.get(gp.player.seleccion_pokemon).getLevel()){
                                 gp.equipo_pokemones.get(gp.player.seleccion_pokemon).setPokedex(pokedex_esperado);
@@ -55,6 +58,7 @@ public class Evolucion_pokemon {
 
 
                     }
+                    br.close();
 
 
                 } catch (FileNotFoundException ex) {
