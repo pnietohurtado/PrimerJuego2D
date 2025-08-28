@@ -540,18 +540,24 @@ public class UI {
     
     public void pokemonTeam(){
         
-        x = gp.tileSize  ; 
+        x = gp.tileSize  * 6; 
         y = gp.tileSize / 2; 
-        int width = (gp.tileSize *6); 
-        int height = gp.tileSize * 11;
+        int width = (gp.tileSize *10); 
+        int height = gp.tileSize * 2;
         
-        c1 = new Color(0, 0,0);
-        c2 = new Color(135, 206, 250);
-        sb.SubWindow(x, y, width, height, c1, c2);
+        g2.setColor(Color.BLACK); 
+        g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
+        
+        
+        
         
         float vida; 
         
         for(int i = 0; i < gp.equipo_pokemones.size(); i++){
+            
+            c1 = new Color(0, 0,0);
+            c2 = new Color(135, 206, 250);
+            sb.SubWindow(x, y, width, height, c1, c2);
             
             vida = gp.equipo_pokemones.get(i).getHP(); 
             
@@ -578,9 +584,11 @@ public class UI {
             g2.setColor(c2); 
             
             // --
-             
+            
+            
             y = gp.tileSize * (i + 2); 
-                    
+                 
+            
         }
     }
     
