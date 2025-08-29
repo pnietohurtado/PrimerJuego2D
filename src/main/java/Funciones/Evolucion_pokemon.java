@@ -35,7 +35,7 @@ public class Evolucion_pokemon {
             for(int i = 0; i < gp.equipo_pokemones.size(); i++){
                 gp.player.seleccion_pokemon = i; 
                 try {
-                    InputStream is = getClass().getResourceAsStream("/Datos_evolucion/"+gp.equipo_pokemones.get(gp.player.seleccion_pokemon).getPokedex()+".txt"); 
+                    InputStream is = getClass().getResourceAsStream("/Datos_evolucion/Evoluciones.txt"); 
                     br = new BufferedReader(new InputStreamReader(is)); 
                     String linea ; 
 
@@ -48,7 +48,7 @@ public class Evolucion_pokemon {
                         
                         System.out.println("Derrotado!" + " " + pokedex_esperado);
                         SwingUtilities.invokeLater(() -> {
-                            if(lvl_esperado <= gp.equipo_pokemones.get(gp.player.seleccion_pokemon).getLevel()){
+                            if(lvl_esperado <= gp.equipo_pokemones.get(gp.player.seleccion_pokemon).getLevel() && gp.equipo_pokemones.get(gp.player.seleccion_pokemon).getPokedex() == Integer.parseInt(partes[2])){
                                 gp.equipo_pokemones.get(gp.player.seleccion_pokemon).setPokedex(pokedex_esperado);
                                 gp.player.pokedex_cambiada = pokedex_esperado; 
                                 System.out.println("Pokedex " + pokedex_esperado);
