@@ -30,11 +30,10 @@ public class Evolucion_pokemon {
     public void evolucionar(){
         
         
-            BufferedReader br; 
-            BufferedWriter bw; 
+            BufferedReader br = null; 
+            try{
             for(int i = 0; i < gp.equipo_pokemones.size(); i++){
                 gp.player.seleccion_pokemon = i; 
-                try {
                     InputStream is = getClass().getResourceAsStream("/Datos_evolucion/Evoluciones.txt"); 
                     br = new BufferedReader(new InputStreamReader(is)); 
                     String linea ; 
@@ -46,28 +45,25 @@ public class Evolucion_pokemon {
                         final int pokedex_esperado = Integer.parseInt(partes[1]); 
                         final int indice = gp.player.seleccion_pokemon; 
                         
-                        System.out.println("Derrotado!" + " " + pokedex_esperado);
                         SwingUtilities.invokeLater(() -> {
                             if(lvl_esperado <= gp.equipo_pokemones.get(gp.player.seleccion_pokemon).getLevel() && gp.equipo_pokemones.get(gp.player.seleccion_pokemon).getPokedex() == Integer.parseInt(partes[2])){
                                 gp.equipo_pokemones.get(gp.player.seleccion_pokemon).setPokedex(pokedex_esperado);
                                 gp.player.pokedex_cambiada = pokedex_esperado; 
-                                System.out.println("Pokedex " + pokedex_esperado);
                                 gp.nombres.actualizar_xp("pokedex", gp.player.seleccion_pokemon);
                             }
                         });
 
 
                     }
-                    br.close();
-
-
-                } catch (FileNotFoundException ex) {
-                    Logger.getLogger(Evolucion_pokemon.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IOException ex) {
-                    Logger.getLogger(Evolucion_pokemon.class.getName()).log(Level.SEVERE, null, ex);
-                }
 
             }
+            br.close();
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Evolucion_pokemon.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Evolucion_pokemon.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
     }
     
 }

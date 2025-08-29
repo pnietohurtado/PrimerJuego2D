@@ -4,11 +4,9 @@
  */
 package Funciones;
 
-import Entity.NPC_Pokemon;
 import Pokemon.Pokemon;
 import com.mycompany.primerjuego2d.main.GamePanel;
 import com.mycompany.primerjuego2d.main.KeyHandler;
-import java.awt.List;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -274,7 +272,6 @@ public class CargarDatosPokemon {
                         }else if(accion.equals("pokedex")){
                             linea = lvl + " " + gp.player.pokedex_cambiada + " " + nombre +" "+ vidaMax +  " " + vida + " " + ataque
                                     + " " + defensa + " " + objeto + " " + id + " " + xp;
-                            System.out.println("Linea " + linea); // NO TOCARRRRRRRRR
                         }
 
                         lineas.add(linea); 
