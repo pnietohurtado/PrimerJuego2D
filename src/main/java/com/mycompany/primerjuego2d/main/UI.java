@@ -7,6 +7,7 @@ package com.mycompany.primerjuego2d.main;
 import CreacionDeSubVentanas.SubWindow;
 import Entity.NPC_Pokemon;
 import Objects.SuperObject;
+import Pokemon.Pokemon;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -539,57 +540,57 @@ public class UI {
     // --------------------- Ventana de el equipo pokemon -------------------
     
     public void pokemonTeam(){
-        
-        x = gp.tileSize  * 6; 
-        y = gp.tileSize / 2; 
-        int width = (gp.tileSize *10); 
-        int height = gp.tileSize * 2;
-        
-        g2.setColor(Color.BLACK); 
+        int x = gp.tileSize * 3;      // Posición X del menú
+        int y = gp.tileSize;          // Posición Y inicial
+        int width = gp.tileSize * 10; // Ancho del recuadro
+        int height = gp.tileSize * 2; // Altura por cada Pokémon
+
+        // Fondo general del menú
+        g2.setColor(new Color(0, 0, 0, 180));
         g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
-        
-        
-        
-        
-        float vida; 
-        
-        for(int i = 0; i < gp.equipo_pokemones.size(); i++){
-            
-            c1 = new Color(0, 0,0);
-            c2 = new Color(135, 206, 250);
-            sb.SubWindow(x, y, width, height, c1, c2);
-            
-            vida = gp.equipo_pokemones.get(i).getHP(); 
-            
-            gp.npc[997] = new NPC_Pokemon(gp, gp.equipo_pokemones.get(i).getPokedex()); 
-            g2.drawImage(gp.npc[997].f1, x, y, null); 
-            
-            // -- Cambio de color respeco a la vida 
-            
-            if(vida <= 0){
+
+        for (int i = 0; i < gp.equipo_pokemones.size(); i++) {
+            Pokemon poke = gp.equipo_pokemones.get(i);
+
+            // Subventana para cada Pokémon
+            Color borde = new Color(0, 0, 0);
+            Color fondo = new Color(200, 230, 255);
+            sb.SubWindow(x, y, width, height, borde, fondo);
+
+            // Dibujar sprite del Pokémon
+            gp.npc[997] = new NPC_Pokemon(gp, poke.getPokedex());
+            g2.drawImage(gp.npc[997].f1, x + 5, y + 5, gp.tileSize, gp.tileSize, null);
+
+            // Colores de texto según la vida
+            float vida = poke.getHP();
+            if (vida <= 0) {
                 g2.setColor(Color.RED);
-                g2.drawString(gp.equipo_pokemones.get(i).getNombre(), x + (gp.tileSize * 2), y + gp.tileSize);
-                g2.drawString(String.valueOf(gp.player.vida_pokemon_restante), x + (gp.tileSize * 4), y + gp.tileSize);
-                g2.drawString(String.valueOf(gp.equipo_pokemones.get(i).getId()), x + (gp.tileSize * 5), y + gp.tileSize);
-            }else if(vida< (gp.player.vida_pokemon_compañero / 2)){
-                g2.setColor(Color.ORANGE); 
-                g2.drawString(gp.equipo_pokemones.get(i).getNombre(), x + (gp.tileSize * 2), y + gp.tileSize);
-                g2.drawString(String.valueOf(gp.player.vida_pokemon_restante), x + (gp.tileSize * 4), y + gp.tileSize);
-                g2.drawString(String.valueOf(gp.equipo_pokemones.get(i).getId()), x + (gp.tileSize * 5), y + gp.tileSize);
-            }else{
-                g2.drawString(gp.equipo_pokemones.get(i).getNombre(), x + (gp.tileSize * 2), y + gp.tileSize);
-                g2.drawString(String.valueOf(gp.player.vida_pokemon_restante), x + (gp.tileSize * 4), y + gp.tileSize);
-                g2.drawString(String.valueOf(gp.equipo_pokemones.get(i).getId()), x + (gp.tileSize * 5), y + gp.tileSize);
+            } else if (vida < (gp.player.vida_pokemon_compañero / 2)) {
+                g2.setColor(Color.ORANGE);
+            } else {
+                g2.setColor(Color.BLACK);
             }
-            g2.setColor(c2); 
-            
-            // --
-            
-            
-            y = gp.tileSize * (i + 2); 
-                 
-            
+
+            // Nombre y nivel del Pokémon
+            g2.drawString(poke.getNombre(), x + gp.tileSize * 2, y + gp.tileSize / 2);
+            g2.drawString("Lv" + poke.getLevel(), x + gp.tileSize * 3, y + gp.tileSize);
+
+            // Barra de vida
+            float maxVida = gp.player.vida_pokemon_compañero;
+            int barraWidth = (int) ((vida / maxVida) * (gp.tileSize * 3));
+            g2.setColor(Color.GREEN);
+            g2.fillRect(x + gp.tileSize * 5, y + gp.tileSize / 2, barraWidth, 6);
+
+            // Marco de la barra
+            g2.setColor(Color.BLACK);
+            g2.drawRect(x + gp.tileSize * 5, y + gp.tileSize / 2, gp.tileSize * 3, 6);
+
+            // Texto de la vida actual
+            g2.setColor(Color.BLACK);
+            g2.drawString((int) vida + "/" + maxVida, x + gp.tileSize * 5, y + gp.tileSize);
+
+            // Mover Y para el siguiente Pokémon
+            y += height + 10;
         }
     }
-    
 }
