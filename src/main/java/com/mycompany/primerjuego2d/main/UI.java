@@ -540,10 +540,10 @@ public class UI {
     // --------------------- Ventana de el equipo pokemon -------------------
     
     public void pokemonTeam(){
-        int x = gp.tileSize * 3;      // Posición X del menú
-        int y = gp.tileSize;          // Posición Y inicial
-        int width = gp.tileSize * 10; // Ancho del recuadro
-        int height = gp.tileSize * 2; // Altura por cada Pokémon
+        this.x = gp.tileSize * 3;     
+        this.y = gp.tileSize;         
+        int width = gp.tileSize * 10; 
+        int height = gp.tileSize * 2; 
 
         // Fondo general del menú
         g2.setColor(new Color(0, 0, 0, 180));
@@ -561,6 +561,11 @@ public class UI {
             gp.npc[997] = new NPC_Pokemon(gp, poke.getPokedex());
             g2.drawImage(gp.npc[997].f1, x + 5, y + 5, gp.tileSize, gp.tileSize, null);
 
+            // Nombre y nivel del Pokémon
+            g2.setColor(Color.YELLOW); 
+            g2.drawString(poke.getNombre(), x + gp.tileSize * 2, y + gp.tileSize / 2);
+            g2.drawString("Lv" + poke.getLevel(), x + gp.tileSize * 4, y + gp.tileSize / 2);
+            
             // Colores de texto según la vida
             float vida = poke.getHP();
             if (vida <= 0) {
@@ -571,15 +576,11 @@ public class UI {
                 g2.setColor(Color.BLACK);
             }
 
-            // Nombre y nivel del Pokémon
-            g2.drawString(poke.getNombre(), x + gp.tileSize * 2, y + gp.tileSize / 2);
-            g2.drawString("Lv" + poke.getLevel(), x + gp.tileSize * 3, y + gp.tileSize);
-
             // Barra de vida
             float maxVida = gp.player.vida_pokemon_compañero;
-            int barraWidth = (int) ((vida / maxVida) * (gp.tileSize * 3));
+            int barraWidth = (int) (1 * (gp.tileSize * 3));
             g2.setColor(Color.GREEN);
-            g2.fillRect(x + gp.tileSize * 5, y + gp.tileSize / 2, barraWidth, 6);
+            g2.fillRect(x + gp.tileSize * 2, y + gp.tileSize  , barraWidth, 6);
 
             // Marco de la barra
             g2.setColor(Color.BLACK);
