@@ -577,8 +577,7 @@ public class UI {
             }
 
             // Barra de vida
-            float maxVida = gp.player.vida_pokemon_compañero;
-            int barraWidth = (int) (1 * (gp.tileSize * 3));
+            int barraWidth = (int) ( 1 * (gp.tileSize * 3));
             g2.setColor(Color.GREEN);
             g2.fillRect(x + gp.tileSize * 2, y + gp.tileSize  , barraWidth, 6);
 
@@ -586,10 +585,7 @@ public class UI {
             g2.setColor(Color.BLACK);
             g2.drawRect(x + gp.tileSize * 5, y + gp.tileSize / 2, gp.tileSize * 3, 6);
 
-            // Texto de la vida actual
-            g2.setColor(Color.BLACK);
-            g2.drawString((int) vida + "/" + maxVida, x + gp.tileSize * 5, y + gp.tileSize);
-
+            
             // Mover Y para el siguiente Pokémon
             y += height + 10;
         }
