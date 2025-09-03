@@ -577,7 +577,8 @@ public class UI {
             }
 
             // Barra de vida
-            int barraWidth = (int) ( 1 * (gp.tileSize * 3));
+            int barraWidth = (int) ( (vida/poke.getVidaMax()) * (gp.tileSize * 3));
+            //System.out.println("Barra width " + barraWidth + " Division " + (gp.player.vida_pokemon_restante / gp.player.vida_pokemon_compañero) + " Vida restante " + gp.player.vida_pokemon_restante + " Vida Compañero " + gp.player.vida_pokemon_compañero);
             g2.setColor(Color.GREEN);
             g2.fillRect(x + gp.tileSize * 2, y + gp.tileSize  , barraWidth, 6);
 
