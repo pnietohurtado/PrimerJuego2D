@@ -287,7 +287,7 @@ public class KeyHandler implements KeyListener{
                     try { 
                         BufferedWriter bw = new BufferedWriter(new FileWriter("data_game.txt", false));
                         String linea =gp.player.worldX + " " + gp.player.worldY + " " + gp.player.pokemon_inicial + " " + gp.player.dineroPlayer + " " +  gp.player.hasPokeball
-                                + " " + gp.player.hasKey + " " + gp.player.hasNadar; 
+                                + " " + gp.player.hasKey + " " + gp.player.hasNadar + " " + gp.player.hasMTAttack + " " + gp.player.hasMTHp + " " + gp.player.hasHacha; 
                         bw.write(linea);
                         bw.newLine(); 
                         bw.close();
