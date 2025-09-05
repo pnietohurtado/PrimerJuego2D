@@ -235,6 +235,9 @@ public class KeyHandler implements KeyListener{
                         if(this.posibilidad_de_captura == 1){
                             String nombre = null; 
                             nombre = JOptionPane.showInputDialog("Elige un nombre"); 
+                            if(nombre.equals(" ") || nombre.equals("")){
+                                nombre = null; 
+                            }
                             gp.nombres.cargar_pokemon_capturado(nombre); 
                         }
                         
