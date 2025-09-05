@@ -194,6 +194,12 @@ public class KeyHandler implements KeyListener{
                         gp.nombres.actualizar_vida_compañero(gp.player.seleccion_pokemon );
                         gp.gameState = gp.playState; 
                         
+                        // Volver a la música 
+                        if(this.playMusic == true){
+                            gp.sonido.play(1,true, "music");
+                            this.playMusic = true; 
+                        }
+                        
                         gp.nombres.actualizar_xp("xp", gp.player.seleccion_pokemon ); 
                         gp.evolucion.evolucionar();
                         
