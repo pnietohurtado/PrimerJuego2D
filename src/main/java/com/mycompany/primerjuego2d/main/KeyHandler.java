@@ -222,7 +222,7 @@ public class KeyHandler implements KeyListener{
                     }
                    
                     // Seteamos la vida pokemon aliado; 
-                    gp.nombres.cargar_vida_pokemon_actual(gp.equipo_pokemones.get(gp.player.seleccion_pokemon).getNombre()); // Obtenemos vida maxima; 
+                    gp.nombres.cargar_vida_pokemon_actual(gp.player.seleccion_pokemon); // Obtenemos vida maxima; 
                     gp.nombres.cargar_vida_pokemon_restante(gp.player.seleccion_pokemon);
                     
                     gp.turnos.battle_turn = false; // Cambiar turno

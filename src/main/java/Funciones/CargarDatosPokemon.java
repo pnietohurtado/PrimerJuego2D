@@ -136,7 +136,9 @@ public class CargarDatosPokemon {
     
     
     
-    public void cargar_vida_pokemon_actual(String nombre_pokemon){
+    public void cargar_vida_pokemon_actual(int ID){
+        // Cambiar la forma de buscar el pokemon, mejor por el ID 
+        
         BufferedReader br; 
         
         try {
@@ -148,7 +150,7 @@ public class CargarDatosPokemon {
                 while((linea = br.readLine()) != null){
                     String partes[] = linea.split(" "); 
                     
-                    if(partes[2].equals(nombre_pokemon)){
+                    if(Integer.parseInt(partes[8]) == ID ){
                         gp.player.vida_pokemon_compañero = Float.parseFloat(partes[3]); 
 }                   }
  
