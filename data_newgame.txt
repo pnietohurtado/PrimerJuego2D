@@ -4,3 +4,4 @@
 2976 9744 Pokeball 4
 2784 9552 Hierba 5
 2784 9600 Hacha 6
+3408 8640 Hierba 7	
