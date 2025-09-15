@@ -87,23 +87,6 @@ public class AssetSetter {
         gp.npc[0].actionCountNPC = 1; 
         */
         
-        /*
-        gp.npc[0] = new NPC_ShopGuy(gp); 
-        gp.npc[0].worldX = gp.tileSize * 61; 
-        gp.npc[0].worldY = gp.tileSize * 158; 
-        gp.npc[0].actionCountNPC = 1; 
-        */
-        
-        /*
-        gp.npc[1] = new NPC_CocheJuan(gp); 
-        gp.npc[1].worldX = gp.tileSize * 28; 
-        gp.npc[1].worldY = gp.tileSize * 399; 
-        */
-        /*
-        gp.npc[2] = new NPC_CocheJuan(gp); 
-        gp.npc[2].worldX = gp.tileSize * 25; 
-        gp.npc[2].worldY = gp.tileSize * 411; 
-        */
     }
     
   
