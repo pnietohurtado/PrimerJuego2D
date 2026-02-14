@@ -1,0 +1,76 @@
+
+Sobre los controles del juego: 
+
+    ~ Para pausar el juego pulsamos la tecla "ESC"
+    ~ Para mostrar los FPS "P"
+    ~ Para mostrar las colisiones de nuestro personaje usamos "K"
+    ~ Para poder mostrar la coordenada en la que nos encontramos usamos "H"
+    ~ Para poder interactuar con cualquier cosa en el juego usamos la "E" a menos que se indique lo contrario 
+
+
+
+** Observaciones sobre el desarrollo del juego 
+
+    30/06/2025
+
+    ~ Durante el desarrollo del juego he podido apreciar como cada vez es más importante optimizar los controles 
+    dándome cuenta que las teclas en el teclado son finitas y no puedo asignar una función específica para cada una 
+    por lo que de ahora en adelante debo optimizar aún más el código y la forma en la que asigno los objetos. 
+
+
+    05/08/2025
+
+    ~ Actualmente el problema con los nombres de las tiles está solucionado, pero al rozar el borde de todas las tiles 
+    , el nombre del mismo siempre va a ser "5" pase lo que pase. 
+
+
+    18/08/2025
+
+    ~ Hay algunos problemas los cuales me tengo que encargar de encontrar la solución, tales como el hecho de que al guardar 
+    la partida dentro del juego, todos los objetos se convierten en NULL y desaparecen del mapa. Además, debo solucionar el
+    tema con los arrays de los pokemones ya que debo encontrar una forma más sencilla de poder encontrar un imagen de pokemon 
+    mediante un único array y no mediante dos como tengo hecho ahora. 
+
+
+
+!! Notas 
+
+    30/06/2025
+
+    ~ He pensado en hacer que los arbustos donde pueden salir los pokemones, como un objeto, donde haya una posibilidad
+    baja donde podamos encontrar un pokemon o obejeto en función de la zona. 
+
+
+    25/07/2025
+    
+    ~ Dentro de los combates con los pokemones, hay un problema y es que si muevo el cursor para poder seleccionar una opción 
+    al reproducirse el sonido del botón, la música de fondo pierde el espacio de memoria en el que se encuentra y por ende
+    no puedo apagar el sonido de batalla
+
+
+
+
+@@ Ideas para futuras implementaciones 
+
+    25/07/2025
+
+    ~ Lo que podría hacer en cuanto a el tema de cargar los objetos y demás, dentro del juego, podría cargar los datos de todos 
+    los objetos, es decir, de sus posiciones dentro de un archivo .txt el cual puedo cargar desde un principio al inicio 
+    del juego y puedo recurrir a el en caso de que alguno de los elementos sufra algún tipo de alteración. 
+    
+    31/07/2025
+
+    ~ Dentro de cada Pokeball, el objeto va a ser aleatorio, lo cual es la gracia, para que luego más adelante pueda encontrar 
+    obejtos para los propios pokemones. 
+
+
+
+&& Guía sobre los Pixel art para las casas. 
+
+    02/08/2025
+    
+    En las casas voy a usar unos sprites individuales donde vamos a ir ajustando cada uno a la posición que necesitemos 
+    
+    Sprites reservados para la fábrica de izquierda abajo a derecha y arriba 
+    120 - 
+       
