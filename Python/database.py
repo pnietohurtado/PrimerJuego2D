@@ -7,3 +7,19 @@ collection = database.Partida
 
 async def initializaDB(): 
     count = await collection.count_documents({})
+    if count == 0: 
+        await collection.insert_one({
+            '_id' : 1, 
+            'posX' : 3124, 
+            'posY': 9700, 
+            'booleanGet': True,
+            'obj1': 0,
+            'obj2': 0,
+            'obj3': 0,
+            'obj4': 0,
+            'obj5': 0,
+            'obj6': 0,
+            'obj7': 0
+        })
+
+        print('Enviado a la base de datos!')
