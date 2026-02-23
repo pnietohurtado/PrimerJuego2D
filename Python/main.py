@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from database import initializaDB
+from database import initializaDB, getData
 
 app = FastAPI()
 
@@ -26,3 +26,5 @@ async def position():  # Here I have to send the data to the database about the 
 @app.get('/api/PlayerGET')
 async def positionGET(): 
     await initializaDB() 
+    position_data = await getData()
+    return position_data

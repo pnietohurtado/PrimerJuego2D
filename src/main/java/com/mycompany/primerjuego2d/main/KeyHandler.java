@@ -293,6 +293,8 @@ public class KeyHandler implements KeyListener{
             if(code == KeyEvent.VK_ENTER){
                 if(gp.ui.commandNumber == 0){
                     
+                    /*================= Inside this function you can add the new position and data of the player ================== */
+
                     try { 
                         BufferedWriter bw = new BufferedWriter(new FileWriter("data_game.txt", false));
                         String linea =gp.player.worldX + " " + gp.player.worldY + " " + gp.player.pokemon_inicial + " " + gp.player.dineroPlayer + " " +  gp.player.hasPokeball
@@ -424,6 +426,10 @@ public class KeyHandler implements KeyListener{
                 }
 
                 if(code == KeyEvent.VK_ENTER){
+
+                    /*================== In this function is where it read all the data of the player ================== */
+
+
                     if(gp.ui.commandNumber == 0){
                         try { 
                             BufferedReader br = new BufferedReader( new FileReader("data_game.txt"));

@@ -1,3 +1,5 @@
+package com.mycompany.primerjuego2d.main;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -19,8 +21,8 @@ public class APIConnect {
 
             connection = (HttpURLConnection) url.openConnection(); 
             connection.setRequestMethod("GET");
-            connection.setConnectTimeout(TimeUnit.SECONDS(5)); // Let's set the max time of waiting to 5 seconds 
-            connection.setReadTimeout(TimeUnit.SECONDS(5));
+            connection.setConnectTimeout(5000); // Let's set the max time of waiting to 5 seconds 
+            connection.setReadTimeout(5000);
 
             connection.setRequestProperty("Accept", "application/json");
 
@@ -40,16 +42,17 @@ public class APIConnect {
             return sb.toString(); 
 
         }finally{
-            if (reader != null) {
-                reader.close();
+            if (br != null) {
+                br.close();
             }
             if (connection != null) {
                 connection.disconnect();
             }
+            
         }
         
         
-        return null; 
+       
     }
     
 }

@@ -1,5 +1,6 @@
 from motor.motor_asyncio import AsyncIOMotorClient
 from bson import ObjectId
+from models import Position
 
 client = AsyncIOMotorClient('mongodb://localhost:27017')
 database = client.Juego
@@ -23,3 +24,11 @@ async def initializaDB():
         })
 
         print('Enviado a la base de datos!')
+
+
+async def getData(): 
+    cursor = await collection.find_one({})
+
+    if cursor: 
+        return Position(**cursor)
+    return None
