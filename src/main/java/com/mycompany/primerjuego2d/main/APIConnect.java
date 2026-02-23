@@ -8,9 +8,14 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeUnit;
 
+import Models.PlayerPosition;
+
 public class APIConnect {
 
-    public static String getFromAPI(String API) throws IOException{
+   private PlayerPosition player = null; 
+
+    public static String
+     getFromAPI(String API) throws IOException{
         
         HttpURLConnection connection = null; 
         BufferedReader br = null; 
@@ -36,6 +41,8 @@ public class APIConnect {
             StringBuilder sb = new StringBuilder(); 
             String linea; 
             while((linea = br.readLine())!= null){
+                String partes[] = linea.split(":"); 
+                System.out.println(linea);
                 sb.append(linea); 
             }
 

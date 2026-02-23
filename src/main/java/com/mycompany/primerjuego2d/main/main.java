@@ -16,7 +16,7 @@ public class main {
 
     public static void main(String[] args) throws IOException{
 
-        //System.out.println(APIConnect.getFromAPI("http://localhost:8000/api/PlayerGET")); 
+        System.out.println(APIConnect.getFromAPI("http://localhost:8000/api/PlayerGET")); 
 
         JFrame window = new JFrame(); 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
