@@ -32,3 +32,7 @@ async def getData():
     if cursor: 
         return Position(**cursor)
     return None
+
+
+async def pushData(): 
+    
