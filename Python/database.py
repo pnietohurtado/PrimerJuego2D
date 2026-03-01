@@ -35,4 +35,13 @@ async def getData():
 
 
 async def pushData(): 
-    
+    await collection.update_one(
+        {'_id': 1},
+        { '$push': {
+            'messages': {
+                'message': message,
+                'who': who,
+                'sender': sender
+            }
+        }}
+    ); 
